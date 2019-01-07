@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>ex07</title>
+
+
+<style type="text/css">
+body, td {
+   font-family: Times, TimesNewRoman, serif;
+   background-color: white;
+   font-size: 1.0em;
+   width:  940px;
+   margin: 30px;
+   right:  860px;
+   text-align:justify;
+}
+
+tt, code, pre {
+   font-family: Consolas, Monaco, monospace;
+   font-size: 0.95em;
+   font-weight: bolder;
+}
+
+h1 {
+   font-size:1.8em;
+   font-weight: normal;
+}
+
+h2 {
+   font-size:1.4em;
+   font-weight: normal;
+}
+
+h3 {
+   font-size:1.4em;
+   font-weight: normal;
+   font-style: italic;
+}
+
+h4 {
+   font-size:1.2em;
+   font-weight: normal;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre { 
+   margin-top: 0;
+   max-width: 100%;
+   border: 1px solid #999999;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; 
+   background-color:  #E0E0E0;
+}
+
+code.r, code.noeval, code.cpp {
+   background-color: #eeeeee;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#000000;
+   margin:0;
+   padding-left: 1em;
+   padding-right: 1em;
+   border-left: 0.5em #E0E0E0 solid;
+   border-right: 0.5em #E0E0E0 solid
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:11pt;
+      max-width:90%;
+   }
+
+   pre, tt, code {
+      font-size: 10pt;
+      max-width: 100%
+      font-weight: normal;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      page-break-inside: auto;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<p><strong>Geography 4/595:  Geographic Data Analysis</strong><br>
+<strong>Winter 2017</strong></p>
+
+<p><strong>Exercise 7:  Regression Analysis</strong><br>
+<strong>Finish by Tuesday, March 7</strong></p>
+
+<p><strong>1. Introduction</strong></p>
+
+<p>The objective of this exercise is to illustrate regression analysis as well as multivariate plotting, which will be used to examine the data set that will be used in the regression analysis.  The focus of the exercise is on the relationship between annual mean temperature at climate stations in Oregon and elevation and location as expressed by latitude and longitude.  The specific goal will be to build a regression model that fits the response-variable data well, and does not suffer from assumption violations. </p>
+
+<p>Here&#39;s a link to a .csv file containing the data:  <a href="http://geog.uoregon.edu/GeogR/data/csv/ortann.csv">[ortann.csv]</a>.</p>
+
+<p>And here are links to the components of the Oregon county outline shape files:  <a href="http://geog.uoregon.edu/GeogR/data/shp/orotl.shp">[orotl.shp]</a> <a href="http://geog.uoregon.edu/GeogR/data/shp/orotl.dbf">[orotl.dbf]</a>  <a href="http://geog.uoregon.edu/GeogR/data/shp/orotl.shx">[orotl.shx]</a></p>
+
+<p>Read in the .csv file and the shapefile components if they are not already in the workspace.</p>
+
+<p><strong>2. Maps and scatter plots</strong></p>
+
+<p>The exercise will involve fitting a succession of models, the &quot;goodness-of-fit&quot; of which can be viewed by examining the patterns in maps of the residuals.  These should show progressively less obvious patterns as the fit improves. </p>
+
+<p>The first step in any regression analysis (or for that matter ANY analysis) is to look at the data.  In the example below, the dependent or response variable will be annual temperature at the Oregon climate stations, and the predictors will be elevation and location (latitude and longitude).  A quick way to get scatter plots is to produce a matrix plot</p>
+
+<div><pre><code class="language-none">attach(ortann)
+plot(ortann[,2:5])</code></pre></div>
+
+<p>The square bracket selection omits the first column of the <code>ortann</code> data frame from the plot (which contains the station names).</p>
+
+<p>To continue, the following script will produce some maps of the data:</p>
+
+<div><pre><code class="language-none"># load some packages
+library(maptools)
+library(RColorBrewer)
+library(classInt)
+
+# Set plotting variable and get colors
+plottitle &lt;- &quot;Annual Temperature (C)&quot;
+varname &lt;- &quot;tann&quot; # name of variable to plot
+plotvar &lt;- tann # assignment of variable to plotvar
+nclr &lt;- 8 # number of colors
+plotclr &lt;- brewer.pal(nclr,&quot;PuOr&quot;)
+plotclr &lt;- plotclr[nclr:1] # reorder colors
+class &lt;- classIntervals(plotvar, nclr, style=&quot;quantile&quot;)
+colcode &lt;- findColours(class, plotclr)
+cutpts &lt;- round(class$brks, digits=1)
+
+# Plot the shape file and the selected variable
+plot(orotl.shp, xlim=c(-124.5, -115), ylim=c(41,47))
+# add points
+points(longitude, latitude, pch=16, col=colcode, cex=2)
+points(longitude, latitude, cex=2)
+# add legend
+legend(-117, 45, legend=names(attr(colcode, &quot;table&quot;)),
+     fill=attr(colcode, &quot;palette&quot;), cex=0.6, bty=&quot;n&quot;)
+title(plottitle)</code></pre></div>
+
+<p>To plot maps of additional variables, only the second and third blocks of code will need to be executed again, after changing: </p>
+
+<ol>
+<li>The title of the plot (<code>plottitle</code> -- a text string in quotes)</li>
+<li>the name of the variable to plot (<code>varname</code> -- e.g. <code>&quot;tann&quot;</code> -- note the quotes), and </li>
+<li>the object to plot (<code>tann</code> in this example)</li>
+</ol>
+
+<p>It will be convenient to copy Blocks 2 and 3 into a script editor for editing.  It will also be extremely useful to copy the maps to a Word document as they are created.  Although we&#39;ve looked at this data set before, it would be a good idea to look at the basic patterns again.  </p>
+
+<p><strong>3. An initial &quot;null&quot; or &quot;naïve&quot; model</strong>  </p>
+
+<p>The simplest of models is one in which a single value, usually the mean, is used as the &quot;fitted value&quot; or prediction for each observation.  This model can be thought of as a &quot;naïve&quot; model—the only thing the response variables &quot;knows about&quot; is its own mean value, and nothing about the influence of the eventual predictor variables.  It might be the case that the potential predictor variables (elevation, location) have no influence on the response variable, and in such a case, the mean might be the best predictor of the values of the response variable, but a rather boring one from the perspective of explanation.</p>
+
+<p>The null or naive model can be fit using the lm() function that is used to fit more elaborate models.</p>
+
+<div><pre><code class="language-none"># a null model, mean as the prediction
+tann.lm0 &lt;- lm(tann ~ 1)</code></pre></div>
+
+<p>Note the &quot;formula&quot; in the function above;  <code>tann ~ 1</code> means &quot;predict <code>tann</code> as a function of a constant value&quot; (namely the mean).  The <code>lm()</code> function is silent, meaning it does not produce any output itself, but it can always be examined by typing the name of the object it produces, e.g., <code>tann.lm0</code>, or by applying the <code>summary()</code> or <code>attributes()</code> functions to that object</p>
+
+<div><pre><code class="language-none"># plot the regression line
+plot(tann ~ elevation)
+abline(abline(mean(tann),0))</code></pre></div>
+
+<p>Here the regression line is simply a horizontal line at the mean value of the response variable.  Another way of looking at this is that the slope of the regression line is 0, and the intercept is equal to the mean of the dependent or response variable.</p>
+
+<div><pre><code class="language-none"># examine the model object
+summary(tann.lm0)</code></pre></div>
+
+<p>The <code>summary()</code> function here provides, in the case of this initial model, a somewhat overblown description of the mean and standard deviation of <code>tann</code>, which can be verified using the <code>mean()</code> and <code>sd()</code> functions.</p>
+
+<p>The <code>plot()</code> function with a model object as an argument provides a sequence of four diagnostic plots.  These include:</p>
+
+<ul>
+<li>residuals vs fit:  there should be no discernable pattern on this plot.</li>
+<li>normal QQ plot for the residuals:  if the residuals are normally distributed, the points on this plot should plot along a straight line.</li>
+<li>residuals vs. leverage plot:  if the fit of the model is good, and there are no distinctive outliers, there should be no discernible pattern on this plot.</li>
+<li>Cook&#39;s distance:  spikes on this plot indicate observations that have an unusually large influence on the regression analysis.<br></li>
+</ul>
+
+<p>Before plotting, use the <code>par()</code> function to set up a 2x2 arrangement of plots.</p>
+
+<div><pre><code class="language-none"># standard regression diagnostics (4-up)
+oldpar &lt;- par(mfrow = c(2, 2))
+plot(tann.lm0, which=c(1,2,4))
+par(oldpar)</code></pre></div>
+
+<p>(Note that only three plots are produced here—the leverage plot is skipped for this model, because it doesn&#39;t make any sense.))</p>
+
+<p>The first use of the  <code>par()</code> function sets up the RGraphics window to contain four plots on a single page, and <code>par(oldpar)</code> restores the original one-plot per page format.  In the case of this &quot;null&quot; model, the normal QQ plot will provide information on the normality of the residuals, while the Cook&#39;s distance plot indicates which observations have large influence on the mean.</p>
+
+<p>The residuals (deviations from the mean) can be referenced as <code>tann.lm0$residuals</code>.  Use the code in Part 2 above to map <code>tann.lm0$residuals</code>.  The first three lines of Block 2 should read (note the quotes in the assignment for <code>varname</code> and their absence in the assignment for <code>plotvar</code>--the first is a text string, and the second is the name of an object).</p>
+
+<div><pre><code class="language-none">plottitle &lt;- &quot;Residuals from tann.lm0 (C)&quot;  
+varname &lt;- &quot;tann.lm0$residuals&quot; 
+plotvar &lt;- tann.lm0$residuals   </code></pre></div>
+
+<blockquote>
+<p>Q1:  Compare the values and the patterns of the maps of tann and tann.lm0$residuals.  How are they alike, and how are they different?  (Hint:  Be sure to create and examine the legends.)  </p>
+</blockquote>
+
+<p><strong>4. Bivariate regression</strong></p>
+
+<p>From previous analyses, it&#39;s apparent that <code>tann</code> has a clear relationship with <code>elevation</code>, and so the successive regressions will begin using elevation as a predictor.  Before fitting the regression model, explore the relationship between <code>tann and elevation</code>. </p>
+
+<div><pre><code class="language-none"># first regression model -- tann ~ elev
+tann.lm1 &lt;- lm(tann ~ elevation)</code></pre></div>
+
+<p>The <code>lm()</code> function fits linear (straight-line) relationships between the response variable (<code>tann</code>) and the predictor (<code>elevation</code>).  Note the formula used here:  <code>tann</code> varies as a function of <code>elevation</code>. </p>
+
+<div><pre><code class="language-none"># plot the regression line
+plot(tann ~ elevation)
+abline(tann.lm1, col=&quot;blue&quot;)</code></pre></div>
+
+<p>The <code>plot()</code> and <code>abline()</code> functions plot the data and draw regression line</p>
+
+<div><pre><code class="language-none"># examine the model object
+summary(tann.lm1)</code></pre></div>
+
+<p>Note that the summary table now includes the regression coefficients and several goodness-of-fit statistics.</p>
+
+<div><pre><code class="language-none"># standard regression diagnostics (4-up)
+oldpar &lt;- par(mfrow = c(2, 2))
+plot(tann.lm1, which=c(1,2,4,5))
+par(oldpar)</code></pre></div>
+
+<p>Replot the residual scatter plot (residuals vs. fitted values), adding a lowess curve to emphasize the pattern.</p>
+
+<div><pre><code class="language-none"># another view of the residual scatter diagram
+plot(tann.lm1$fitted.values, tann.lm1$residuals)
+lines(lowess(tann.lm1$fitted.values, tann.lm1$residuals, f=0.80), col=&quot;red&quot;)</code></pre></div>
+
+<blockquote>
+<p>Q2:  Examine the regression output in the console window.  Is there a significant relationship between tann and elevation?  What are the <em>F</em> statistic, its <em>p</em>-value, the Multiple R-Squared value, and the residual standard error?  Are the intercept and slope significantly different from zero (and how do you know)?</p>
+
+<p>Q3:  Describe the patterns on the residuals vs. fit plot and normal QQ plot.  Do these plots suggest that there is no information in the residuals, or is there some kind of pattern?  Are there any unusually influential observations?  Is this first analysis ok, or should we consider modifying it?  </p>
+</blockquote>
+
+<p>(I&#39;ll answer this one--there is a distinct arch-shaped pattern on the residuals vs fit plot, nicely summarized by the loess curve, and while the points are generally linear on the residual QQ plot, they begin to drift away from the 1:1 line for residual values greater than +1.  The Crater Lake and Seneca values seem to have a large influence on the regression model.  It looks like for this simple model, several of the underlying assumptions have been violated, and we should consider looking for a better model.)</p>
+
+<p>Map the residual values from this simple linear regression model (<code>tann.lm1$residuals</code>), and compare their pattern with those of from the null model.</p>
+
+<p><strong>5. Multiple regression</strong></p>
+
+<p>One of the assumptions that underlies regression analysis is that we have fit the right model, and one way of expressing the other assumptions that describe the properties of the residuals is that the residuals should appear free of any pattern.  This is clearly not the case for the simple model, and the reason should be apparent--the relationship between tann and elevation is not linear.  There are two possible solutions.  One would be to fit a non-linear model, for example a parabola or quadratic curve to the relationship, but there really isn&#39;t a physical justification for why the temperature decrease with increasing elevation should be non-linear in that particular fashion.  An alternative approach is to look for additional predictors variables that might be able to account for the pattern in the residuals, and include these in a &quot;multiple regression model.&quot;</p>
+
+<p>An obvious set of additional predictor variables for this exercise is provided by latitude and longitude.  (In practice, additional variables might not immediately come to mind.)  Check to see whether any of the &quot;information&quot; (or pattern) in the residuals might be explained by latitude and longitude by constructing scatter plots with loess curves for the residuals:</p>
+
+<div><pre><code class="language-none"># plot residuals vs. other predictors
+plot(tann.lm1$residuals ~ longitude)
+lines(lowess(tann.lm1$residuals ~ longitude, f=0.80), col=&quot;red&quot;)
+
+plot(tann.lm1$residuals ~ latitude)
+lines(lowess(tann.lm1$residuals ~ latitude, f=0.80), col=&quot;red&quot;)</code></pre></div>
+
+<blockquote>
+<p>Q4:  Describe the relationships between the residuals from the linear model and latitude and longitude.  (Hint:  It might be good to look at the maps of residuals too.)</p>
+</blockquote>
+
+<p>The relationships you should have seen in the above question are important enough that we should consider including longitude and latitude as predictors in the regression model. Here&#39;s a multiple regression model that includes location:</p>
+
+<div><pre><code class="language-none"># second regression -- tann ~ elevation + latitude + longitude
+tann.lm2 &lt;- lm(tann ~ elevation + latitude + longitude)</code></pre></div>
+
+<p>This code creates another model object <code>tann.lm2</code>, which contains the results of the multiple regression with <code>tann</code> as the response, and <code>elevation</code>, <code>latitude</code>, and <code>longitude</code> as predictors.   Examine the diagnostic plots and maps of the residuals from <code>tann.lm2</code>.  (Hint remember to change all instances of the model object and variable names in the blocks of code necessary to do this.)</p>
+
+<blockquote>
+<p>Q5:  Look at the summary for this model.  Describe how the <em>F</em>-statistic, its <em>p</em>-value, the *R<sup>2</sup>, and Residual Standard Error values have changed.  Are all the predictors significant (Hint:  examine their <em>t</em>-statistics.)   Are any patterns in the residuals from this model less obvious than those from the previous model?  Are they completely gone?</p>
+</blockquote>
+
+<p>Several other multiple regression models with elevation, latitude, and longitude as predictors, (each allowing for interactions among the predictors), in a sense create additional predictors (latitude x longitude, elevation x latitude), which in the case of spatial data as here, allow the predicted &quot;surface&quot; more flexibility.  Here are two such interaction models:</p>
+
+<div><pre><code class="language-none">tann.lm3 &lt;- lm(tann ~ elevation + latitude*longitude)</code></pre></div>
+
+<p>(allows for interactions between latitude and longitude, fitting a surface slightly more complex than a simple plane).</p>
+
+<div><pre><code class="language-none">tann.lm4 &lt;- lm(tann ~ elevation*latitude*longitude)</code></pre></div>
+
+<p>(simultaneous interactions among all three predictors)</p>
+
+<p>Because the exercise continues below, you might infer that fitting these more elaborate models doesn&#39;t quite take care of the model deficiencies noted above.</p>
+
+<p><strong>6. Nonparametric (Loess) regression</strong></p>
+
+<p>It could be the case that the individual and joint relationships between <code>tann</code> and <code>elevation</code>, <code>latitude</code> and <code>longitude</code> in the previous multiple regressions aren&#39;t quite perfectly represented by <em>linear</em> relationships.  The loess fitting procedure can be generalized to more than one predictor variable, which allows the flexibility of the loess curve to be extended to the multiple regression context.  In essence, the method produces a number of local regression analyses, allowing the form of the relationship to vary across the space defined by the predictor variables, which in this example, turns out to be geographical space.</p>
+
+<p>Fit a &quot;local&quot; (loess) regression model to the <code>tann</code> data, using <code>elevation</code> as a predictor:</p>
+
+<div><pre><code class="language-none"># loess -- simplest model
+tann.lo1 &lt;- loess(tann ~ elevation, span=0.80, degree=2)
+
+# examine the fit
+summary(tann.lo1)
+plot(tann ~ elevation)
+hat &lt;- predict(tann.lo1)
+lines(elevation[order(elevation)], hat[order(elevation)], col=&quot;red&quot;)
+cor(tann, hat)^2 </code></pre></div>
+
+<p>The extraction of information from the model object (<code>tann.lo1</code>) is a little different when fitting a loess regression model than when fitting a linear model using the <code>lm()</code> function.  Because loess regression is &quot;nonparametric&quot; there are no regression coefficients, and <em>F</em>- and <em>t</em>-statistics are not produced; however, the goodness-of-fit of the regression can still be determined using <em>R<sup>2</sum></em> and residual standard error values.  For example, the <code>cor()</code> function can be  used to get the correlation between the response variable and the fitted values.  Squaring this value gives a statistic comparable with the <em>R<sup>2</sum></em> values from earlier regressions.</p>
+
+<div><pre><code class="language-none"># residual scatter diagram
+plot(tann.lo1$fitted, tann.lo1$residuals)
+lines(lowess(tann.lo1$fitted, tann.lo1$residuals, f=0.80), col=&quot;red&quot;)
+
+# normal probablility plot
+qqnorm(tann.lo1$residuals)</code></pre></div>
+
+<p>This block of code constructs the residual scatter diagram.  Note that the fitted (predicted) values and the residuals are contained in the variables <code>tann.lo1$fitted</code>, and <code>tann.lo1$residuals</code>.</p>
+
+<blockquote>
+<p>Q6:  Compare the results of this regression with the first linear regression (tann.lm1), in particular compare the goodness of fit, residual scatter diagram, and map patterns of residual.  Does fitting a flexible or local curve improve the fit relative to fitting a straight line?</p>
+</blockquote>
+
+<p>Now fit an expanded model with elevation, latitude, and longitude as predictors (equivalent to <code>tann.lm2</code>):</p>
+
+<div><pre><code class="language-none"># loess -- elevation, latitude, and longitude
+tann.lo2 &lt;- loess(tann ~ elevation + latitude + longitude, span=0.80, degree=2)
+
+# examine the fit
+summary(tann.lo2)
+hat &lt;- predict(tann.lo2)
+cor(tann, hat)^2
+
+# residual scatter diagram
+plot(tann.lo2$fitted, tann.lo2$residuals)
+lines(lowess(tann.lo2$fitted, tann.lo2$residuals, f=0.80), col=&quot;red&quot;)
+
+# normal probablility plot
+qqnorm(tann.lo2$residuals)</code></pre></div>
+
+<blockquote>
+<p>Q7:  Does the loess regression fit the <code>tann</code> data better, worse, or about the same as the multiple regression?  (Note:  it might be easier to answer Q7 and Q8 simultaneously.)  Examine the residual scatter diagrams and QQ Normal plots.  Has there been any improvement (i.e. less pattern) in the residuals of the <code>tann.lo2</code> model relative to those from the other regressions?</p>
+
+<p>Q8:  Which of the various models seem to be the optimal one, and why do you think it is?</p>
+</blockquote>
+
+<p><strong>7. What to turn in</strong></p>
+
+<p>Turn in answers to the above questions, and one or more of the plots you generated in section 2.</p>
+
+<p>That&#39;s all!</p>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/x-mathjax-config">
+(function () {
+
+MathJax.Hub.Config({
+	'showProcessingMessages': false,
+	'messageStyle': 'none'
+});
+
+if (typeof MathJaxListener !== 'undefined') {
+	MathJax.Hub.Register.StartupHook('End', function () {
+		MathJaxListener.invokeCallbackForKey_('End');
+	});
+}
+
+})();
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+
+</html>

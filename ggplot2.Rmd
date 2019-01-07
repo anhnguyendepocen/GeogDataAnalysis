@@ -1,0 +1,223 @@
+---
+title: "Descriptive statistics"
+output: 
+  html_document:
+    fig_caption: no
+    number_sections: yes
+    toc: yes
+    toc_float: false
+    collapsed: no
+---
+
+```{r set-options, echo=FALSE}
+options(width = 105)
+knitr::opts_chunk$set(dev='png', dpi=300, cache=FALSE)
+pdf.options(useDingbats = TRUE)
+```
+
+# Introduction #
+
+The **R** package `ggplot2` by Hadley Wickham provides an alternative approach to the "base" graphics in **R** for constructing plots and maps, and is inspired by Lee Wilkinson's *The Grammar of Graphics* book (Springer, 2nd Ed. 2005).  The basic premise of the *Grammar of Graphics* book, and of the underlying design of the package, is that data graphics, like a language, are built upon some basic components that are assembled or layered on top of one another.  In the case of English (e.g Garner, B., 2016, *The Chicago Guide to Grammar, Usage and Punctuation*, Univ. Chicago Press), there are eight "parts of speech" from which sentences are assembled:
+
+- *Nouns* (e.g. *computer*, *classroom*, *data*, ...)
+- *Pronouns* (e.g. *he*, *she*, *they*, ...)
+- *Adjectives* (e.g. *good*, *green*, *my*, *year-to-year*, ..., including articles, e.g. *a*, *the*)
+- *Verbs* (e.g. *analyze*, *write*, *discuss*, *computing*, ...)
+- *Adverbs* (e.g. "-ly" words, *very*, *loudly*, *bigly*, *near*, *far*, ...)
+- *Prepositions* (e.g. *on*, *in*, *to*, ...)
+- *Conjunctives* (e.g. *and*, *but*, ...)
+- *Interjections* (e.g. *damn*)
+
+(but as Garner notes, those categories "aren't fully settled..." p. 18).
+
+In the case of graphics (e.g. Wickham, H., 2016, *ggplot2 -- Elegant Graphics for Data Analysis, 2nd. Ed.*, Springer, available online from [[http://library.uoregon.edu]](http://library.uoregon.edu)) the components are:
+
+- *Data* (e.g. in a dataframe)
+- *Aes* ("aesthetic mappings"", that describe how variables are mapped to perceivable attributes of a graphics)
+- *Layers* (made up of geometric elements)
+- *Geoms* (the geometric objects like points, lines, polygons that )
+- *Stats* (or "statistical transformations", i.e. curves)
+- *Scales* (that map data into the "aesthetic space", i.e. axes and legends)
+- *Coord* (the coordinate system of a plot)
+- *Facets* (e.g subsets of data in individual plots)
+- *Themes* (that control things like background colors, fonts, etc.)
+
+```{r source, echo=FALSE}
+load(".RData")
+```
+# Univariate and bivariate plots # 
+
+## Simple plots ##
+
+Load the `ggplot2` package:
+
+```{r load ggplot2}
+# ggplot2 versions of plots
+library(ggplot2)
+```
+
+Here is the **R** base graphics simple index plot:
+
+```{r index}
+# index plot
+attach(sumcr)
+plot(Length)
+```
+
+The `ggplot2` package contains a method, invoked by the `qplot()` function for creating quick (hence the name) versions of the base-graphics plots.
+
+```{r index_gg}
+qplot(seq(1:length(Length)), Length)
+```
+
+Here's the stripchart, plain and stacked:
+
+```{r stripcharts}
+# stripchart
+stripchart(Length)
+stripchart(Length, method="stack")
+```
+
+... and the `qplot()` versions:
+
+```{r stripcharts_gg1}
+qplot(Length, rep(1,length(Length)))
+qplot(Length, rep(1,length(Length)), geom = "jitter") + ylim(0,4)
+```
+
+Note the use of the `geom = "jitter" arguement to get some separation among the points.
+
+The full `ggplot2()` almost reproduces the base-graphics version.  Note the use of the `aes()` (aesthetic) function for describing the basic plot, which as the dotplot added using the `geom_dotplot()` function.  The `theme_bw()` term specifies the simple black-and-white theme.  As in the case of a histogram, the `binwidth` parameter controls the granularity of the plot.
+
+```{r stripchargs_gg2}
+ggplot(data=sumcr, aes(x = Length)) + geom_dotplot(binwidth = 0.25, method = "histodot")
+```
+## Dotcharts ##
+
+Here's the base-graphics Cleveland-style dotchart.
+
+```{r dotchart}
+# Dot charts
+dotchart(WidthWS, labels=as.character(Location), cex=0.5)
+```
+
+... and the `ggplot2` equivalent:
+
+```{r dotchart_gg}
+ggplot(sumcr, aes(x=WidthWS, y=Location)) + geom_point(size=1) 
+ggplot(sumcr, aes(x=WidthWS, y=Location)) + geom_point(size=1) + theme_bw()
+```
+
+Note the subtle difference produced by the use of the `theme_bw()` term.  The plots are basically x-y plots (specified by the `aes(x=WidthWS, y=Location)` arguements), with the points themselves added by the `geom_point()` term.
+
+Here's the dotchart, with rows ordered by the `WidthWS` values:
+
+```{r dotchart_ordered}
+index <- order(WidthWS)
+dotchart(WidthWS[index], labels=as.character(Location[index]), cex=0.5)
+```
+
+... and the `ggplot2` equivalent--note the use of the `theme()` term to modify the label size:
+
+```{r dotchart_ordered_gg}
+ggplot(sumcr, aes(x=WidthWS, y=reorder(Location, WidthWS))) + geom_point(size=1) + 
+  theme(axis.text.y = element_text(size=4, face="italic"))
+```
+
+## Boxplots ##
+
+Here is the standard boxplot:
+
+```{r boxplot}
+# Boxplot
+boxplot(WidthWS ~ HU, range=0)
+```
+
+... and the `qplot()` version:  
+
+```{r boxplot_q}
+qplot(HU, WidthWS, data=sumcr, geom="boxplot")
+```
+
+```{r boxplot_gg}
+ggplot(sumcr, aes(x=HU, y=WidthWS)) + geom_boxplot()
+```
+
+The actual data points can be added to the boxplot, by specifying an additional graphical element using the `geom_point()` term.
+
+```{r boxplot_gg2}
+ggplot(sumcr, aes(x=HU, y=WidthWS)) + geom_boxplot() +
+  geom_point(colour = "blue")
+```
+Detach the `sumcr` dataframe.
+
+```{r detach1}
+detach(sumcr)
+```
+
+## Histograms and density plots ##
+
+The base-graphics histogram, with `breaks = 20` looks like this:
+
+```{r histogram}
+# histograms
+attach(scanvote)
+hist(Yes, breaks=20)
+```
+
+Here's the `ggplot2` version, with the biwidth specified explicitly (e.g., 1.0)
+
+```{r hist_gg1}
+ggplot(scanvote, aes(x=Yes)) + geom_histogram(binwidth = 1)
+```
+
+Here's another `ggplot` version, with more control over appearance, and with the edge of the first bin explicitly specified.
+
+```{r histogram_gg2}
+ggplot(scanvote, aes(x=Yes)) + geom_histogram(binwidth=1, fill="white", color="red", boundary=25.5)
+```
+
+Here's a version with the individual data points added--not how it is built up from a basic plot by progressively adding graphical elements:
+
+```{r histogram_gg4}
+ggplot(scanvote, aes(x=Yes)) + 
+  geom_histogram(binwidth=1, fill="white", color="red", boundary=25.5) + geom_point(y=0) 
+```
+
+Here's a base-graphics density plot:
+
+```{r density}
+# density plots
+Yes.density <- density(Yes)
+plot(Yes.density)
+```
+... and two versions of the `ggplot2` density plot--not the subtle difference in how the density curve is drawn:
+
+```{r density_gg}
+ggplot(scanvote, aes(x=Yes)) + geom_density()
+ggplot(scanvote, aes(x=Yes)) + geom_line(stat="density")
+```
+The first version draws the density curve as if it was a polygon, while the second looks more as expected.
+
+The combined histogram, density and rug plot via the base graphics:
+
+```{r histdensrug}
+Yes.density <- density(Yes)
+hist(Yes, breaks=20, probability=TRUE)
+lines(Yes.density)
+rug(Yes)
+```
+
+And here's a `ggplot` version, with essentially three distinct layers:
+
+```{r histdenrug_gg}
+ggplot(scanvote, aes(x=Yes)) +
+  geom_histogram(data=scanvote, aes(x=Yes, y=..density..), binwidth=1, fill="white", color="red", boundary=25.5) + 
+  geom_line(stat = "density") +
+  geom_rug(data=scanvote, aes(x=Yes)) 
+```
+geom_density(data=scanvote, aes(x=Yes, y=..density..)) +
+
+```{r detach3}
+detach(scanvote)
+```

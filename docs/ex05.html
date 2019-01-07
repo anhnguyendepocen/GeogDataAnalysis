@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>ex05</title>
+
+
+<style type="text/css">
+body, td {
+   font-family: Times, TimesNewRoman, serif;
+   background-color: white;
+   font-size: 1.0em;
+   width:  940px;
+   margin: 30px;
+   right:  860px;
+   text-align:justify;
+}
+
+tt, code, pre {
+   font-family: Consolas, Monaco, monospace;
+   font-size: 0.95em;
+   font-weight: bolder;
+}
+
+h1 {
+   font-size:1.8em;
+   font-weight: normal;
+}
+
+h2 {
+   font-size:1.4em;
+   font-weight: normal;
+}
+
+h3 {
+   font-size:1.4em;
+   font-weight: normal;
+   font-style: italic;
+}
+
+h4 {
+   font-size:1.2em;
+   font-weight: normal;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre { 
+   margin-top: 0;
+   max-width: 100%;
+   border: 1px solid #999999;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+   background-color:  #E0E0E0;
+}
+
+.r, .noeval, .cpp {
+   background-color: #eeeeee;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#000000;
+   margin:0;
+   padding-left: 1em;
+   padding-right: 1em;
+   border-left: 0.5em #E0E0E0 solid;
+   border-right: 0.5em #E0E0E0 solid
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:11pt;
+      max-width:90%;
+   }
+
+   pre, tt, code {
+      font-size: 10pt;
+      max-width: 100%
+      font-weight: normal;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      page-break-inside: auto;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+</head>
+
+<body>
+
+<p><strong>Geography 4/595:  Geographic Data Analysis</strong><br>
+<strong>Winter 2018</strong></p>
+
+<p><strong>Exercise 5: Some data wrangling and matrix algebra</strong><br>
+<strong>Finish by Monday, February 19</strong>  </p>
+
+<p><strong>1. Introduction</strong></p>
+
+<p>The first aim of this exercise is to illustrate the idea of &quot;data wrangling&quot; or the reshaping or restructuring of input data into the &quot;tidy&quot; form (of a rectangular data set) with variables in columns and observations or cases in rows.  The second part of the exercise consists of a few examples that illustrate the features and application of matrix algebra.</p>
+
+<p><strong>2. Data and packages</strong></p>
+
+<p>A the concept of data wrangling, or the reshaping of non-rectangular data set into a rectangular one, can be illustrated using a small sample of monthly climate data for Eugene.  These data are not currently part of the <code>geog495.RData</code> workspace file (because they may be read in in different ways--as data frames or &quot;tibbles&quot;), but they can be downloaded here:</p>
+
+<ul>
+<li><a href="http://geog.uoregon.edu/GeogR/data/csv/EugeneClim-short.csv">EugeneClim-short.csv</a> -- Three years (2013-2015) of monthly climate data for Eugene;</li>
+<li><a href="http://geog.uoregon.edu/GeogR/data/csv/EugeneClim-short-alt-tvars.csv">EugeneClim-short-alt-tvars.csv</a> -- Temperature data for those three years in an alternative format that is not tidy (i.e. columns are months (or observations) and rows are variables); and</li>
+<li><a href="http://geog.uoregon.edu/GeogR/data/csv/EugeneClim-short-alt-pvars.csv">EugeneClim-short-alt-pvars.csv</a> -- Precipitation data, also in an alternative format.</li>
+</ul>
+
+<p>The full data set can be downloaded from here:  <a href="http://geog.uoregon.edu/GeogR/data/csv/EugeneClim.csv">EugeneClim.csv</a></p>
+
+<p>(Download these to your current working directory, which can be found using <code>getwd()</code>.)</p>
+
+<p>Also install the <code>tidyverse</code> package, which in turn installs a number of individual packages that are used in reshaping data.</p>
+
+<div><pre><code class="language-none"># install the &quot;tidyverse&quot; suite of packages
+install.packages(&quot;tidyverse&quot;)
+# library
+library(tidyverse)</code></pre></div>
+
+<p>Read in a typical &quot;tidy&quot; <code>.csv</code> file, that has variables in columns and observations in rows.    This can be done in the usual way using the <code>read.csv()</code> function, which creates a standard data frame, or, if the <code>reader</code> packages has been loaded by <code>library(tidyverse)</code>, using the <code>read_csv()</code> function, which creates a &quot;tibble&quot;.  The data here are a &quot;short&quot; three-year-long subset of Eugene monthly climate data.</p>
+
+<div><pre><code class="language-none"># read a .csv file using the `readr` package
+csv_file &lt;- &quot;/Users/bartlein/Projects/geog495/data/csv/EugeneClim-short.csv&quot;
+eugclim &lt;- read_csv(csv_file)
+eugclim</code></pre></div>
+
+<p>Produce a few plots to look at the time series of individual variables, and to look at the annual cycle of each.  The first use of <code>plot()</code> below plots the time series of monthly average temperature (<code>tavg</code>), while the second illustrates what the annual cycle looks like.</p>
+
+<div><pre><code class="language-none"># time-series plot
+plot(eugclim$tavg ~ eugclim$yrmn, type=&quot;o&quot;, pch=16, xaxp=c(2013, 2016, 3))
+# by month
+plot(eugclim$mon, eugclim$tavg, pch=16, xaxp=c(1, 12, 1))</code></pre></div>
+
+<p>Repeat the plots for some other variables, in particular <code>prcp</code> (monthly total precipitation). </p>
+
+<p>(See (see <a href="http://geog.uoregon.edu/bartlein/courses/geog495/lec08.html#variables">http://geog.uoregon.edu/bartlein/courses/geog495/lec08.html#variables</a> for a listing of variables)</p>
+
+<blockquote>
+<p>Q1.  Describe the annual cycles of the temperature and moisture-related variables.  When during the year is it colder and when is it warmer, and when is it wetter and when is it drier?</p>
+</blockquote>
+
+<p><strong>3. Transforming (reshaping) an alternatively shaped table of data</strong></p>
+
+<p>An alternative layout for the data table (of just the precipitation-related variables) has the data arranged with variables in rows and months in columns.  Read those data in:</p>
+
+<div><pre><code class="language-none"># alternative layout of precipitation data
+csv_file &lt;- &quot;/Users/bartlein/Projects/geog495/data/csv/EugeneClim-short-alt-pvars.csv&quot;
+eugclim_alt &lt;- read_csv(csv_file)
+eugclim_alt</code></pre></div>
+
+<blockquote>
+<p>Q2 Describe the different form of the two tables (<code>eugclim</code> and <code>eugclim_alt</code>).  Can you think of a way to produce a time-series plot of precipitation using the data in <code>eugclim_alt</code>?  (If so, show the code for doing that, and if not, why not?)</p>
+</blockquote>
+
+<p>Now use the <code>gather()</code> and <code>spread()</code> functions from the <code>tidyr</code> package to reshape the data.  This is done here in two steps: </p>
+
+<div><pre><code class="language-none"># reshape by gathering and spreading
+# 1) gather
+eugclim_alt2 &lt;- gather(eugclim_alt, `1`:`12`, key=&quot;month&quot;, value=&quot;cases&quot;)
+eugclim_alt2$month &lt;- as.integer(eugclim_alt2$month)
+eugclim_alt2</code></pre></div>
+
+<div><pre><code class="language-none"># 2) spread
+eugclim_alt3 &lt;- spread(eugclim_alt2, key=&quot;param&quot;, value=cases)
+eugclim_alt3</code></pre></div>
+
+<p>Plot the reshaped data (<code>eugclim_alt3</code>) to verify that they indeed have been reshaped correctly.</p>
+
+<div><pre><code class="language-none"># plot the reshaped data
+eugclim_alt3$yrmn &lt;- eugclim_alt3$year + (as.integer(eugclim_alt3$month)-1)/12
+plot(eugclim_alt3$prcp ~ eugclim_alt3$yrmn, type=&quot;o&quot;, pch=16, col=&quot;blue&quot;, xaxp=c(2013, 2016, 3))</code></pre></div>
+
+<blockquote>
+<p>Q3:  Compare <code>eugclim_alt2</code> and <code>eugclim_alt3</code>.  What did the application of <code>gather()</code> do in creating <code>eugclim_alt2</code>, and what did the application of <code>spread()</code> do in creating <code>eugclim_alt3</code>?</p>
+
+<p>Q4:  What is the benefit of reshaping the data in <strong>R</strong> as opposed to simply doing that in Excel or a text editor?</p>
+</blockquote>
+
+<p><strong>4.  A little matrix algebra</strong></p>
+
+<p>Create three matrices, <strong>A</strong>, <strong>B</strong>, and <strong>C</strong>:</p>
+
+<div><pre><code class="language-none"># create three matrices
+# default fill method: byrow = FALSE
+A &lt;- matrix(c(6, 9, 12, 13, 21, 5), nrow=3, ncol=2)
+A
+
+# same elements, but byrow = TRUE
+B &lt;-  matrix(c(6, 9, 12, 13, 21, 5), nrow=3, ncol=2, byrow=TRUE)
+B
+
+# a third matrix
+C &lt;- matrix(c(1,2,3,4,5,6,7,8,9), nrow=3, ncol=3)
+C</code></pre></div>
+
+<blockquote>
+<p>Q5 Describe the shapes of the three matrices.  (Note that the <code>dim()</code> function applied to a matrix (e.g. <code>dim(A)</code>) displays the number of rows and the number of columns in the matrix.)</p>
+</blockquote>
+
+<p><em>Matrix addition</em></p>
+
+<p>Add <strong>A</strong> and <strong>B</strong>:</p>
+
+<div><pre><code class="language-none"># matrix addition
+F &lt;- A + B
+F</code></pre></div>
+
+<p>Now try adding <strong>A</strong> and <strong>C</strong>:</p>
+
+<div><pre><code class="language-none">G &lt;- A + C</code></pre></div>
+
+<blockquote>
+<p>Q6:  What happend?  Can <strong>A</strong> and <strong>C</strong> be added?  Why not?  (Again, the <code>dim()</code> function might be useful.)</p>
+</blockquote>
+
+<p><em>Matrix multiplication</em></p>
+
+<p>Matrix multiplication (as distinct from element-by-element multiplication) produces a new matrix whose elements are sums of squares and cross products of the elements of matrices being multiplied 
+(see <a href="http://geog.uoregon.edu/GeogR/topics/matrix.pdf">matrix.pdf</a>).  Matrix multiplication uses <code>%*%</code> as the operator. </p>
+
+<p>&quot;Postmultiply&quot; the matrix <strong>C</strong> by <strong>A</strong>:</p>
+
+<div><pre><code class="language-none"># matrix multiplication
+Q &lt;- C %*% A
+Q</code></pre></div>
+
+<p>... and try to postmultiply <strong>A</strong> by <strong>B</strong> (e.g. <code>T &lt;- A %*% B</code>) </p>
+
+<blockquote>
+<p>Q7:  What happens here?  What are the dimensions of <strong>C</strong>?  What does the message <code>non-conformable arguments</code> imply about the shapes of <strong>A</strong> and <strong>B</strong>?</p>
+</blockquote>
+
+<p><em>Matrix inversion</em></p>
+
+<p>To illustrate matrix inversion (i.e. the matrix algebra version of scalar division), a realistic matrix can be used, in this case the correlation matrix of the temperature variables in the <code>orstationc</code> data set:</p>
+
+<div><pre><code class="language-none"># a realistic matrix, orstationc temperature-variable correlation matrix
+R &lt;- cor(cbind(orstationc$tjan, orstationc$tjul, orstationc$tann))
+R</code></pre></div>
+
+<p>Get the inverse of <strong>R</strong>:</p>
+
+<div><pre><code class="language-none"># matrix inversion
+Rinv &lt;- solve(R)
+Rinv</code></pre></div>
+
+<p>One property of the inverse matrix is that when pre- or postmultiplied by the original matrix, the identity matrix, <strong>I</strong> should be produced.</p>
+
+<blockquote>
+<p>Q8:  Check to see if <code>Rinv</code> is indeed the inverse of <code>R</code>.  (Show the results of the check.) </p>
+</blockquote>
+
+
+
+<script type="text/x-mathjax-config">
+(function () {
+
+MathJax.Hub.Config({
+	'showProcessingMessages': false,
+	'messageStyle': 'none'
+});
+
+if (typeof MathJaxListener !== 'undefined') {
+	MathJax.Hub.Register.StartupHook('End', function () {
+		MathJaxListener.invokeCallbackForKey_('End');
+	});
+}
+
+})();
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+
+</html>
