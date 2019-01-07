@@ -53,11 +53,11 @@ Many ways to use
 - other gui's (RStudio (recommended); Rcmdr package)
 - Basic idea:  Use text editor and RGui/RStudio jointly to write and debug "scripts"
 
-# Exercise 1:  Getting and Using R (and RStudio)#
+# Exercise 1:  Getting and Using R (and RStudio) #
 
 - [[https://pjbartlein.github.io/GeogDataAnalysis/ex01.html]](https://pjbartlein.github.io/GeogDataAnalysis/ex01.html)
 
-## Readings: ##
+# Readings: #
 
 Links to the readings can be found on the *Resources* tab.  
 
