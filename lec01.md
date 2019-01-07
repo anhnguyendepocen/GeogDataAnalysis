@@ -1,7 +1,7 @@
 
-#Introduction to the course#
+# Introduction to the course #
 
-##Data Analysis vs "Statistics" and their roles in geography##
+## Data Analysis vs "Statistics" and their roles in geography ##
 
 - Data analysis features continual iterations between the development of a conceptual model of reality (theory building or hypothesis generation) and the testing of that model (using formal or informal hypothesis testing).
 - Classical statistics has been more oriented toward assessment (hypothesis testing) than toward discovery of relationships within data sets.
@@ -10,14 +10,14 @@
 
 **Statistics is not mathematics; data analysis is not statistics; but visualization *is* data analysis**
 
-##Course Plan:  Visualization and Data Analysis Using "R"##
+## Course Plan:  Visualization and Data Analysis Using "R" ##
 
 - lecture web pages with embedded R examples
 - exercises with other examples
 - R "packages" for advanced analyses
 - two take-home exams
 
-#Nature of Geographical Data#
+# Nature of Geographical Data #
 
 An implicit feature of most data sets that are examined by geographers is that individual "observations" have locational information attached to them.
 
@@ -25,18 +25,18 @@ Most statistical packages do not explicitly recognize those spatial attributes--
 
 The principal exception is the software package we'll use here--**R**
 
-The "[Data Cube](http://geog.uoregon.edu/GeogR/images/dcube0.gif)" -- attributes, locations, occasions. The cube is made up of individual cells or datums, that represent a single attribute or variable, measured at a particular place and time (after Rummel, 1970, and many others).
+The "[Data Cube](https://pjbartlein.github.io/GeogDataAnalysis/images/dcube0.gif)" -- attributes, locations, occasions. The cube is made up of individual cells or datums, that represent a single attribute or variable, measured at a particular place and time (after Rummel, 1970, and many others).
 
-- [location x time slice](http://geog.uoregon.edu/GeogR/images/dcube1.gif) 
-- [time x attribute slice](http://geog.uoregon.edu/GeogR/images/dcube2.gif)
-- [attribute x location slice](http://geog.uoregon.edu/GeogR/images/dcube3.gif)
+- [location x time slice](https://pjbartlein.github.io/GeogDataAnalysis/images/dcube1.gif) 
+- [time x attribute slice](https://pjbartlein.github.io/GeogDataAnalysis/images/dcube2.gif)
+- [attribute x location slice](https://pjbartlein.github.io/GeogDataAnalysis/images/dcube3.gif)
 
 The Rectangular Data Set -- Two Examples
 
-- Summit Cr. Geomorphic Data [[sumcr.csv]](http://geog.uoregon.edu/GeogR/data/csv/sumcr.csv)
-- Megacities [[cities.csv]](http://geog.uoregon.edu/GeogR/data/csv/cities.csv)
+- Summit Cr. Geomorphic Data [[sumcr.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/sumcr.csv)
+- Megacities [[cities.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/cities.csv)
 
-#R:  Software for data analysis and visualization#
+# R:  Software for data analysis and visualization #
 
 **R** -- Back to the future?
 
@@ -53,13 +53,11 @@ Many ways to use
 - other gui's (RStudio (recommended); Rcmdr package)
 - Basic idea:  Use text editor and RGui/RStudio jointly to write and debug "scripts"
 
-[An example R session](http://geog.uoregon.edu/GeogR/topics/examplesession.html)
+# Exercise 1:  Getting and Using R (and RStudio)#
 
-#Exercise 1:  Getting and Using R (and RStudio)#
+- [[https://pjbartlein.github.io/GeogDataAnalysis/ex01.html]](https://pjbartlein.github.io/GeogDataAnalysis/ex01.html)
 
-- [[http://geog.uoregon.edu/bartlein/courses/geog495/ex01.html]](http://geog.uoregon.edu/bartlein/courses/geog495/ex01.html)
-
-##Readings:##
+## Readings: ##
 
 Links to the readings can be found on the *Resources* tab.  
 

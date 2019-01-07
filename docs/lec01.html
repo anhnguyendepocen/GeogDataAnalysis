@@ -413,9 +413,24 @@ $(document).ready(function () {
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#introduction-to-the-course"><span class="toc-section-number">1</span> Introduction to the course</a><ul>
+<li><a href="#data-analysis-vs-statistics-and-their-roles-in-geography"><span class="toc-section-number">1.1</span> Data Analysis vs “Statistics” and their roles in geography</a></li>
+<li><a href="#course-plan-visualization-and-data-analysis-using-r"><span class="toc-section-number">1.2</span> Course Plan: Visualization and Data Analysis Using “R”</a></li>
+</ul></li>
+<li><a href="#nature-of-geographical-data"><span class="toc-section-number">2</span> Nature of Geographical Data</a></li>
+<li><a href="#r-software-for-data-analysis-and-visualization"><span class="toc-section-number">3</span> R: Software for data analysis and visualization</a></li>
+<li><a href="#exercise-1-getting-and-using-r-and-rstudio"><span class="toc-section-number">4</span> Exercise 1: Getting and Using R (and RStudio)</a><ul>
+<li><a href="#readings"><span class="toc-section-number">4.1</span> Readings:</a></li>
+</ul></li>
+</ul>
+</div>
 
-<p>#Introduction to the course#</p>
-<p>##Data Analysis vs “Statistics” and their roles in geography##</p>
+<div id="introduction-to-the-course" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction to the course</h1>
+<div id="data-analysis-vs-statistics-and-their-roles-in-geography" class="section level2">
+<h2><span class="header-section-number">1.1</span> Data Analysis vs “Statistics” and their roles in geography</h2>
 <ul>
 <li>Data analysis features continual iterations between the development of a conceptual model of reality (theory building or hypothesis generation) and the testing of that model (using formal or informal hypothesis testing).</li>
 <li>Classical statistics has been more oriented toward assessment (hypothesis testing) than toward discovery of relationships within data sets.</li>
@@ -423,29 +438,36 @@ $(document).ready(function () {
 <li>Roles in geography: “quantitative revolution”, “GIS revolution”, “Geographic Visualization”.</li>
 </ul>
 <p><strong>Statistics is not mathematics; data analysis is not statistics; but visualization <em>is</em> data analysis</strong></p>
-<p>##Course Plan: Visualization and Data Analysis Using “R”##</p>
+</div>
+<div id="course-plan-visualization-and-data-analysis-using-r" class="section level2">
+<h2><span class="header-section-number">1.2</span> Course Plan: Visualization and Data Analysis Using “R”</h2>
 <ul>
 <li>lecture web pages with embedded R examples</li>
 <li>exercises with other examples</li>
 <li>R “packages” for advanced analyses</li>
 <li>two take-home exams</li>
 </ul>
-<p>#Nature of Geographical Data#</p>
+</div>
+</div>
+<div id="nature-of-geographical-data" class="section level1">
+<h1><span class="header-section-number">2</span> Nature of Geographical Data</h1>
 <p>An implicit feature of most data sets that are examined by geographers is that individual “observations” have locational information attached to them.</p>
 <p>Most statistical packages do not explicitly recognize those spatial attributes–i.e. they treat them as ordinary variables.</p>
 <p>The principal exception is the software package we’ll use here–<strong>R</strong></p>
-<p>The “<a href="http://geog.uoregon.edu/GeogR/images/dcube0.gif">Data Cube</a>” – attributes, locations, occasions. The cube is made up of individual cells or datums, that represent a single attribute or variable, measured at a particular place and time (after Rummel, 1970, and many others).</p>
+<p>The “<a href="https://pjbartlein.github.io/GeogDataAnalysis/images/dcube0.gif">Data Cube</a>” – attributes, locations, occasions. The cube is made up of individual cells or datums, that represent a single attribute or variable, measured at a particular place and time (after Rummel, 1970, and many others).</p>
 <ul>
-<li><a href="http://geog.uoregon.edu/GeogR/images/dcube1.gif">location x time slice</a></li>
-<li><a href="http://geog.uoregon.edu/GeogR/images/dcube2.gif">time x attribute slice</a></li>
-<li><a href="http://geog.uoregon.edu/GeogR/images/dcube3.gif">attribute x location slice</a></li>
+<li><a href="https://pjbartlein.github.io/GeogDataAnalysis/images/dcube1.gif">location x time slice</a></li>
+<li><a href="https://pjbartlein.github.io/GeogDataAnalysis/images/dcube2.gif">time x attribute slice</a></li>
+<li><a href="https://pjbartlein.github.io/GeogDataAnalysis/images/dcube3.gif">attribute x location slice</a></li>
 </ul>
 <p>The Rectangular Data Set – Two Examples</p>
 <ul>
-<li>Summit Cr. Geomorphic Data <a href="http://geog.uoregon.edu/GeogR/data/csv/sumcr.csv">[sumcr.csv]</a></li>
-<li>Megacities <a href="http://geog.uoregon.edu/GeogR/data/csv/cities.csv">[cities.csv]</a></li>
+<li>Summit Cr. Geomorphic Data <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/sumcr.csv">[sumcr.csv]</a></li>
+<li>Megacities <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/cities.csv">[cities.csv]</a></li>
 </ul>
-<p>#R: Software for data analysis and visualization#</p>
+</div>
+<div id="r-software-for-data-analysis-and-visualization" class="section level1">
+<h1><span class="header-section-number">3</span> R: Software for data analysis and visualization</h1>
 <p><strong>R</strong> – Back to the future?</p>
 <ul>
 <li>Command-line interface as opposed to point-and-click GUI</li>
@@ -462,18 +484,22 @@ $(document).ready(function () {
 <li>other gui’s (RStudio (recommended); Rcmdr package)</li>
 <li>Basic idea: Use text editor and RGui/RStudio jointly to write and debug “scripts”</li>
 </ul>
-<p><a href="http://geog.uoregon.edu/GeogR/topics/examplesession.html">An example R session</a></p>
-<p>#Exercise 1: Getting and Using R (and RStudio)#</p>
+</div>
+<div id="exercise-1-getting-and-using-r-and-rstudio" class="section level1">
+<h1><span class="header-section-number">4</span> Exercise 1: Getting and Using R (and RStudio)</h1>
 <ul>
-<li><a href="http://geog.uoregon.edu/bartlein/courses/geog495/ex01.html">[http://geog.uoregon.edu/bartlein/courses/geog495/ex01.html]</a></li>
+<li><a href="https://pjbartlein.github.io/GeogDataAnalysis/ex01.html">[https://pjbartlein.github.io/GeogDataAnalysis/ex01.html]</a></li>
 </ul>
-<p>##Readings:##</p>
+<div id="readings" class="section level2">
+<h2><span class="header-section-number">4.1</span> Readings:</h2>
 <p>Links to the readings can be found on the <em>Resources</em> tab.</p>
 <ul>
 <li>Owen (<em>The R Guide</em>): sections 1 and 2, scan section 3;</li>
 <li>Kuhnert &amp; Venebles (<em>An Introduction…</em>): p. 13-20</li>
 <li>Cleveland (<em>Visualizing Data</em> (reserve, but currently not available in library): Ch. 1</li>
 </ul>
+</div>
+</div>
 
 
 
