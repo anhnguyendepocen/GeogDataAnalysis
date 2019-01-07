@@ -31,8 +31,10 @@ pdf.options(useDingbats = TRUE)
 - Resources:  Readings, data sets, etc.
 
 <p><span style="color: #15B93D;"><b>This is the course web page for GEOG 4/595, Winter 2019.</b></span></p>
+
+[https://pjbartlein.github.io/GeogDataAnalysis](https://pjbartlein.github.io/GeogDataAnalysis)
   
-The GitHub repository for these pages, containing \*.md, \*.Rmd, \*.html, and data files is at:  [https://github.com/pjbartlein/GDA_Source/](https://github.com/pjbartlein/GDA_Source/)
+
 
 **Department of Geography, Univeristy of Oregon -- 
 [https://geography.uoregon.edu](https://geography.uoregon.edu)**
