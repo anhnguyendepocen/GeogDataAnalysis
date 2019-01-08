@@ -9,13 +9,12 @@
 
 
 <style type="text/css">
-/*exercise-md-05
-.css*/
+/*exercise-md-06.css*/
 
 body, td {
    font-family: Times, TimesNewRoman, serif;
    background-color: white;
-   font-size: 1.0em;
+   font-size: 16px;
    width:  940px;
    margin: 30px;
    right:  860px;
@@ -24,37 +23,52 @@ body, td {
 
 tt, code, pre {
    font-family: Consolas, Monaco, monospace;
-   font-size: .86em;
+   font-size: 14px;
    font-weight: bolder;
 }
 
 h1 {
-   font-size:1.8em;
-   font-weight: normal;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+h1.title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  font-weight: normal;
 }
 
 h2 {
-   font-size:1.4em;
-   font-weight: normal;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  font-weight: normal;
 }
 
 h3 {
-   font-size:1.4em;
-   font-weight: normal;
-   font-style: italic;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: italic;
 }
 
 h4 {
-   font-size:1.2em;
-   font-weight: normal;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 h5 {
-   font-size:0.9em;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
 }
 
 h6 {
-   font-size:0.8em;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  font-weight: bolder;
 }
 
 a:visited {
@@ -66,12 +80,12 @@ pre {
    max-width: 100%;
    border: 1px solid #999999;
    white-space: pre-wrap;
-}
+}4
 
-pre code {
+/*pre code {
    display: block; padding: 0.2em;
    background-color:  #E0E0E0;
-}
+}*/
 
 code.r, code.noeval, code.cpp {
    background-color: #eeeeee;
@@ -99,40 +113,63 @@ hr {
 }
 
 @media print {
-   * {
-      background: transparent !important;
-      color: black !important;
-      filter:none !important;
-      -ms-filter: none !important;
-   }
-
-   body {
-      font-size:11pt;
-      max-width:90%;
-   }
-
-   pre, tt, code {
-      font-size: 10pt;
-      max-width: 100%
-      font-weight: normal;
-   }
-
-   a, a:visited {
-      text-decoration: underline;
-   }
-
-   hr {
-      visibility: hidden;
-      page-break-before: always;
-   }
-
-   pre, blockquote {
-      page-break-inside: auto;
-   }
-
-   tr, img {
-      page-break-inside: avoid;
-   }
+  * {
+    background-color: transparent !important;
+    background-image: none !important;
+    background-repeat: repeat !important;
+    background-attachment: scroll !important;
+    background-position: 0% 0% !important;
+    color: black !important;
+    filter: none !important;
+  }
+  body, td {
+    font-family: Times, TimesNewRoman, serif;
+    background-color: white;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  h1 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    font-weight: normal;
+  }
+  h1.title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+  }
+  h2 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  h3 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: italic;
+  }
+  h4 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  h5 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+  }
+  h6 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12px;
+    font-weight: bolder;
+  }
+  tt, code, pre {
+    font-family: "Consolas", "Courier New", Monaco, monospace;
+    font-size: 10px;
+    font-weight: bold;
+  }
 
    img {
       max-width: 100% !important;
@@ -610,7 +647,7 @@ Platform: x86_64-apple-darwin15.6.0 (64-bit)
 <p>To <strong><em>download</em></strong> the Summit Cr. data set, (Step 1)</p>
 
 <ol>
-<li>right-click on a link to a data set on a web page, like this one:  <a href="http://geog.uoregon.edu/GeogR/data/csv/sumcr.csv">[sumcr.csv]</a></li>
+<li>right-click on a link to a data set on a web page, like this one:  <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/sumcr.csv">[sumcr.csv]</a></li>
 <li>then save the file (using Internet Explorer, click on &quot;Save target as...&quot; or for Firefox, click on &quot;Save link as...&quot;, or using Safari on the Mac, click on &quot;Download Linked Files As…&quot;</li>
 <li>then browse to the <code>data</code> subfolder in the working folder created above, and</li>
 <li>save the file.<br></li>
