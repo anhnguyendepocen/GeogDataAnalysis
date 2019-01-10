@@ -36,7 +36,7 @@ The specific topics that will be examined include:
 | 6   | M  | 28-Jan | Maps in R                                       | 4 Multivariate plots            | 3 |
 | 7   | W  | 30-Jan | Geospatial analysis in R                        |                                 |   |
 | 8   | M  | 04-Feb | Data wrangling and matrix algebra               | 5 Matrix algebra                | 4 |
-| 9   | W  | 06-Feb | Reference distributions                         | Exam 1 -- due 16-Feb            |   |
+| 9   | W  | 06-Feb | Reference distributions                         | Exam 1 -- due 18-Feb            |   |
 | 10  | M  | 11-Feb | Statistical inference                           |                                 |   |
 | 11  | W  | 13-Feb | Analysis of variance                            | 6 CI's, t-tests, ANOVA          |   |
 | 12  | M  | 18-Feb | Regression analysis                             |                                 | 5 |         
@@ -47,7 +47,7 @@ The specific topics that will be examined include:
 | 17  | W  |  6-Mar | Multivariate distances and cluster analysis     |                                 |   |
 | 18  | M  | 11-Mar | High-resolution and high-dimensional data sets  | Exam 2 -- due 21-Mar            |   |
 | 19  | W  | 13-Mar | Analysis and visualization of large raster data sets |                            |   |
-|     | M  | 21-Mar | Exam 2   due                                    |                                 | 8 |       
+|     | Th | 21-Mar | Exam 2   due                                    |                                 | 8 |       
 
 
 # Grading and course mechanics #
