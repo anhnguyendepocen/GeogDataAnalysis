@@ -38,7 +38,7 @@ Load two shape files, one of Oreogon county outlines, the other of climate-stati
 
 ```{r read outlines}
 # read county outlines
-otl_path <- "/Users/bartlein/Projects/ESSD/data/shp_files/OR/"
+otl_path <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/shp_files/OR/"
 otl_name <- "orotl.shp"
 otl_file <- paste(otl_path, otl_name, sep="")
 orotl_shp <- readShapeLines(otl_file)
@@ -61,7 +61,7 @@ Now get the climate-station data
 
 ```{r read stations}
 # read stations
-orstations_path <- "/Users/bartlein/Projects/ESSD/data/shp_files/OR/"
+orstations_path <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/shp_files/OR/"
 orstations_name <- "orstations.shp"
 orstations_file <- paste(orstations_path, orstations_name, sep="")
 orstations_shp <- readShapePoints(orstations_file)
@@ -103,7 +103,7 @@ User the `raster` package to read the vegetation data
 
 ```{r read veg}
 # read potential natural vegetation data sage_veg30.nc:
-vegtype_path <- "/Users/bartlein/Projects/ESSD/data/nc_files/"
+vegtype_path <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/nc_files/"
 vegtype_name <- "sage_veg30.nc"
 vegtype_file <- paste(vegtype_path, vegtype_name, sep="")
 vegtype <- raster(vegtype_file, varname="vegtype")
@@ -122,7 +122,7 @@ Read the charcoal data locations:
 
 ```{r read charcoal}
 # read GCDv3 sites
-csv_path <- "/Users/bartlein/Projects/ESSD/data/csv_files/"
+csv_path <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/csv_files/"
 csv_name <- "v3i_nsa_globe.csv"
 csv_file <- paste(csv_path, csv_name, sep="")
 gcdv3 <- read.csv(csv_file) 
@@ -200,7 +200,7 @@ library(RColorBrewer)
 
 ```{r ncdf4 read mtco, echo=TRUE, eval=TRUE, cache=FALSE}
 # set path and filename
-ncpath <- "/Users/bartlein/Projects/ESSD/data/nc_files/"
+ncpath <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/nc_files/"
 ncname <- "cru10min30_bio.nc"  
 ncfname <- paste(ncpath, ncname, sep="")
 ```
@@ -300,7 +300,7 @@ Read the shapefile for *Picea mariana*
 
 ```{r read picae}
 # read the shape file for Picea Mariana
-shp_path <- "/Users/bartlein/Projects/ESSD/data/shp_files/USGS_pp1650/"
+shp_path <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/shp_files/USGS_pp1650/"
 shp_name <- "picemari.shp"
 shp_file <- paste(shp_path, shp_name, sep="")
 picea_shp <- readShapePoly(shp_file)
@@ -318,7 +318,7 @@ Read the na10km_v2 points as a .csv file (for illustration, in practice it would
 
 ```{r read na10km_v2}
 # read the na10km_v2 points (as a .csv file)
-csv_path <- "/Users/bartlein/Projects/ESSD/data/csv_files/"
+csv_path <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/csv_files/"
 csv_name <- "na10km_v2.csv"
 csv_file <- paste(csv_path, csv_name, sep="")
 na10km_v2 <- read.csv(csv_file)
@@ -378,7 +378,7 @@ Read the fire-start data:
 
 ```{r read fire}
 # read the FPA-FOD fire-start data
-csv_path <- "/Users/bartlein/Projects/ESSD/data/csv_files/"
+csv_path <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/csv_files/"
 csv_name <- "fpafod_1992-2013.csv"
 csv_file <- paste(csv_path, csv_name, sep="")
 fpafod <- read.csv(csv_file) # takes a while
@@ -448,7 +448,7 @@ Write out a netCDF file:
 library(ncdf4)
 
 # path and file name, set dname
-ncpath <- "/Users/bartlein/Projects/ESSD/data/nc_files/"
+ncpath <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/nc_files/"
 ncname <- "us_fires.nc"  
 ncfname <- paste(ncpath, ncname, sep="")
 
@@ -516,7 +516,7 @@ Read the etopo1 netCDF file.  This particular file is one in which the original 
 
 ```{r ncdf4 openMac, echo=TRUE, eval=TRUE, cache=FALSE}
 # set path and filename
-ncpath <- "/Users/bartlein/Projects/ESSD/data/nc_files/"
+ncpath <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/nc_files/"
 ncname <- "etopo1_ig_06min.nc"  
 ncfname <- paste(ncpath, ncname,  sep="")
 dname <- "elev"  
@@ -583,7 +583,7 @@ Open and read the .csv file containing the "target"" points.
 
 ```{r read na10km_v2 target points}
 # read na10km_v2 grid-point locations -- land-points only
-csv_path <- "/Users/bartlein/Projects/ESSD/data/csv_files/"
+csv_path <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/csv_files/"
 csv_name <- "na10km_v2_pts.csv"
 csv_file <- paste(csv_path, csv_name, sep="")
 na10km_v2 <- read.csv(csv_file) 

@@ -33,14 +33,14 @@ The scatter diagram or scatter plot is the workhorse bivariate plot, and is prob
 load(".Rdata")
 ```
 Data files for these examples (download to the working directory and read in):  
-[[orstationc.csv]](http://geog.uoregon.edu/GeogR/data/csv/orstationc.csv)
-[[scanvote.csv]](http://geog.uoregon.edu/GeogR/data/csv/scanvote.csv)
-[[sumcr.csv]](http://geog.uoregon.edu/GeogR/data/csv/sumcr.csv)
-[[specmap.csv]](http://geog.uoregon.edu/GeogR/data/csv/specmap.csv)
-[[florida.csv]](http://geog.uoregon.edu/GeogR/data/csv/florida.csv)
-[[sierra.csv]](http://geog.uoregon.edu/GeogR/data/csv/sierra.csv)
-[[ortann.csv]](http://geog.uoregon.edu/GeogR/data/csv/ortann.csv)
-[[cities.csv]](http://geog.uoregon.edu/GeogR/data/csv/cities.csv)
+[[orstationc.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/orstationc.csv)
+[[scanvote.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/scanvote.csv)
+[[sumcr.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/sumcr.csv)
+[[specmap.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/specmap.csv)
+[[florida.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/florida.csv)
+[[sierra.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/sierra.csv)
+[[ortann.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/ortann.csv)
+[[cities.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/cities.csv)
 
 ## Scatter diagram/Scatterplot ##
 

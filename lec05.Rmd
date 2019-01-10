@@ -25,7 +25,7 @@ Multivariate descriptive displays or plots are designed to reveal the relationsh
 
 The easiest way to get the data for the multivariate plotting examples is to download a copy of the workspace `geog495.RData` and "load" it, or read it in.  Otherwise, all of the individual data sets are available to download from the GeogR data page.  
 
-To get the workspace, right-click on this link [[geog495.RData]](http://geog.uoregon.edu/GeogR/data/Rdata/geog495.RData) and save it to your working folder.  (If you've forgotten where that is, type `getwd()` on the command line).  Then read it in to R:
+To get the workspace, right-click on this link [[geog495.RData]](https://pjbartlein.github.io/GeogDataAnalysis/data/Rdata/geog495.RData) and save it to your working folder.  (If you've forgotten where that is, type `getwd()` on the command line).  Then read it in to R:
 
 ```{r load, echo=FALSE, include=FALSE}
 load(".Rdata")
@@ -176,7 +176,7 @@ example(rgl.surface)
 rgl.clear()
 example(rgl.spheres)
 ```
-![rgl01](http://geog.uoregon.edu/GeogR/figures/rgl01.jpg)
+![rgl01](https://pjbartlein.github.io/GeogDataAnalysis/figures/rgl01.jpg)
 [[Back to top]](lec05.html)
 
 #Trellis/Lattice graphics#
@@ -409,8 +409,8 @@ spplot(orstations.shp, c("tann"), col.regions=plotclr,
 
 The main documentation for Trellis graphics includes:
 
-- [Trellis Graphics User Manual](http://geog.uoregon.edu/GeogR/pdfs/trellis.user.pdf), and
-- [A Tour of Trellis Graphics](http://geog.uoregon.edu/GeogR/pdfs/Trellis_tour.pdf)  
+- [Trellis Graphics User Manual](https://pjbartlein.github.io/GeogDataAnalysis/pdfs/trellis.user.pdf), and
+- [A Tour of Trellis Graphics](https://pjbartlein.github.io/GeogDataAnalysis/pdfs/Trellis_tour.pdf)  
 
 two .pdf documents published by the developers of the S language and Trellis Graphics, Lucent Technology.
 

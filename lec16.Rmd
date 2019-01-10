@@ -22,8 +22,8 @@ load(".Rdata")
 
 *Principal components analysis (PCA)* is a widely used multivariate analysis method, the general aim of which is to reveal systematic covariations among a group of variables.   The analysis can be motivated in a number of different ways, including (in geographical contexts) finding groups of variables that measure the same underlying dimensions of a data set, describing the basic anomaly patterns that appear in spatial data sets, or producing a general index of the common variation of a set of variables.
 
-- Example:  Davis' boxes ([data](http://geog.uoregon.edu/GeogR/figures/Davis_PCA_data.png), [plot](http://geog.uoregon.edu/GeogR/figures/Davis_PCA_boxes.png), [scatter](http://geog.uoregon.edu/GeogR/figures/Davis_PCA_scatter.png), [components](http://geog.uoregon.edu/GeogR/figures/Davis_PCA_scores.png)), (Davis, J.C., 2001, *Statistics and Data Analysis in Geology*, Wiley)
-- [Derivation of principal components](http://geog.uoregon.edu/GeogR/topics/pca.pdf)
+- Example:  Davis' boxes ([data](https://pjbartlein.github.io/GeogDataAnalysis/figures/Davis_PCA_data.png), [plot](https://pjbartlein.github.io/GeogDataAnalysis/figures/Davis_PCA_boxes.png), [scatter](https://pjbartlein.github.io/GeogDataAnalysis/figures/Davis_PCA_scatter.png), [components](https://pjbartlein.github.io/GeogDataAnalysis/figures/Davis_PCA_scores.png)), (Davis, J.C., 2001, *Statistics and Data Analysis in Geology*, Wiley)
+- [Derivation of principal components](https://pjbartlein.github.io/GeogDataAnalysis/topics/pca.pdf)
 
 # Properties of principal components #
 
@@ -42,7 +42,7 @@ Because the components are derived by solving a particular optimization problem,
 
 ## PCA of a two-variable matrix ##
 
-A very simple, two-variable analysis can be illustrated using Davis' boxes data [[boxes.csv]](http://geog.uoregon.edu/GeogR/data/csv/boxes.csv)
+A very simple, two-variable analysis can be illustrated using Davis' boxes data [[boxes.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/boxes.csv)
 
 In this example, a simple two-variable (long-axis length and diagonal length) data set is created using Davis' artificial data.
 
@@ -100,7 +100,7 @@ This plot illustrates the idea of the first (or "principal" component) providing
 
 ## A second example using the large-cites data set ##
 
-A second example of a simple PCA analysis can be illustrated using the large-cities data set [[cities.csv]](http://geog.uoregon.edu/GeogR/data/csv/cities.csv)
+A second example of a simple PCA analysis can be illustrated using the large-cities data set [[cities.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/cities.csv)
 
 Create a data matrix that omits the city names and look at the data and the correlation matrix.
 

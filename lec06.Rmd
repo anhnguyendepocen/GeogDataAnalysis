@@ -66,34 +66,34 @@ Required libraries:
 Shapefiles:
 
 - Oregon counties and census data: `orcounty`:
-[[.dbf]](http://geog.uoregon.edu/GeogR/data/shp/orcounty.dbf) 
-[[.sbn]](http://geog.uoregon.edu/GeogR/data/shp/orcounty.sbn)
-[[.sbx]](http://geog.uoregon.edu/GeogR/data/shp/orcounty.sbx)
-[[.shp]](http://geog.uoregon.edu/GeogR/data/shp/orcounty.shp)
-[[.shx]](http://geog.uoregon.edu/GeogR/data/shp/orcounty.shx)
+[[.dbf]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/orcounty.dbf) 
+[[.sbn]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/orcounty.sbn)
+[[.sbx]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/orcounty.sbx)
+[[.shp]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/orcounty.shp)
+[[.shx]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/orcounty.shx)
 - Oregon county outlines only: `orotl`:
-[[.dbf]](http://geog.uoregon.edu/GeogR/data/shp/orotl.dbf)
-[[.shp]](http://geog.uoregon.edu/GeogR/data/shp/orotl.shp)
-[[.shx]](http://geog.uoregon.edu/GeogR/data/shp/orotl.shx)
+[[.dbf]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/orotl.dbf)
+[[.shp]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/orotl.shp)
+[[.shx]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/orotl.shx)
 - Oregon climate station data: `orstations`:
-[[.dbf]](http://geog.uoregon.edu/GeogR/data/shp/orstations.dbf)
-[[.sbn]](http://geog.uoregon.edu/GeogR/data/shp/orstations.sbn)
-[[.sbx]](http://geog.uoregon.edu/GeogR/data/shp/orstations.sbx)
-[[.shp]](http://geog.uoregon.edu/GeogR/data/shp/orstations.shp)
-[[.shx]](http://geog.uoregon.edu/GeogR/data/shp/orstations.shx)
+[[.dbf]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/orstations.dbf)
+[[.sbn]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/orstations.sbn)
+[[.sbx]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/orstations.sbx)
+[[.shp]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/orstations.shp)
+[[.shx]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/orstations.shx)
 
 Data sets (rectangular data sets or `data frames`:
 
 - Oregon climate station data (includes lat and lon) `orstationc`:
-[[orstationc.csv]](http://geog.uoregon.edu/GeogR/data/csv/orstationc.csv)
+[[orstationc.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/orstationc.csv)
 - Oregon county census data (includes lats and lons, but not outlines) `orcountyp`:
-[[orcountyp.csv]](http://geog.uoregon.edu/GeogR/data/csv/orcountyp.csv) 
+[[orcountyp.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/orcountyp.csv) 
 - Large cities data set, with country names added `cities2`: 
-[[cities2.csv]](http://geog.uoregon.edu/GeogR/data/csv/cities2.csv) 
+[[cities2.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/cities2.csv) 
 
 The easiest way to get all of these data files and shape-file components, is to download a copy of the workspace `geog495.RData` and "load" it, or read it in.  Otherwise, all of them are available to download from the GeogR data page.
 
-[[geog495.RData]](http://geog.uoregon.edu/GeogR/data/Rdata/geog495.RData)
+[[geog495.RData]](https://pjbartlein.github.io/GeogDataAnalysis/data/Rdata/geog495.RData)
 
 Right-click on the above link, and save it to your working folder.  (If you've forgotten where that is, type `getwd()` on the command line).  Then read it in to R:
 

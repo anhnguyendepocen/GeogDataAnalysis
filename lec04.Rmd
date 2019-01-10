@@ -21,7 +21,7 @@ There are a number of descriptive statistics that, like descriptive plots, provi
 
 Before describing the statistics, it will be helpful to look at the summation operator and
 
-- [summation notation](http://geog.uoregon.edu/GeogR/topics/summation.pdf)
+- [summation notation](https://pjbartlein.github.io/GeogDataAnalysis/topics/summation.pdf)
 
 # Univariate descriptive statistics# 
 
@@ -39,13 +39,13 @@ Median
 
 Mean or Average
 
-- [definition and properties of the mean](http://geog.uoregon.edu/GeogR/topics/mean.pdf)
+- [definition and properties of the mean](https://pjbartlein.github.io/GeogDataAnalysis/topics/mean.pdf)
 
 Choosing a measure of central tendency
 
-- [symmetric distributions](http://geog.uoregon.edu/GeogR/images/symdist1.gif)
+- [symmetric distributions](https://pjbartlein.github.io/GeogDataAnalysis/images/symdist1.gif)
 - [asymmetric distributions
-](http://geog.uoregon.edu/GeogR/images/asymdist1.gif)
+](https://pjbartlein.github.io/GeogDataAnalysis/images/asymdist1.gif)
 
 ## Measures of Variability, Scale or Dispersion ##
 
@@ -59,17 +59,17 @@ Interquartile range
 
 Variance and standard deviation
 
-- [definitions](http://geog.uoregon.edu/GeogR/topics/variance.pdf)
+- [definitions](https://pjbartlein.github.io/GeogDataAnalysis/topics/variance.pdf)
 
 Coefficient of variation
 
-- [definition](http://geog.uoregon.edu/GeogR/topics/coeffvar.pdf)
+- [definition](https://pjbartlein.github.io/GeogDataAnalysis/topics/coeffvar.pdf)
 
 ## Measures of the shapes of distributions ##
 
 Skewness and kurtosis
 
-- [definitions](http://geog.uoregon.edu/GeogR/topics/moments.pdf)
+- [definitions](https://pjbartlein.github.io/GeogDataAnalysis/topics/moments.pdf)
 
 [[Back to top]](lec04.html)
 
@@ -78,8 +78,8 @@ Skewness and kurtosis
 Descriptive statistics can be most easily obtained in R using the `summary()` function.  The summary command is generic in the sense that object or "argument" of the function could be anything.  If the argument is a data frame, `summary()` returns descriptive statistics for each variable, whereas if the argument is a single variable, `summary()` just returns the descriptive statistics for that variable.
 
 Data files for these examples (download to the working directory and read in):
-[[scanvote.csv]](http://geog.uoregon.edu/GeogR/data/csv/scanvote.csv)
-[[specmap.csv]](http://geog.uoregon.edu/GeogR/data/csv/specmap.csv)
+[[scanvote.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/scanvote.csv)
+[[specmap.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/specmap.csv)
 
 ```{r load, echo=FALSE, cache=FALSE}
 load(".Rdata")
@@ -136,16 +136,16 @@ Bivariate descriptive statistics allow the strength dependence of the relationsh
 The correlation coefficient is a simple descriptive statistic that measures the strength of the linear relationship between two interval- or ratio-scale variables (as opposed to categorical, or nominal-scale variables), as might be visualized in a scatter plot.  The value of the correlation coefficient, usually symbolized as r, ranges from -1 (for a perfect negative (or inverse) correlation) to +1 for a perfect positive (or direct) correlation.
 
 Data files for these examples (download to the working directory and read in):
-[[cities.csv]](http://geog.uoregon.edu/GeogR/data/csv/cities.csv)
-[[sumcr.csv]](http://geog.uoregon.edu/GeogR/data/csv/sumcr.csv)
-[[sierra.csv]](http://geog.uoregon.edu/GeogR/data/csv/sierra.csv)
-[[orstationc.csv]](http://geog.uoregon.edu/GeogR/data/csv/orstationc.csv)
+[[cities.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/cities.csv)
+[[sumcr.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/sumcr.csv)
+[[sierra.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/sierra.csv)
+[[orstationc.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/orstationc.csv)
 
 ## Correlation coefficients ##
 
-[[Correlation definition]](http://geog.uoregon.edu/GeogR/topics/correlation.pdf)  
+[[Correlation definition]](https://pjbartlein.github.io/GeogDataAnalysis/topics/correlation.pdf)  
 
-[[Illustrations of the strength of the correlation]](http://geog.uoregon.edu/GeogR/images/corr.gif)
+[[Illustrations of the strength of the correlation]](https://pjbartlein.github.io/GeogDataAnalysis/images/corr.gif)
 
 Produce examples of 
 - a scatter plot matrix (a graphical summary)
@@ -214,7 +214,7 @@ mosaicplot(ReachHU.table, color=T)
 
 The *X<sup>2</sup>* statistic measures the strength of association between two categorical variables (nominal- or ordinal-scale variables, summarized by a cross-tabulation, a table that shows the frequency of occurrence of observations with particular combinations of the levels of two (or more) variables.
 
-[[Chi-squared definition]](http://geog.uoregon.edu/GeogR/topics/chisq.pdf)
+[[Chi-squared definition]](https://pjbartlein.github.io/GeogDataAnalysis/topics/chisq.pdf)
 
 Calculate the *X2* statistic for the `ReachHU` table.
 

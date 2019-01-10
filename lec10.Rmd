@@ -34,7 +34,7 @@ In the case of the sample mean, the appropriate reference distribution is the no
 
 Uncertainty in the mean can be described by the standard error of the mean or by the confidence interval for the mean. The standard error of the mean can be thought of as the standard deviation of a set mean values from repeated samples.
 
-Definition of the [standard error of the mean](http://geog.uoregon.edu/GeogR/topics/semean.pdf)
+Definition of the [standard error of the mean](https://pjbartlein.github.io/GeogDataAnalysis/topics/semean.pdf)
 
 Here is a demonstration using simulated data and repeated samples of different sizes
 
@@ -135,7 +135,7 @@ This demonstrates that the standard error of the mean is insensitive to the unde
 
 ## Confidence intervals ##
 
-The confidence interval provides a verbal or graphical characterization, based on the information in a sample, of the likely range of values within which the "true" or population mean lies.  This example uses an artificial data set  [[cidat.csv]](http://geog.uoregon.edu/GeogR/data/csv/cidat.csv)
+The confidence interval provides a verbal or graphical characterization, based on the information in a sample, of the likely range of values within which the "true" or population mean lies.  This example uses an artificial data set  [[cidat.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/cidat.csv)
 
 `cidat` is a data frame that can be generated as follows
 ```{r eval=FALSE}
@@ -201,7 +201,7 @@ The standard error of the mean, along with the knowledge that the sample mean is
 
 Here's a short discussion of simple inferential statistics:
 
-- [[simple inferential statistics]](http://geog.uoregon.edu/GeogR/topics/simpleinf.pdf)
+- [[simple inferential statistics]](https://pjbartlein.github.io/GeogDataAnalysis/topics/simpleinf.pdf)
 
 [[Back to top]](lec10.html)
 
@@ -236,7 +236,7 @@ The steps in the &quot;p-value&quot; approach are:
 4. calculate the probability that a value of the test statistic as large as that observed would occur by chance if the null hypothesis were true (this probability, or _p-value_, is called the significance level).
 5. if the significance level is small, the tested hypothesis (H<sub>o</sub>) is discredited, and we assert that a &quot;significant result&quot; or &quot;significant difference&quot; has been observed.
 
-- [short guide to interpreting test statistics, p-values, and significance](http://geog.uoregon.edu/GeogR/topics/interpstats.pdf)
+- [short guide to interpreting test statistics, p-values, and significance](https://pjbartlein.github.io/GeogDataAnalysis/topics/interpstats.pdf)
 
 [[Back to top]](lec10.html)
 
@@ -261,7 +261,7 @@ You can read about the origin of Gosset's pseudonum (and his contributions to br
 
 ## The *t*-test for assessing differences in group means##
 
-[[Details of the t-test]](http://geog.uoregon.edu/GeogR/topics/ttest.pdf)
+[[Details of the t-test]](https://pjbartlein.github.io/GeogDataAnalysis/topics/ttest.pdf)
 
 There are two ways the *t*-test is implemented in practice, depending on the nature of the question being asked and hence on the nature of the null hypotheis:
 
@@ -270,8 +270,8 @@ There are two ways the *t*-test is implemented in practice, depending on the nat
 
 Example data sets:  
 
-- [[ttestdat.csv]](http://geog.uoregon.edu/GeogR/data/csv/ttestdat.csv)
-- [[foursamples.csv]](http://geog.uoregon.edu/GeogR/data/csv/foursamples.csv)
+- [[ttestdat.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/ttestdat.csv)
+- [[foursamples.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/foursamples.csv)
 
 Attach the example data, and get a boxplot of the data by group:
 
@@ -313,7 +313,7 @@ Here the *t*-statistic is relatively large and the *p*-value very small, lending
 
 One assumption that underlies the *t*-test is that the variances (or dispersions) of the two samples are equal.  A modification of the basic test allows cases when the variances are approximately equal to be handled, but large differences in variability between the two groups can have an impact on the interpretability of the test results:  
 
-Example data:  [[foursamples.csv]](http://geog.uoregon.edu/GeogR/data/csv/foursamples.csv)
+Example data:  [[foursamples.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/foursamples.csv)
 
 *t*-tests among groups with different variances
 

@@ -48,7 +48,7 @@ The display of high resolution data (in addition to the standard approach of sim
 
 Begin by loading the appropriate packages and  reading the data, along with a shape file that is used to quickly map the data. 
 
-Data: [[wus_pratio.csv]](http://geog.uoregon.edu/GeogR/data/csv/wus_pratio.csv)     Shapefile components:  [[wus.shp]](http://geog.uoregon.edu/GeogR/data/shp/wus.shp) [[wus.dbf]](http://geog.uoregon.edu/GeogR/data/shp/wus.dbf) [[wus.shx]](http://geog.uoregon.edu/GeogR/data/shp/wus.shx)
+Data: [[wus_pratio.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/wus_pratio.csv)     Shapefile components:  [[wus.shp]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/wus.shp) [[wus.dbf]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/wus.dbf) [[wus.shx]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/wus.shx)
 
 ```{r hd02, message=FALSE}
 library(maptools) # loads sp library too
@@ -189,7 +189,7 @@ Then, to run `JGR`:
 - use the `JGR` `Workspace` menu to load a workspace, or paste the following into the bottom pane of the `JGR` app:
 
 ```{r loadWorkspace, eval=FALSE, echo=TRUE}
-con <- url("http://geog.uoregon.edu/GeogR/data/Rdata/geog495.RData")
+con <- url("https://pjbartlein.github.io/GeogDataAnalysis/data/Rdata/geog495.RData")
 load(file=con)
 close(con)
 ```

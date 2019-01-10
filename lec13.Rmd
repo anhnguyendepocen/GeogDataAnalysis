@@ -24,18 +24,18 @@ Multiple regression is (conceptually) a simple extension of bivariate regression
 
 A couple of illustrations jointly describe the idea of fitting a plane:  
 
-- [fitting a plane using two predictor variables](http://geog.uoregon.edu/GeogR/images/nwk7_1.gif)
-- [one data point and its deviation from the regression plane or response surface](http://geog.uoregon.edu/GeogR/images/mreg.gif)
+- [fitting a plane using two predictor variables](https://pjbartlein.github.io/GeogDataAnalysis/images/nwk7_1.gif)
+- [one data point and its deviation from the regression plane or response surface](https://pjbartlein.github.io/GeogDataAnalysis/images/mreg.gif)
 
 # Fitting a multiple regression equation #
 
 The mathematics behind multiple regression analysis is more complicated than that for bivariate regression, but can be elegantly presented using matrix algebra  
 
-- [matrix algebra](http://geog.uoregon.edu/GeogR/topics/matrix.pdf)
-- [regression analysis in matrix algebra terms](http://geog.uoregon.edu/GeogR/topics/matreg.pdf)
+- [matrix algebra](https://pjbartlein.github.io/GeogDataAnalysis/topics/matrix.pdf)
+- [regression analysis in matrix algebra terms](https://pjbartlein.github.io/GeogDataAnalysis/topics/matreg.pdf)
 
 The following example provide a short illustration of the use of matrix algebra to obtain the regression coefficients.  
-The  example data set for illustrating the use of regression diagnostics [[regrex3.csv]](http://geog.uoregon.edu/GeogR/data/csv/regrex3.csv) is used here, in particular, the multiple regression using `x1` and `x2` as predictors for the response variable `y5`
+The  example data set for illustrating the use of regression diagnostics [[regrex3.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/regrex3.csv) is used here, in particular, the multiple regression using `x1` and `x2` as predictors for the response variable `y5`
 
 First, take a look at the different variables in the example data set.
 
@@ -118,7 +118,7 @@ If the assumptions are not violated, then the Gauss-Markov theorem indicates tha
 If the assumptions are violated, then there may be two consequences--the estimated coefficients may be biased (i.e. systematically wrong), and they may longer have minimum variance (i.e. their uncertainty increases).
 
 - the notion of variability of the regression coefficients
-- illustrations using repeated simulations of data sets with built-in assumption violations [[examples]](http://geog.uoregon.edu/GeogR/images/violate1.gif), [[solutions]](http://geog.uoregon.edu/GeogR/images/violate2.gif)
+- illustrations using repeated simulations of data sets with built-in assumption violations [[examples]](https://pjbartlein.github.io/GeogDataAnalysis/images/violate1.gif), [[solutions]](https://pjbartlein.github.io/GeogDataAnalysis/images/violate2.gif)
 
 [[Back to top]](lec13.html)
 
@@ -128,7 +128,7 @@ There are several ways to test whether the assumptions that underlie regression 
 
 A good way to understand the way in which the various statistics and diagnostic plots allow one to examine the reqression equation, its goodness-of-fit, and a to assess the possibility of assumption violations is to design-in various assumption violations and issues, and compare the results to a regression analysis without issues.
 
-An example data set for illustrating the use of regression diagnostics [[regrex3.csv]](http://geog.uoregon.edu/GeogR/data/csv/regrex3.csv)
+An example data set for illustrating the use of regression diagnostics [[regrex3.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/regrex3.csv)
 First, take a look at the different variables in the example data set.
 
 ```{r rdiag01, fig.width=7, fig.height=7}
@@ -282,7 +282,7 @@ par(oldpar)
 
 These issues will be examined using the standard diagnostic plots, as well as the Moran statistic for assessing spatial autocorrelation, and the curvilinearity/collinearity issue will be handled by transformation and "best subsets" predictor selection.  
 
-Here are the data [[midwtf2]](http://geog.uoregon.edu/GeogR/data/csv/midwtf2.csv), and the components of a shape file for mapping the data and results [[.dbf]](http://geog.uoregon.edu/GeogR/data/shp/midwotl.dbf)  [[.shx]](http://geog.uoregon.edu/GeogR/data/shp/midwotl.shx)  [[.shp]](http://geog.uoregon.edu/GeogR/data/shp/midwotl.shp)
+Here are the data [[midwtf2]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/midwtf2.csv), and the components of a shape file for mapping the data and results [[.dbf]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/midwotl.dbf)  [[.shx]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/midwotl.shx)  [[.shp]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/midwotl.shp)
 
 ```{r libraries, echo=FALSE, include=FALSE}
 library(maptools)
@@ -356,7 +356,7 @@ The assuption that the prediction errors or residuals are assumed to be independ
 
 In this example, spatial autocorrelation of the residuals will the issue.  The *Moran statistic* is a measure of spatial autocorrelation, and in the regressions below, will be used to test for spatial pattern in the residuals as the model is gradually refined.
 
-- [Moran statistic details](http://geog.uoregon.edu/GeogR/topics/moran.pdf)
+- [Moran statistic details](https://pjbartlein.github.io/GeogDataAnalysis/topics/moran.pdf)
 
 To illustrate the Moran statistic, and gain an impression of the level of spatial autocorrelation in the response (as opposed to the residuals) calculate the Moran statistic for July temperature, the response.  First, map the July temperature variables:
 
@@ -564,7 +564,7 @@ moran.test(residuals(tmeanjul.lm3), zero.policy=T,
 
 Sometimes a data set exists in which fitting different relationships for subsets of the observations are in order.  This situation is exemplified by the Scandinavian EU preference data.  The technique knows as *dummy-variable* regression allows the simulataneous calculation of separate regression lines for subsets of the data, or in the example here, for the individual countries.  The regression lines can vary in either their slopes or intercepts, or both.
 
-Here are the shapefile components, which include the data:  [[.dbf]](http://geog.uoregon.edu/GeogR/data/shp/scand.dbf) [[.shx]](http://geog.uoregon.edu/GeogR/data/shp/scand.shx) [[.shp]](http://geog.uoregon.edu/GeogR/data/shp/scand.shp)
+Here are the shapefile components, which include the data:  [[.dbf]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/scand.dbf) [[.shx]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/scand.shx) [[.shp]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/scand.shp)
 
 ```{r dum01, echo=FALSE, include=FALSE}
 library(maptools)

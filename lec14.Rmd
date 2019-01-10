@@ -42,9 +42,9 @@ Another way of looking at scatter diagram smoothing is as a way of depicting the
 
 In ordinary linear regression analysis, the objective can be considered to be drawing a line through the data in an optimal way, where the parameters (regression coefficients) are determined using all of the data, i.e. they are globally determined.  However, it is possible to think of the line as connecting the points, that for each value of X, represent the local density maxima of Y--it just happens that these local maxima happen to be arranged along a straight line.
 
-- [the scatter diagram and fitted line](http://geog.uoregon.edu/GeogR/images/nwk2_3.gif)
-- [the conceptual model that underlies the interpretation of the line](http://geog.uoregon.edu/GeogR/images/nwk2_4.gif)
-- [curvilinear regression](http://geog.uoregon.edu/GeogR/images/nwk2_5.gif)
+- [the scatter diagram and fitted line](https://pjbartlein.github.io/GeogDataAnalysis/images/nwk2_3.gif)
+- [the conceptual model that underlies the interpretation of the line](https://pjbartlein.github.io/GeogDataAnalysis/images/nwk2_4.gif)
+- [curvilinear regression](https://pjbartlein.github.io/GeogDataAnalysis/images/nwk2_5.gif)
 
 ## Loess curves ##
 
@@ -54,9 +54,9 @@ The bivariate smoother used most frequently in practice is known as a "lowess" o
 
 The mechanics of loess:
 
-- [the locally weighted "fitted value" at a particular point](http://geog.uoregon.edu/GeogR/images/v3_7.gif)
-- [what happens at the margin of the scatter diagram](http://geog.uoregon.edu/GeogR/images/v3_8.gif)
-- [the mathematics of loess](http://geog.uoregon.edu/GeogR/topics/loess.pdf)
+- [the locally weighted "fitted value" at a particular point](https://pjbartlein.github.io/GeogDataAnalysis/images/v3_7.gif)
+- [what happens at the margin of the scatter diagram](https://pjbartlein.github.io/GeogDataAnalysis/images/v3_8.gif)
+- [the mathematics of loess](https://pjbartlein.github.io/GeogDataAnalysis/topics/loess.pdf)
 
 The parameters of an individual `loess()` curve:  
 

@@ -42,14 +42,14 @@ Analysis of variance for testing for the equality of k mean values is a special 
 
 The basic analysis of variance involves one nominal or ordinal scale variable that can be used to place each observation into two or more groups, along with a single response variable.  The analysis can be viewed as determining whether knowledge of the group that a particular observation falls in will allow a better idea of the expected value of the response variable to be gained than in the absence of that knowledge.
 
-- [[definition]](http://geog.uoregon.edu/GeogR/topics/anova.pdf)
-- [[the null and alternative hypothesis]](http://geog.uoregon.edu/GeogR/images/aov.gif)
+- [[definition]](https://pjbartlein.github.io/GeogDataAnalysis/topics/anova.pdf)
+- [[the null and alternative hypothesis]](https://pjbartlein.github.io/GeogDataAnalysis/images/aov.gif)
     
 There are several approaches for evaluating the reasonableness of the assumption of homogeneity of variance.  A simple one is Bartlett's test: 
 
-- [[a test for homogeneity of variance]](http://geog.uoregon.edu/GeogR/topics/bartlett.pdf)
+- [[a test for homogeneity of variance]](https://pjbartlein.github.io/GeogDataAnalysis/topics/bartlett.pdf)
     
-Here is an example data set:  [[anovadat.csv]](http://geog.uoregon.edu/GeogR/data/csv/anovadat.csv)
+Here is an example data set:  [[anovadat.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/anovadat.csv)
 
 
 In R's implementation of the `aov()` function the group membership is expected to be represented by a "`factor`".  If the data set is being read in here, the group-membership variables will have to be converted to factors.  (They are alread factors in the `geog495.Rdata` workspace, so if that's how the data were read in the next step can be skipped.)
@@ -83,7 +83,7 @@ pdf_f <- df(x,df1,df2)
 plot(pdf_f ~ x, type="l")
 ```
 
-See the guide for interpreting p-values for reference:  [short guide to interpreting test statistics, p-values, and significance](http://geog.uoregon.edu/GeogR/topics/interpstats.pdf)
+See the guide for interpreting p-values for reference:  [short guide to interpreting test statistics, p-values, and significance](https://pjbartlein.github.io/GeogDataAnalysis/topics/interpstats.pdf)
 
 ### Example 1 -- Significant differences in the means, but variances are not significantly different ###
 

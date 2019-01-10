@@ -28,10 +28,10 @@ Multivariate analysis of variance, or MANOVA, like univariate analysis of varian
 
 Illustration of the conceptual model:
 
-- The univariate analysis of variance situation [[aov.gif]](http://geog.uoregon.edu/GeogR/figures/aov.gif)
-- The multivariate analysis of variance situation [[manova.gif]](http://geog.uoregon.edu/GeogR/figures/manova1.gif)
+- The univariate analysis of variance situation [[aov.gif]](https://pjbartlein.github.io/GeogDataAnalysis/figures/aov.gif)
+- The multivariate analysis of variance situation [[manova.gif]](https://pjbartlein.github.io/GeogDataAnalysis/figures/manova1.gif)
 
-- [Details of MANOVA](http://geog.uoregon.edu/GeogR/topics/manova.pdf)
+- [Details of MANOVA](https://pjbartlein.github.io/GeogDataAnalysis/topics/manova.pdf)
 
 ## ANOVA on individual variables ##
 
@@ -100,11 +100,11 @@ In short, the analysis can be thought of as answering the related questions:  Ar
 
 Illustration of the conceptual model
 
-- The discriminant analysis situation:  [[discrim1.gif]](http://geog.uoregon.edu/GeogR/figures/discrim1.gif)
+- The discriminant analysis situation:  [[discrim1.gif]](https://pjbartlein.github.io/GeogDataAnalysis/figures/discrim1.gif)
 
 Details and examples
 
-- [Details of discriminant analysis](http://geog.uoregon.edu/GeogR/topics/da.pdf)
+- [Details of discriminant analysis](https://pjbartlein.github.io/GeogDataAnalysis/topics/da.pdf)
 
 As an example of discriminant analysis, following up on the MANOVA of the Summit Cr. data, we can investigate how the reaches differ from one another, or in other words, we can identify the variables that best illustrate the difference among the reaches.
 

@@ -35,7 +35,7 @@ Details of regression analysis, including:
 - other quantities in regression analysis (fitted values, residuals, sums of squares)
 - "fitting" the regression equation
 
-can be found [here](http://geog.uoregon.edu/GeogR/topics/regression1.pdf).
+can be found [here](https://pjbartlein.github.io/GeogDataAnalysis/topics/regression1.pdf).
 
 [[Back to top]](lec12.html)
 
@@ -45,7 +45,7 @@ The simplest regression model is the bivariate one, in which there is one respon
 
 ## Fitting a regression equation (or linear model) ##
 
-Building a bivariate linear regression model to represent the relationship between two variables by a straight line involves determining the coefficients of that line, a process known as "fitting" the regression line.  First plot the data!  [[regrex1.csv]](http://geog.uoregon.edu/GeogR/data/csv/regrex1.csv)
+Building a bivariate linear regression model to represent the relationship between two variables by a straight line involves determining the coefficients of that line, a process known as "fitting" the regression line.  First plot the data!  [[regrex1.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/regrex1.csv)
 
 ```{r regr01} 
 plot(y ~ x, data=regrex1)
@@ -111,7 +111,7 @@ matlines(pred_ex1, conf_int, lty=c(1,2,2), col="red")
 
 ## A second example ##
 
-Side-by-side comparisons of results of regression analyses provide a means for understanding just what is being described by the summary statistics.  A second example shows how the regression equation and goodness-of-fit statistics vary as a function of the strength of the relationship between the response and predictor variable.  [[regrex2.csv]](http://geog.uoregon.edu/GeogR/data/csv/regrex2.csv)
+Side-by-side comparisons of results of regression analyses provide a means for understanding just what is being described by the summary statistics.  A second example shows how the regression equation and goodness-of-fit statistics vary as a function of the strength of the relationship between the response and predictor variable.  [[regrex2.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/regrex2.csv)
 
 
 ```{r regr12}

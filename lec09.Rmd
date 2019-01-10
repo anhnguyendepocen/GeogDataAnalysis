@@ -178,7 +178,7 @@ Note that this approach for using an empirical reference distribution  is a gene
 
 Much of the time, a data set large enough to make probabilistic-type statements about the values of a statistic does not exist, or the statistic may be difficult to observe.  In such cases, theoretical reference distributions allow the significance of particular values of statistics to be evaluated.  One distribution that is applicable to many cases in practice is the normal distribution, and the Central Limit Theorem explains the source of that general applicability.
 
-- [the normal distribution](http://geog.uoregon.edu/GeogR/topics/normaldist.pdf)
+- [the normal distribution](https://pjbartlein.github.io/GeogDataAnalysis/topics/normaldist.pdf)
 
 ## Density functions for the normal distribution ##
 
@@ -312,7 +312,7 @@ hist(mean.Uniform, nclass=40, probability=T, xlim=c(xmin,xmax))
 
 Although the normal distribution is applicable in a number of situations (owing to the implications of the Central Limit Theorem), other situations arise, in which other referernce distributions may apply.
 
-- [details of other reference distributions](http://geog.uoregon.edu/GeogR/topics/theoretical.pdf)
+- [details of other reference distributions](https://pjbartlein.github.io/GeogDataAnalysis/topics/theoretical.pdf)
 
 #Readings#  
 

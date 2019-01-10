@@ -32,9 +32,9 @@ The second topic *matrix algebra* can be thought of as an efficient way of docum
 
 A simple example of data wrangling, or the reshaping of non-rectangular data set into a rectangular one, can be illustrated using a small sample of monthly climate data for Eugene.  These data are not currently part of the `geog495.RData` workspace file, but can be dowloaded here:
 
-- [EugeneClim-short.csv](http://geog.uoregon.edu/GeogR/data/csv/EugeneClim-short.csv) -- Three years (2013-2015) of monthly climate data for Eugene;
-- [EugeneClim-short-alt-tvars.csv](http://geog.uoregon.edu/GeogR/data/csv/EugeneClim-short-alt-tvars.csv) -- Temperature data for those three years in an alternative format that is not tidy (i.e. columns are months (or observations) and rows are variables); and
-- [EugeneClim-short-alt-pvars.csv](http://geog.uoregon.edu/GeogR/data/csv/EugeneClim-short-alt-pvars.csv) -- Precipitation data, also in an alternative format.
+- [EugeneClim-short.csv](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/EugeneClim-short.csv) -- Three years (2013-2015) of monthly climate data for Eugene;
+- [EugeneClim-short-alt-tvars.csv](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/EugeneClim-short-alt-tvars.csv) -- Temperature data for those three years in an alternative format that is not tidy (i.e. columns are months (or observations) and rows are variables); and
+- [EugeneClim-short-alt-pvars.csv](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/EugeneClim-short-alt-pvars.csv) -- Precipitation data, also in an alternative format.
 
 The full data set can be downloaded from here:  [EugeneClim.csv](ttp://geog.uoregon.edu/GeogR/data/csv/EugeneClim.csv)
 
@@ -288,7 +288,7 @@ plot(eugclim$tavg_anm ~ eugclim$yrmn, type="o", pch=16, col="green", xaxp=c(2013
 
 Matrix algebra provides an elegant way of representing both the data the kind of operations on tables or arrays that frequently come up in data analysis, and when implemented numerically, matrix algebra also provides efficient an means of carrying those operations out.  The following is a brief introduction to matrix algebra as implmented in R.
 
-A short dicussion of matrices in general, special matrices, and matrix operations can be found here:  [matrix.pdf](http://geog.uoregon.edu/GeogR/topics/matrix.pdf)
+A short dicussion of matrices in general, special matrices, and matrix operations can be found here:  [matrix.pdf](https://pjbartlein.github.io/GeogDataAnalysis/topics/matrix.pdf)
 
 ## Some basic matrix definitions in R ##
 
@@ -427,7 +427,7 @@ P
 
 ### Matrix multiplication ###
 
-Matrix multiplication (see [matrix.pdf](http://geog.uoregon.edu/GeogR/topics/matrix.pdf)) results in a a set of sums and crossproducts, as opposed to element-by-element products.  Matrix multiplication is symbolized by the `%*%` operator:
+Matrix multiplication (see [matrix.pdf](https://pjbartlein.github.io/GeogDataAnalysis/topics/matrix.pdf)) results in a a set of sums and crossproducts, as opposed to element-by-element products.  Matrix multiplication is symbolized by the `%*%` operator:
 
 ```{r matrix multiplication}
 # matrix multiplication
@@ -511,7 +511,7 @@ zapsmall(D)
 
 ### Eigenvectors and eigenvalues ###
 
-An important concept that comes up in multivariate analysis is the *decomposition* of a matrix like the correlation matrix **R** (see [matrix.pdf](http://geog.uoregon.edu/GeogR/topics/matrix.pdf)), into another square matrix, **E**, and a diagonal matrix, **V**, that each have some desireable properties, and which make the following statement true:  **RE** = **EV**, where **V** is a diagonal matrix with the elements v<sub>i</sub> along the diagonal.  The matrix **E** contains the *eigenvectors* of **R**, while the v<sub>i</sub>'s are the *eigenvalues* of **R**.
+An important concept that comes up in multivariate analysis is the *decomposition* of a matrix like the correlation matrix **R** (see [matrix.pdf](https://pjbartlein.github.io/GeogDataAnalysis/topics/matrix.pdf)), into another square matrix, **E**, and a diagonal matrix, **V**, that each have some desireable properties, and which make the following statement true:  **RE** = **EV**, where **V** is a diagonal matrix with the elements v<sub>i</sub> along the diagonal.  The matrix **E** contains the *eigenvectors* of **R**, while the v<sub>i</sub>'s are the *eigenvalues* of **R**.
 
 ```{r eigen}
 # eigenvectors
