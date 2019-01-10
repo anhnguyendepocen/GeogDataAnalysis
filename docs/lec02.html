@@ -519,7 +519,7 @@ $(document).ready(function () {
 <div id="univariate-enumerative-plots" class="section level1">
 <h1><span class="header-section-number">2</span> Univariate Enumerative Plots</h1>
 <p>Enumerative plots, in which all observations are shown, have the advantage of not losing any specific information–the values of the individual observations can be retrieved from the plot. The disadvantage of such plots arises when there are a large number of observations–it may be difficult to get an overall view of the properties of a variable. Enumerative plots do a fairly good job of displaying the location, dispersion and distribution of a variable, but may not allow a clear comparison of variables, one to another.</p>
-<p>Data files for these examples: <a href="http://geog.uoregon.edu/GeogR/data/csv/cities.csv">[cities.csv]</a> <a href="http://geog.uoregon.edu/GeogR/data/csv/specmap.csv">[specmap.csv]</a></p>
+<p>Data files for these examples: <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/cities.csv">[cities.csv]</a> <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/specmap.csv">[specmap.csv]</a></p>
 <p>It’s often handy to create independent directories for input data sets (e.g. <code>.csv</code> files), as opposed to cluttering up the working directory. For the examples here, folders along the following path were created:</p>
 <ul>
 <li>Mac: “<code>/Users/bartlein/Projects/geog495/data/csv/</code>”</li>
@@ -600,7 +600,7 @@ specmap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)
 <div id="univariate-summary-plots" class="section level1">
 <h1><span class="header-section-number">3</span> Univariate Summary Plots</h1>
 <p>Summary plots display an object or a graph that gives a more concise expression of the location, dispersion, and distribution of a variable than an enumerative plot, but this comes at the expense of some loss of information: In a summary plot, it is no longer possible to retrieve the individual data value, but this loss is usually matched by the gain in understanding that results from the efficient representation of the data. Summary plots generally prove to be much better than the enumerative plots in revealing the distribution of the data.</p>
-<p>Data files for these examples (download to working directory): <a href="http://geog.uoregon.edu/GeogR/data/csv/specmap.csv">[specmap.csv]</a> <a href="http://geog.uoregon.edu/GeogR/data/csv/scanvote.csv">[scanvote.csv]</a></p>
+<p>Data files for these examples (download to working directory): <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/specmap.csv">[specmap.csv]</a> <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/scanvote.csv">[scanvote.csv]</a></p>
 <p>Read the two data sets if they are not already in the workspace or environment. The <code>scanvote</code> data set will be explained below.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">csvfile &lt;-<span class="st"> &quot;/Users/bartlein/Projects/geog495/data/csv/specmap.csv&quot;</span>
 specmap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)
@@ -625,8 +625,8 @@ scanvote &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)
 <div id="density-plots-or-kernel-plotssmoothed-histograms" class="section level3">
 <h3><span class="header-section-number">3.1.2</span> Density Plots (or Kernel Plots/Smoothed Histograms)</h3>
 <p>A density plot is a plot of the local relative frequency or density of points along the number line or x-axis of a plot. The local density is determined by summing the individual “kernel” densities for each point. Where points occur more frequently, this sum, and consequently the local density, will be greater. Density plots get around some of the problems that histograms have, but still require some choices to be made.</p>
-<p><a href="http://geog.uoregon.edu/GeogR/images/hist_smooth.gif">[histogram smoothing illustration]</a><br />
-<a href="http://geog.uoregon.edu/GeogR/images/kernel_type.gif">[different kernels]</a></p>
+<p><a href="https://pjbartlein.github.io/GeogDataAnalysis/images/hist_smooth.gif">[histogram smoothing illustration]</a><br />
+<a href="https://pjbartlein.github.io/GeogDataAnalysis/images/kernel_type.gif">[different kernels]</a></p>
 <p>Density plot of the O18 data. Note that in this example, an object <code>O18.density</code> is created by the <code>density()</code> function, and then plotted using the <code>plot()</code> function.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">O18.density &lt;-<span class="st"> </span><span class="kw">density</span>(O18)
 <span class="kw">plot</span>(O18.density)</code></pre></div>
@@ -655,7 +655,7 @@ scanvote &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)
 <div id="an-aside-on-reference-distributions" class="section level2">
 <h2><span class="header-section-number">3.2</span> An Aside on Reference Distributions</h2>
 <p>There are a number of “theoretical” reference distributions that arise in data analysis that can be compared with observed or empirical distributions (i.e. of a set of observations of a particular variable) and used in other ways. One of the more frequently used reference distributions is the normal distribution (which arises frequently in practice owing to the Central Limit Theorem).</p>
-<p><a href="http://geog.uoregon.edu/GeogR/topics/normaldist.pdf">[The normal distribution]</a></p>
+<p><a href="https://pjbartlein.github.io/GeogDataAnalysis/topics/normaldist.pdf">[The normal distribution]</a></p>
 <p>Theoretical distributions are represented by their:</p>
 <ul>
 <li>probability density functions (PDFs) which illustrate the probability (p) of observing different values of a particular variable</li>
@@ -678,7 +678,7 @@ invcdf.z &lt;-<span class="st"> </span><span class="kw">qnorm</span>(p)  <span c
 <div id="qq-plot-or-qq-normal-plot" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> QQ Plot (or QQ Normal Plot)</h3>
 <p>A quantile plot is a two-dimensional graph where each observation is shown by a point, so strictly speaking, a QQ plot is an enumerative plot. The data value for each point is plotted along the vertical or y-axis, while the equivalent quantile (e.g. a percentile) value is plotted along the horizontal or x-axis. The quantiles plotted along the x-axis could be empirical ones, like the percentile equivalents or rank for each value, or they could be theoretical ones corresponding to the “p-values” of a reference distribution (e.g. a normal distribution) with the same parameters as the variable being examined. In practice, the shape of the QQ plot is the issue:</p>
-<p><a href="http://geog.uoregon.edu/GeogR/images/qqplots.gif">[a variety of histograms and QQ Plots]</a></p>
+<p><a href="https://pjbartlein.github.io/GeogDataAnalysis/images/qqplots.gif">[a variety of histograms and QQ Plots]</a></p>
 <p>The qqnorm plot plots the data values along the y-axis, and p-values of the normal distribution along the x-axis. qqline adds a straight line that passes through the first and third quartiles (25th and 75th percentiles) and can be used to assess (a) the overall departure of the observed distribution from a normal distribution with the same parameters (mean and standard deviation) as the observations, and (b) outliers or unsual points.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqnorm</span>(Pop)
 <span class="kw">qqline</span>(Pop)</code></pre></div>

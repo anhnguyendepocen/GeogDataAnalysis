@@ -302,7 +302,7 @@ This example makes use of a data set of 4360 modern pollen samples for North Ame
 
 ```{r read napollen}
 # read the North American modern pollen data
-csv_path <- "/Users/bartlein/Projects/ESSD/data/csv_files/"
+csv_path <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/csv_files/"
 csv_name <- "NAmodpol.csv"
 csv_file <- paste(csv_path, csv_name, sep="")
 napol <- read.csv(csv_file) # takes a while
@@ -379,7 +379,7 @@ The data here come from a long pollen record from Carp L., in Washington State. 
 
 ```{r read carp}
 # read Carp L. pollen data (transformed to square-roots)
-csvpath <- "/Users/bartlein/Projects/ESSD/data/csv_files/"
+csvpath <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/csv_files/"
 csvname <- "carp96t.csv" # square-root transformed data
 carp <- read.csv(paste(csvpath, csvname, sep=""))
 summary(carp)
@@ -434,7 +434,7 @@ Read a world shapefile to overlay on simple `levelplot()` maps for orientation.
 
 ```{r read world shape file, message=FALSE, warning=FALSE}
 # read world.shp
-shp_path <- "/Users/bartlein/Projects/ESSD/data/shp_files/world2013/"
+shp_path <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/shp_files/world2013/"
 shp_name <- "world2013.shp" 
 shp_file <- paste(shp_path, shp_name, sep="")
 world.shp <- readShapeLines(shp_file,proj4string=CRS("+proj=longlat"))
@@ -446,7 +446,7 @@ Read the data, and also "rotate" it so the longitudes run from -180 to +180:
 
 ```{r read tr21, message=FALSE, warning=FALSE}
 # read TraCE21-ka transient climate-model simulation decadal data
-tr21dec_path <- "/Users/bartlein/Projects/ESSD/data/nc_files/"
+tr21dec_path <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/nc_files/"
 tr21dec_name <- "Trace21_TREFHT_anm2.nc"
 tr21dec_file <- paste(tr21dec_path, tr21dec_name, sep="")
 tas_anm_ann <- brick(tr21dec_file, varname="tas_anm_ann", band=seq(1:2204))
