@@ -1,1 +1,0 @@
-install.packages(c("sp", "maptools", "rgeos", "rgdal", "maps", "mapproj", "mapdata", "classInt", "scatterplot3d", "RColorBrewer", "gstat", "spdep", "vcd" ))
