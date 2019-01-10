@@ -15,7 +15,7 @@ knitr::opts_chunk$set(dev='png', dpi=300, cache=TRUE)
 pdf.options(useDingbats = TRUE)
 ```
 
-#Introduction#
+# Introduction #
 
 In describing or characterizing the observations of an individual variable, there are three basic properties that are of interest:
 
@@ -30,7 +30,7 @@ There are two basic kinds of univariate, or one-variable-at-a-time plots,
 1. Enumerative plots, or plots that show every observation, and
 2. Summary plots, that generalize the data into a simplified representation.  
 
-#Univariate Enumerative Plots#
+# Univariate Enumerative Plots #
 
 Enumerative plots, in which all observations are shown, have the advantage of not losing any specific information--the values of the individual observations can be retrieved from the plot.  The disadvantage of such plots arises when there are a large number of observations--it may be difficult to get an overall view of the properties of a variable.  Enumerative plots do a fairly good job of displaying the location, dispersion and distribution of a variable, but may not allow a clear comparison of variables, one to another.
 
@@ -151,7 +151,7 @@ detach(cities)
 
 [[Back to top]](lec02.html)
 
-#Univariate Summary Plots#
+# Univariate Summary Plots #
 
 Summary plots display an object or a graph that gives a more concise expression of the location, dispersion, and distribution of a variable than an enumerative plot, but this comes at the expense of some loss of information:  In a summary plot, it is no longer possible to retrieve the individual data value, but this loss is usually matched by the gain in understanding that results from the efficient representation of the data. Summary plots generally prove to be much better than the enumerative plots in revealing the distribution of the data.
 
@@ -282,7 +282,7 @@ Clean up
 detach(scanvote)
 ```
 
-#Readings#
+# Readings #
 
 - Owen (*The R Guide*):  Ch. 4 & 5, section 6.3
 - Kuhnert & Venebles (*An Introduction...*):  p. 61-76
