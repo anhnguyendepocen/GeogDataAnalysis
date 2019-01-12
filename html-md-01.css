@@ -14,19 +14,17 @@ div#TOC li {
   font-weight: normal;
 }
 
-/*exercise*/
+/* exercise */
 body, td {
    font-family: Times, TimesNewRoman, serif;
    background-color: white;
    font-size: 16px;
-   width:  960px;
    margin: 30px;
-   right:  860px;
    text-align:justify;
 }
 
-/*/*web page*/
-body, td {
+/*/* web page */
+/*body, td {
   font-family: Times, TimesNewRoman, serif;
   background-color: white;
   font-size: 16px;
@@ -156,7 +154,7 @@ hr {
   body, td {
     font-family: Times, TimesNewRoman, serif;
     background-color: white;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: normal;
     width:  940px;
     margin: 30px;
@@ -197,12 +195,12 @@ hr {
   }
   h6 {
     font-family: "Times New Roman", Times, serif;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: bolder;
   }
   tt, code, pre {
     font-family: "Consolas", "Courier New", Monaco, monospace;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: bold;
   }
 

@@ -1,5 +1,5 @@
 ---
-title: "Exercise 2"
+title: "Exercise 3"
 output: 
   html_document:
     fig_caption: no
@@ -16,5 +16,5 @@ knitr::opts_chunk$set(dev='png', dpi=300, cache=FALSE)
 pdf.options(useDingbats = TRUE)
 ```
 
-```{r child="ex02.md"}
+```{r child="ex03.md"}
 ```
