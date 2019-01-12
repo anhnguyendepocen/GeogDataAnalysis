@@ -509,7 +509,7 @@ attach(orstationc)</code></pre>
     } 
  )</code></pre>
 <p>(Be sure to include the trailing curvy bracket and parenthesis when copying and pasting.)</p>
-<p><strong>NOTE</strong>: The current version of RStudio on the Mac (Version 1.1.414) may produce the error message “<code>Error in plot.new(): figure margins too large</code>” and not plot the “shingles” in the top and right-hand margins. If that happens, the workaround is to write the output to a file:</p>
+<p><strong>NOTE</strong>: The current version of RStudio on the Mac (Version 1.1.463) may produce the error message “<code>Error in plot.new(): figure margins too large</code>” and not plot the “shingles” in the top and right-hand margins. If that happens, the workaround is to write the output to a file:</p>
 <pre><code>pdf(&quot;coplot.pdf&quot;)
 coplot(tann ~ elev | lon * lat, number=5, overlap=.5,
   panel=function(x,y,...) {
