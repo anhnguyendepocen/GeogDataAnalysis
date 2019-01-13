@@ -77,12 +77,11 @@ Download `.Rdata` files to a working directory, and use `load()` or Load workspa
 
 ----
 
-## Raster Data Sets ##
+## Raster Data Sets / netCDF files ##
 
 | Data sets | Description |
 |---|---|
 | ===================|==================================================================================|
-| | (check global attributes for data-set sources)
 | [cru10min30\_tmp.nc](https://pjbartlein.github.io/GeogDataAnalysis/data/raster/cru10min30_tmp.nc) | CRU CL 2.0 1961-1990 Monthly Averages (0.5-deg subset)
 | [cru10min30\_bio.nc](https://pjbartlein.github.io/GeogDataAnalysis/data/raster/cru10min30_bio.nc) | bioclimatic variables calculated using the CRU CL 2.0 data
 | [SSTexample.nc](https://pjbartlein.github.io/GeogDataAnalysis/data/raster/SSTexample.nc) | SST example (raster package)
@@ -91,6 +90,10 @@ Download `.Rdata` files to a working directory, and use `load()` or Load workspa
 | [sage\_veg30.nc](https://pjbartlein.github.io/GeogDataAnalysis/data/raster/sage_veg30.nc) | Ramankutty and Foley Potential Vegetation Type (Univ. Wisc. SAGE)
 | [treecov.nc](https://pjbartlein.github.io/GeogDataAnalysis/data/raster/treecov.nc) | UMD Tree Cover Data resampled to 0.5-degrees
 | [tcdc.eatm.mon.mean.nc](https://pjbartlein.github.io/GeogDataAnalysis/data/raster/tcdc.eatm.mon.mean.nc) | Clouds \-- Monthly NOAA-CIRES 20th Century Reanalysis V2
+
+Check global attributes for data-set sources.
+
+Right-click on dataset name, and download to an appropriate folder.
 
 ------------------------------------------------------------------------
 
