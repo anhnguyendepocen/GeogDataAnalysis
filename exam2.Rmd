@@ -16,5 +16,5 @@ knitr::opts_chunk$set(dev='png', dpi=300, cache=FALSE)
 pdf.options(useDingbats = TRUE)
 ```
 
-```{r child="exam2_2018.md"}
+```{r child="exam2.md"}
 ```
