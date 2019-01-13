@@ -24,36 +24,64 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #0000ff; } /* Keyword */
-code > span.ch { color: #008080; } /* Char */
-code > span.st { color: #008080; } /* String */
-code > span.co { color: #008000; } /* Comment */
-code > span.ot { color: #ff4000; } /* Other */
-code > span.al { color: #ff0000; } /* Alert */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #008000; font-weight: bold; } /* Warning */
-code > span.cn { } /* Constant */
-code > span.sc { color: #008080; } /* SpecialChar */
-code > span.vs { color: #008080; } /* VerbatimString */
-code > span.ss { color: #008080; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { color: #0000ff; } /* ControlFlow */
-code > span.op { } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #ff4000; } /* Preprocessor */
-code > span.do { color: #008000; } /* Documentation */
-code > span.an { color: #008000; } /* Annotation */
-code > span.cv { color: #008000; } /* CommentVar */
-code > span.at { } /* Attribute */
-code > span.in { color: #008000; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
 </style>
 <script>
@@ -429,10 +457,10 @@ $(document).ready(function () {
     </li>
     <li class="dropdown-header">Exams</li>
     <li>
-      <a href="exam1_2018.html">Exam 1</a>
+      <a href="exam1.html">Exam 1</a>
     </li>
     <li>
-      <a href="exam2_2018.html">Exam 2</a>
+      <a href="exam2.html">Exam 2</a>
     </li>
     <li class="dropdown-header">Other materials</li>
     <li>
@@ -550,14 +578,14 @@ $(document).ready(function () {
 <div id="read-the-data" class="section level2">
 <h2><span class="header-section-number">2.2</span> Read the data</h2>
 <p>The “short” (3-year) data set can be read in the conventional way, as a <code>data.frame</code> object:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read the .csv file conventionally</span>
-csv_file &lt;-<span class="st"> &quot;/Users/bartlein/Projects/geog495/data/csv/EugeneClim-short.csv&quot;</span>
-eugclim_df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csv_file) </code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># read the .csv file conventionally</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">csv_file &lt;-<span class="st"> &quot;/Users/bartlein/Projects/geog495/data/csv/EugeneClim-short.csv&quot;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">eugclim_df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csv_file) </a></code></pre></div>
 <p>Notice the name of the function that was used to read the <code>.csv</code> file: <code>read.csv()</code>.</p>
 <p>The <code>class()</code> and <code>str()</code> functions can be used to figure out the kind and format of the data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(eugclim_df)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">class</span>(eugclim_df)</a></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(eugclim_df)</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">str</span>(eugclim_df)</a></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    36 obs. of  18 variables:
 ##  $ year: int  2013 2013 2013 2013 2013 2013 2013 2013 2013 2013 ...
 ##  $ mon : int  1 2 3 4 5 6 7 8 9 10 ...
@@ -577,7 +605,7 @@ eugclim_df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csv_fi
 ##  $ snow: int  NA NA NA NA NA 0 0 0 NA NA ...
 ##  $ emsd: int  NA NA NA 0 0 0 0 0 0 0 ...
 ##  $ awnd: num  1.9 2.6 2.2 2.7 3.1 2.5 3.4 2.5 3.2 1.7 ...</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">eugclim_df</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">eugclim_df</a></code></pre></div>
 <pre><code>##    year mon     yrmn tmax tmin tavg emxt  emnt  htdd  cldd  prcp emxp dp01 dp05 dp10 snow emsd awnd
 ## 1  2013   1 2013.000  5.7 -0.4  2.6 13.3  -6.7 486.9   0.0  34.5  6.4   11    0    0   NA   NA  1.9
 ## 2  2013   2 2013.083 10.2  2.3  6.3 13.9  -2.8 337.9   0.0  41.0 11.2   14    0    0   NA   NA  2.6
@@ -618,8 +646,8 @@ eugclim_df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csv_fi
 <p>The data are in a standard data frame, and it’s easy to see that these data are <em>tidy</em> in th sense of variables as columns, cases as rows.</p>
 <p>An alternative (internal to R) format for data frames is provided by the <code>tibble</code> package and funcion. <code>tibbles</code> behave much the same as data frames, and can easily be transformed back and forth.</p>
 <p>First, load the <code>tidyverse</code> package (install it if it’s not available):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load library</span>
-<span class="kw">library</span>(tidyverse)</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># load library</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
 ## ✔ tibble  1.4.1     ✔ dplyr   0.7.4
@@ -633,14 +661,14 @@ eugclim_df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csv_fi
 ## ✖ purrr::map()     masks maps::map()
 ## ✖ dplyr::select()  masks raster::select()</code></pre>
 <p>Note that loading the <code>tidyverse</code> library produces warnings about conflicts with other packages. Individual functions that are “masked” by packages or libraries loaded later can always be referenced by adding the package name. The following two statements are equivalent:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(eugclim_df<span class="op">$</span>tavg)
-stats<span class="op">::</span><span class="kw">median</span>(eugclim_df<span class="op">$</span>tavg)</code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">median</span>(eugclim_df<span class="op">$</span>tavg)</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">stats<span class="op">::</span><span class="kw">median</span>(eugclim_df<span class="op">$</span>tavg)</a></code></pre></div>
 </div>
 <div id="reread-as-a-tibble" class="section level2">
 <h2><span class="header-section-number">2.3</span> Reread as a tibble</h2>
 <p>Now read the same file as a <code>tibble</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># reading using `readr` package</span>
-eugclim &lt;-<span class="st"> </span><span class="kw">read_csv</span>(csv_file)</code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co"># reading using `readr` package</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">eugclim &lt;-<span class="st"> </span><span class="kw">read_csv</span>(csv_file)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   year = col_integer(),
@@ -668,9 +696,9 @@ eugclim &lt;-<span class="st"> </span><span class="kw">read_csv</span>(csv_file)
 <li><code>read_csv()</code> – read a <code>.csv</code> file as a “<code>tibble</code>” (i.e. a <code>tbl_df</code> object)</li>
 </ul>
 <p>Take a look at the <code>tibble</code> version of the data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(eugclim)</code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">class</span>(eugclim)</a></code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">eugclim</code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">eugclim</a></code></pre></div>
 <pre><code>## # A tibble: 36 x 18
 ##     year   mon  yrmn  tmax    tmin  tavg  emxt   emnt   htdd  cldd   prcp  emxp  dp01  dp05  dp10  snow
 ##    &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -686,7 +714,7 @@ eugclim &lt;-<span class="st"> </span><span class="kw">read_csv</span>(csv_file)
 ## 10  2013    10  2014 16.5    3.90  10.2   25.6 -2.10  252     0     14.8   8.40     6     0     0    NA
 ## # ... with 26 more rows, and 2 more variables: emsd &lt;int&gt;, awnd &lt;dbl&gt;</code></pre>
 <p>Get a basic plot of the average monthly temperature (<code>tavg</code>); this is simiple, because each colunn of the <code>tibble</code> is a time series of the values for a particular variable. Note the ‘yrmn’ variable, which is a “decimal year” representation of the months in the record that facilitates plotting the data as a time series:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(eugclim<span class="op">$</span>tavg <span class="op">~</span><span class="st"> </span>eugclim<span class="op">$</span>yrmn, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">2013</span>, <span class="dv">2016</span>, <span class="dv">3</span>))</code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">plot</span>(eugclim<span class="op">$</span>tavg <span class="op">~</span><span class="st"> </span>eugclim<span class="op">$</span>yrmn, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">2013</span>, <span class="dv">2016</span>, <span class="dv">3</span>))</a></code></pre></div>
 <p><img src="lec08_files/figure-html/plot1-1.png" width="2100" /></p>
 <p><a href="lec08.html">[Back to top]</a></p>
 </div>
@@ -694,9 +722,9 @@ eugclim &lt;-<span class="st"> </span><span class="kw">read_csv</span>(csv_file)
 <div id="a-data-wrangling-example" class="section level1">
 <h1><span class="header-section-number">3</span> A data-wrangling example</h1>
 <p>An alternative way in which that Eugene climate data could have been laid out is one in which there are blocks of data, one per year, with months in columns, and individual variables in rows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># alternative layout</span>
-csv_file &lt;-<span class="st"> &quot;/Users/bartlein/Projects/geog495/data/csv/EugeneClim-short-alt-tvars.csv&quot;</span>
-eugclim_alt &lt;-<span class="st"> </span><span class="kw">read_csv</span>(csv_file)</code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co"># alternative layout</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">csv_file &lt;-<span class="st"> &quot;/Users/bartlein/Projects/geog495/data/csv/EugeneClim-short-alt-tvars.csv&quot;</span></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3">eugclim_alt &lt;-<span class="st"> </span><span class="kw">read_csv</span>(csv_file)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   year = col_integer(),
@@ -714,7 +742,7 @@ eugclim_alt &lt;-<span class="st"> </span><span class="kw">read_csv</span>(csv_f
 ##   `11` = col_double(),
 ##   `12` = col_double()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">eugclim_alt</code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">eugclim_alt</a></code></pre></div>
 <pre><code>## # A tibble: 15 x 14
 ##     year param     `1`    `2`    `3`     `4`   `5`   `6`   `7`   `8`   `9`    `10`   `11`    `12`
 ##    &lt;int&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
@@ -737,9 +765,9 @@ eugclim_alt &lt;-<span class="st"> </span><span class="kw">read_csv</span>(csv_f
 <div id="reshaping-by-gathering" class="section level2">
 <h2><span class="header-section-number">3.1</span> Reshaping by gathering</h2>
 <p>The data can be reshaped into the appropriate form using the <code>gather()</code> function in the <code>tidyr</code> package. To illustrate this, first make another data set that includes just the average temperature data (<code>tavg</code>) from the “untidy” version of the data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get just the tavg data</span>
-eugclim_alt_tavg &lt;-<span class="st"> </span>eugclim_alt[eugclim_alt<span class="op">$</span>param <span class="op">==</span><span class="st"> &quot;tavg&quot;</span>, ]
-eugclim_alt_tavg</code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co"># get just the tavg data</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">eugclim_alt_tavg &lt;-<span class="st"> </span>eugclim_alt[eugclim_alt<span class="op">$</span>param <span class="op">==</span><span class="st"> &quot;tavg&quot;</span>, ]</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">eugclim_alt_tavg</a></code></pre></div>
 <pre><code>## # A tibble: 3 x 14
 ##    year param   `1`   `2`   `3`   `4`   `5`   `6`   `7`   `8`   `9`  `10`  `11`  `12`
 ##   &lt;int&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -747,9 +775,9 @@ eugclim_alt_tavg</code></pre></div>
 ## 2  2014 tavg   4.30  5.50  9.50 11.2   14.5  16.3  21.6  21.9  18.6  15.1  7.20 6.80 
 ## 3  2015 tavg   6.50  9.00 10.5   9.80  14.5  19.5  21.9  21.0  16.6  14.5  6.40 6.60</code></pre>
 <p>Then reshape the data using <code>gather()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># reshape by gathering</span>
-eugclim_alt_tavg2 &lt;-<span class="st"> </span><span class="kw">gather</span>(eugclim_alt_tavg, <span class="st">`</span><span class="dt">1</span><span class="st">`</span><span class="op">:</span><span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="dt">key=</span><span class="st">&quot;month&quot;</span>, <span class="dt">value=</span><span class="st">&quot;cases&quot;</span>)
-eugclim_alt_tavg2</code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="co"># reshape by gathering</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">eugclim_alt_tavg2 &lt;-<span class="st"> </span><span class="kw">gather</span>(eugclim_alt_tavg, <span class="st">`</span><span class="dt">1</span><span class="st">`</span><span class="op">:</span><span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="dt">key=</span><span class="st">&quot;month&quot;</span>, <span class="dt">value=</span><span class="st">&quot;cases&quot;</span>)</a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">eugclim_alt_tavg2</a></code></pre></div>
 <pre><code>## # A tibble: 36 x 4
 ##     year param month cases
 ##    &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
@@ -766,8 +794,8 @@ eugclim_alt_tavg2</code></pre></div>
 ## # ... with 26 more rows</code></pre>
 <p>The arguments of the <code>gather()</code> function include 1) the table to be reshaped (<code>eugclim_alt_tavg</code>), 2) the columns to be gathered together (here specified as <code>`1`:`12`</code> and note the use of the backtick (<code>`</code>) to indicate the columnn names, which in this example are character (<code>chr</code>) variables), 3) the “key” column that individual columns will be stacked up into, and 4) the values that will be stacked.</p>
 <p>The observations are not quite in the right time-series order, but they can be sorted using the <code>arrange()</code> function from the <code>dplyr</code> package:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">eugclim_alt_tavg3 &lt;-<span class="st"> </span><span class="kw">arrange</span>(eugclim_alt_tavg2, year)
-eugclim_alt_tavg3</code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">eugclim_alt_tavg3 &lt;-<span class="st"> </span><span class="kw">arrange</span>(eugclim_alt_tavg2, year)</a>
+<a class="sourceLine" id="cb28-2" data-line-number="2">eugclim_alt_tavg3</a></code></pre></div>
 <pre><code>## # A tibble: 36 x 4
 ##     year param month cases
 ##    &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
@@ -783,17 +811,17 @@ eugclim_alt_tavg3</code></pre></div>
 ## 10  2013 tavg  10    10.2 
 ## # ... with 26 more rows</code></pre>
 <p>Add a decimal year (<code>yrmn</code>) variable to the new data set, and plot.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">eugclim_alt_tavg3<span class="op">$</span>yrmn &lt;-<span class="st"> </span>eugclim_alt_tavg3<span class="op">$</span>year <span class="op">+</span><span class="st"> </span>(<span class="kw">as.integer</span>(eugclim_alt_tavg3<span class="op">$</span>month)<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">12</span>
-<span class="kw">plot</span>(eugclim_alt_tavg3<span class="op">$</span>cases <span class="op">~</span><span class="st"> </span>eugclim_alt_tavg3<span class="op">$</span>yrmn, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">2013</span>, <span class="dv">2016</span>, <span class="dv">3</span>))</code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">eugclim_alt_tavg3<span class="op">$</span>yrmn &lt;-<span class="st"> </span>eugclim_alt_tavg3<span class="op">$</span>year <span class="op">+</span><span class="st"> </span>(<span class="kw">as.integer</span>(eugclim_alt_tavg3<span class="op">$</span>month)<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">12</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="kw">plot</span>(eugclim_alt_tavg3<span class="op">$</span>cases <span class="op">~</span><span class="st"> </span>eugclim_alt_tavg3<span class="op">$</span>yrmn, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">2013</span>, <span class="dv">2016</span>, <span class="dv">3</span>))</a></code></pre></div>
 <p><img src="lec08_files/figure-html/plot%20tavg3-1.png" width="2100" /></p>
 <p>Looks right.</p>
 </div>
 <div id="reshape-the-whole-data-set" class="section level2">
 <h2><span class="header-section-number">3.2</span> Reshape the whole data set</h2>
 <p>The whole alternative-layout data set can be reshaped by first gathering the data</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># alternative layout -- gather, then spread</span>
-eugclim_alt2 &lt;-<span class="st"> </span><span class="kw">gather</span>(eugclim_alt, <span class="st">`</span><span class="dt">1</span><span class="st">`</span><span class="op">:</span><span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="dt">key=</span><span class="st">&quot;month&quot;</span>, <span class="dt">value=</span><span class="st">&quot;cases&quot;</span>)
-eugclim_alt2</code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="co"># alternative layout -- gather, then spread</span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2">eugclim_alt2 &lt;-<span class="st"> </span><span class="kw">gather</span>(eugclim_alt, <span class="st">`</span><span class="dt">1</span><span class="st">`</span><span class="op">:</span><span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="dt">key=</span><span class="st">&quot;month&quot;</span>, <span class="dt">value=</span><span class="st">&quot;cases&quot;</span>)</a>
+<a class="sourceLine" id="cb31-3" data-line-number="3">eugclim_alt2</a></code></pre></div>
 <pre><code>## # A tibble: 180 x 4
 ##     year param month   cases
 ##    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
@@ -809,10 +837,10 @@ eugclim_alt2</code></pre></div>
 ## 10  2014 emnt  1     - 4.30 
 ## # ... with 170 more rows</code></pre>
 <p>The month values, which are now characters (which just happen to be numerals here), can be recoded to integers as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">eugclim_alt2<span class="op">$</span>month &lt;-<span class="st"> </span><span class="kw">as.integer</span>(eugclim_alt2<span class="op">$</span>month)</code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1">eugclim_alt2<span class="op">$</span>month &lt;-<span class="st"> </span><span class="kw">as.integer</span>(eugclim_alt2<span class="op">$</span>month)</a></code></pre></div>
 <p>Then the “tall” stack of data is spread into rectangular data set using the values in the <code>param</code> column:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">eugclim_alt3 &lt;-<span class="st"> </span><span class="kw">spread</span>(eugclim_alt2, <span class="dt">key=</span><span class="st">&quot;param&quot;</span>, <span class="dt">value=</span>cases)
-eugclim_alt3</code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">eugclim_alt3 &lt;-<span class="st"> </span><span class="kw">spread</span>(eugclim_alt2, <span class="dt">key=</span><span class="st">&quot;param&quot;</span>, <span class="dt">value=</span>cases)</a>
+<a class="sourceLine" id="cb34-2" data-line-number="2">eugclim_alt3</a></code></pre></div>
 <pre><code>## # A tibble: 36 x 7
 ##     year month   emnt  emxt  tavg  tmax    tmin
 ##  * &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
@@ -828,8 +856,8 @@ eugclim_alt3</code></pre></div>
 ## 10  2013    10 -2.10   25.6 10.2  16.5    3.90 
 ## # ... with 26 more rows</code></pre>
 <p>Plot the reshaped data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">eugclim_alt3<span class="op">$</span>yrmn &lt;-<span class="st"> </span>eugclim_alt3<span class="op">$</span>year <span class="op">+</span><span class="st"> </span>(<span class="kw">as.integer</span>(eugclim_alt3<span class="op">$</span>month)<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">12</span>
-<span class="kw">plot</span>(eugclim_alt3<span class="op">$</span>tavg <span class="op">~</span><span class="st"> </span>eugclim_alt3<span class="op">$</span>yrmn, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">2013</span>, <span class="dv">2016</span>, <span class="dv">3</span>))</code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">eugclim_alt3<span class="op">$</span>yrmn &lt;-<span class="st"> </span>eugclim_alt3<span class="op">$</span>year <span class="op">+</span><span class="st"> </span>(<span class="kw">as.integer</span>(eugclim_alt3<span class="op">$</span>month)<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">12</span></a>
+<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="kw">plot</span>(eugclim_alt3<span class="op">$</span>tavg <span class="op">~</span><span class="st"> </span>eugclim_alt3<span class="op">$</span>yrmn, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">2013</span>, <span class="dv">2016</span>, <span class="dv">3</span>))</a></code></pre></div>
 <p><img src="lec08_files/figure-html/unnamed-chunk-2-1.png" width="2100" /> <a href="lec08.html">[Back to top]</a></p>
 </div>
 </div>
@@ -839,18 +867,18 @@ eugclim_alt3</code></pre></div>
 <div id="summarization" class="section level2">
 <h2><span class="header-section-number">4.1</span> Summarization</h2>
 <p>Summarize the whole data set. In this example, <code>summarize_all()</code> generates a long-term mean of the data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># summarize</span>
-eugclim_ltm &lt;-<span class="st"> </span><span class="kw">summarize_all</span>(eugclim, <span class="st">&quot;mean&quot;</span>)
-eugclim_ltm</code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="co"># summarize</span></a>
+<a class="sourceLine" id="cb37-2" data-line-number="2">eugclim_ltm &lt;-<span class="st"> </span><span class="kw">summarize_all</span>(eugclim, <span class="st">&quot;mean&quot;</span>)</a>
+<a class="sourceLine" id="cb37-3" data-line-number="3">eugclim_ltm</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 18
 ##    year   mon  yrmn  tmax  tmin  tavg  emxt   emnt  htdd  cldd  prcp  emxp  dp01  dp05  dp10  snow  emsd
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1  2014  6.50  2014  18.6  6.15  12.4  26.3 -0.331   201  20.9  66.9  17.3  11.1  1.64 0.417    NA    NA
 ## # ... with 1 more variable: awnd &lt;dbl&gt;</code></pre>
 <p>Filter out just the January values, and get a long-term mean of those:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># filter</span>
-eugclim_jan &lt;-<span class="st"> </span><span class="kw">filter</span>(eugclim, mon<span class="op">==</span><span class="dv">1</span>)
-eugclim_jan</code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="co"># filter</span></a>
+<a class="sourceLine" id="cb39-2" data-line-number="2">eugclim_jan &lt;-<span class="st"> </span><span class="kw">filter</span>(eugclim, mon<span class="op">==</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb39-3" data-line-number="3">eugclim_jan</a></code></pre></div>
 <pre><code>## # A tibble: 3 x 18
 ##    year   mon  yrmn  tmax   tmin  tavg  emxt  emnt  htdd  cldd  prcp  emxp  dp01  dp05  dp10  snow  emsd
 ##   &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -858,17 +886,17 @@ eugclim_jan</code></pre></div>
 ## 2  2014     1  2014  7.80  0.800  4.30  13.3 -4.30   436     0  65.4 17.5     11     2     0    NA     0
 ## 3  2015     1  2015 10.4   2.60   6.50  20.0 -6.00   368     0  60.7 33.8     10     2     1    NA     0
 ## # ... with 1 more variable: awnd &lt;dbl&gt;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">eugclim_jan_ltm &lt;-<span class="st"> </span><span class="kw">summarize_all</span>(eugclim_jan, <span class="st">&quot;mean&quot;</span>)
-eugclim_jan_ltm</code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1">eugclim_jan_ltm &lt;-<span class="st"> </span><span class="kw">summarize_all</span>(eugclim_jan, <span class="st">&quot;mean&quot;</span>)</a>
+<a class="sourceLine" id="cb41-2" data-line-number="2">eugclim_jan_ltm</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 18
 ##    year   mon  yrmn  tmax  tmin  tavg  emxt  emnt  htdd  cldd  prcp  emxp  dp01  dp05  dp10  snow  emsd
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1  2014  1.00  2014  7.97  1.00  4.47  15.5 -5.67   430     0  53.5  19.2  10.7  1.33 0.333    NA    NA
 ## # ... with 1 more variable: awnd &lt;dbl&gt;</code></pre>
 <p>Summarize the data by groups, in this case by months. First rearrange the data, and then summarize:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># summarize by groups -- define groups</span>
-eugclim_group &lt;-<span class="st"> </span><span class="kw">group_by</span>(eugclim, mon)
-eugclim_group</code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="co"># summarize by groups -- define groups</span></a>
+<a class="sourceLine" id="cb43-2" data-line-number="2">eugclim_group &lt;-<span class="st"> </span><span class="kw">group_by</span>(eugclim, mon)</a>
+<a class="sourceLine" id="cb43-3" data-line-number="3">eugclim_group</a></code></pre></div>
 <pre><code>## # A tibble: 36 x 18
 ## # Groups: mon [12]
 ##     year   mon  yrmn  tmax    tmin  tavg  emxt   emnt   htdd  cldd   prcp  emxp  dp01  dp05  dp10  snow
@@ -885,9 +913,9 @@ eugclim_group</code></pre></div>
 ## 10  2013    10  2014 16.5    3.90  10.2   25.6 -2.10  252     0     14.8   8.40     6     0     0    NA
 ## # ... with 26 more rows, and 2 more variables: emsd &lt;int&gt;, awnd &lt;dbl&gt;</code></pre>
 <p>Note that grouped data set looks almost exactly like the ungrouped one, except when listed, it includes the mention of the grouping variable (i.e., <code>Groups: mon [12]</code>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># summarize groups</span>
-eugclim_summary &lt;-<span class="st"> </span><span class="kw">summarize_all</span>(eugclim_group, <span class="kw">funs</span>(mean))
-eugclim_summary</code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="co"># summarize groups</span></a>
+<a class="sourceLine" id="cb45-2" data-line-number="2">eugclim_summary &lt;-<span class="st"> </span><span class="kw">summarize_all</span>(eugclim_group, <span class="kw">funs</span>(mean))</a>
+<a class="sourceLine" id="cb45-3" data-line-number="3">eugclim_summary</a></code></pre></div>
 <pre><code>## # A tibble: 12 x 18
 ##      mon  year  yrmn  tmax  tmin  tavg  emxt    emnt   htdd  cldd   prcp  emxp  dp01  dp05  dp10  snow
 ##    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -905,9 +933,9 @@ eugclim_summary</code></pre></div>
 ## 12    12  2014  2015  8.13  1.37  4.73  15.6 -11.5   421     0    188    32.7  19.0  6.00  1.67     NA
 ## # ... with 2 more variables: emsd &lt;dbl&gt;, awnd &lt;dbl&gt;</code></pre>
 <p>Calculate annual averages of each variable, using the <code>aggregate()</code> function from the <code>stats</code> package.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># aggregate</span>
-eugclim_ann &lt;-<span class="st"> </span><span class="kw">aggregate</span>(eugclim, <span class="dt">by=</span><span class="kw">list</span>(eugclim<span class="op">$</span>year), <span class="dt">FUN=</span><span class="st">&quot;mean&quot;</span>)
-eugclim_ann</code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="co"># aggregate</span></a>
+<a class="sourceLine" id="cb47-2" data-line-number="2">eugclim_ann &lt;-<span class="st"> </span><span class="kw">aggregate</span>(eugclim, <span class="dt">by=</span><span class="kw">list</span>(eugclim<span class="op">$</span>year), <span class="dt">FUN=</span><span class="st">&quot;mean&quot;</span>)</a>
+<a class="sourceLine" id="cb47-3" data-line-number="3">eugclim_ann</a></code></pre></div>
 <pre><code>##   Group.1 year mon     yrmn     tmax     tmin     tavg     emxt       emnt     htdd     cldd     prcp
 ## 1    2013 2013 6.5 2013.458 17.35833 5.408333 11.37500 25.00833 -1.6833333 229.0083 18.15000 44.93333
 ## 2    2014 2014 6.5 2014.458 18.85833 6.575000 12.70833 26.60833  0.5000000 190.2500 20.95000 87.46667
@@ -921,9 +949,9 @@ eugclim_ann</code></pre></div>
 <h2><span class="header-section-number">4.2</span> The pipe operator</h2>
 <p>Operations on a data table that require multiple steps can be streamlined both in appearance in the code and in the operations themselves using the “Pipe” operator (<code>%&gt;%</code>) from the <code>magrittr</code> package. The operator “pipes”, or moves forward, the output from one function to another.</p>
 <p>Here’s a simple example, combining the grouping and summarization steps for calculating means by month.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the pipe</span>
-eugclim_summary &lt;-<span class="st"> </span>eugclim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(mon) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize_all</span>(<span class="kw">funs</span>(<span class="st">&quot;mean&quot;</span>))
-eugclim_summary</code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="co"># the pipe</span></a>
+<a class="sourceLine" id="cb49-2" data-line-number="2">eugclim_summary &lt;-<span class="st"> </span>eugclim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(mon) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize_all</span>(<span class="kw">funs</span>(<span class="st">&quot;mean&quot;</span>))</a>
+<a class="sourceLine" id="cb49-3" data-line-number="3">eugclim_summary</a></code></pre></div>
 <pre><code>## # A tibble: 12 x 18
 ##      mon  year  yrmn  tmax  tmin  tavg  emxt    emnt   htdd  cldd   prcp  emxp  dp01  dp05  dp10  snow
 ##    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -945,16 +973,16 @@ eugclim_summary</code></pre></div>
 <div id="calculating-anomalies" class="section level2">
 <h2><span class="header-section-number">4.3</span> Calculating anomalies</h2>
 <p>A common task in analyzing climate data is to convert the “absolute” values (i.e. the observations) into “anomalies” or deviations from some long-term mean (and note that “absolute values” here should not be confused with those unsigned values of a variable produced by the absolute-value operator <code>abs()</code>, e.g. |x|).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># anomalies</span>
-eugclim<span class="op">$</span>tavg_anm &lt;-<span class="st"> </span>eugclim<span class="op">$</span>tavg <span class="op">-</span><span class="st"> </span>eugclim_summary<span class="op">$</span>tavg
-eugclim<span class="op">$</span>tavg_anm</code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="co"># anomalies</span></a>
+<a class="sourceLine" id="cb51-2" data-line-number="2">eugclim<span class="op">$</span>tavg_anm &lt;-<span class="st"> </span>eugclim<span class="op">$</span>tavg <span class="op">-</span><span class="st"> </span>eugclim_summary<span class="op">$</span>tavg</a>
+<a class="sourceLine" id="cb51-3" data-line-number="3">eugclim<span class="op">$</span>tavg_anm</a></code></pre></div>
 <pre><code>##  [1] -1.86666667 -0.63333333 -0.86666667  0.20000000 -0.33333333 -0.33333333 -0.70000000 -0.50000000
 ##  [9] -0.06666667 -3.06666667  0.00000000 -3.93333333 -0.16666667 -1.43333333 -0.06666667  0.60000000
 ## [17]  0.16666667 -1.43333333  0.20000000  0.70000000  1.03333333  1.83333333  0.40000000  2.06666667
 ## [25]  2.03333333  2.06666667  0.93333333 -0.80000000  0.16666667  1.76666667  0.50000000 -0.20000000
 ## [33] -0.96666667  1.23333333 -0.40000000  1.86666667</code></pre>
 <p>Plot the anomalies.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(eugclim<span class="op">$</span>tavg_anm <span class="op">~</span><span class="st"> </span>eugclim<span class="op">$</span>yrmn, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span><span class="st">&quot;green&quot;</span>, <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">2013</span>, <span class="dv">2016</span>, <span class="dv">3</span>))</code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1"><span class="kw">plot</span>(eugclim<span class="op">$</span>tavg_anm <span class="op">~</span><span class="st"> </span>eugclim<span class="op">$</span>yrmn, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span><span class="st">&quot;green&quot;</span>, <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">2013</span>, <span class="dv">2016</span>, <span class="dv">3</span>))</a></code></pre></div>
 <p><img src="lec08_files/figure-html/unnamed-chunk-5-1.png" width="2100" /></p>
 <p><a href="lec08.html">[Back to top]</a></p>
 </div>
@@ -966,133 +994,133 @@ eugclim<span class="op">$</span>tavg_anm</code></pre></div>
 <div id="some-basic-matrix-definitions-in-r" class="section level2">
 <h2><span class="header-section-number">5.1</span> Some basic matrix definitions in R</h2>
 <p>Create the 3 row by 2 column matrix <strong>A</strong>. Note the use of the concatenation (<code>c()</code>) function to collect the individual matrix elements (the a<sub>ij</sub>’s) together, and the default fill order (<code>byrow = FALSE</code>), which implies filling the matrix by rows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a matrix</span>
-<span class="co"># default fill method: byrow = FALSE</span>
-A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">21</span>, <span class="dv">5</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">2</span>)
-A</code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="co"># create a matrix</span></a>
+<a class="sourceLine" id="cb54-2" data-line-number="2"><span class="co"># default fill method: byrow = FALSE</span></a>
+<a class="sourceLine" id="cb54-3" data-line-number="3">A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">21</span>, <span class="dv">5</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb54-4" data-line-number="4">A</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    6   13
 ## [2,]    9   21
 ## [3,]   12    5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(A)</code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="kw">class</span>(A)</a></code></pre></div>
 <pre><code>## [1] &quot;matrix&quot;</code></pre>
 <p>The <code>class()</code> function indicates that <strong>A</strong> is indeed a matrix (as opposed to a data frame).</p>
 <p>Create another matrix, <strong>B</strong>, with the same elements, only filled by row this time:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># same elements, but byrow = TRUE</span>
-B &lt;-<span class="st">  </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">21</span>, <span class="dv">5</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)
-B</code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="co"># same elements, but byrow = TRUE</span></a>
+<a class="sourceLine" id="cb58-2" data-line-number="2">B &lt;-<span class="st">  </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">21</span>, <span class="dv">5</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb58-3" data-line-number="3">B</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    6    9
 ## [2,]   12   13
 ## [3,]   21    5</code></pre>
 <p>Individual matrix elements can be reference using the “square-bracket selection” rules.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># referencing matrix elements</span>
-A[<span class="dv">1</span>,<span class="dv">2</span>] <span class="co"># row 1, col 2</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="co"># referencing matrix elements</span></a>
+<a class="sourceLine" id="cb60-2" data-line-number="2">A[<span class="dv">1</span>,<span class="dv">2</span>] <span class="co"># row 1, col 2</span></a></code></pre></div>
 <pre><code>## [1] 13</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">A[<span class="dv">2</span>,<span class="dv">1</span>] <span class="co"># row 2, col 1</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">A[<span class="dv">2</span>,<span class="dv">1</span>] <span class="co"># row 2, col 1</span></a></code></pre></div>
 <pre><code>## [1] 9</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">A[<span class="dv">2</span>, ] <span class="co"># all elements in row 2</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1">A[<span class="dv">2</span>, ] <span class="co"># all elements in row 2</span></a></code></pre></div>
 <pre><code>## [1]  9 21</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">A[, <span class="dv">2</span>] <span class="co"># all elements in column 2 ] </span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">A[, <span class="dv">2</span>] <span class="co"># all elements in column 2 ] </span></a></code></pre></div>
 <pre><code>## [1] 13 21  5</code></pre>
 <p>For comparison, create a vector <strong>c</strong>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a vector</span>
-c &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)
-c</code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="co"># create a vector</span></a>
+<a class="sourceLine" id="cb68-2" data-line-number="2">c &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)</a>
+<a class="sourceLine" id="cb68-3" data-line-number="3">c</a></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5 6 7 8 9</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(c)</code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1"><span class="kw">class</span>(c)</a></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <p>At this point, <strong>c</strong> is just a list of numbers. The <code>as.matrix()</code> function creates a 9 row by 1 column vector, which can be verified by the <code>dim()</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">c &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(c)
-<span class="kw">class</span>(c)</code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1">c &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(c)</a>
+<a class="sourceLine" id="cb72-2" data-line-number="2"><span class="kw">class</span>(c)</a></code></pre></div>
 <pre><code>## [1] &quot;matrix&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(c)</code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="kw">dim</span>(c)</a></code></pre></div>
 <pre><code>## [1] 9 1</code></pre>
 <p>The vector <strong>c</strong> has 9 rows and 1 column.</p>
 <p>A vector can be reshaped into a matrix:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># reshape the vector into a 3x3 matrix</span>
-C &lt;-<span class="st"> </span><span class="kw">matrix</span>(c, <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">3</span>)
-C</code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="co"># reshape the vector into a 3x3 matrix</span></a>
+<a class="sourceLine" id="cb76-2" data-line-number="2">C &lt;-<span class="st"> </span><span class="kw">matrix</span>(c, <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb76-3" data-line-number="3">C</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    4    7
 ## [2,]    2    5    8
 ## [3,]    3    6    9</code></pre>
 <p>A vector can also be created from a single row or column of a matrix:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a vector from a column or row of a matrix</span>
-a1 &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(A[, <span class="dv">1</span>]) <span class="co"># vector from column 1</span>
-a1</code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="co"># create a vector from a column or row of a matrix</span></a>
+<a class="sourceLine" id="cb78-2" data-line-number="2">a1 &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(A[, <span class="dv">1</span>]) <span class="co"># vector from column 1</span></a>
+<a class="sourceLine" id="cb78-3" data-line-number="3">a1</a></code></pre></div>
 <pre><code>##      [,1]
 ## [1,]    6
 ## [2,]    9
 ## [3,]   12</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(a1)</code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1"><span class="kw">dim</span>(a1)</a></code></pre></div>
 <pre><code>## [1] 3 1</code></pre>
 <p><strong>a1</strong> is a 3 row by 1 column column vector.</p>
 </div>
 <div id="matrix-operations" class="section level2">
 <h2><span class="header-section-number">5.2</span> Matrix operations</h2>
 <p>Transposition (<code>t()</code>) flips the rows and columns of a matrix:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># transposition</span>
-A</code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1"><span class="co"># transposition</span></a>
+<a class="sourceLine" id="cb82-2" data-line-number="2">A</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    6   13
 ## [2,]    9   21
 ## [3,]   12    5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t</span>(A)</code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="kw">t</span>(A)</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    6    9   12
 ## [2,]   13   21    5</code></pre>
 <p>A second example, the transpose of <strong>C</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">C</code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">C</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    4    7
 ## [2,]    2    5    8
 ## [3,]    3    6    9</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t</span>(C)</code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="kw">t</span>(C)</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    2    3
 ## [2,]    4    5    6
 ## [3,]    7    8    9</code></pre>
 <p>Vectors and also be transposed, which simply turns a column vector, e.g. <strong>a1</strong> into a row vector</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a1t &lt;-<span class="st"> </span><span class="kw">t</span>(a1)
-a1t</code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1">a1t &lt;-<span class="st"> </span><span class="kw">t</span>(a1)</a>
+<a class="sourceLine" id="cb90-2" data-line-number="2">a1t</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    6    9   12</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(a1t)</code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="kw">dim</span>(a1t)</a></code></pre></div>
 <pre><code>## [1] 1 3</code></pre>
 </div>
 <div id="matrix-algebra-1" class="section level2">
 <h2><span class="header-section-number">5.3</span> Matrix algebra</h2>
 <p>Matrix algebra is basically analogous to scalar algebra (with the exception of division), and obeys most of the same rules that scalar algebra does.</p>
 <p>Add two matrices, <strong>A</strong> and <strong>B</strong>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># addition</span>
-F &lt;-<span class="st"> </span>A <span class="op">+</span><span class="st"> </span>B
-F</code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1"><span class="co"># addition</span></a>
+<a class="sourceLine" id="cb94-2" data-line-number="2">F &lt;-<span class="st"> </span>A <span class="op">+</span><span class="st"> </span>B</a>
+<a class="sourceLine" id="cb94-3" data-line-number="3">F</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]   12   22
 ## [2,]   21   34
 ## [3,]   33   10</code></pre>
 <p>Note that the individual elements of <strong>A</strong> and <strong>B</strong> are simply added together to produce the corresponding elements of <strong>F</strong> (i.e. f<sub>ij</sub> = a<sub>ij</sub> + b<sub>ij</sub>).</p>
 <p>In order to be added together, the matrices have to be of the same shape (i.e. have the same number of rows and colums). The shape of a matrix can be verified using the <code>dim()</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(C)</code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="kw">dim</span>(C)</a></code></pre></div>
 <pre><code>## [1] 3 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(A)</code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="kw">dim</span>(A)</a></code></pre></div>
 <pre><code>## [1] 3 2</code></pre>
 <p>Here, <strong>A</strong> and <strong>C</strong> are not the same shape, and the following code, if executed, would product an error message:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A and C not same shape</span>
-G &lt;-<span class="st"> </span>A <span class="op">+</span><span class="st"> </span>C</code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="co"># A and C not same shape</span></a>
+<a class="sourceLine" id="cb100-2" data-line-number="2">G &lt;-<span class="st"> </span>A <span class="op">+</span><span class="st"> </span>C</a></code></pre></div>
 <p>Scalar multiplication involves muliplying each element of a matrix by a scalar value:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># scalar multiplication</span>
-H &lt;-<span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>A
-H</code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="co"># scalar multiplication</span></a>
+<a class="sourceLine" id="cb101-2" data-line-number="2">H &lt;-<span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>A</a>
+<a class="sourceLine" id="cb101-3" data-line-number="3">H</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]  3.0  6.5
 ## [2,]  4.5 10.5
 ## [3,]  6.0  2.5</code></pre>
 <p>Here, h<sub>ij</sub> = 0.5 · a<sub>ij</sub>. Element-by-element multiplication is also possible for identically shaped matrices, e.g., p<sub>ij</sub> = a<sub>ij</sub> · b<sub>ij</sub>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># element-by-element multipliction</span>
-P &lt;-<span class="st"> </span>A<span class="op">*</span>B
-P</code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="co"># element-by-element multipliction</span></a>
+<a class="sourceLine" id="cb103-2" data-line-number="2">P &lt;-<span class="st"> </span>A<span class="op">*</span>B</a>
+<a class="sourceLine" id="cb103-3" data-line-number="3">P</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]   36  117
 ## [2,]  108  273
@@ -1100,20 +1128,20 @@ P</code></pre></div>
 <div id="matrix-multiplication" class="section level3">
 <h3><span class="header-section-number">5.3.1</span> Matrix multiplication</h3>
 <p>Matrix multiplication (see <a href="https://pjbartlein.github.io/GeogDataAnalysis/topics/matrix.pdf">matrix.pdf</a>) results in a a set of sums and crossproducts, as opposed to element-by-element products. Matrix multiplication is symbolized by the <code>%*%</code> operator:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># matrix multiplication</span>
-Q &lt;-<span class="st"> </span>C <span class="op">%*%</span><span class="st"> </span>A
-Q</code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="co"># matrix multiplication</span></a>
+<a class="sourceLine" id="cb105-2" data-line-number="2">Q &lt;-<span class="st"> </span>C <span class="op">%*%</span><span class="st"> </span>A</a>
+<a class="sourceLine" id="cb105-3" data-line-number="3">Q</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]  126  132
 ## [2,]  153  171
 ## [3,]  180  210</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(C); <span class="kw">dim</span>(A)</code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="kw">dim</span>(C); <span class="kw">dim</span>(A)</a></code></pre></div>
 <pre><code>## [1] 3 3</code></pre>
 <pre><code>## [1] 3 2</code></pre>
 <p>Note that the matrices have to be <em>conformable</em>, as they are here (the number of columns of the first matrix must equal the number of rows of the second, and the product matrix <strong>Q</strong> here has the number of rows of the first matrix and the number of columns of the second).</p>
 <p>The matrices <strong>A</strong> and <strong>B</strong> are not conformable for multiplication; although they have the same shape, they are not square, and the following code would produce an error:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">T &lt;-<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>B <span class="co"># not conformable</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(A); <span class="kw">dim</span>(B)</code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1">T &lt;-<span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>B <span class="co"># not conformable</span></a></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="kw">dim</span>(A); <span class="kw">dim</span>(B)</a></code></pre></div>
 <pre><code>## [1] 3 2</code></pre>
 <pre><code>## [1] 3 2</code></pre>
 </div>
@@ -1121,27 +1149,27 @@ Q</code></pre></div>
 <div id="special-matrices" class="section level2">
 <h2><span class="header-section-number">5.4</span> Special matrices</h2>
 <p>There are a number of special matrices that come up in data analysis. Here <strong>D</strong> is a <em>diagonal</em> matrix, with non-zero values along the principal diagonal, and zeros elsewhere:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># diagonal matrix</span>
-D &lt;-<span class="st"> </span><span class="kw">diag</span>(<span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>), <span class="dt">nrow=</span><span class="dv">4</span>, <span class="dt">ncol=</span><span class="dv">4</span>)
-D</code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1"><span class="co"># diagonal matrix</span></a>
+<a class="sourceLine" id="cb114-2" data-line-number="2">D &lt;-<span class="st"> </span><span class="kw">diag</span>(<span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>), <span class="dt">nrow=</span><span class="dv">4</span>, <span class="dt">ncol=</span><span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb114-3" data-line-number="3">D</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    6    0    0    0
 ## [2,]    0    2    0    0
 ## [3,]    0    0    1    0
 ## [4,]    0    0    0    3</code></pre>
 <p>A special form of a diagonal matrix is the identity matrix <strong>I</strong>, which has ones along the principal diagonal, and zeros elsewhere:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># identity matrix</span>
-I &lt;-<span class="st"> </span><span class="kw">diag</span>(<span class="dv">1</span>, <span class="dt">nrow=</span><span class="dv">4</span>, <span class="dt">ncol=</span><span class="dv">4</span>)
-I</code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="co"># identity matrix</span></a>
+<a class="sourceLine" id="cb116-2" data-line-number="2">I &lt;-<span class="st"> </span><span class="kw">diag</span>(<span class="dv">1</span>, <span class="dt">nrow=</span><span class="dv">4</span>, <span class="dt">ncol=</span><span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb116-3" data-line-number="3">I</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    0    0    0
 ## [2,]    0    1    0    0
 ## [3,]    0    0    1    0
 ## [4,]    0    0    0    1</code></pre>
 <p>A special <em>scalar</em> that appears often in practice is the <em>norm</em> (or <em>Euclidean norm</em>) of a vector, which is simply the square root of the sum of squares of the elements of the vector:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Euclidean norm of a vector</span>
-anorm &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">t</span>(a1) <span class="op">%*%</span><span class="st"> </span>a1)
-anorm</code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" data-line-number="1"><span class="co"># Euclidean norm of a vector</span></a>
+<a class="sourceLine" id="cb118-2" data-line-number="2">anorm &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">t</span>(a1) <span class="op">%*%</span><span class="st"> </span>a1)</a>
+<a class="sourceLine" id="cb118-3" data-line-number="3">anorm</a></code></pre></div>
 <pre><code>##          [,1]
 ## [1,] 16.15549</code></pre>
 <p>It can be verified that <code>sqrt(sum(a1^2))</code> = 16.1554944.</p>
@@ -1149,31 +1177,31 @@ anorm</code></pre></div>
 <h3><span class="header-section-number">5.4.1</span> Inverse matrices</h3>
 <p>The matrix algebra equivalent of division is the multiplication of one matrix by the <em>inverse</em> of another. To illustrate this, and the topic of the <em>eigenstructure</em> of a matrix discussed below, we can look at a realistic matrix, the correlation matrix of the temperature variables in the Oregon climate-station data set.</p>
 <p>Here’s the correlation matrix, <strong>R</strong>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a realistic matrix, orstationc temperature-variable correlation matrix</span>
-R &lt;-<span class="st"> </span><span class="kw">cor</span>(<span class="kw">cbind</span>(orstationc<span class="op">$</span>tjan, orstationc<span class="op">$</span>tjul, orstationc<span class="op">$</span>tann))
-R</code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" data-line-number="1"><span class="co"># a realistic matrix, orstationc temperature-variable correlation matrix</span></a>
+<a class="sourceLine" id="cb120-2" data-line-number="2">R &lt;-<span class="st"> </span><span class="kw">cor</span>(<span class="kw">cbind</span>(orstationc<span class="op">$</span>tjan, orstationc<span class="op">$</span>tjul, orstationc<span class="op">$</span>tann))</a>
+<a class="sourceLine" id="cb120-3" data-line-number="3">R</a></code></pre></div>
 <pre><code>##            [,1]       [,2]      [,3]
 ## [1,]  1.0000000 -0.3639314 0.7253877
 ## [2,] -0.3639314  1.0000000 0.3641966
 ## [3,]  0.7253877  0.3641966 1.0000000</code></pre>
 <p>The inverse of the correlation matrix <strong>R</strong>, written as <strong>R<sup>-1</sup></strong> is obtained using the <code>solve()</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># matrix inversion</span>
-Rinv &lt;-<span class="st"> </span><span class="kw">solve</span>(R)
-Rinv</code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1"><span class="co"># matrix inversion</span></a>
+<a class="sourceLine" id="cb122-2" data-line-number="2">Rinv &lt;-<span class="st"> </span><span class="kw">solve</span>(R)</a>
+<a class="sourceLine" id="cb122-3" data-line-number="3">Rinv</a></code></pre></div>
 <pre><code>##           [,1]      [,2]      [,3]
 ## [1,]  52.76560  38.21117 -52.19190
 ## [2,]  38.21117  28.82424 -38.21560
 ## [3,] -52.19190 -38.21560  52.77735</code></pre>
 <p>As in scalar division, where <em>a</em> · (1/<em>a</em>) = 1.0, postmuliplying a matrix by its inverse yields the Identity matrix, <strong>I</strong>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># check inverse</span>
-D &lt;-<span class="st"> </span>R <span class="op">%*%</span><span class="st"> </span>Rinv
-D</code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="co"># check inverse</span></a>
+<a class="sourceLine" id="cb124-2" data-line-number="2">D &lt;-<span class="st"> </span>R <span class="op">%*%</span><span class="st"> </span>Rinv</a>
+<a class="sourceLine" id="cb124-3" data-line-number="3">D</a></code></pre></div>
 <pre><code>##              [,1]         [,2]          [,3]
 ## [1,] 1.000000e+00 3.552714e-15  0.000000e+00
 ## [2,] 3.552714e-15 1.000000e+00 -7.105427e-15
 ## [3,] 7.105427e-15 7.105427e-15  1.000000e+00</code></pre>
 <p>After rounding using the <code>zapsmall()</code> function <strong>D</strong> indeed equals <strong>I</strong>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">zapsmall</span>(D)</code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1"><span class="kw">zapsmall</span>(D)</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    0    0
 ## [2,]    0    1    0
@@ -1182,9 +1210,9 @@ D</code></pre></div>
 <div id="eigenvectors-and-eigenvalues" class="section level3">
 <h3><span class="header-section-number">5.4.2</span> Eigenvectors and eigenvalues</h3>
 <p>An important concept that comes up in multivariate analysis is the <em>decomposition</em> of a matrix like the correlation matrix <strong>R</strong> (see <a href="https://pjbartlein.github.io/GeogDataAnalysis/topics/matrix.pdf">matrix.pdf</a>), into another square matrix, <strong>E</strong>, and a diagonal matrix, <strong>V</strong>, that each have some desireable properties, and which make the following statement true: <strong>RE</strong> = <strong>EV</strong>, where <strong>V</strong> is a diagonal matrix with the elements v<sub>i</sub> along the diagonal. The matrix <strong>E</strong> contains the <em>eigenvectors</em> of <strong>R</strong>, while the v<sub>i</sub>’s are the <em>eigenvalues</em> of <strong>R</strong>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># eigenvectors</span>
-E &lt;-<span class="st"> </span><span class="kw">eigen</span>(R)
-E</code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="co"># eigenvectors</span></a>
+<a class="sourceLine" id="cb128-2" data-line-number="2">E &lt;-<span class="st"> </span><span class="kw">eigen</span>(R)</a>
+<a class="sourceLine" id="cb128-3" data-line-number="3">E</a></code></pre></div>
 <pre><code>## eigen() decomposition
 ## $values
 ## [1] 1.725387748 1.267093364 0.007518887

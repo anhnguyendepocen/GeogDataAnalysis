@@ -24,36 +24,64 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #0000ff; } /* Keyword */
-code > span.ch { color: #008080; } /* Char */
-code > span.st { color: #008080; } /* String */
-code > span.co { color: #008000; } /* Comment */
-code > span.ot { color: #ff4000; } /* Other */
-code > span.al { color: #ff0000; } /* Alert */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #008000; font-weight: bold; } /* Warning */
-code > span.cn { } /* Constant */
-code > span.sc { color: #008080; } /* SpecialChar */
-code > span.vs { color: #008080; } /* VerbatimString */
-code > span.ss { color: #008080; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { color: #0000ff; } /* ControlFlow */
-code > span.op { } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #ff4000; } /* Preprocessor */
-code > span.do { color: #008000; } /* Documentation */
-code > span.an { color: #008000; } /* Annotation */
-code > span.cv { color: #008000; } /* CommentVar */
-code > span.at { } /* Attribute */
-code > span.in { color: #008000; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
 </style>
 <script>
@@ -429,10 +457,10 @@ $(document).ready(function () {
     </li>
     <li class="dropdown-header">Exams</li>
     <li>
-      <a href="exam1_2018.html">Exam 1</a>
+      <a href="exam1.html">Exam 1</a>
     </li>
     <li>
-      <a href="exam2_2018.html">Exam 2</a>
+      <a href="exam2.html">Exam 2</a>
     </li>
     <li class="dropdown-header">Other materials</li>
     <li>
@@ -475,38 +503,35 @@ $(document).ready(function () {
 
 <div id="TOC">
 <ul>
-<li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
-<li><a href="#maps-in-r-example-data-and-setup"><span class="toc-section-number">2</span> Maps in R – example data and setup</a></li>
-<li><a href="#some-simple-maps"><span class="toc-section-number">3</span> Some simple maps</a><ul>
-<li><a href="#oregon-county-census-data-attribute-data-in-the-orcounty.shp-shape-file"><span class="toc-section-number">3.1</span> Oregon county census data – attribute data in the <code>orcounty.shp</code> shape file</a></li>
-<li><a href="#symbol-plot-oregon-climate-station-data-data-in-the-orstationc.csv-file-basemap-in-orotl.shp"><span class="toc-section-number">3.2</span> Symbol plot: Oregon climate station data – data in the <code>orstationc.csv</code> file, basemap in <code>orotl.shp</code></a></li>
-<li><a href="#oregon-climate-station-data-locations-and-data-in-shape-file"><span class="toc-section-number">3.3</span> Oregon climate station data – locations and data in shape file</a></li>
+<li><a href="#maps-in-r-example-data-and-setup"><span class="toc-section-number">1</span> Maps in R – example data and setup</a></li>
+<li><a href="#some-simple-maps"><span class="toc-section-number">2</span> Some simple maps</a><ul>
+<li><a href="#oregon-county-census-data-attribute-data-in-the-orcounty.shp-shape-file"><span class="toc-section-number">2.1</span> Oregon county census data – attribute data in the <code>orcounty.shp</code> shape file</a></li>
+<li><a href="#symbol-plot-oregon-climate-station-data-data-in-the-orstationc.csv-file-basemap-in-orotl.shp"><span class="toc-section-number">2.2</span> Symbol plot: Oregon climate station data – data in the <code>orstationc.csv</code> file, basemap in <code>orotl.shp</code></a></li>
+<li><a href="#oregon-climate-station-data-locations-and-data-in-shape-file"><span class="toc-section-number">2.3</span> Oregon climate station data – locations and data in shape file</a></li>
 </ul></li>
-<li><a href="#variations-in-color-scales-and-representation"><span class="toc-section-number">4</span> Variations in color scales and representation</a><ul>
-<li><a href="#oregon-county-census-data-equal-frequency-class-intervals"><span class="toc-section-number">4.1</span> Oregon county census data – equal-frequency class intervals</a></li>
-<li><a href="#oregon-county-census-data-equal-width-class-intervals"><span class="toc-section-number">4.2</span> Oregon county census data – equal-width class intervals</a></li>
-<li><a href="#the-bubble-plot-on-a-map"><span class="toc-section-number">4.3</span> The bubble plot (on a map)</a></li>
-<li><a href="#dot-maps"><span class="toc-section-number">4.4</span> Dot maps</a></li>
+<li><a href="#variations-in-color-scales-and-representation"><span class="toc-section-number">3</span> Variations in color scales and representation</a><ul>
+<li><a href="#oregon-county-census-data-equal-frequency-class-intervals"><span class="toc-section-number">3.1</span> Oregon county census data – equal-frequency class intervals</a></li>
+<li><a href="#oregon-county-census-data-equal-width-class-intervals"><span class="toc-section-number">3.2</span> Oregon county census data – equal-width class intervals</a></li>
+<li><a href="#the-bubble-plot-on-a-map"><span class="toc-section-number">3.3</span> The bubble plot (on a map)</a></li>
+<li><a href="#dot-maps"><span class="toc-section-number">3.4</span> Dot maps</a></li>
 </ul></li>
-<li><a href="#projection-and-spatial-transformation"><span class="toc-section-number">5</span> Projection and spatial transformation</a><ul>
-<li><a href="#a-simple-example"><span class="toc-section-number">5.1</span> A simple example</a></li>
-<li><a href="#a-second-example"><span class="toc-section-number">5.2</span> A second example</a></li>
+<li><a href="#projection-and-spatial-transformation"><span class="toc-section-number">4</span> Projection and spatial transformation</a><ul>
+<li><a href="#a-simple-example"><span class="toc-section-number">4.1</span> A simple example</a></li>
+<li><a href="#a-second-example"><span class="toc-section-number">4.2</span> A second example</a></li>
 </ul></li>
-<li><a href="#the-maps-package"><span class="toc-section-number">6</span> The maps package</a><ul>
-<li><a href="#oregon-county-census-data-bubble-plots-of-orcounty.csv-data"><span class="toc-section-number">6.1</span> Oregon county census data – bubble plots of orcounty.csv data</a></li>
-<li><a href="#plotting-data-on-basemaps-from-the-maps-package"><span class="toc-section-number">6.2</span> Plotting data on basemaps from the <code>maps</code> package</a></li>
+<li><a href="#the-maps-package"><span class="toc-section-number">5</span> The maps package</a><ul>
+<li><a href="#oregon-county-census-data-bubble-plots-of-orcounty.csv-data"><span class="toc-section-number">5.1</span> Oregon county census data – bubble plots of orcounty.csv data</a></li>
 </ul></li>
-<li><a href="#further-examples-illustrating-map-projection-using-the-maps-package"><span class="toc-section-number">7</span> Further examples illustrating map projection using the <code>maps</code> package</a><ul>
-<li><a href="#unprojected-maps"><span class="toc-section-number">7.1</span> Unprojected maps</a></li>
-<li><a href="#projected-maps"><span class="toc-section-number">7.2</span> Projected maps</a></li>
-<li><a href="#basemap-shapefile-generation-using-the-maps-package"><span class="toc-section-number">7.3</span> Basemap shapefile generation using the <code>maps</code> package</a></li>
+<li><a href="#further-examples-illustrating-map-projection-using-the-maps-package"><span class="toc-section-number">6</span> Further examples illustrating map projection using the <code>maps</code> package</a><ul>
+<li><a href="#unprojected-maps"><span class="toc-section-number">6.1</span> Unprojected maps</a></li>
+<li><a href="#projected-maps"><span class="toc-section-number">6.2</span> Projected maps</a></li>
+<li><a href="#basemap-shapefile-generation-using-the-maps-package"><span class="toc-section-number">6.3</span> Basemap shapefile generation using the <code>maps</code> package</a></li>
 </ul></li>
-<li><a href="#readings"><span class="toc-section-number">8</span> Readings</a></li>
+<li><a href="#readings"><span class="toc-section-number">7</span> Readings</a></li>
 </ul>
 </div>
 
-<div id="introduction" class="section level1">
-<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>#Introduction#</p>
 <p>One extremely useful feature of <strong>R</strong> for analyzing geographical data is its ability to provide maps of data in the same computing environment that the data analysis is being performed in, and moreover, to read, manipulate and analyze data with explicitly spatial coordinate information. This facility for handling spatial data is being implemented as part of the <code>sp</code> package which provides an internal format for spatial data, and a number of functions for its input, output and display (together constituting a set of “classes and methods”), the <code>rgeos</code> package, which implements many of the spatial topology functions that formerly required a full suite of GIS software. The main package(s) for working with spatial data include:</p>
 <ul>
 <li><p><code>sp</code> – provides a way to read and display ESRI shapefiles (and the feature attribute data they may contain) (Edzer Pebesma, Roger Bivand, Barry Rowlingson, Virgilio Gomez-Rubio, Robert Hijmans)</p></li>
@@ -530,9 +555,8 @@ $(document).ready(function () {
 <p>Simple features (<code>sf</code>) web site <a href="https://r-spatial.github.io/sf/index.html">[https://r-spatial.github.io/sf/index.html]</a></p>
 <p>Stars project (<code>stars</code>) web site <a href="http://r-spatial.org/r/2017/11/23/stars1.html">[http://r-spatial.org/r/2017/11/23/stars1.html]</a></p>
 <p>Lovelace, R., J. Nowosad, and J. Muenchow, 2017, <em>Geocomputation with R</em> <a href="https://bookdown.org/robinlovelace/geocompr/">[https://bookdown.org/robinlovelace/geocompr/]</a></p>
-</div>
 <div id="maps-in-r-example-data-and-setup" class="section level1">
-<h1><span class="header-section-number">2</span> Maps in R – example data and setup</h1>
+<h1><span class="header-section-number">1</span> Maps in R – example data and setup</h1>
 <p>The examples here use several libraries, datasets, and shapefiles that should be downloaded and/or installed, and read in before proceeding. This will make the examples easier to follow, but they will fail if the data sets do not exist or have not been read in. For one of the example data sets, Oregon climate-station data, the data are available in two forms–as a .csv file (orstation.csv), and included as part of the orstations shape file. as a consequence, the individual variables will be referred to by their “full” names (e.g. orstationc$tann).</p>
 <p>Required libraries:</p>
 <p><code>maptools</code> (and <code>sp</code>), <code>rgdal</code>, <code>RColorBrewer</code>, <code>classInt</code>, <code>maps</code>, <code>rgeos</code></p>
@@ -552,18 +576,18 @@ $(document).ready(function () {
 <p><a href="https://pjbartlein.github.io/GeogDataAnalysis/data/Rdata/geog495.RData">[geog495.RData]</a></p>
 <p>Right-click on the above link, and save it to your working folder. (If you’ve forgotten where that is, type <code>getwd()</code> on the command line). Then read it in to R:</p>
 <p>Load the libraries:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rgeos)
-<span class="kw">library</span>(rgdal)
-<span class="kw">library</span>(maptools)     <span class="co"># also loads sp()</span>
-<span class="kw">library</span>(RColorBrewer) <span class="co"># creates nice color schemes</span>
-<span class="kw">library</span>(classInt)     <span class="co"># finds class intervals for continuous variables</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(rgeos)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(rgdal)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">library</span>(maptools)     <span class="co"># also loads sp()</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">library</span>(RColorBrewer) <span class="co"># creates nice color schemes</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">library</span>(classInt)     <span class="co"># finds class intervals for continuous variables</span></a></code></pre></div>
 <p>Before begining, examine the “structure” of one of the shape file:</p>
 <p>Examine the structure and contents of orcounty.shp shapefile. Each of the different approaches yields a slightly different perspective on the shapefile and its data (and all produce a lot of output, which is not echoed here).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(orcounty.shp)
-<span class="kw">attributes</span>(orcounty.shp)
-<span class="kw">attr</span>(orcounty.shp,<span class="st">&quot;polygons&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">summary</span>(orcounty.shp)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">attributes</span>(orcounty.shp)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">attr</span>(orcounty.shp,<span class="st">&quot;polygons&quot;</span>)</a></code></pre></div>
 <p>Another version of the attributes() function provides information about the attached data (or attributes in the ArcGIS sense). Note the use of the “@” sign to indicate what part of the shape file we want to examine:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attributes</span>(orcounty.shp<span class="op">@</span>data)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">attributes</span>(orcounty.shp<span class="op">@</span>data)</a></code></pre></div>
 <pre><code>## $names
 ##  [1] &quot;NAME&quot;       &quot;STATE_NAME&quot; &quot;STATE_FIPS&quot; &quot;CNTY_FIPS&quot;  &quot;FIPS&quot;       &quot;AREA&quot;       &quot;POP1990&quot;   
 ##  [8] &quot;POP1997&quot;    &quot;POP90_SQMI&quot; &quot;HOUSEHOLDS&quot; &quot;MALES&quot;      &quot;FEMALES&quot;    &quot;WHITE&quot;      &quot;BLACK&quot;     
@@ -589,172 +613,172 @@ $(document).ready(function () {
 <p><a href="lec06.html">[Back to top]</a></p>
 </div>
 <div id="some-simple-maps" class="section level1">
-<h1><span class="header-section-number">3</span> Some simple maps</h1>
+<h1><span class="header-section-number">2</span> Some simple maps</h1>
 <p>R has the capability of plotting some simple maps using the maptools package, which can read and plot ESRI shapefiles. Here are a couple of examples:</p>
 <div id="oregon-county-census-data-attribute-data-in-the-orcounty.shp-shape-file" class="section level2">
-<h2><span class="header-section-number">3.1</span> Oregon county census data – attribute data in the <code>orcounty.shp</code> shape file</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># equal-frequency class intervals -- block 1</span>
-plotvar &lt;-<span class="st"> </span>orcounty.shp<span class="op">@</span>data<span class="op">$</span>POP1990
-nclr &lt;-<span class="st"> </span><span class="dv">8</span>
-plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;BuPu&quot;</span>)
-class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;quantile&quot;</span>)
-colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)</code></pre></div>
+<h2><span class="header-section-number">2.1</span> Oregon county census data – attribute data in the <code>orcounty.shp</code> shape file</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># equal-frequency class intervals -- block 1</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">plotvar &lt;-<span class="st"> </span>orcounty.shp<span class="op">@</span>data<span class="op">$</span>POP1990</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">nclr &lt;-<span class="st"> </span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;BuPu&quot;</span>)</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;quantile&quot;</span>)</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)</a></code></pre></div>
 <p>This first block of code (above) just does some setting up, while this next block actually produces the map:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># block 2</span>
-<span class="kw">plot</span>(orcounty.shp, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="op">-</span><span class="dv">115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))
-<span class="kw">plot</span>(orcounty.shp, <span class="dt">col=</span>colcode, <span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Population 1990&quot;</span>,
-    <span class="dt">sub=</span><span class="st">&quot;Quantile (Equal-Frequency) Class Intervals&quot;</span>)
-<span class="kw">legend</span>(<span class="op">-</span><span class="dv">117</span>, <span class="dv">44</span>, <span class="dt">legend=</span><span class="kw">names</span>(<span class="kw">attr</span>(colcode, <span class="st">&quot;table&quot;</span>)),
-    <span class="dt">fill=</span><span class="kw">attr</span>(colcode, <span class="st">&quot;palette&quot;</span>), <span class="dt">cex=</span><span class="fl">0.6</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># block 2</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">plot</span>(orcounty.shp, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="dv">-115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">plot</span>(orcounty.shp, <span class="dt">col=</span>colcode, <span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Population 1990&quot;</span>,</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">    <span class="dt">sub=</span><span class="st">&quot;Quantile (Equal-Frequency) Class Intervals&quot;</span>)</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="kw">legend</span>(<span class="op">-</span><span class="dv">117</span>, <span class="dv">44</span>, <span class="dt">legend=</span><span class="kw">names</span>(<span class="kw">attr</span>(colcode, <span class="st">&quot;table&quot;</span>)),</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">    <span class="dt">fill=</span><span class="kw">attr</span>(colcode, <span class="st">&quot;palette&quot;</span>), <span class="dt">cex=</span><span class="fl">0.6</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map1_block2-1.png" width="2100" /></p>
 <p>Here’s what’s going on. First, a temporary variable <code>plotvar</code> is created by copying the values of <code>orcounty.sh@data$POP1990</code> (from “attribute” data in the shape file). Next the number of colors is set <code>nclr &lt;- 8</code> and a set of appropriate colors is generated using the <code>brewer.pal()</code> function. The <code>classIntervals()</code> function assigns the individual observations of <code>plotvar</code> to one of <code>nclr</code> equal-frequency class intervals, and then the <code>findColours()</code> function (note the Canadian/U.K. spelling) determines the color for each observation (each county).</p>
 <p>In the second block, the first use of the <code>plot()</code> function plots the shapefile within an appropriate range of latitudes and longitudes, while the second use plots colored polygons on top. The rest of block 2 adds a title and legend. It’s a little clunky, and the placement of labels are not great, but it’s quick.</p>
 </div>
 <div id="symbol-plot-oregon-climate-station-data-data-in-the-orstationc.csv-file-basemap-in-orotl.shp" class="section level2">
-<h2><span class="header-section-number">3.2</span> Symbol plot: Oregon climate station data – data in the <code>orstationc.csv</code> file, basemap in <code>orotl.shp</code></h2>
+<h2><span class="header-section-number">2.2</span> Symbol plot: Oregon climate station data – data in the <code>orstationc.csv</code> file, basemap in <code>orotl.shp</code></h2>
 <p>Here’s a map of the Oregon climate station data with the data coming from the <code>rstationc.csv</code> file, and the basemap from <code>orotl.shp</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># symbol plot -- equal-interval class intervals</span>
-plotvar &lt;-<span class="st"> </span>orstationc<span class="op">$</span>tann
-nclr &lt;-<span class="st"> </span><span class="dv">8</span>
-plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;PuOr&quot;</span>)
-plotclr &lt;-<span class="st"> </span>plotclr[nclr<span class="op">:</span><span class="dv">1</span>] <span class="co"># reorder colors</span>
-class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;equal&quot;</span>)
-colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)
-
-<span class="kw">plot</span>(orotl.shp, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="op">-</span><span class="dv">115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))
-<span class="kw">points</span>(orstationc<span class="op">$</span>lon, orstationc<span class="op">$</span>lat, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span>colcode, <span class="dt">cex=</span><span class="dv">2</span>)
-<span class="kw">points</span>(orstationc<span class="op">$</span>lon, orstationc<span class="op">$</span>lat, <span class="dt">cex=</span><span class="dv">2</span>)
-<span class="kw">title</span>(<span class="st">&quot;Oregon Climate Station Data -- Annual Temperature&quot;</span>,
-    <span class="dt">sub=</span><span class="st">&quot;Equal-Interval Class Intervals&quot;</span>)
-<span class="kw">legend</span>(<span class="op">-</span><span class="dv">117</span>, <span class="dv">44</span>, <span class="dt">legend=</span><span class="kw">names</span>(<span class="kw">attr</span>(colcode, <span class="st">&quot;table&quot;</span>)),
-    <span class="dt">fill=</span><span class="kw">attr</span>(colcode, <span class="st">&quot;palette&quot;</span>), <span class="dt">cex=</span><span class="fl">0.6</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># symbol plot -- equal-interval class intervals</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">plotvar &lt;-<span class="st"> </span>orstationc<span class="op">$</span>tann</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">nclr &lt;-<span class="st"> </span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;PuOr&quot;</span>)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">plotclr &lt;-<span class="st"> </span>plotclr[nclr<span class="op">:</span><span class="dv">1</span>] <span class="co"># reorder colors</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;equal&quot;</span>)</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="kw">plot</span>(orotl.shp, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="dv">-115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="kw">points</span>(orstationc<span class="op">$</span>lon, orstationc<span class="op">$</span>lat, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span>colcode, <span class="dt">cex=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="kw">points</span>(orstationc<span class="op">$</span>lon, orstationc<span class="op">$</span>lat, <span class="dt">cex=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="kw">title</span>(<span class="st">&quot;Oregon Climate Station Data -- Annual Temperature&quot;</span>,</a>
+<a class="sourceLine" id="cb7-13" data-line-number="13">    <span class="dt">sub=</span><span class="st">&quot;Equal-Interval Class Intervals&quot;</span>)</a>
+<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="kw">legend</span>(<span class="op">-</span><span class="dv">117</span>, <span class="dv">44</span>, <span class="dt">legend=</span><span class="kw">names</span>(<span class="kw">attr</span>(colcode, <span class="st">&quot;table&quot;</span>)),</a>
+<a class="sourceLine" id="cb7-15" data-line-number="15">    <span class="dt">fill=</span><span class="kw">attr</span>(colcode, <span class="st">&quot;palette&quot;</span>), <span class="dt">cex=</span><span class="fl">0.6</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map2-1.png" width="2100" /></p>
 </div>
 <div id="oregon-climate-station-data-locations-and-data-in-shape-file" class="section level2">
-<h2><span class="header-section-number">3.3</span> Oregon climate station data – locations and data in shape file</h2>
+<h2><span class="header-section-number">2.3</span> Oregon climate station data – locations and data in shape file</h2>
 <p>Here’s a third map with the Oregon climate station data locations and data coming from the shape file:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># symbol plot -- equal-interval class intervals</span>
-plotvar &lt;-<span class="st"> </span>orstations.shp<span class="op">@</span>data<span class="op">$</span>pann
-nclr &lt;-<span class="st"> </span><span class="dv">5</span>
-plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;BuPu&quot;</span>)
-class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;fixed&quot;</span>,
-<span class="dt">fixedBreaks=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">200</span>,<span class="dv">500</span>,<span class="dv">1000</span>,<span class="dv">2000</span>,<span class="dv">5000</span>))
-colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)
-orstations.pts &lt;-<span class="st"> </span>orstations.shp<span class="op">@</span>coords <span class="co"># get point data</span>
-
-<span class="kw">plot</span>(orotl.shp, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="op">-</span><span class="dv">115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))
-<span class="kw">points</span>(orstations.pts, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span>colcode, <span class="dt">cex=</span><span class="dv">2</span>)
-<span class="kw">points</span>(orstations.pts, <span class="dt">cex=</span><span class="dv">2</span>)
-<span class="kw">title</span>(<span class="st">&quot;Oregon Climate Station Data -- Annual Precipitation&quot;</span>,
-    <span class="dt">sub=</span><span class="st">&quot;Fixed-Interval Class Intervals&quot;</span>)
-<span class="kw">legend</span>(<span class="op">-</span><span class="dv">117</span>, <span class="dv">44</span>, <span class="dt">legend=</span><span class="kw">names</span>(<span class="kw">attr</span>(colcode, <span class="st">&quot;table&quot;</span>)),
-<span class="dt">fill=</span><span class="kw">attr</span>(colcode, <span class="st">&quot;palette&quot;</span>), <span class="dt">cex=</span><span class="fl">0.6</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># symbol plot -- equal-interval class intervals</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">plotvar &lt;-<span class="st"> </span>orstations.shp<span class="op">@</span>data<span class="op">$</span>pann</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">nclr &lt;-<span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;BuPu&quot;</span>)</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;fixed&quot;</span>,</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="dt">fixedBreaks=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">200</span>,<span class="dv">500</span>,<span class="dv">1000</span>,<span class="dv">2000</span>,<span class="dv">5000</span>))</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">orstations.pts &lt;-<span class="st"> </span>orstations.shp<span class="op">@</span>coords <span class="co"># get point data</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="kw">plot</span>(orotl.shp, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="dv">-115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))</a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="kw">points</span>(orstations.pts, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span>colcode, <span class="dt">cex=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="kw">points</span>(orstations.pts, <span class="dt">cex=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="kw">title</span>(<span class="st">&quot;Oregon Climate Station Data -- Annual Precipitation&quot;</span>,</a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">    <span class="dt">sub=</span><span class="st">&quot;Fixed-Interval Class Intervals&quot;</span>)</a>
+<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="kw">legend</span>(<span class="op">-</span><span class="dv">117</span>, <span class="dv">44</span>, <span class="dt">legend=</span><span class="kw">names</span>(<span class="kw">attr</span>(colcode, <span class="st">&quot;table&quot;</span>)),</a>
+<a class="sourceLine" id="cb8-16" data-line-number="16"><span class="dt">fill=</span><span class="kw">attr</span>(colcode, <span class="st">&quot;palette&quot;</span>), <span class="dt">cex=</span><span class="fl">0.6</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map3-1.png" width="2100" /></p>
 <p>Notice how the expression <code>orstations.shp@data$pann</code> refers to a specific variable (<code>pann</code>), contained in the data attribute of the shape file. Some other things: This map uses fixed (ahead of making the map) class intervals (<code>fixedBreaks</code>) and the two <code>points()</code> function “calls”: the first plots a colored dot (<code>col=colcode</code>), and the second then just plots a unfilled dot (in black) to put a nice line around each point to make the symbol more obvious.</p>
 <p><a href="lec06.html">[Back to top]</a></p>
 </div>
 </div>
 <div id="variations-in-color-scales-and-representation" class="section level1">
-<h1><span class="header-section-number">4</span> Variations in color scales and representation</h1>
+<h1><span class="header-section-number">3</span> Variations in color scales and representation</h1>
 <p>This set of examples illustrates some more applications of the maptools package, and some variations in the construction of class intervals for choropleth maps and symbolic representation of the Oregon county-level census data:</p>
 <div id="oregon-county-census-data-equal-frequency-class-intervals" class="section level2">
-<h2><span class="header-section-number">4.1</span> Oregon county census data – equal-frequency class intervals</h2>
+<h2><span class="header-section-number">3.1</span> Oregon county census data – equal-frequency class intervals</h2>
 <p>Here, the class intervals are defined such that each class has the same number of observations.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># equal-frequency class intervals</span>
-plotvar &lt;-<span class="st"> </span>orcounty.shp<span class="op">@</span>data<span class="op">$</span>POP1990
-nclr &lt;-<span class="st"> </span><span class="dv">8</span>
-plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;BuPu&quot;</span>)
-class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;quantile&quot;</span>)
-colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)
-
-<span class="kw">plot</span>(orcounty.shp, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="op">-</span><span class="dv">115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))
-<span class="kw">plot</span>(orcounty.shp, <span class="dt">col=</span>colcode, <span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Population 1990&quot;</span>,
-  <span class="dt">sub=</span><span class="st">&quot;Quantile (Equal-Frequency) Class Intervals&quot;</span>)
-<span class="kw">legend</span>(<span class="op">-</span><span class="dv">117</span>, <span class="dv">44</span>, <span class="dt">legend=</span><span class="kw">names</span>(<span class="kw">attr</span>(colcode, <span class="st">&quot;table&quot;</span>)),
-  <span class="dt">fill=</span><span class="kw">attr</span>(colcode, <span class="st">&quot;palette&quot;</span>), <span class="dt">cex=</span><span class="fl">0.6</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># equal-frequency class intervals</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">plotvar &lt;-<span class="st"> </span>orcounty.shp<span class="op">@</span>data<span class="op">$</span>POP1990</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">nclr &lt;-<span class="st"> </span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;BuPu&quot;</span>)</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;quantile&quot;</span>)</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="kw">plot</span>(orcounty.shp, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="dv">-115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))</a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="kw">plot</span>(orcounty.shp, <span class="dt">col=</span>colcode, <span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Population 1990&quot;</span>,</a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">  <span class="dt">sub=</span><span class="st">&quot;Quantile (Equal-Frequency) Class Intervals&quot;</span>)</a>
+<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="kw">legend</span>(<span class="op">-</span><span class="dv">117</span>, <span class="dv">44</span>, <span class="dt">legend=</span><span class="kw">names</span>(<span class="kw">attr</span>(colcode, <span class="st">&quot;table&quot;</span>)),</a>
+<a class="sourceLine" id="cb9-13" data-line-number="13">  <span class="dt">fill=</span><span class="kw">attr</span>(colcode, <span class="st">&quot;palette&quot;</span>), <span class="dt">cex=</span><span class="fl">0.6</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map4-1.png" width="2100" /></p>
 </div>
 <div id="oregon-county-census-data-equal-width-class-intervals" class="section level2">
-<h2><span class="header-section-number">4.2</span> Oregon county census data – equal-width class intervals</h2>
+<h2><span class="header-section-number">3.2</span> Oregon county census data – equal-width class intervals</h2>
 <p>Now, the classes are defined so than each class has the same “width”.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#equal-width class intervals of 1990 population</span>
-plotvar &lt;-<span class="st"> </span>orcounty.shp<span class="op">@</span>data<span class="op">$</span>POP1990
-nclr &lt;-<span class="st"> </span><span class="dv">8</span>
-plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;BuPu&quot;</span>)
-<span class="co">#plotclr &lt;- plotclr[nclr:1] # reorder colors if appropriate</span>
-class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;equal&quot;</span>)
-colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)
-
-<span class="kw">plot</span>(orcounty.shp, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="op">-</span><span class="dv">115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))
-<span class="kw">plot</span>(orcounty.shp, <span class="dt">col=</span>colcode, <span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Population 1990&quot;</span>,
-  <span class="dt">sub=</span><span class="st">&quot; Equal-Width Class Intervals&quot;</span>)
-<span class="kw">legend</span>(<span class="op">-</span><span class="dv">117</span>, <span class="dv">44</span>, <span class="dt">legend=</span><span class="kw">names</span>(<span class="kw">attr</span>(colcode, <span class="st">&quot;table&quot;</span>)),
-  <span class="dt">fill=</span><span class="kw">attr</span>(colcode, <span class="st">&quot;palette&quot;</span>), <span class="dt">cex=</span><span class="fl">0.6</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">#equal-width class intervals of 1990 population</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">plotvar &lt;-<span class="st"> </span>orcounty.shp<span class="op">@</span>data<span class="op">$</span>POP1990</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">nclr &lt;-<span class="st"> </span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;BuPu&quot;</span>)</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="co">#plotclr &lt;- plotclr[nclr:1] # reorder colors if appropriate</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;equal&quot;</span>)</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="kw">plot</span>(orcounty.shp, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="dv">-115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))</a>
+<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="kw">plot</span>(orcounty.shp, <span class="dt">col=</span>colcode, <span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Population 1990&quot;</span>,</a>
+<a class="sourceLine" id="cb10-12" data-line-number="12">  <span class="dt">sub=</span><span class="st">&quot; Equal-Width Class Intervals&quot;</span>)</a>
+<a class="sourceLine" id="cb10-13" data-line-number="13"><span class="kw">legend</span>(<span class="op">-</span><span class="dv">117</span>, <span class="dv">44</span>, <span class="dt">legend=</span><span class="kw">names</span>(<span class="kw">attr</span>(colcode, <span class="st">&quot;table&quot;</span>)),</a>
+<a class="sourceLine" id="cb10-14" data-line-number="14">  <span class="dt">fill=</span><span class="kw">attr</span>(colcode, <span class="st">&quot;palette&quot;</span>), <span class="dt">cex=</span><span class="fl">0.6</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map5a-1.png" width="2100" /></p>
 <p>The same data are being plotted here, the difference is the way in which class intervals are defined. Equal-frequency class intervals create a general gradient of county sizes from the small ones in the northern Willamette Valley to the larger eastern Oregon ones, while the equal-width class intervals emphasize the large differences in the size of the counties.</p>
 </div>
 <div id="the-bubble-plot-on-a-map" class="section level2">
-<h2><span class="header-section-number">4.3</span> The bubble plot (on a map)</h2>
+<h2><span class="header-section-number">3.3</span> The bubble plot (on a map)</h2>
 <p>We tend to be influenced more by the simple area of an object on the page or screen than by whatever is being plotted. For example, here’s the 1990 county population, plotted as polygons.</p>
 <p>Notice above that Multnomah county, the most populated one, despite being plotted in a dark color, gets kind of dominated by the larger, less populated counties that surround it. The eastern Oregon counties, the least populated, occupy the greatest area on the map. The solution is the bubble plot:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># bubble plot equal-frequency class intervals</span>
-plotvar &lt;-<span class="st"> </span>orcounty.shp<span class="op">@</span>data<span class="op">$</span>POP1990
-nclr &lt;-<span class="st"> </span><span class="dv">8</span>
-plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;BuPu&quot;</span>)
-<span class="co">#plotclr &lt;- plotclr[nclr:1] # reorder colors if appropriate</span>
-max.symbol.size=<span class="dv">12</span>
-min.symbol.size=<span class="dv">1</span>
-class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;quantile&quot;</span>)
-colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)
-symbol.size &lt;-<span class="st"> </span>((plotvar<span class="op">-</span><span class="kw">min</span>(plotvar))<span class="op">/</span>
-<span class="st">    </span>(<span class="kw">max</span>(plotvar)<span class="op">-</span><span class="kw">min</span>(plotvar))<span class="op">*</span>(max.symbol.size<span class="op">-</span>min.symbol.size)
-  <span class="op">+</span>min.symbol.size)
-
-<span class="kw">plot</span>(orcounty.shp, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="op">-</span><span class="dv">115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))
-orcounty.cntr &lt;-<span class="st"> </span><span class="kw">coordinates</span>(orcounty.shp)
-<span class="kw">points</span>(orcounty.cntr, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span>colcode, <span class="dt">cex=</span>symbol.size)
-<span class="kw">points</span>(orcounty.cntr, <span class="dt">cex=</span>symbol.size)
-<span class="kw">text</span>(<span class="op">-</span><span class="dv">120</span>, <span class="fl">46.5</span>, <span class="st">&quot;POP1990: Equal-Frequency Class Intervals&quot;</span>)
-<span class="kw">legend</span>(<span class="op">-</span><span class="dv">117</span>, <span class="dv">44</span>, <span class="dt">legend=</span><span class="kw">names</span>(<span class="kw">attr</span>(colcode, <span class="st">&quot;table&quot;</span>)),
-  <span class="dt">fill=</span><span class="kw">attr</span>(colcode, <span class="st">&quot;palette&quot;</span>), <span class="dt">cex=</span><span class="fl">0.6</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># bubble plot equal-frequency class intervals</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">plotvar &lt;-<span class="st"> </span>orcounty.shp<span class="op">@</span>data<span class="op">$</span>POP1990</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">nclr &lt;-<span class="st"> </span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;BuPu&quot;</span>)</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">#plotclr &lt;- plotclr[nclr:1] # reorder colors if appropriate</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">max.symbol.size=<span class="dv">12</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">min.symbol.size=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;quantile&quot;</span>)</a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)</a>
+<a class="sourceLine" id="cb11-10" data-line-number="10">symbol.size &lt;-<span class="st"> </span>((plotvar<span class="op">-</span><span class="kw">min</span>(plotvar))<span class="op">/</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="st">    </span>(<span class="kw">max</span>(plotvar)<span class="op">-</span><span class="kw">min</span>(plotvar))<span class="op">*</span>(max.symbol.size<span class="op">-</span>min.symbol.size)</a>
+<a class="sourceLine" id="cb11-12" data-line-number="12">  <span class="op">+</span>min.symbol.size)</a>
+<a class="sourceLine" id="cb11-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb11-14" data-line-number="14"><span class="kw">plot</span>(orcounty.shp, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="dv">-115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))</a>
+<a class="sourceLine" id="cb11-15" data-line-number="15">orcounty.cntr &lt;-<span class="st"> </span><span class="kw">coordinates</span>(orcounty.shp)</a>
+<a class="sourceLine" id="cb11-16" data-line-number="16"><span class="kw">points</span>(orcounty.cntr, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span>colcode, <span class="dt">cex=</span>symbol.size)</a>
+<a class="sourceLine" id="cb11-17" data-line-number="17"><span class="kw">points</span>(orcounty.cntr, <span class="dt">cex=</span>symbol.size)</a>
+<a class="sourceLine" id="cb11-18" data-line-number="18"><span class="kw">text</span>(<span class="op">-</span><span class="dv">120</span>, <span class="fl">46.5</span>, <span class="st">&quot;POP1990: Equal-Frequency Class Intervals&quot;</span>)</a>
+<a class="sourceLine" id="cb11-19" data-line-number="19"><span class="kw">legend</span>(<span class="op">-</span><span class="dv">117</span>, <span class="dv">44</span>, <span class="dt">legend=</span><span class="kw">names</span>(<span class="kw">attr</span>(colcode, <span class="st">&quot;table&quot;</span>)),</a>
+<a class="sourceLine" id="cb11-20" data-line-number="20">  <span class="dt">fill=</span><span class="kw">attr</span>(colcode, <span class="st">&quot;palette&quot;</span>), <span class="dt">cex=</span><span class="fl">0.6</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map7-1.png" width="2100" /></p>
 <p>Here the size of each symbol is calculated using the county population using the code at the end of the first block, and then the symbol is plotted at the centroid of each county, which is located using the coordinates() function. Note that the symbol sizes could be made vary continuously.</p>
 </div>
 <div id="dot-maps" class="section level2">
-<h2><span class="header-section-number">4.4</span> Dot maps</h2>
+<h2><span class="header-section-number">3.4</span> Dot maps</h2>
 <p>Another way to plot data that applies to polygons (counties, states, countries, etc.), is the time-honored dot map:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># maptools dot-density maps</span>
-<span class="co"># warning: this can take a little while</span>
-plottitle &lt;-<span class="st"> &quot;Population 1990, each dot=1000&quot;</span>
-orpolys &lt;-<span class="st"> </span><span class="kw">SpatialPolygonsDataFrame</span>(orcounty.shp, <span class="dt">data=</span><span class="kw">as</span>(orcounty.shp, <span class="st">&quot;data.frame&quot;</span>))
-plotvar &lt;-<span class="st"> </span>orpolys<span class="op">@</span>data<span class="op">$</span>POP1990<span class="op">/</span><span class="fl">1000.0</span>
-
-dots.rand &lt;-<span class="st"> </span><span class="kw">dotsInPolys</span>(orpolys, <span class="kw">as.integer</span>(plotvar), <span class="dt">f=</span><span class="st">&quot;random&quot;</span>)
-<span class="kw">plot</span>(orpolys, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="op">-</span><span class="dv">115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))
-<span class="kw">plot</span>(dots.rand, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">cex=</span><span class="fl">0.5</span>, <span class="dt">col=</span><span class="st">&quot;magenta&quot;</span>)
-<span class="kw">plot</span>(orpolys, <span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">title</span>(plottitle)</code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># maptools dot-density maps</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="co"># warning: this can take a little while</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">plottitle &lt;-<span class="st"> &quot;Population 1990, each dot=1000&quot;</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">orpolys &lt;-<span class="st"> </span><span class="kw">SpatialPolygonsDataFrame</span>(orcounty.shp, <span class="dt">data=</span><span class="kw">as</span>(orcounty.shp, <span class="st">&quot;data.frame&quot;</span>))</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">plotvar &lt;-<span class="st"> </span>orpolys<span class="op">@</span>data<span class="op">$</span>POP1990<span class="op">/</span><span class="fl">1000.0</span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">dots.rand &lt;-<span class="st"> </span><span class="kw">dotsInPolys</span>(orpolys, <span class="kw">as.integer</span>(plotvar), <span class="dt">f=</span><span class="st">&quot;random&quot;</span>)</a>
+<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="kw">plot</span>(orpolys, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="dv">-115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))</a>
+<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="kw">plot</span>(dots.rand, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">cex=</span><span class="fl">0.5</span>, <span class="dt">col=</span><span class="st">&quot;magenta&quot;</span>)</a>
+<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="kw">plot</span>(orpolys, <span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="kw">title</span>(plottitle)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map8-1.png" width="2100" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dots.reg &lt;-<span class="st"> </span><span class="kw">dotsInPolys</span>(orpolys, <span class="kw">as.integer</span>(plotvar), <span class="dt">f=</span><span class="st">&quot;regular&quot;</span>)
-<span class="kw">plot</span>(orpolys, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="op">-</span><span class="dv">115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))
-<span class="kw">plot</span>(dots.reg, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">cex=</span><span class="fl">0.5</span>, <span class="dt">col=</span><span class="st">&quot;purple&quot;</span>)
-<span class="kw">plot</span>(orpolys, <span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">title</span>(plottitle)</code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">dots.reg &lt;-<span class="st"> </span><span class="kw">dotsInPolys</span>(orpolys, <span class="kw">as.integer</span>(plotvar), <span class="dt">f=</span><span class="st">&quot;regular&quot;</span>)</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw">plot</span>(orpolys, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="dv">-115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="kw">plot</span>(dots.reg, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">cex=</span><span class="fl">0.5</span>, <span class="dt">col=</span><span class="st">&quot;purple&quot;</span>)</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="kw">plot</span>(orpolys, <span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="kw">title</span>(plottitle)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map9-1.png" width="2100" /></p>
 <p>The first map randomly locates each dot, which looks nicer, but may be misleading in regions where the dots are sparse (i.e. they may look like they are identifying specific places), while the second map clearly shows a stylized depiction of population, but looks kind of strange.</p>
 <p><a href="lec06.html">[Back to top]</a></p>
 </div>
 </div>
 <div id="projection-and-spatial-transformation" class="section level1">
-<h1><span class="header-section-number">5</span> Projection and spatial transformation</h1>
+<h1><span class="header-section-number">4</span> Projection and spatial transformation</h1>
 <p>The <code>sp</code> class and <code>maptools</code> package provide a mechanism for doing projected maps. (Note that the projection parameters used in the example here are not really appropriate for the area being plotted, but were chosen to make the fact that the data are projected evident.)</p>
 <p>Load some libraries:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(sp)
-<span class="kw">library</span>(maptools)
-<span class="kw">library</span>(rgdal)</code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">library</span>(sp)</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw">library</span>(maptools)</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="kw">library</span>(rgdal)</a></code></pre></div>
 <pre><code>## rgdal: version: 1.2-16, (SVN revision 701)
 ##  Geospatial Data Abstraction Library extensions to R successfully loaded
 ##  Loaded GDAL runtime: GDAL 2.1.3, released 2017/20/01
@@ -763,88 +787,88 @@ dots.rand &lt;-<span class="st"> </span><span class="kw">dotsInPolys</span>(orpo
 ##  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
 ##  Path to PROJ.4 shared files: /Users/bartlein/Library/R/3.4/library/rgdal/proj
 ##  Linking to sp version: 1.2-5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rgeos)</code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">library</span>(rgeos)</a></code></pre></div>
 <div id="a-simple-example" class="section level2">
-<h2><span class="header-section-number">5.1</span> A simple example</h2>
+<h2><span class="header-section-number">4.1</span> A simple example</h2>
 <p>The first block of code below is the standard setup for determining plotting colors.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># equal-frequency class intervals -- spplot &amp; projected</span>
-plotvar &lt;-<span class="st"> </span>orstations.shp<span class="op">@</span>data<span class="op">$</span>tann <span class="co"># gets data from shapefile .dbf</span>
-nclr &lt;-<span class="st"> </span><span class="dv">8</span>
-plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;PuOr&quot;</span>)
-plotclr &lt;-<span class="st"> </span>plotclr[nclr<span class="op">:</span><span class="dv">1</span>] <span class="co"># reorder colors</span>
-class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;quantile&quot;</span>)
-colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)</code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># equal-frequency class intervals -- spplot &amp; projected</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">plotvar &lt;-<span class="st"> </span>orstations.shp<span class="op">@</span>data<span class="op">$</span>tann <span class="co"># gets data from shapefile .dbf</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">nclr &lt;-<span class="st"> </span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;PuOr&quot;</span>)</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">plotclr &lt;-<span class="st"> </span>plotclr[nclr<span class="op">:</span><span class="dv">1</span>] <span class="co"># reorder colors</span></a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;quantile&quot;</span>)</a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)</a></code></pre></div>
 <p>Next, the latitude/longitude coordinates of the points in the shape file are projected into the Albers Equal-Area <code>aea</code> coordinate system. The next block adds “projection string” (i.e. the name of the projection that the data are currently in to the shape file (in case it’s not already there), and does the projection. First a long string of information in specified in the first statement, then the <code>spTransform()</code> function does the actual conversion of latitudes and longitudes into x, y coordinates.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">proj4string</span>(orotl.shp) &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat&quot;</span>)
-<span class="kw">proj4string</span>(orstations.shp) &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat&quot;</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># do the projection</span>
-<span class="co"># Albers equal-area projection parameters</span>
-aea.proj &lt;-<span class="st"> &quot;+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-110</span>
-<span class="st">+x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m&quot;</span>
-<span class="co"># project the county outlines and station locations</span>
-orotl.shp.proj &lt;-<span class="st"> </span><span class="kw">spTransform</span>(orotl.shp, <span class="kw">CRS</span>(aea.proj))
-orstations.shp.proj &lt;-<span class="st"> </span><span class="kw">spTransform</span>(orstations.shp, <span class="kw">CRS</span>(aea.proj))</code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">proj4string</span>(orotl.shp) &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat&quot;</span>)</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="kw">proj4string</span>(orstations.shp) &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># do the projection</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="co"># Albers equal-area projection parameters</span></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">aea.proj &lt;-<span class="st"> &quot;+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-110</span></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="st">+x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m&quot;</span></a>
+<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="co"># project the county outlines and station locations</span></a>
+<a class="sourceLine" id="cb19-6" data-line-number="6">orotl.shp.proj &lt;-<span class="st"> </span><span class="kw">spTransform</span>(orotl.shp, <span class="kw">CRS</span>(aea.proj))</a>
+<a class="sourceLine" id="cb19-7" data-line-number="7">orstations.shp.proj &lt;-<span class="st"> </span><span class="kw">spTransform</span>(orstations.shp, <span class="kw">CRS</span>(aea.proj))</a></code></pre></div>
 <p>For decoration on the map, a graticule is generated and projected. The <code>gridlines()</code> function creates a graticule in latitude and longitude, and the <code>spTransform()</code> function projects those, like the polygons above.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># generate and project a graticule</span>
-orgrat &lt;-<span class="st"> </span><span class="kw">gridlines</span>(orotl.shp, <span class="dt">easts=</span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">127</span>,<span class="op">-</span><span class="dv">115</span>,<span class="dt">by=</span><span class="dv">1</span>),
-  <span class="dt">norths=</span><span class="kw">seq</span>(<span class="dv">42</span>,<span class="dv">47</span>,<span class="dt">by=</span><span class="dv">1</span>), <span class="dt">ndiscr =</span> <span class="dv">20</span>)
-orgrat.proj &lt;-<span class="st"> </span><span class="kw">spTransform</span>(orgrat, <span class="kw">CRS</span>(aea.proj))</code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co"># generate and project a graticule</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">orgrat &lt;-<span class="st"> </span><span class="kw">gridlines</span>(orotl.shp, <span class="dt">easts=</span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">127</span>,<span class="op">-</span><span class="dv">115</span>,<span class="dt">by=</span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3">  <span class="dt">norths=</span><span class="kw">seq</span>(<span class="dv">42</span>,<span class="dv">47</span>,<span class="dt">by=</span><span class="dv">1</span>), <span class="dt">ndiscr =</span> <span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb20-4" data-line-number="4">orgrat.proj &lt;-<span class="st"> </span><span class="kw">spTransform</span>(orgrat, <span class="kw">CRS</span>(aea.proj))</a></code></pre></div>
 <p>Finally, the <code>spplot()</code> function makes the map.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># specify a state and county outline file and graticule</span>
-basemap1 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;sp.lines&quot;</span>, orgrat.proj, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">fill=</span><span class="ot">NA</span>)
-basemap2 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;sp.lines&quot;</span>, orotl.shp.proj, <span class="dt">fill=</span><span class="ot">NA</span>)
-<span class="co"># plot the map</span>
-<span class="kw">spplot</span>(orstations.shp.proj, <span class="st">&quot;tann&quot;</span>,
-  <span class="dt">col.regions=</span>plotclr, <span class="dt">cuts=</span>nclr, <span class="dt">at=</span><span class="kw">round</span>(class<span class="op">$</span>brks, <span class="dt">digits=</span><span class="dv">1</span>),
-  <span class="dt">xlim=</span><span class="kw">bbox</span>(orotl.shp.proj)[<span class="dv">1</span>,], <span class="dt">ylim=</span><span class="kw">bbox</span>(orotl.shp.proj)[<span class="dv">2</span>,],
-  <span class="dt">key.space=</span><span class="st">&quot;right&quot;</span>,
-  <span class="dt">sp.layout=</span><span class="kw">list</span>(basemap1, basemap2),
-  <span class="dt">main=</span><span class="st">&quot;Annual Temperature&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co"># specify a state and county outline file and graticule</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">basemap1 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;sp.lines&quot;</span>, orgrat.proj, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">fill=</span><span class="ot">NA</span>)</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">basemap2 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;sp.lines&quot;</span>, orotl.shp.proj, <span class="dt">fill=</span><span class="ot">NA</span>)</a>
+<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="co"># plot the map</span></a>
+<a class="sourceLine" id="cb21-5" data-line-number="5"><span class="kw">spplot</span>(orstations.shp.proj, <span class="st">&quot;tann&quot;</span>,</a>
+<a class="sourceLine" id="cb21-6" data-line-number="6">  <span class="dt">col.regions=</span>plotclr, <span class="dt">cuts=</span>nclr, <span class="dt">at=</span><span class="kw">round</span>(class<span class="op">$</span>brks, <span class="dt">digits=</span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb21-7" data-line-number="7">  <span class="dt">xlim=</span><span class="kw">bbox</span>(orotl.shp.proj)[<span class="dv">1</span>,], <span class="dt">ylim=</span><span class="kw">bbox</span>(orotl.shp.proj)[<span class="dv">2</span>,],</a>
+<a class="sourceLine" id="cb21-8" data-line-number="8">  <span class="dt">key.space=</span><span class="st">&quot;right&quot;</span>,</a>
+<a class="sourceLine" id="cb21-9" data-line-number="9">  <span class="dt">sp.layout=</span><span class="kw">list</span>(basemap1, basemap2),</a>
+<a class="sourceLine" id="cb21-10" data-line-number="10">  <span class="dt">main=</span><span class="st">&quot;Annual Temperature&quot;</span>)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map9e-1.png" width="2100" /></p>
 <p>Note that the map is a little different from that made using the standard <code>plot()</code> function. <code>spplot()</code> function uses the <code>lattice</code> package for plotting, and (in these examples) automatically adds a legend. The map is a little awkward looking, which is intended to illustrate the fact that it is indeed projected. A better choice for the <code>+lon_0=</code> argument in the projection string above would be <code>+lon_0=-120</code></p>
 </div>
 <div id="a-second-example" class="section level2">
-<h2><span class="header-section-number">5.2</span> A second example</h2>
+<h2><span class="header-section-number">4.2</span> A second example</h2>
 <p>Here’s a second example, Oregon county census data, where the data being plotted comes from the orcounty.shp shape file, and again is plotted using different choices for class-interval definitions. First, equal-frequency class intervals:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># project Oregon county data</span>
-aea.proj &lt;-<span class="st"> &quot;+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-110</span>
-<span class="st">+x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m&quot;</span>
-orcounty.shp.proj &lt;-<span class="st"> </span><span class="kw">spTransform</span>(orcounty.shp, <span class="kw">CRS</span>(aea.proj))
-
-<span class="co"># equal-frequency class intervals -- spplot &amp; projected</span>
-plotvar &lt;-<span class="st"> </span>orcounty.shp<span class="op">@</span>data<span class="op">$</span>AREA
-nclr &lt;-<span class="st"> </span><span class="dv">8</span>
-plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;BuPu&quot;</span>)
-class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;equal&quot;</span>)
-colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)
-<span class="kw">spplot</span>(orcounty.shp.proj, <span class="st">&quot;AREA&quot;</span>,
-  <span class="dt">col.regions=</span>plotclr, <span class="dt">at=</span><span class="kw">round</span>(class<span class="op">$</span>brks, <span class="dt">digits=</span><span class="dv">1</span>))</code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># project Oregon county data</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">aea.proj &lt;-<span class="st"> &quot;+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-110</span></a>
+<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="st">+x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m&quot;</span></a>
+<a class="sourceLine" id="cb22-4" data-line-number="4">orcounty.shp.proj &lt;-<span class="st"> </span><span class="kw">spTransform</span>(orcounty.shp, <span class="kw">CRS</span>(aea.proj))</a>
+<a class="sourceLine" id="cb22-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb22-6" data-line-number="6"><span class="co"># equal-frequency class intervals -- spplot &amp; projected</span></a>
+<a class="sourceLine" id="cb22-7" data-line-number="7">plotvar &lt;-<span class="st"> </span>orcounty.shp<span class="op">@</span>data<span class="op">$</span>AREA</a>
+<a class="sourceLine" id="cb22-8" data-line-number="8">nclr &lt;-<span class="st"> </span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb22-9" data-line-number="9">plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;BuPu&quot;</span>)</a>
+<a class="sourceLine" id="cb22-10" data-line-number="10">class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;equal&quot;</span>)</a>
+<a class="sourceLine" id="cb22-11" data-line-number="11">colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)</a>
+<a class="sourceLine" id="cb22-12" data-line-number="12"><span class="kw">spplot</span>(orcounty.shp.proj, <span class="st">&quot;AREA&quot;</span>,</a>
+<a class="sourceLine" id="cb22-13" data-line-number="13">  <span class="dt">col.regions=</span>plotclr, <span class="dt">at=</span><span class="kw">round</span>(class<span class="op">$</span>brks, <span class="dt">digits=</span><span class="dv">1</span>))</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map10-1.png" width="2100" /></p>
 <p>And now, equal-width class intervals:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># equal-width class intervals -- spplot &amp; projected</span>
-plotvar &lt;-<span class="st"> </span>orcounty.shp<span class="op">@</span>data<span class="op">$</span>AREA
-nclr &lt;-<span class="st"> </span><span class="dv">8</span>
-plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;BuPu&quot;</span>)
-class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;quantile&quot;</span>)
-colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)
-<span class="kw">spplot</span>(orcounty.shp.proj, <span class="st">&quot;AREA&quot;</span>,
-  <span class="dt">col.regions=</span>plotclr, <span class="dt">at=</span><span class="kw">round</span>(class<span class="op">$</span>brks, <span class="dt">digits=</span><span class="dv">1</span>))</code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co"># equal-width class intervals -- spplot &amp; projected</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2">plotvar &lt;-<span class="st"> </span>orcounty.shp<span class="op">@</span>data<span class="op">$</span>AREA</a>
+<a class="sourceLine" id="cb23-3" data-line-number="3">nclr &lt;-<span class="st"> </span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb23-4" data-line-number="4">plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;BuPu&quot;</span>)</a>
+<a class="sourceLine" id="cb23-5" data-line-number="5">class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;quantile&quot;</span>)</a>
+<a class="sourceLine" id="cb23-6" data-line-number="6">colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)</a>
+<a class="sourceLine" id="cb23-7" data-line-number="7"><span class="kw">spplot</span>(orcounty.shp.proj, <span class="st">&quot;AREA&quot;</span>,</a>
+<a class="sourceLine" id="cb23-8" data-line-number="8">  <span class="dt">col.regions=</span>plotclr, <span class="dt">at=</span><span class="kw">round</span>(class<span class="op">$</span>brks, <span class="dt">digits=</span><span class="dv">1</span>))</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map11-1.png" width="2100" /></p>
 <p>Note that the code for producing maps using the <code>spplot()</code> function is much like that using <code>plot()</code>: some setup work first, then determination of the actual colors or symbols that will be plotted, then finally creation of the map.</p>
 <p><a href="lec06.html">[Back to top]</a></p>
 </div>
 </div>
 <div id="the-maps-package" class="section level1">
-<h1><span class="header-section-number">6</span> The maps package</h1>
+<h1><span class="header-section-number">5</span> The maps package</h1>
 <p>The R <code>maps</code> package provides a means of mapping data that are not necessarily components of a shapefile. The package provides a way of plotting choropleth maps using polygons that it contains (U.S. states and counties, countries of the world), and can use it’s internal polygons to provide unfilled basemaps for point data. The following example replicate the bubble plots done using the maptools package.</p>
 <div id="oregon-county-census-data-bubble-plots-of-orcounty.csv-data" class="section level2">
-<h2><span class="header-section-number">6.1</span> Oregon county census data – bubble plots of orcounty.csv data</h2>
+<h2><span class="header-section-number">5.1</span> Oregon county census data – bubble plots of orcounty.csv data</h2>
 <p>After loading the <code>map</code> and <code>mapproj</code> libraries, take a quick look at the <code>orcounty.csv</code> data</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(maps)
-<span class="kw">library</span>(mapproj)
-
-<span class="co"># look at the orcounty.csv data</span>
-<span class="kw">names</span>(orcountyp)</code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">library</span>(maps)</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="kw">library</span>(mapproj)</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb24-4" data-line-number="4"><span class="co"># look at the orcounty.csv data</span></a>
+<a class="sourceLine" id="cb24-5" data-line-number="5"><span class="kw">names</span>(orcountyp)</a></code></pre></div>
 <pre><code>##  [1] &quot;Name&quot;       &quot;Area&quot;       &quot;Pop1990&quot;    &quot;Pop1997&quot;    &quot;Pop90.sqmi&quot; &quot;Households&quot; &quot;Males&quot;     
 ##  [8] &quot;Females&quot;    &quot;White&quot;      &quot;Black&quot;      &quot;Ameri.es&quot;   &quot;Asian.pi&quot;   &quot;Other&quot;      &quot;Hispanic&quot;  
 ## [15] &quot;Age.under5&quot; &quot;Age.5.17&quot;   &quot;Age.18.29&quot;  &quot;Age.30.49&quot;  &quot;Age.50.64&quot;  &quot;Age.65.up&quot;  &quot;Nevermarry&quot;
@@ -854,8 +878,8 @@ colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class,
 ## [43] &quot;Units50.up&quot; &quot;Mobilehome&quot; &quot;No.farms87&quot; &quot;Avg.size87&quot; &quot;Crop.acr87&quot; &quot;Avg.sale87&quot; &quot;Longitude&quot; 
 ## [50] &quot;Latitude&quot;   &quot;X&quot;          &quot;Y&quot;</code></pre>
 <p>One issue that arises in plotting data (e.g. from a .csv file) and location (i.e. points, polygons or grids) is whether or not the observations are in the same order in both data sources. If the ultimate data source is a shapefile, generally the proper ordering has been taken care of, but if, as in this example, the data and location information come from different sources, that may not be the case. Here’s how to check that both data sources have their observations in the same order. (If they don’t that can be fixed, which is illustrated in the next example.) The <code>map()</code> function is the main plotting function, but is used here to list the order of the counties in its database.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># check names for proper order</span>
-<span class="kw">map</span>(<span class="st">&quot;county&quot;</span>,<span class="st">&quot;oregon&quot;</span>, <span class="dt">names=</span><span class="ot">TRUE</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>)</code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="co"># check names for proper order</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="kw">map</span>(<span class="st">&quot;county&quot;</span>,<span class="st">&quot;oregon&quot;</span>, <span class="dt">names=</span><span class="ot">TRUE</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>##  [1] &quot;oregon,baker&quot;      &quot;oregon,benton&quot;     &quot;oregon,clackamas&quot;  &quot;oregon,clatsop&quot;    &quot;oregon,columbia&quot;  
 ##  [6] &quot;oregon,coos&quot;       &quot;oregon,crook&quot;      &quot;oregon,curry&quot;      &quot;oregon,deschutes&quot;  &quot;oregon,douglas&quot;   
 ## [11] &quot;oregon,gilliam&quot;    &quot;oregon,grant&quot;      &quot;oregon,harney&quot;     &quot;oregon,hood river&quot; &quot;oregon,jackson&quot;   
@@ -864,7 +888,7 @@ colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class,
 ## [26] &quot;oregon,multnomah&quot;  &quot;oregon,polk&quot;       &quot;oregon,sherman&quot;    &quot;oregon,tillamook&quot;  &quot;oregon,umatilla&quot;  
 ## [31] &quot;oregon,union&quot;      &quot;oregon,wallowa&quot;    &quot;oregon,wasco&quot;      &quot;oregon,washington&quot; &quot;oregon,wheeler&quot;   
 ## [36] &quot;oregon,yamhill&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(orcountyp<span class="op">$</span>Name)</code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">print</span>(orcountyp<span class="op">$</span>Name)</a></code></pre></div>
 <pre><code>##  [1] Baker      Benton     Clackamas  Clatsop    Columbia   Coos       Crook      Curry      Deschutes 
 ## [10] Douglas    Gilliam    Grant      Harney     Hood River Jackson    Jefferson  Josephine  Klamath   
 ## [19] Lake       Lane       Lincoln    Linn       Malheur    Marion     Morrow     Multnomah  Polk      
@@ -872,51 +896,49 @@ colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class,
 ## 36 Levels: Baker Benton Clackamas Clatsop Columbia Coos Crook Curry Deschutes Douglas Gilliam ... Yamhill</code></pre>
 <p>In this case, the observations are in the same order in both data sources.</p>
 <p>Here’s the map (note that it is unprojected):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># bubble plot equal-frequency class intervals</span>
-
-<span class="co"># the usual set-up block of code</span>
-plotvar &lt;-<span class="st"> </span>orcountyp<span class="op">$</span>Area
-nclr &lt;-<span class="st"> </span><span class="dv">8</span>
-plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;BuPu&quot;</span>)
-<span class="co">#plotclr &lt;- plotclr[nclr:1] # reorder colors if appropriate</span>
-max.symbol.size=<span class="dv">10</span>
-min.symbol.size=<span class="dv">1</span>
-class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;quantile&quot;</span>)
-colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)
-symbol.size &lt;-<span class="st"> </span>((plotvar<span class="op">-</span><span class="kw">min</span>(plotvar))<span class="op">/</span>
-<span class="st">    </span>(<span class="kw">max</span>(plotvar)<span class="op">-</span><span class="kw">min</span>(plotvar))<span class="op">*</span>(max.symbol.size<span class="op">-</span>min.symbol.size)
-  <span class="op">+</span>min.symbol.size)
-
-<span class="co"># now the map</span>
-<span class="co"># plot the basemap first</span>
-<span class="kw">map</span>(<span class="st">&quot;county&quot;</span>, <span class="st">&quot;oregon&quot;</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">125</span>,<span class="op">-</span><span class="dv">114</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))
-<span class="kw">map.axes</span>()
-
-<span class="co"># add points, text and legend</span>
-<span class="kw">points</span>(orcountyp<span class="op">$</span>Longitude, orcountyp<span class="op">$</span>Latitude, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span>colcode,
-  <span class="dt">cex=</span>symbol.size)
-<span class="kw">points</span>(orcountyp<span class="op">$</span>Longitude, orcountyp<span class="op">$</span>Latitude, <span class="dt">cex=</span>symbol.size)
-<span class="kw">text</span>(<span class="op">-</span><span class="dv">120</span>, <span class="fl">46.5</span>, <span class="st">&quot;Equal-Frequency Class Intervals&quot;</span>)
-<span class="kw">legend</span>(<span class="op">-</span><span class="dv">117</span>, <span class="dv">44</span>, <span class="dt">legend=</span><span class="kw">names</span>(<span class="kw">attr</span>(colcode, <span class="st">&quot;table&quot;</span>)),
-  <span class="dt">fill=</span><span class="kw">attr</span>(colcode, <span class="st">&quot;palette&quot;</span>), <span class="dt">cex=</span><span class="fl">0.6</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="co"># bubble plot equal-frequency class intervals</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="co"># the usual set-up block of code</span></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4">plotvar &lt;-<span class="st"> </span>orcountyp<span class="op">$</span>Area</a>
+<a class="sourceLine" id="cb30-5" data-line-number="5">nclr &lt;-<span class="st"> </span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb30-6" data-line-number="6">plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;BuPu&quot;</span>)</a>
+<a class="sourceLine" id="cb30-7" data-line-number="7"><span class="co">#plotclr &lt;- plotclr[nclr:1] # reorder colors if appropriate</span></a>
+<a class="sourceLine" id="cb30-8" data-line-number="8">max.symbol.size=<span class="dv">10</span></a>
+<a class="sourceLine" id="cb30-9" data-line-number="9">min.symbol.size=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb30-10" data-line-number="10">class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;quantile&quot;</span>)</a>
+<a class="sourceLine" id="cb30-11" data-line-number="11">colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)</a>
+<a class="sourceLine" id="cb30-12" data-line-number="12">symbol.size &lt;-<span class="st"> </span>((plotvar<span class="op">-</span><span class="kw">min</span>(plotvar))<span class="op">/</span></a>
+<a class="sourceLine" id="cb30-13" data-line-number="13"><span class="st">    </span>(<span class="kw">max</span>(plotvar)<span class="op">-</span><span class="kw">min</span>(plotvar))<span class="op">*</span>(max.symbol.size<span class="op">-</span>min.symbol.size)</a>
+<a class="sourceLine" id="cb30-14" data-line-number="14">  <span class="op">+</span>min.symbol.size)</a>
+<a class="sourceLine" id="cb30-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb30-16" data-line-number="16"><span class="co"># now the map</span></a>
+<a class="sourceLine" id="cb30-17" data-line-number="17"><span class="co"># plot the basemap first</span></a>
+<a class="sourceLine" id="cb30-18" data-line-number="18"><span class="kw">map</span>(<span class="st">&quot;county&quot;</span>, <span class="st">&quot;oregon&quot;</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">125</span>,<span class="op">-</span><span class="dv">114</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">42</span>,<span class="dv">47</span>))</a>
+<a class="sourceLine" id="cb30-19" data-line-number="19"><span class="kw">map.axes</span>()</a>
+<a class="sourceLine" id="cb30-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb30-21" data-line-number="21"><span class="co"># add points, text and legend</span></a>
+<a class="sourceLine" id="cb30-22" data-line-number="22"><span class="kw">points</span>(orcountyp<span class="op">$</span>Longitude, orcountyp<span class="op">$</span>Latitude, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span>colcode,</a>
+<a class="sourceLine" id="cb30-23" data-line-number="23">  <span class="dt">cex=</span>symbol.size)</a>
+<a class="sourceLine" id="cb30-24" data-line-number="24"><span class="kw">points</span>(orcountyp<span class="op">$</span>Longitude, orcountyp<span class="op">$</span>Latitude, <span class="dt">cex=</span>symbol.size)</a>
+<a class="sourceLine" id="cb30-25" data-line-number="25"><span class="kw">text</span>(<span class="op">-</span><span class="dv">120</span>, <span class="fl">46.5</span>, <span class="st">&quot;Equal-Frequency Class Intervals&quot;</span>)</a>
+<a class="sourceLine" id="cb30-26" data-line-number="26"><span class="kw">legend</span>(<span class="op">-</span><span class="dv">117</span>, <span class="dv">44</span>, <span class="dt">legend=</span><span class="kw">names</span>(<span class="kw">attr</span>(colcode, <span class="st">&quot;table&quot;</span>)),</a>
+<a class="sourceLine" id="cb30-27" data-line-number="27">  <span class="dt">fill=</span><span class="kw">attr</span>(colcode, <span class="st">&quot;palette&quot;</span>), <span class="dt">cex=</span><span class="fl">0.6</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map14-1.png" width="2100" /></p>
-</div>
-<div id="plotting-data-on-basemaps-from-the-maps-package" class="section level2">
-<h2><span class="header-section-number">6.2</span> Plotting data on basemaps from the <code>maps</code> package</h2>
+<p>##Plotting data on basemaps from the <code>maps</code> package ##</p>
 <p>The maps package provides a means of constructing basemaps for plotting the locations of points, which can be decorated with text, symbols, and so on – most of the things that be done on scatter plots.</p>
 <p>The following example plots the location of large cities. A built-in data set <code>world.cities</code> from the <code>maps</code> is made available using the <code>data()</code> function, and some information describing each of the cities in the cities dataframe is gotten using the <code>match()</code> function, with looks at the name of a city in the <code>cities2</code> dataframe, and then looks in <code>world.cities</code> for the corresponding information (latitude and longitude in this case). The <code>match()</code> function provides one approach for aligning observations in a data set with locational information in a different data source</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># map of large cities -- data setup</span>
-<span class="kw">data</span>(world.cities) <span class="co"># make the world cities location data set from the maps package available</span>
-<span class="co"># match the large cities with those in the database</span>
-m &lt;-<span class="st"> </span><span class="kw">match</span>(<span class="kw">paste</span>(<span class="kw">tolower</span>(<span class="kw">as.character</span>(cities2<span class="op">$</span>City)),<span class="kw">tolower</span>(<span class="kw">as.character</span>(cities2<span class="op">$</span>Country))),
-  <span class="kw">paste</span>(<span class="kw">tolower</span>(world.cities<span class="op">$</span>name),<span class="kw">tolower</span>(world.cities<span class="op">$</span>country.etc)))
-
-<span class="co"># assign the world.cities location information to the large cities</span>
-big.cities &lt;-<span class="st"> </span><span class="ot">NULL</span>
-big.cities<span class="op">$</span>name &lt;-<span class="st"> </span>cities2<span class="op">$</span>City
-big.cities<span class="op">$</span>long &lt;-<span class="st"> </span>world.cities<span class="op">$</span>long[m]
-big.cities<span class="op">$</span>lat &lt;-<span class="st"> </span>world.cities<span class="op">$</span>lat[m]
-big.cities</code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="co"># map of large cities -- data setup</span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="kw">data</span>(world.cities) <span class="co"># make the world cities location data set from the maps package available</span></a>
+<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="co"># match the large cities with those in the database</span></a>
+<a class="sourceLine" id="cb31-4" data-line-number="4">m &lt;-<span class="st"> </span><span class="kw">match</span>(<span class="kw">paste</span>(<span class="kw">tolower</span>(<span class="kw">as.character</span>(cities2<span class="op">$</span>City)),<span class="kw">tolower</span>(<span class="kw">as.character</span>(cities2<span class="op">$</span>Country))),</a>
+<a class="sourceLine" id="cb31-5" data-line-number="5">  <span class="kw">paste</span>(<span class="kw">tolower</span>(world.cities<span class="op">$</span>name),<span class="kw">tolower</span>(world.cities<span class="op">$</span>country.etc)))</a>
+<a class="sourceLine" id="cb31-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb31-7" data-line-number="7"><span class="co"># assign the world.cities location information to the large cities</span></a>
+<a class="sourceLine" id="cb31-8" data-line-number="8">big.cities &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb31-9" data-line-number="9">big.cities<span class="op">$</span>name &lt;-<span class="st"> </span>cities2<span class="op">$</span>City</a>
+<a class="sourceLine" id="cb31-10" data-line-number="10">big.cities<span class="op">$</span>long &lt;-<span class="st"> </span>world.cities<span class="op">$</span>long[m]</a>
+<a class="sourceLine" id="cb31-11" data-line-number="11">big.cities<span class="op">$</span>lat &lt;-<span class="st"> </span>world.cities<span class="op">$</span>lat[m]</a>
+<a class="sourceLine" id="cb31-12" data-line-number="12">big.cities</a></code></pre></div>
 <pre><code>## $name
 ##  [1] Buenos Aires   Dhaka          Rio de Janeiro Sao Paulo      Beijing        Shanghai      
 ##  [7] Tianjin        Cairo          Bombay         Calcutta       Delhi          Jakarta       
@@ -931,125 +953,125 @@ big.cities</code></pre></div>
 ## $lat
 ##  [1] -34.61  23.70 -22.91 -23.53  39.93  31.23  39.13  30.06  18.96  22.57  28.67  -6.18  34.68  35.67
 ## [15]  37.56  19.43  41.45  24.86  14.62  34.11  40.67</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot the map, and add city name labels</span>
-<span class="kw">map</span>(<span class="st">&quot;world&quot;</span>)
-<span class="kw">map.axes</span>()
-<span class="kw">points</span>(big.cities<span class="op">$</span>long,big.cities<span class="op">$</span>lat, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)
-<span class="kw">text</span>(big.cities<span class="op">$</span>long, big.cities<span class="op">$</span>lat, big.cities<span class="op">$</span>name, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">cex=</span><span class="fl">1.0</span>)</code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="co"># plot the map, and add city name labels</span></a>
+<a class="sourceLine" id="cb33-2" data-line-number="2"><span class="kw">map</span>(<span class="st">&quot;world&quot;</span>)</a>
+<a class="sourceLine" id="cb33-3" data-line-number="3"><span class="kw">map.axes</span>()</a>
+<a class="sourceLine" id="cb33-4" data-line-number="4"><span class="kw">points</span>(big.cities<span class="op">$</span>long,big.cities<span class="op">$</span>lat, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</a>
+<a class="sourceLine" id="cb33-5" data-line-number="5"><span class="kw">text</span>(big.cities<span class="op">$</span>long, big.cities<span class="op">$</span>lat, big.cities<span class="op">$</span>name, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">cex=</span><span class="fl">1.0</span>)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map16-1.png" width="2100" /></p>
 <p>The next example generates a projected map of large cities. The projection is done using the <code>mapproject()</code> function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># map of large cities</span>
-m &lt;-<span class="st"> </span><span class="kw">match</span>(<span class="kw">paste</span>(<span class="kw">tolower</span>(<span class="kw">as.character</span>(cities2<span class="op">$</span>City)),<span class="kw">tolower</span>(<span class="kw">as.character</span> (cities2<span class="op">$</span>Country))),
-  <span class="kw">paste</span>(<span class="kw">tolower</span>(world.cities<span class="op">$</span>name),<span class="kw">tolower</span>(world.cities<span class="op">$</span>country.etc)))
-big.cities &lt;-<span class="st"> </span><span class="ot">NULL</span>
-big.cities<span class="op">$</span>name &lt;-<span class="st"> </span>cities<span class="op">$</span>City
-big.cities<span class="op">$</span>long &lt;-<span class="st"> </span>world.cities<span class="op">$</span>long[m]
-big.cities<span class="op">$</span>lat &lt;-<span class="st"> </span>world.cities<span class="op">$</span>lat[m]
-
-<span class="co"># map projection information</span>
-proj.type &lt;-<span class="st"> &quot;azequalarea&quot;</span>
-proj.orient &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">90</span>,<span class="dv">0</span>,<span class="dv">30</span>)
-
-<span class="co"># plot the map</span>
-<span class="kw">map</span>(<span class="st">&quot;world&quot;</span>, <span class="dt">proj=</span>proj.type, <span class="dt">orient=</span>proj.orient, <span class="dt">resolution=</span><span class="dv">0</span>, <span class="dt">wrap=</span><span class="ot">TRUE</span>)
-<span class="kw">map.grid</span>(<span class="dt">col=</span><span class="st">&quot;black&quot;</span>, <span class="dt">labels=</span><span class="ot">FALSE</span>, <span class="dt">lty=</span><span class="dv">1</span>)
-proj.coords &lt;-<span class="st"> </span><span class="kw">mapproject</span>(big.cities<span class="op">$</span>long,big.cities<span class="op">$</span>lat, <span class="dt">proj=</span>proj.type, <span class="dt">orient=</span>proj.orient)
-<span class="kw">points</span>(proj.coords, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)
-<span class="kw">text</span>(proj.coords, <span class="dt">labels=</span>big.cities<span class="op">$</span>name, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">cex=</span><span class="fl">0.8</span>)</code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="co"># map of large cities</span></a>
+<a class="sourceLine" id="cb34-2" data-line-number="2">m &lt;-<span class="st"> </span><span class="kw">match</span>(<span class="kw">paste</span>(<span class="kw">tolower</span>(<span class="kw">as.character</span>(cities2<span class="op">$</span>City)),<span class="kw">tolower</span>(<span class="kw">as.character</span> (cities2<span class="op">$</span>Country))),</a>
+<a class="sourceLine" id="cb34-3" data-line-number="3">  <span class="kw">paste</span>(<span class="kw">tolower</span>(world.cities<span class="op">$</span>name),<span class="kw">tolower</span>(world.cities<span class="op">$</span>country.etc)))</a>
+<a class="sourceLine" id="cb34-4" data-line-number="4">big.cities &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb34-5" data-line-number="5">big.cities<span class="op">$</span>name &lt;-<span class="st"> </span>cities<span class="op">$</span>City</a>
+<a class="sourceLine" id="cb34-6" data-line-number="6">big.cities<span class="op">$</span>long &lt;-<span class="st"> </span>world.cities<span class="op">$</span>long[m]</a>
+<a class="sourceLine" id="cb34-7" data-line-number="7">big.cities<span class="op">$</span>lat &lt;-<span class="st"> </span>world.cities<span class="op">$</span>lat[m]</a>
+<a class="sourceLine" id="cb34-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb34-9" data-line-number="9"><span class="co"># map projection information</span></a>
+<a class="sourceLine" id="cb34-10" data-line-number="10">proj.type &lt;-<span class="st"> &quot;azequalarea&quot;</span></a>
+<a class="sourceLine" id="cb34-11" data-line-number="11">proj.orient &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">90</span>,<span class="dv">0</span>,<span class="dv">30</span>)</a>
+<a class="sourceLine" id="cb34-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb34-13" data-line-number="13"><span class="co"># plot the map</span></a>
+<a class="sourceLine" id="cb34-14" data-line-number="14"><span class="kw">map</span>(<span class="st">&quot;world&quot;</span>, <span class="dt">proj=</span>proj.type, <span class="dt">orient=</span>proj.orient, <span class="dt">resolution=</span><span class="dv">0</span>, <span class="dt">wrap=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb34-15" data-line-number="15"><span class="kw">map.grid</span>(<span class="dt">col=</span><span class="st">&quot;black&quot;</span>, <span class="dt">labels=</span><span class="ot">FALSE</span>, <span class="dt">lty=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb34-16" data-line-number="16">proj.coords &lt;-<span class="st"> </span><span class="kw">mapproject</span>(big.cities<span class="op">$</span>long,big.cities<span class="op">$</span>lat, <span class="dt">proj=</span>proj.type, <span class="dt">orient=</span>proj.orient)</a>
+<a class="sourceLine" id="cb34-17" data-line-number="17"><span class="kw">points</span>(proj.coords, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</a>
+<a class="sourceLine" id="cb34-18" data-line-number="18"><span class="kw">text</span>(proj.coords, <span class="dt">labels=</span>big.cities<span class="op">$</span>name, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">cex=</span><span class="fl">0.8</span>)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map17-1.png" width="2100" /></p>
 <p><a href="lec06.html">[Back to top]</a></p>
 </div>
 </div>
 <div id="further-examples-illustrating-map-projection-using-the-maps-package" class="section level1">
-<h1><span class="header-section-number">7</span> Further examples illustrating map projection using the <code>maps</code> package</h1>
+<h1><span class="header-section-number">6</span> Further examples illustrating map projection using the <code>maps</code> package</h1>
 <p>The <code>maps</code> package can provide outlines of, for example, the globe, countries, or U.S. counties. These outlines can be projected providing less distorted views of a data set than simply plotting data as a function of latitude and longitude. Here are some examples that plot the locations of the Oregon climate-station data.</p>
 <div id="unprojected-maps" class="section level2">
-<h2><span class="header-section-number">7.1</span> Unprojected maps</h2>
+<h2><span class="header-section-number">6.1</span> Unprojected maps</h2>
 <p>First, a map of Oregon alone:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># unprojected, Oregon</span>
-<span class="kw">map</span>(<span class="st">&quot;county&quot;</span>, <span class="st">&quot;oregon&quot;</span>, <span class="dt">fill=</span><span class="ot">FALSE</span>)
-<span class="kw">points</span>(orstationc<span class="op">$</span>lon, orstationc<span class="op">$</span>lat)
-<span class="kw">text</span>(orstationc<span class="op">$</span>lon, orstationc<span class="op">$</span>lat, <span class="dt">labels=</span>orstationc<span class="op">$</span>station, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,
-  <span class="dt">cex=</span>.<span class="dv">8</span>)</code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="co"># unprojected, Oregon</span></a>
+<a class="sourceLine" id="cb35-2" data-line-number="2"><span class="kw">map</span>(<span class="st">&quot;county&quot;</span>, <span class="st">&quot;oregon&quot;</span>, <span class="dt">fill=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb35-3" data-line-number="3"><span class="kw">points</span>(orstationc<span class="op">$</span>lon, orstationc<span class="op">$</span>lat)</a>
+<a class="sourceLine" id="cb35-4" data-line-number="4"><span class="kw">text</span>(orstationc<span class="op">$</span>lon, orstationc<span class="op">$</span>lat, <span class="dt">labels=</span>orstationc<span class="op">$</span>station, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,</a>
+<a class="sourceLine" id="cb35-5" data-line-number="5">  <span class="dt">cex=</span>.<span class="dv">8</span>)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map18-1.png" width="2100" /></p>
 <p>Next, a map with outlines from adjacent states (note the second use of the <code>map()</code> function to produce a state-border outline):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># unprojected, add adjacent states</span>
-<span class="kw">map</span>(<span class="st">&quot;county&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;oregon&quot;</span>,<span class="st">&quot;washington&quot;</span>, <span class="st">&quot;california&quot;</span>, <span class="st">&quot;nevada&quot;</span>, <span class="st">&quot;idaho&quot;</span>), 
-  <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">125</span>,<span class="op">-</span><span class="dv">116</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">41</span>,<span class="dv">47</span>), <span class="dt">fill=</span><span class="ot">FALSE</span>)
-<span class="kw">map</span>(<span class="st">&quot;state&quot;</span>, <span class="st">&quot;oregon&quot;</span>, <span class="dt">fill=</span><span class="ot">FALSE</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">points</span>(orstationc<span class="op">$</span>lon, orstationc<span class="op">$</span>lat)
-<span class="kw">text</span>(orstationc<span class="op">$</span>lon, orstationc<span class="op">$</span>lat, <span class="dt">labels=</span>orstationc<span class="op">$</span>station, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,
-  <span class="dt">cex=</span>.<span class="dv">75</span>)</code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="co"># unprojected, add adjacent states</span></a>
+<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="kw">map</span>(<span class="st">&quot;county&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;oregon&quot;</span>,<span class="st">&quot;washington&quot;</span>, <span class="st">&quot;california&quot;</span>, <span class="st">&quot;nevada&quot;</span>, <span class="st">&quot;idaho&quot;</span>), </a>
+<a class="sourceLine" id="cb36-3" data-line-number="3">  <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">125</span>,<span class="op">-</span><span class="dv">116</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">41</span>,<span class="dv">47</span>), <span class="dt">fill=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb36-4" data-line-number="4"><span class="kw">map</span>(<span class="st">&quot;state&quot;</span>, <span class="st">&quot;oregon&quot;</span>, <span class="dt">fill=</span><span class="ot">FALSE</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb36-5" data-line-number="5"><span class="kw">points</span>(orstationc<span class="op">$</span>lon, orstationc<span class="op">$</span>lat)</a>
+<a class="sourceLine" id="cb36-6" data-line-number="6"><span class="kw">text</span>(orstationc<span class="op">$</span>lon, orstationc<span class="op">$</span>lat, <span class="dt">labels=</span>orstationc<span class="op">$</span>station, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,</a>
+<a class="sourceLine" id="cb36-7" data-line-number="7">  <span class="dt">cex=</span>.<span class="dv">75</span>)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map19-1.png" width="2100" /></p>
 </div>
 <div id="projected-maps" class="section level2">
-<h2><span class="header-section-number">7.2</span> Projected maps</h2>
+<h2><span class="header-section-number">6.2</span> Projected maps</h2>
 <p>The same approach can be used to produce a projected map as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># projected map of Oregon and adjacent states</span>
-proj.type &lt;-<span class="st"> &quot;albers&quot;</span>
-proj.stdlats &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">29.5</span>, <span class="fl">45.5</span>)
-proj.orient &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">90</span>,<span class="op">-</span><span class="dv">120</span>,<span class="dv">0</span>)
-<span class="kw">map</span>(<span class="st">&quot;county&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;oregon&quot;</span>), 
-  <span class="dt">proj=</span>proj.type, <span class="dt">par=</span>proj.stdlats, <span class="dt">orient=</span>proj.orient, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">125</span>,<span class="op">-</span><span class="dv">116</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">41</span>,<span class="dv">47</span>), <span class="dt">fill=</span><span class="ot">FALSE</span>)
-orstationc.xy &lt;-<span class="st"> </span><span class="kw">mapproject</span>(orstationc<span class="op">$</span>lon, orstationc<span class="op">$</span>lat, <span class="dt">proj=</span>proj.type,
-  <span class="dt">orient=</span>proj.orient, <span class="dt">par=</span>proj.stdlats)
-<span class="kw">map</span>(<span class="st">&quot;state&quot;</span>, <span class="st">&quot;oregon&quot;</span>, <span class="dt">proj=</span>proj.type, <span class="dt">par=</span>proj.stdlats,
-  <span class="dt">orient=</span>proj.orient, <span class="dt">fill=</span><span class="ot">FALSE</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">points</span>(orstationc.xy)
-<span class="kw">text</span>(orstationc.xy, <span class="dt">labels=</span>orstationc<span class="op">$</span>station, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">cex=</span>.<span class="dv">8</span>)</code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="co"># projected map of Oregon and adjacent states</span></a>
+<a class="sourceLine" id="cb37-2" data-line-number="2">proj.type &lt;-<span class="st"> &quot;albers&quot;</span></a>
+<a class="sourceLine" id="cb37-3" data-line-number="3">proj.stdlats &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">29.5</span>, <span class="fl">45.5</span>)</a>
+<a class="sourceLine" id="cb37-4" data-line-number="4">proj.orient &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">90</span>,<span class="op">-</span><span class="dv">120</span>,<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb37-5" data-line-number="5"><span class="kw">map</span>(<span class="st">&quot;county&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;oregon&quot;</span>), </a>
+<a class="sourceLine" id="cb37-6" data-line-number="6">  <span class="dt">proj=</span>proj.type, <span class="dt">par=</span>proj.stdlats, <span class="dt">orient=</span>proj.orient, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">125</span>,<span class="op">-</span><span class="dv">116</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">41</span>,<span class="dv">47</span>), <span class="dt">fill=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb37-7" data-line-number="7">orstationc.xy &lt;-<span class="st"> </span><span class="kw">mapproject</span>(orstationc<span class="op">$</span>lon, orstationc<span class="op">$</span>lat, <span class="dt">proj=</span>proj.type,</a>
+<a class="sourceLine" id="cb37-8" data-line-number="8">  <span class="dt">orient=</span>proj.orient, <span class="dt">par=</span>proj.stdlats)</a>
+<a class="sourceLine" id="cb37-9" data-line-number="9"><span class="kw">map</span>(<span class="st">&quot;state&quot;</span>, <span class="st">&quot;oregon&quot;</span>, <span class="dt">proj=</span>proj.type, <span class="dt">par=</span>proj.stdlats,</a>
+<a class="sourceLine" id="cb37-10" data-line-number="10">  <span class="dt">orient=</span>proj.orient, <span class="dt">fill=</span><span class="ot">FALSE</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb37-11" data-line-number="11"><span class="kw">points</span>(orstationc.xy)</a>
+<a class="sourceLine" id="cb37-12" data-line-number="12"><span class="kw">text</span>(orstationc.xy, <span class="dt">labels=</span>orstationc<span class="op">$</span>station, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">cex=</span>.<span class="dv">8</span>)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map20-1.png" width="2100" /></p>
 <p>Note that the fact that this map is projected may be a little hard to see, because the projection origins were set to appropriate values for making a nice map of Oregon. Here’s a version with the whole US in the frame.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># projected, whole US</span>
-proj.type &lt;-<span class="st"> &quot;albers&quot;</span>
-proj.stdlats &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">29.5</span>, <span class="fl">45.5</span>)
-proj.orient &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">90</span>,<span class="op">-</span><span class="dv">100</span>,<span class="dv">0</span>)
-<span class="kw">map</span>(<span class="st">&quot;world&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;canada&quot;</span>, <span class="st">&quot;mexico&quot;</span>), <span class="dt">proj=</span>proj.type, <span class="dt">par=</span>proj.stdlats, <span class="dt">orient=</span>proj.orient, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">130</span>, <span class="op">-</span><span class="dv">50</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">25</span>,<span class="dv">55</span>), <span class="dt">resolution=</span><span class="dv">0</span>, <span class="dt">wrap=</span><span class="ot">TRUE</span>)
-<span class="kw">map</span>(<span class="st">&quot;state&quot;</span>, <span class="dt">proj=</span>proj.type, <span class="dt">par=</span>proj.stdlats, <span class="dt">orient=</span>proj.orient, <span class="dt">resolution=</span><span class="dv">0</span>, <span class="dt">wrap=</span><span class="ot">TRUE</span>, <span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">map.grid</span>(<span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">labels=</span><span class="ot">FALSE</span>, <span class="dt">lty=</span><span class="dv">2</span>)
-<span class="kw">map</span>(<span class="st">&quot;state&quot;</span>, <span class="st">&quot;oregon&quot;</span>, <span class="dt">proj=</span>proj.type, <span class="dt">par=</span>proj.stdlats,
-  <span class="dt">orient=</span>proj.orient, <span class="dt">fill=</span><span class="ot">FALSE</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">add=</span><span class="ot">TRUE</span>)
-orstationc.xy &lt;-<span class="st"> </span><span class="kw">mapproject</span>(orstationc<span class="op">$</span>lon, orstationc<span class="op">$</span>lat, <span class="dt">proj=</span>proj.type, 
-  <span class="dt">par=</span>proj.stdlats, <span class="dt">orient=</span>proj.orient)
-<span class="kw">points</span>(orstationc.xy, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">cex=</span><span class="fl">0.75</span>)</code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="co"># projected, whole US</span></a>
+<a class="sourceLine" id="cb38-2" data-line-number="2">proj.type &lt;-<span class="st"> &quot;albers&quot;</span></a>
+<a class="sourceLine" id="cb38-3" data-line-number="3">proj.stdlats &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">29.5</span>, <span class="fl">45.5</span>)</a>
+<a class="sourceLine" id="cb38-4" data-line-number="4">proj.orient &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">90</span>,<span class="op">-</span><span class="dv">100</span>,<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb38-5" data-line-number="5"><span class="kw">map</span>(<span class="st">&quot;world&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;canada&quot;</span>, <span class="st">&quot;mexico&quot;</span>), <span class="dt">proj=</span>proj.type, <span class="dt">par=</span>proj.stdlats, <span class="dt">orient=</span>proj.orient, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">130</span>, <span class="dv">-50</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">25</span>,<span class="dv">55</span>), <span class="dt">resolution=</span><span class="dv">0</span>, <span class="dt">wrap=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb38-6" data-line-number="6"><span class="kw">map</span>(<span class="st">&quot;state&quot;</span>, <span class="dt">proj=</span>proj.type, <span class="dt">par=</span>proj.stdlats, <span class="dt">orient=</span>proj.orient, <span class="dt">resolution=</span><span class="dv">0</span>, <span class="dt">wrap=</span><span class="ot">TRUE</span>, <span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb38-7" data-line-number="7"><span class="kw">map.grid</span>(<span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">labels=</span><span class="ot">FALSE</span>, <span class="dt">lty=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb38-8" data-line-number="8"><span class="kw">map</span>(<span class="st">&quot;state&quot;</span>, <span class="st">&quot;oregon&quot;</span>, <span class="dt">proj=</span>proj.type, <span class="dt">par=</span>proj.stdlats,</a>
+<a class="sourceLine" id="cb38-9" data-line-number="9">  <span class="dt">orient=</span>proj.orient, <span class="dt">fill=</span><span class="ot">FALSE</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb38-10" data-line-number="10">orstationc.xy &lt;-<span class="st"> </span><span class="kw">mapproject</span>(orstationc<span class="op">$</span>lon, orstationc<span class="op">$</span>lat, <span class="dt">proj=</span>proj.type, </a>
+<a class="sourceLine" id="cb38-11" data-line-number="11">  <span class="dt">par=</span>proj.stdlats, <span class="dt">orient=</span>proj.orient)</a>
+<a class="sourceLine" id="cb38-12" data-line-number="12"><span class="kw">points</span>(orstationc.xy, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">cex=</span><span class="fl">0.75</span>)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map21-1.png" width="2100" /></p>
 </div>
 <div id="basemap-shapefile-generation-using-the-maps-package" class="section level2">
-<h2><span class="header-section-number">7.3</span> Basemap shapefile generation using the <code>maps</code> package</h2>
+<h2><span class="header-section-number">6.3</span> Basemap shapefile generation using the <code>maps</code> package</h2>
 <p>The <code>map2SpatialLines()</code> function in the <code>maptools</code> function can be used to transform lines extracted from the <code>maps</code> package into <code>sp</code> package-compatible format to provide basemaps for plotting other data sets. Here is an example for the Pacific Northwest.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># extract county outlines from maps() database</span>
-pnw.outlines &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="st">&quot;county&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;oregon&quot;</span>,<span class="st">&quot;washington&quot;</span>, <span class="st">&quot;california&quot;</span>,
-  <span class="st">&quot;nevada&quot;</span>, <span class="st">&quot;idaho&quot;</span>),
-  <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="op">-</span><span class="fl">116.0</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="fl">41.0</span>, <span class="fl">47.0</span>))</code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="co"># extract county outlines from maps() database</span></a>
+<a class="sourceLine" id="cb39-2" data-line-number="2">pnw.outlines &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="st">&quot;county&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;oregon&quot;</span>,<span class="st">&quot;washington&quot;</span>, <span class="st">&quot;california&quot;</span>,</a>
+<a class="sourceLine" id="cb39-3" data-line-number="3">  <span class="st">&quot;nevada&quot;</span>, <span class="st">&quot;idaho&quot;</span>),</a>
+<a class="sourceLine" id="cb39-4" data-line-number="4">  <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="fl">-116.0</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="fl">41.0</span>, <span class="fl">47.0</span>))</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map22-1.png" width="2100" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># prune the lines to Washington, Oregon, and Northern California extent</span>
-pnw.outlines &lt;-<span class="st"> </span><span class="kw">pruneMap</span>(pnw.outlines, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">125.0</span>, <span class="op">-</span><span class="fl">115.0</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="fl">41.0</span>,
-  <span class="fl">47.0</span>))
-
-<span class="co"># convert to sp lines</span>
-pnw.outlines.sp &lt;-<span class="st"> </span><span class="kw">map2SpatialLines</span>(pnw.outlines, <span class="dt">proj4string=</span>
-    <span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="co"># prune the lines to Washington, Oregon, and Northern California extent</span></a>
+<a class="sourceLine" id="cb40-2" data-line-number="2">pnw.outlines &lt;-<span class="st"> </span><span class="kw">pruneMap</span>(pnw.outlines, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">125.0</span>, <span class="fl">-115.0</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="fl">41.0</span>,</a>
+<a class="sourceLine" id="cb40-3" data-line-number="3">  <span class="fl">47.0</span>))</a>
+<a class="sourceLine" id="cb40-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb40-5" data-line-number="5"><span class="co"># convert to sp lines</span></a>
+<a class="sourceLine" id="cb40-6" data-line-number="6">pnw.outlines.sp &lt;-<span class="st"> </span><span class="kw">map2SpatialLines</span>(pnw.outlines, <span class="dt">proj4string=</span></a>
+<a class="sourceLine" id="cb40-7" data-line-number="7">    <span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat&quot;</span>))</a></code></pre></div>
 <pre><code>## Warning in map2SpatialLines(pnw.outlines, proj4string = CRS(&quot;+proj=longlat&quot;)): map2SpatialLines: 7 zero-
 ## length Lines object(s) omitted</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(pnw.outlines.sp, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)
-<span class="kw">degAxis</span>(<span class="dv">1</span>, <span class="dt">at=</span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">125</span>.,<span class="op">-</span><span class="dv">116</span>., <span class="dt">by=</span><span class="dv">1</span>.))
-<span class="kw">degAxis</span>(<span class="dv">2</span>, <span class="dt">at=</span><span class="kw">seq</span>(<span class="dv">42</span>.,<span class="dv">47</span>., <span class="dt">by=</span><span class="dv">1</span>.))</code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="kw">plot</span>(pnw.outlines.sp, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb42-2" data-line-number="2"><span class="kw">degAxis</span>(<span class="dv">1</span>, <span class="dt">at=</span><span class="kw">seq</span>(<span class="op">-</span><span class="fl">125.</span>,<span class="op">-</span><span class="fl">116.</span>, <span class="dt">by=</span><span class="fl">1.</span>))</a>
+<a class="sourceLine" id="cb42-3" data-line-number="3"><span class="kw">degAxis</span>(<span class="dv">2</span>, <span class="dt">at=</span><span class="kw">seq</span>(<span class="fl">42.</span>,<span class="fl">47.</span>, <span class="dt">by=</span><span class="fl">1.</span>))</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map22-2.png" width="2100" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># project the outlines</span>
-aea.proj &lt;-<span class="st"> &quot;+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5</span>
-<span class="st">     +lon_0=-120 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m&quot;</span>
-pnw.outlines.proj &lt;-<span class="st"> </span><span class="kw">spTransform</span>(pnw.outlines.sp, <span class="kw">CRS</span>(aea.proj))
-
-<span class="co"># generate and project gridlines</span>
-grat &lt;-<span class="st"> </span><span class="kw">gridlines</span>(pnw.outlines.sp, <span class="dt">easts=</span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">127</span>,<span class="op">-</span><span class="dv">115</span>,<span class="dt">by=</span><span class="dv">1</span>),
-  <span class="dt">norths=</span><span class="kw">seq</span>(<span class="dv">40</span>,<span class="dv">47</span>,<span class="dt">by=</span><span class="dv">1</span>), <span class="dt">ndiscr =</span> <span class="dv">20</span>)
-grat.proj &lt;-<span class="st"> </span><span class="kw">spTransform</span>(grat, <span class="kw">CRS</span>(aea.proj))
-
-<span class="kw">plot</span>(pnw.outlines.proj, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)
-<span class="kw">lines</span>(grat.proj, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lty=</span><span class="dv">3</span>)</code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="co"># project the outlines</span></a>
+<a class="sourceLine" id="cb43-2" data-line-number="2">aea.proj &lt;-<span class="st"> &quot;+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5</span></a>
+<a class="sourceLine" id="cb43-3" data-line-number="3"><span class="st">     +lon_0=-120 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m&quot;</span></a>
+<a class="sourceLine" id="cb43-4" data-line-number="4">pnw.outlines.proj &lt;-<span class="st"> </span><span class="kw">spTransform</span>(pnw.outlines.sp, <span class="kw">CRS</span>(aea.proj))</a>
+<a class="sourceLine" id="cb43-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb43-6" data-line-number="6"><span class="co"># generate and project gridlines</span></a>
+<a class="sourceLine" id="cb43-7" data-line-number="7">grat &lt;-<span class="st"> </span><span class="kw">gridlines</span>(pnw.outlines.sp, <span class="dt">easts=</span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">127</span>,<span class="op">-</span><span class="dv">115</span>,<span class="dt">by=</span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb43-8" data-line-number="8">  <span class="dt">norths=</span><span class="kw">seq</span>(<span class="dv">40</span>,<span class="dv">47</span>,<span class="dt">by=</span><span class="dv">1</span>), <span class="dt">ndiscr =</span> <span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb43-9" data-line-number="9">grat.proj &lt;-<span class="st"> </span><span class="kw">spTransform</span>(grat, <span class="kw">CRS</span>(aea.proj))</a>
+<a class="sourceLine" id="cb43-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb43-11" data-line-number="11"><span class="kw">plot</span>(pnw.outlines.proj, <span class="dt">col=</span><span class="st">&quot;gray&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb43-12" data-line-number="12"><span class="kw">lines</span>(grat.proj, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lty=</span><span class="dv">3</span>)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/map22-3.png" width="2100" /></p>
 <p>Save the (unprojected) shape file</p>
 <p>Create a new spatial lines data frame. First, create some data (<code>sld</code>), consisting of an ID number for each outline segment, then convert those data to a spatial lines data frame (<code>pnw.SLDF</code>) using the <code>SpatialLinesDataFrame()</code> function (and plot it to check).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(pnw.outlines.sp)</code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="kw">summary</span>(pnw.outlines.sp)</a></code></pre></div>
 <pre><code>## Object of class SpatialLines
 ## Coordinates:
 ##          min        max
@@ -1057,27 +1079,27 @@ grat.proj &lt;-<span class="st"> </span><span class="kw">spTransform</span>(grat
 ## y   41.00086   46.99973
 ## Is projected: FALSE 
 ## proj4string : [+proj=longlat +ellps=WGS84]</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sld &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">row.names</span>(pnw.outlines.sp))
-sldf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(sld)
-<span class="kw">row.names</span>(sldf) &lt;-<span class="st"> </span><span class="kw">row.names</span>(pnw.outlines.sp)
-pnw.SLDF &lt;-<span class="st"> </span><span class="kw">SpatialLinesDataFrame</span>(pnw.outlines.sp, sldf, <span class="dt">match.ID=</span><span class="ot">TRUE</span>)
-<span class="kw">plot</span>(pnw.SLDF)</code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1">sld &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">row.names</span>(pnw.outlines.sp))</a>
+<a class="sourceLine" id="cb46-2" data-line-number="2">sldf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(sld)</a>
+<a class="sourceLine" id="cb46-3" data-line-number="3"><span class="kw">row.names</span>(sldf) &lt;-<span class="st"> </span><span class="kw">row.names</span>(pnw.outlines.sp)</a>
+<a class="sourceLine" id="cb46-4" data-line-number="4">pnw.SLDF &lt;-<span class="st"> </span><span class="kw">SpatialLinesDataFrame</span>(pnw.outlines.sp, sldf, <span class="dt">match.ID=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb46-5" data-line-number="5"><span class="kw">plot</span>(pnw.SLDF)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/newShapefile-1.png" width="2100" /></p>
 <p>Write out the data frame</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">outshp &lt;-<span class="st"> &quot;pnwshp&quot;</span>
-<span class="co">#writeLinesShape(pnw.SLDF, outshp, factor2char = TRUE)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">outshp &lt;-<span class="st"> &quot;pnwshp&quot;</span></a>
+<a class="sourceLine" id="cb47-2" data-line-number="2"><span class="co">#writeLinesShape(pnw.SLDF, outshp, factor2char = TRUE)</span></a></code></pre></div>
 <p>Read it back in to check</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pnw &lt;-<span class="st"> </span><span class="kw">readShapeLines</span>(<span class="st">&quot;pnwshp&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">pnw &lt;-<span class="st"> </span><span class="kw">readShapeLines</span>(<span class="st">&quot;pnwshp&quot;</span>)</a></code></pre></div>
 <pre><code>## Warning: use rgdal::readOGR or sf::st_read</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(pnw)
-<span class="kw">points</span>(orstations.shp)</code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="kw">plot</span>(pnw)</a>
+<a class="sourceLine" id="cb50-2" data-line-number="2"><span class="kw">points</span>(orstations.shp)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/readNewShape-1.png" width="2100" /></p>
 <p>Looks ok.</p>
 <p><a href="lec06.html">[Back to top]</a></p>
 </div>
 </div>
 <div id="readings" class="section level1">
-<h1><span class="header-section-number">8</span> Readings</h1>
+<h1><span class="header-section-number">7</span> Readings</h1>
 <p>Chapter 3 in Bivand, R., et al. (2013) <em>Applied Spatial Data Analysis with R</em>, 2nd edition. (Search for the eBook version on the UO Library page <a href="http://library.uoregon.edu">[http://library.uoregon.edu]</a>) (The whole book is worth looking at, but Ch. 3 is the key reference for the display of spatial data (i.e. mapping).)</p>
 </div>
 

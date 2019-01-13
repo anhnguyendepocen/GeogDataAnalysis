@@ -24,36 +24,64 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #0000ff; } /* Keyword */
-code > span.ch { color: #008080; } /* Char */
-code > span.st { color: #008080; } /* String */
-code > span.co { color: #008000; } /* Comment */
-code > span.ot { color: #ff4000; } /* Other */
-code > span.al { color: #ff0000; } /* Alert */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #008000; font-weight: bold; } /* Warning */
-code > span.cn { } /* Constant */
-code > span.sc { color: #008080; } /* SpecialChar */
-code > span.vs { color: #008080; } /* VerbatimString */
-code > span.ss { color: #008080; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { color: #0000ff; } /* ControlFlow */
-code > span.op { } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #ff4000; } /* Preprocessor */
-code > span.do { color: #008000; } /* Documentation */
-code > span.an { color: #008000; } /* Annotation */
-code > span.cv { color: #008000; } /* CommentVar */
-code > span.at { } /* Attribute */
-code > span.in { color: #008000; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
 </style>
 <script>
@@ -429,10 +457,10 @@ $(document).ready(function () {
     </li>
     <li class="dropdown-header">Exams</li>
     <li>
-      <a href="exam1_2018.html">Exam 1</a>
+      <a href="exam1.html">Exam 1</a>
     </li>
     <li>
-      <a href="exam2_2018.html">Exam 2</a>
+      <a href="exam2.html">Exam 2</a>
     </li>
     <li class="dropdown-header">Other materials</li>
     <li>
@@ -528,8 +556,8 @@ $(document).ready(function () {
 <p>(Recall that in R, Windows paths must be specified using double backslashes (<code>\\</code>), i.e., “<code>\\Users\\bartlein\\Projects\\geog495\\data\\csv\\</code>”, or ignoring Windows conventions as “<code>/Users/bartlein/Projects/geog495/data/csv/</code>”</p>
 <p>(Note that these file paths differ a little from those described in Exercise 1.)</p>
 <p>Read the <code>cities.csv</code> file, using an explict path:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">csvfile &lt;-<span class="st"> &quot;/Users/bartlein/Projects/geog495/data/csv/cities.csv&quot;</span>
-cities &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">csvfile &lt;-<span class="st"> &quot;/Users/bartlein/Projects/geog495/data/csv/cities.csv&quot;</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">cities &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)</a></code></pre></div>
 <p>(What’s happening above is that first the string object <code>csvfile</code> is created by assigning (i.e. using the assignment operator <code>&lt;-</code>, which is pronounced “gets”) the string <code>/Users/bartlein/geog495/data/csv/cities.csv</code> (the path to the file) and then this object is operated on the the <code>read.csv()</code> function, to create the object <code>cities</code>.)</p>
 <div id="enumerative-plots-all-points-shown" class="section level2">
 <h2><span class="header-section-number">2.1</span> Enumerative Plots (all points shown)</h2>
@@ -537,16 +565,16 @@ cities &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)</
 <div id="index-plotunivariate-scatter-diagram" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> Index Plot/Univariate Scatter Diagram</h3>
 <p>Displays the values of a single variable for each observation using symbols, with values of the variable for each observation plotted relative to the observation number</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use large cities data [cities.csv]</span>
-<span class="kw">attach</span>(cities)
-<span class="kw">plot</span>(Pop.<span class="dv">2000</span>)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># use large cities data [cities.csv]</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">attach</span>(cities)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">plot</span>(Pop<span class="fl">.2000</span>)</a></code></pre></div>
 <p><img src="lec02_files/figure-html/plot-1.png" width="2100" /></p>
 <p>(Note the use of the <code>attach()</code> function. An individual variable’s “full” name is the name of the dataframe concatentated with its “short” name, with a dollar sign in between, e.g. <code>cities$Pop.2000</code>. The <code>attach()</code> function puts the data frame in the first search position and allows one to refer to a variable just by its short name (e.g. <code>Pop.2000</code>).</p>
 </div>
 <div id="y-zero-high-density-plot" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Y Zero High-Density Plot</h3>
 <p>Displays the values of a single variable plotted as thin vertical lines</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(Pop.<span class="dv">2000</span>, <span class="dt">type=</span><span class="st">&quot;h&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">plot</span>(Pop<span class="fl">.2000</span>, <span class="dt">type=</span><span class="st">&quot;h&quot;</span>)</a></code></pre></div>
 <p><img src="lec02_files/figure-html/plot2-1.png" width="2100" /></p>
 <p><a href="lec02.html">[Back to top]</a></p>
 </div>
@@ -556,43 +584,43 @@ cities &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)</
 <p>A variety of different versions of the standard univariate plot generated with the <code>plot()</code> function can be generated using the <code>type=</code> argument.</p>
 <p><code>type = &quot;l&quot;, &quot;b&quot;, &quot;o&quot;, &quot;s&quot;, or &quot;S&quot;</code></p>
 <p>It’s good practice when done with a data set to detach it:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">detach</span>(cities)</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">detach</span>(cities)</a></code></pre></div>
 <div id="time-series-plots" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> Time Series Plots</h3>
 <p>When data are in some kind of order (as in time), index values contain some useful information. Read and attach the <code>specmap.csv</code> file, and then plot the delta-O18 (oxygen isotope) values.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use Specmap delta-O18 data</span>
-csvfile &lt;-<span class="st"> &quot;/Users/bartlein/Projects/geog495/data/csv/specmap.csv&quot;</span>
-specmap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)
-<span class="kw">attach</span>(specmap)
-<span class="kw">plot</span>(O18)</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># use Specmap delta-O18 data</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">csvfile &lt;-<span class="st"> &quot;/Users/bartlein/Projects/geog495/data/csv/specmap.csv&quot;</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">specmap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw">attach</span>(specmap)</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="kw">plot</span>(O18)</a></code></pre></div>
 <p><img src="lec02_files/figure-html/specmap-1.png" width="2100" /></p>
 <p>In this data set, the large negative values indicate warm/less-ice conditions, and so it would be more appropriate to plot the values on an inverted y-axis, using the <code>ylim</code> arguement.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(O18, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="fl">2.5</span>,<span class="op">-</span><span class="fl">2.5</span>))   <span class="co">#  invert y-axis</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">plot</span>(O18, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="fl">2.5</span>,<span class="op">-</span><span class="fl">2.5</span>))   <span class="co">#  invert y-axis</span></a></code></pre></div>
 <p><img src="lec02_files/figure-html/inverted-1.png" width="2100" /></p>
 </div>
 <div id="strip-plotstrip-chart-univariate-scatter-diagram" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> Strip Plot/Strip Chart (univariate scatter diagram)</h3>
 <p>Displays the values of a single variable as symbols plotted along a line</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stripchart</span>(O18)</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">stripchart</span>(O18)</a></code></pre></div>
 <p><img src="lec02_files/figure-html/stripchart-1.png" width="2100" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stripchart</span>(O18, <span class="dt">method=</span><span class="st">&quot;stack&quot;</span>)   <span class="co"># stack points to reduce overlap</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">stripchart</span>(O18, <span class="dt">method=</span><span class="st">&quot;stack&quot;</span>)   <span class="co"># stack points to reduce overlap</span></a></code></pre></div>
 <p><img src="lec02_files/figure-html/stripchart-2.png" width="2100" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">detach</span>(specmap)                   <span class="co"># done with the specmap data set</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">detach</span>(specmap)                   <span class="co"># done with the specmap data set</span></a></code></pre></div>
 </div>
 <div id="dot-plotdot-chart" class="section level3">
 <h3><span class="header-section-number">2.2.3</span> Dot Plot/Dot Chart</h3>
 <p>The Cleveland dot plot displays the values of a single variable as symbols plotted along a line, with a separate line for each observation. (Note that we reattach the data set first.)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attach</span>(cities)
-<span class="kw">dotchart</span>(Pop.<span class="dv">2000</span>, <span class="dt">labels=</span>City)</code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">attach</span>(cities)</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">dotchart</span>(Pop<span class="fl">.2000</span>, <span class="dt">labels=</span>City)</a></code></pre></div>
 <p><img src="lec02_files/figure-html/dotchart-1.png" width="2100" /></p>
 <p>An alternative version of this plot, and the one most frequently used, can be constructed by sorting the rows of the data table. Sorting can be tricky–it is easy to completely rearrange a data set by sorting one variable and not the others. It is often better to leave the data unsorted, and to use an auxiliary variable (in this case index) to record the rank-order of the variable being plotted (in this case Pop.2000), and the explicit vector-element indexing of R to arrange the data in the right order:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">index &lt;-<span class="st"> </span><span class="kw">order</span>(Pop.<span class="dv">2000</span>)
-<span class="kw">dotchart</span>(Pop.<span class="dv">2000</span>[index], <span class="dt">labels=</span>City[index])</code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">index &lt;-<span class="st"> </span><span class="kw">order</span>(Pop<span class="fl">.2000</span>)</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">dotchart</span>(Pop<span class="fl">.2000</span>[index], <span class="dt">labels=</span>City[index])</a></code></pre></div>
 <p><img src="lec02_files/figure-html/indexed%20dotchart-1.png" width="2100" /></p>
 <p>This example shows how to index or refer to specific values of a variable by specifying the subscripts of the observations involved (in square brackets <code>[</code>…<code>]</code>).</p>
 <p>Once you’re done with a data set, it’s good to “detach” it to avoid conflict among variables from different data sets that might have the same name.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">detach</span>(specmap)
-<span class="kw">detach</span>(cities)</code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">detach</span>(specmap)</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">detach</span>(cities)</a></code></pre></div>
 <p><a href="lec02.html">[Back to top]</a></p>
 </div>
 </div>
@@ -602,24 +630,24 @@ specmap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)
 <p>Summary plots display an object or a graph that gives a more concise expression of the location, dispersion, and distribution of a variable than an enumerative plot, but this comes at the expense of some loss of information: In a summary plot, it is no longer possible to retrieve the individual data value, but this loss is usually matched by the gain in understanding that results from the efficient representation of the data. Summary plots generally prove to be much better than the enumerative plots in revealing the distribution of the data.</p>
 <p>Data files for these examples (download to working directory): <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/specmap.csv">[specmap.csv]</a> <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/scanvote.csv">[scanvote.csv]</a></p>
 <p>Read the two data sets if they are not already in the workspace or environment. The <code>scanvote</code> data set will be explained below.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">csvfile &lt;-<span class="st"> &quot;/Users/bartlein/Projects/geog495/data/csv/specmap.csv&quot;</span>
-specmap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)
-csvfile &lt;-<span class="st"> &quot;/Users/bartlein/Projects/geog495/data/csv/scanvote.csv&quot;</span>
-scanvote &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)</code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">csvfile &lt;-<span class="st"> &quot;/Users/bartlein/Projects/geog495/data/csv/specmap.csv&quot;</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">specmap &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">csvfile &lt;-<span class="st"> &quot;/Users/bartlein/Projects/geog495/data/csv/scanvote.csv&quot;</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">scanvote &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)</a></code></pre></div>
 <div id="summary-plots" class="section level2">
 <h2><span class="header-section-number">3.1</span> Summary Plots</h2>
 <div id="histograms" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Histograms</h3>
 <p>Histograms are a type of bar chart that displays the counts or relative frequencies of values falling in different class intervals or ranges.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use Specmap O-18 data [specmap.csv]</span>
-<span class="kw">attach</span>(specmap)</code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co"># use Specmap O-18 data [specmap.csv]</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw">attach</span>(specmap)</a></code></pre></div>
 <pre><code>## The following objects are masked from specmap (pos = 3):
 ## 
 ##     Age, Insol, O18</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(O18)</code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">hist</span>(O18)</a></code></pre></div>
 <p><img src="lec02_files/figure-html/histogram-1.png" width="2100" /></p>
 <p>The overall impression one gets about the distribution of a variable depends somewhat on the way the histogram is constructed: fewer bars give a more generalized view, but may obscure details of the distribution (the existence of a bimodal distribution, for example), while more may not generalize enough. Plot a second histogram with 20 bins using the <code>breaks</code> arguement:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(O18, <span class="dt">breaks=</span><span class="dv">20</span>)</code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">hist</span>(O18, <span class="dt">breaks=</span><span class="dv">20</span>)</a></code></pre></div>
 <p><img src="lec02_files/figure-html/second%20histogram-1.png" width="2100" /></p>
 </div>
 <div id="density-plots-or-kernel-plotssmoothed-histograms" class="section level3">
@@ -628,27 +656,27 @@ scanvote &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)
 <p><a href="https://pjbartlein.github.io/GeogDataAnalysis/images/hist_smooth.gif">[histogram smoothing illustration]</a><br />
 <a href="https://pjbartlein.github.io/GeogDataAnalysis/images/kernel_type.gif">[different kernels]</a></p>
 <p>Density plot of the O18 data. Note that in this example, an object <code>O18.density</code> is created by the <code>density()</code> function, and then plotted using the <code>plot()</code> function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">O18.density &lt;-<span class="st"> </span><span class="kw">density</span>(O18)
-<span class="kw">plot</span>(O18.density)</code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">O18.density &lt;-<span class="st"> </span><span class="kw">density</span>(O18)</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="kw">plot</span>(O18.density)</a></code></pre></div>
 <p><img src="lec02_files/figure-html/density-1.png" width="2100" /></p>
 <p>Plots with both a histogram and density line can be created:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">O18.density &lt;-<span class="st"> </span><span class="kw">density</span>(O18)
-<span class="kw">hist</span>(O18, <span class="dt">breaks=</span><span class="dv">40</span>, <span class="dt">probability=</span><span class="ot">TRUE</span>)
-<span class="kw">lines</span>(O18.density)
-<span class="kw">rug</span>(O18)</code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">O18.density &lt;-<span class="st"> </span><span class="kw">density</span>(O18)</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="kw">hist</span>(O18, <span class="dt">breaks=</span><span class="dv">40</span>, <span class="dt">probability=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="kw">lines</span>(O18.density)</a>
+<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="kw">rug</span>(O18)</a></code></pre></div>
 <p><img src="lec02_files/figure-html/density%20and%20histogram-1.png" width="2100" /></p>
 <p>Note the addtion of the “rug” plot at the bottom (which is an enumerative plot).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">detach</span>(specmap)</code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">detach</span>(specmap)</a></code></pre></div>
 </div>
 <div id="boxplot-or-box-and-whisker-plot" class="section level3">
 <h3><span class="header-section-number">3.1.3</span> Boxplot (or Box-and-Whisker Plot)</h3>
 <p>A boxplot characterizes the location, dispersion and distribution of a variable by construction a box-like figure with a set of lines (whiskers) extending from the ends of the box. The edges of the box are drawn at the 25th and 75th percentiles of the data, and a line in the middle of the box marks the 50th percentile. The whiskers and other aspects of the boxplot are drawn in various ways.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use Scandinavian EU-preference vote data</span>
-<span class="kw">attach</span>(scanvote)
-<span class="kw">boxplot</span>(Pop)</code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co"># use Scandinavian EU-preference vote data</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="kw">attach</span>(scanvote)</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="kw">boxplot</span>(Pop)</a></code></pre></div>
 <p><img src="lec02_files/figure-html/scanvote%20boxplot-1.png" width="2100" /></p>
 <p>Note that the plot looks pretty odd, a function of the distribution of the population data. Typically, the log (base 10) of population data is more informative:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(<span class="kw">log10</span>(Pop))</code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">boxplot</span>(<span class="kw">log10</span>(Pop))</a></code></pre></div>
 <p><img src="lec02_files/figure-html/second%20boxplot-1.png" width="2100" /> <a href="lec02.html">[Back to top]</a></p>
 </div>
 </div>
@@ -663,31 +691,31 @@ scanvote &lt;-<span class="st"> </span><span class="kw">read.csv</span>(csvfile)
 <li>inverse cumulative distribution functions which illustrate the particular value of a variable that is equaled or exceeded (1-p)x100 percent of the time.</li>
 </ul>
 <p>For the standard normal distribution (with mean of 0 and a standard deviation of 1), the PDF and CDF can be displayed as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="fl">3.0</span>,<span class="fl">3.0</span>,.<span class="dv">05</span>)
-pdf.z &lt;-<span class="st"> </span><span class="kw">dnorm</span>(z)   <span class="co"># get probability density function</span>
-<span class="kw">plot</span>(z, pdf.z)</code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">z &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="fl">3.0</span>,<span class="fl">3.0</span>,.<span class="dv">05</span>)</a>
+<a class="sourceLine" id="cb23-2" data-line-number="2">pdf.z &lt;-<span class="st"> </span><span class="kw">dnorm</span>(z)   <span class="co"># get probability density function</span></a>
+<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="kw">plot</span>(z, pdf.z)</a></code></pre></div>
 <p><img src="lec02_files/figure-html/ref%20distributions-1.png" width="2100" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cdf.z &lt;-<span class="st"> </span><span class="kw">pnorm</span>(z)   <span class="co"># get cumulative distribution function</span>
-<span class="kw">plot</span>(z, cdf.z)</code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">cdf.z &lt;-<span class="st"> </span><span class="kw">pnorm</span>(z)   <span class="co"># get cumulative distribution function</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="kw">plot</span>(z, cdf.z)</a></code></pre></div>
 <p><img src="lec02_files/figure-html/ref%20distributions-2.png" width="2100" /></p>
 <p>and the inverse cumulative distribution function as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,.<span class="dv">01</span>)
-invcdf.z &lt;-<span class="st"> </span><span class="kw">qnorm</span>(p)  <span class="co"># get inverse cumulative distibution function</span>
-<span class="kw">plot</span>(p,invcdf.z)</code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,.<span class="dv">01</span>)</a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">invcdf.z &lt;-<span class="st"> </span><span class="kw">qnorm</span>(p)  <span class="co"># get inverse cumulative distibution function</span></a>
+<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="kw">plot</span>(p,invcdf.z)</a></code></pre></div>
 <p><img src="lec02_files/figure-html/inverse%20csf-1.png" width="2100" /></p>
 <div id="qq-plot-or-qq-normal-plot" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> QQ Plot (or QQ Normal Plot)</h3>
 <p>A quantile plot is a two-dimensional graph where each observation is shown by a point, so strictly speaking, a QQ plot is an enumerative plot. The data value for each point is plotted along the vertical or y-axis, while the equivalent quantile (e.g. a percentile) value is plotted along the horizontal or x-axis. The quantiles plotted along the x-axis could be empirical ones, like the percentile equivalents or rank for each value, or they could be theoretical ones corresponding to the “p-values” of a reference distribution (e.g. a normal distribution) with the same parameters as the variable being examined. In practice, the shape of the QQ plot is the issue:</p>
 <p><a href="https://pjbartlein.github.io/GeogDataAnalysis/images/qqplots.gif">[a variety of histograms and QQ Plots]</a></p>
 <p>The qqnorm plot plots the data values along the y-axis, and p-values of the normal distribution along the x-axis. qqline adds a straight line that passes through the first and third quartiles (25th and 75th percentiles) and can be used to assess (a) the overall departure of the observed distribution from a normal distribution with the same parameters (mean and standard deviation) as the observations, and (b) outliers or unsual points.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqnorm</span>(Pop)
-<span class="kw">qqline</span>(Pop)</code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">qqnorm</span>(Pop)</a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="kw">qqline</span>(Pop)</a></code></pre></div>
 <p><img src="lec02_files/figure-html/qqplots-1.png" width="2100" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqnorm</span>(<span class="kw">log10</span>(Pop))
-<span class="kw">qqline</span>(<span class="kw">log10</span>(Pop))</code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">qqnorm</span>(<span class="kw">log10</span>(Pop))</a>
+<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="kw">qqline</span>(<span class="kw">log10</span>(Pop))</a></code></pre></div>
 <p><img src="lec02_files/figure-html/qqplots-2.png" width="2100" /></p>
 <p>Clean up</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">detach</span>(scanvote)</code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">detach</span>(scanvote)</a></code></pre></div>
 </div>
 </div>
 </div>

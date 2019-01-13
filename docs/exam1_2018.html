@@ -11,7 +11,7 @@
 
 
 
-<title>rspatial.utf8.md</title>
+<title>exam1_2018.utf8.md</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -412,41 +412,18 @@ $(document).ready(function () {
 
 </div>
 
-<div id="TOC">
-<ul>
-<li><a href="#spatial-data-and-geospatial-analyses-in-r"><span class="toc-section-number">0.1</span> Spatial data and geospatial analyses in R</a></li>
-<li><a href="#spatial-classes"><span class="toc-section-number">0.2</span> Spatial classes</a></li>
-</ul>
-</div>
 
-<div id="spatial-data-and-geospatial-analyses-in-r" class="section level2">
-<h2><span class="header-section-number">0.1</span> Spatial data and geospatial analyses in R</h2>
-<p>CRAN Spatial taskview: <a href="https://cran.r-project.org/web/views/Spatial.html" class="uri">https://cran.r-project.org/web/views/Spatial.html</a></p>
-<p>The bulk of the geospatial/GISci analysis tools are contained in the following packages:</p>
-<ul>
-<li><code>maptools</code> reading and writing spatial data, particularly shapefiles</li>
-<li><code>sp</code> manipulating data in one of the Spatial Data classes</li>
-<li><code>rgdal</code> R “bindings” to GDAL (Geospatial Data Abstraction Layer)</li>
-<li><code>rgeos</code> R interface to the GEOS “geometry engine” (overlays, etc.)</li>
-</ul>
-<p>The book (ASDAR2) R.S. Bivand, E. Pebesma, V. Gómez-Rubio (2013) <em>Applied Spatial Data Analysis with R, 2nd Ed.</em>, Springer.</p>
-<p>Here’s a .pdf: <a href="http://link.springer.com/content/pdf/10.1007%2F978-1-4614-7618-4.pdf">http://link.springer.com/content/pdf/10.1007%2F978-1-4614-7618-4.pdf</a> (must be on UO Network)</p>
-<p>There is also an R package <code>maps</code> that includes a world database, and methods for plotting with the R core graphics.</p>
-</div>
-<div id="spatial-classes" class="section level2">
-<h2><span class="header-section-number">0.2</span> Spatial classes</h2>
-<p>There are several related “classes” of spatial data in R, each consisting of the specific spatial coordinate or geometry data, or the coordinate or geometry data and an associate data frame:</p>
-<ul>
-<li><code>SpatialPoints</code> and <code>SpatialPointsDataFrame</code></li>
-<li><code>SpatialLines</code> and <code>SpatialLinesDataFrame</code></li>
-<li><code>SpatialPolygons</code> and <code>SpatialPolygonDataFrame</code></li>
-<li><code>SpatialPixels</code> and <code>SpatialPixelDataFrame</code></li>
-<li><code>SpatialGrid</code> and <code>SpatialGridDataFrame</code></li>
-<li><code>SpatialMultiPoints</code> and <code>SpatialMultiPointsDataFrame</code></li>
-</ul>
-<p>The names of the classes pretty much describe the kind of information they contain. One way to look at the landscape of geospatial data analysis in R is that <code>maptools</code> and <code>rgdal</code> cover reading and writing the spatial data classes, <code>sp</code> handles plotting, conversions and manipulations (including projections with <code>SpTransform()</code>) and <code>rgeos</code> handles geospatial analysis tasks.</p>
-<p>Many of the functions in these packages will be exercised below, but these examples are by now means exhaustive.</p>
-</div>
+<p><strong>Geog. 4/595 – Advanced Geographic Data Analysis</strong><br />
+<strong>Winter 2018 – Due Wednesday, February 14th</strong></p>
+<p>Note: This is the Winter 2018 version. This year’s version will be posted later.</p>
+<p>Answer the following questions in clear, complete, and grammatically-correct sentences. You may, however, illustrate any specific answer by using a table or figure, with accompanying text. Be brief, but informative. Make sure you answer all parts of a question. <em>Be sure to answer all parts of each question.</em></p>
+<p>Do not exceed two double-spaced pages (in a 10 or 12-point font, with normal margins) for each question (figures may be attached as additional pages). Because it is likely that the opportunity to discuss the questions with others will arise, you may do so, but work out and write down the answers yourself.</p>
+<ol style="list-style-type: decimal">
+<li>Construct a table or a concise text-based summary indicating which descriptive plot(s) and which descriptive statistic(s) are used for the tasks of summarizing the location (or central tendency), scale (or variability), and distribution of single variables, and the form, strength and dependence (on other variables) of the relationship between two variables. For each entry indicate the relative advantages or disadvantages of each plot or statistic for performing those tasks.</li>
+<li>What kinds of information about the relationship between variables is provided by a bivariate scatter plot or scatter diagram? Describe how the basic plot can be enhanced to provide additional information.</li>
+<li>Recalling that the goals of bi- or multivariate plots are to provide information on the form, strength and dependence (on some additional variables) of the relationships among variables, describe how those goals are implemented using Trellis- or Lattice-style plots.</li>
+<li>Suppose you are given the task of summarizing some data for a “superior” (i.e. an employer, thesis advisor, client, etc.) that may be a specialist in their field, but not a data-analysis expert. What are the trade-offs involved in using enumerative univariate plots as opposed to summary univariate plots, or descriptive plots as opposed to descriptive statistics in presenting that summary? What influence might the manner in which the summary was delivered (oral presentation, written report, thesis chapter) have on your choice?</li>
+</ol>
 
 
 
