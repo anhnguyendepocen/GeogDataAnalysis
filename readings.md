@@ -12,7 +12,10 @@ Rossiter, D.G., 2012, Introduction to the R Project for Statistical Computing fo
 
 Maindonald, J.H., 2008, Using R for Data Analysis and Graphics, an Introduction (.pdf)
 
+
 # Other online books and documents #
+
+Healy, K., 2019, Data Visualization, a practical introduction.  (Princeton Univ. Press) [https://kjhealy.github.io/socviz/](https://kjhealy.github.io/socviz/)
 
 Hijmans, R., 2016, *Spatial Data Analysis and Modeling with R* [http://rspatial.org](http://rspatial.org) 
 
