@@ -68,9 +68,9 @@ navbar:
       href: ex08.html
     - text: Exams
     - text: Exam 1
-      href: exam1_2018.html
+      href: exam1.html
     - text: Exam 2
-      href: exam2_2018.html
+      href: exam2.html
     - text: Other materials
     - text: Packages and Data
       href: packages-and-data.html

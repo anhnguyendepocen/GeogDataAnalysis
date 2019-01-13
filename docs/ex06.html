@@ -1,326 +1,438 @@
 <!DOCTYPE html>
-<html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>ex06</title>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Exercise 6</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+
 
 
 <style type="text/css">
-body, td {
-   font-family: Times, TimesNewRoman, serif;
-   background-color: white;
-   font-size: 1.0em;
-   width:  940px;
-   margin: 30px;
-   right:  860px;
-   text-align:justify;
-}
-
-tt, code, pre {
-   font-family: Consolas, Monaco, monospace;
-   font-size: 0.95em;
-   font-weight: bolder;
-}
-
 h1 {
-   font-size:1.8em;
-   font-weight: normal;
+  font-size: 34px;
 }
-
+h1.title {
+  font-size: 38px;
+}
 h2 {
-   font-size:1.4em;
-   font-weight: normal;
+  font-size: 30px;
 }
-
 h3 {
-   font-size:1.4em;
-   font-weight: normal;
-   font-style: italic;
+  font-size: 24px;
 }
-
 h4 {
-   font-size:1.2em;
-   font-weight: normal;
+  font-size: 18px;
 }
-
 h5 {
-   font-size:0.9em;
+  font-size: 16px;
 }
-
 h6 {
-   font-size:0.8em;
+  font-size: 12px;
 }
-
-a:visited {
-   color: rgb(50%, 0%, 50%);
-}
-
-pre { 
-   margin-top: 0;
-   max-width: 100%;
-   border: 1px solid #999999;
-   white-space: pre-wrap;
-}
-
-pre code {
-   display: block; 
-   background-color:  #E0E0E0;
-}
-
-code.r, code.noeval, code.cpp {
-   background-color: #eeeeee;
-}
-
-table, td, th {
-  border: none;
-}
-
-blockquote {
-   color:#000000;
-   margin:0;
-   padding-left: 1em;
-   padding-right: 1em;
-   border-left: 0.5em #E0E0E0 solid;
-   border-right: 0.5em #E0E0E0 solid
-}
-
-hr {
-   height: 0px;
-   border-bottom: none;
-   border-top-width: thin;
-   border-top-style: dotted;
-   border-top-color: #999999;
-}
-
-@media print {
-   * {
-      background: transparent !important;
-      color: black !important;
-      filter:none !important;
-      -ms-filter: none !important;
-   }
-
-   body {
-      font-size:11pt;
-      max-width:90%;
-   }
-
-   pre, tt, code {
-      font-size: 10pt;
-      max-width: 100%
-      font-weight: normal;
-   }
-
-   a, a:visited {
-      text-decoration: underline;
-   }
-
-   hr {
-      visibility: hidden;
-      page-break-before: always;
-   }
-
-   pre, blockquote {
-      page-break-inside: auto;
-   }
-
-   tr, img {
-      page-break-inside: avoid;
-   }
-
-   img {
-      max-width: 100% !important;
-   }
-
-   p, h2, h3 {
-      orphans: 3; widows: 3;
-   }
-
-   h2, h3 {
-      page-break-after: avoid;
-   }
+.table th:not([align]) {
+  text-align: left;
 }
 </style>
 
-<style type="text/css">
-/**
- * prism.js default theme for JavaScript, CSS and HTML
- * Based on dabblet (http://dabblet.com)
- * @author Lea Verou
- */
-
-code[class*="language-"],
-pre[class*="language-"] {
-	color: black;
-	background: none;
-	text-shadow: 0 1px white;
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	word-wrap: normal;
-	line-height: 1.5;
-
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
-
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-}
-
-pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
-	text-shadow: none;
-	background: #b3d4fc;
-}
-
-pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
-code[class*="language-"]::selection, code[class*="language-"] ::selection {
-	text-shadow: none;
-	background: #b3d4fc;
-}
-
-@media print {
-	code[class*="language-"],
-	pre[class*="language-"] {
-		text-shadow: none;
-	}
-}
-
-/* Code blocks */
-pre[class*="language-"] {
-	padding: 1em;
-	margin: .5em 0;
-	overflow: auto;
-}
-
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-	background: #f5f2f0;
-}
-
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-	padding: .1em;
-	border-radius: .3em;
-	white-space: normal;
-}
-
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-	color: slategray;
-}
-
-.token.punctuation {
-	color: #999;
-}
-
-.namespace {
-	opacity: .7;
-}
-
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-	color: #905;
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-	color: #690;
-}
-
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-	color: #a67f59;
-	background: hsla(0, 0%, 100%, .5);
-}
-
-.token.atrule,
-.token.attr-value,
-.token.keyword {
-	color: #07a;
-}
-
-.token.function {
-	color: #DD4A68;
-}
-
-.token.regex,
-.token.important,
-.token.variable {
-	color: #e90;
-}
-
-.token.important,
-.token.bold {
-	font-weight: bold;
-}
-.token.italic {
-	font-style: italic;
-}
-
-.token.entity {
-	cursor: help;
-}
-</style>
-
+<link rel="stylesheet" href="html-md-01.css" type="text/css" />
 
 </head>
 
 <body>
 
-<p><strong>Geography 4/595:  Geographic Data Analysis</strong><br>
-<strong>Winter 2017</strong></p>
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
 
-<p><strong>Exercise 6:  Reference Distributions and Significance Testing (Confidence Intervals, t-tests, and Analysis of Variance)</strong><br>
-<strong>Finish by Tuesday February 28th</strong></p>
 
-<p><strong>1.  Introduction</strong></p>
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
 
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Geographic Data Analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="overview.html">Overview</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Topics
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Lecture topics</li>
+    <li>
+      <a href="lec01.html">Introduction to the course</a>
+    </li>
+    <li>
+      <a href="lec02.html">Univariate plots</a>
+    </li>
+    <li>
+      <a href="lec03.html">Bivariate plots</a>
+    </li>
+    <li>
+      <a href="lec04.html">Descriptive statistics</a>
+    </li>
+    <li>
+      <a href="lec05.html">Multivariate plots</a>
+    </li>
+    <li>
+      <a href="lec06.html">Maps in R</a>
+    </li>
+    <li>
+      <a href="lec07.html">Geospatial analysis in R</a>
+    </li>
+    <li>
+      <a href="lec08.html">Data wrangling and matrix algebra</a>
+    </li>
+    <li>
+      <a href="lec09.html">Reference distributions</a>
+    </li>
+    <li>
+      <a href="lec10.html">Statistical inference</a>
+    </li>
+    <li>
+      <a href="lec11.html">Analysis of variance</a>
+    </li>
+    <li>
+      <a href="lec12.html">Regression analysis</a>
+    </li>
+    <li>
+      <a href="lec13.html">More regression analysis</a>
+    </li>
+    <li>
+      <a href="lec14.html">Nonparametric regression</a>
+    </li>
+    <li>
+      <a href="lec15.html">GLMs, GAMs, and CARTs</a>
+    </li>
+    <li>
+      <a href="lec16.html">Principal components and factor analyses</a>
+    </li>
+    <li>
+      <a href="lec17.html">MANOVA and discriminant analysis</a>
+    </li>
+    <li>
+      <a href="lec18.html">Multivariate distances and cluster analysis</a>
+    </li>
+    <li>
+      <a href="lec19.html">High-resolution and high-dimension data</a>
+    </li>
+    <li>
+      <a href="lec20.html">Analysis and visualization of large raster data sets</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Exercises &amp; Exams
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Exercises</li>
+    <li>
+      <a href="ex01.html">Exercise 01 -- Getting R and RStudio</a>
+    </li>
+    <li>
+      <a href="ex02.html">Exercise 02 -- Univariate plots</a>
+    </li>
+    <li>
+      <a href="ex03.html">Exercise 03 -- Bivariate plots and descriptive statistics</a>
+    </li>
+    <li>
+      <a href="ex04.html">Exercise 04 -- Multivariate plots</a>
+    </li>
+    <li>
+      <a href="ex05.html">Exercise 05 -- Data wrangling and matrix algebra</a>
+    </li>
+    <li>
+      <a href="ex06.html">Exercise 06 -- CI's, t-tests, ANOVA</a>
+    </li>
+    <li>
+      <a href="ex07.html">Exercise 07 -- Regression analysis</a>
+    </li>
+    <li>
+      <a href="ex08.html">Exercise 08 -- Multivariate analysis</a>
+    </li>
+    <li class="dropdown-header">Exams</li>
+    <li>
+      <a href="exam1_2018.html">Exam 1</a>
+    </li>
+    <li>
+      <a href="exam2_2018.html">Exam 2</a>
+    </li>
+    <li class="dropdown-header">Other materials</li>
+    <li>
+      <a href="packages-and-data.html">Packages and Data</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="readings.html">Readings</a>
+    </li>
+    <li>
+      <a href="oldpages.html">Old course web pages</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Exercise 6</h1>
+
+</div>
+
+
+<p><strong>Geography 4/595: Geographic Data Analysis</strong><br />
+<strong>Winter 2018</strong></p>
+<p><strong>Exercise 6: Reference Distributions and Significance Testing (Confidence Intervals, t-tests, and Analysis of Variance)</strong><br />
+<strong>Finish by Monday February 26th</strong></p>
+<p><strong>1. Introduction</strong></p>
 <p>The objective of this exercise is to use R to make some statistical inferences about the significance of particular data values, statistics derived from data, or of the observed differences between the means of groups of observations.</p>
-
 <p><strong>2. Confidence Interval for the Mean</strong></p>
-
-<p>The first part of the exercise uses the Specmap data set.  (It&#39;s probably already in your workspace, but if not here&#39;s a link: <a href="http://geog.uoregon.edu/GeogR/data/csv/specmap.csv">[specmap.csv]</a>)   These data consist of three columns: 1) the age (in ka (kiloanno =1000 yrs)) of 783 observations of δ<sup>18</sup>O values (oxygen-isotope values that indicate the size of the continental ice sheets, with positive values indicating large, and negative values small, ice sheets), and insolation (incoming solar radiation, expressed as differences from present values in July at 65<sup>o</sup>N in Wm<sup>-2</sup>) for about the past 800,000 years. The first row in the data set is the present (0 ka)  and row 783 represents the values for 782,000 years before present (782 ka).  The last glacial maximum occurred around 20 ka.</p>
-
-<p>It&#39;s always a good idea to take a look at data before starting any analyses. Here we want to look at δ<sup>18</sup>O and insolation, each as a function of age (time), and so conventionally, the variable <code>Age</code> should appear on the X-axis, and  <code>O18</code> or <code>Insol</code> on the Y-axis.   Because both the oxygen-isotope and insolation data are time series, a 2-D Line Plot (or line plot of X-Y pairs) of both insolation and δ18O values will quickly display the data  (Hint:  Because the Y-axis variables have differing scales, putting both on the same plot would lead to a plot that is difficult to interpret, so it would be better to produce two separate plots.)</p>
-
+<p>The first part of the exercise uses the Specmap data set. (It’s probably already in your workspace, but if not here’s a link: <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/specmap.csv">[specmap.csv]</a>) These data consist of three columns: 1) the age (in ka (kiloanno =1000 yrs)) of 783 observations of δ<sup>18</sup>O values (oxygen-isotope values that indicate the size of the continental ice sheets, with positive values indicating large, and negative values small, ice sheets), and insolation (incoming solar radiation, expressed as differences from present values in July at 65<sup>o</sup>N in Wm<sup>-2</sup>) for about the past 800,000 years. The first row in the data set is the present (0 ka) and row 783 represents the values for 782,000 years before present (782 ka). The last glacial maximum occurred around 20 ka.</p>
+<p>It’s always a good idea to take a look at data before starting any analyses. Here we want to look at δ<sup>18</sup>O and insolation, each as a function of age (time), and so conventionally, the variable <code>Age</code> should appear on the X-axis, and <code>O18</code> or <code>Insol</code> on the Y-axis. Because both the oxygen-isotope and insolation data are time series, a 2-D Line Plot (or line plot of X-Y pairs) of both insolation and δ18O values will quickly display the data (Hint: Because the Y-axis variables have differing scales, putting both on the same plot would lead to a plot that is difficult to interpret, so it would be better to produce two separate plots.)</p>
 <blockquote>
-<p>Q1:  Describe the characteristic pattern of variation through time shared by both series (e.g. do they seem to vary in a random way, or do they vary more systematically with one another?).</p>
+<p>Q1: Describe the characteristic pattern of variation through time shared by both series (e.g. do they seem to vary in a random way, or do they vary more systematically with one another?).</p>
 </blockquote>
-
 <p>Next, take a look at the distribution of δ<sup>18</sup>O, using a histogram or density plot, as in Exercise 2:</p>
-
 <blockquote>
-<p>Q2:  What does the distribution of δ<sup>18</sup>O look like? (Normal or not? If not, how far away from normal-looking does it appear? How easy is it to tell by simply &quot;eyeballing&quot; the histogram?)</p>
+<p>Q2: What does the distribution of δ<sup>18</sup>O look like? (Normal or not? If not, how far away from normal-looking does it appear? How easy is it to tell by simply “eyeballing” the histogram?)</p>
 </blockquote>
-
 <p>How unusual is the present-day value of δ<sup>18</sup>O (-2.09)? Are current conditions representative of those that prevailed, on average, throughout the part of the Quaternary represented by these data, or are they relatively unusual? To get an idea of how representative or unusual the present is, compare its value to a 90% confidence interval for the mean of the whole series. If the present value falls outside of that interval, then that would suggest that the present value would not be a good estimate of the long-term average δ<sup>18</sup>O, or conversely, that the long-term average δ<sup>18</sup>O is quite different from the present value.</p>
-
-<p>The following code will get a 0.95 (or 95%) confidence interval for the mean δ<sup>18</sup>O, </p>
-
-<div><pre><code class="language-none">attach(specmap)
+<p>The following code will get a 0.95 (or 95%) confidence interval for the mean δ<sup>18</sup>O,</p>
+<pre><code>attach(specmap)
 # statistics
 O18_mean &lt;- mean(O18)
 O18_sd &lt;- sd(O18)
@@ -331,15 +443,12 @@ print(c(O18_mean, O18_sd, O18_npts, O18_semean))
 # confidence intervals
 O18_upperCI &lt;- O18_mean + 2*O18_semean
 O18_lowerCI &lt;- O18_mean - 2*O18_semean
-print(c(O18_lowerCI, O18_mean, O18_upperCI))</code></pre></div>
-
+print(c(O18_lowerCI, O18_mean, O18_upperCI))</code></pre>
 <blockquote>
-<p>Q3:  Does the present (0 ka) value of δ<sup>18</sup>O fall inside or outside of the .95 or 95% confidence interval for the mean of δ<sup>18</sup>O? How about the value 1000 years ago (1 ka, row 2)? How far back in the record does one have to go to find the first δ<sup>18</sup>O value that would not be considered significantly different from the long-term mean? (Hint: just look at the numbers in a <code>View()</code> window.  Also, you will have to mentally interpolate between values.  For example, the δ<sup>18</sup>O at 2 ka is -1.91, and that at 3ka is -1.83, so at any time between 2ka and 3ka the value of δ<sup>18</sup>O is somewhere between -1.91 and -1.83.)</p>
+<p>Q3: Does the present (0 ka) value of δ<sup>18</sup>O fall inside or outside of the .95 or 95% confidence interval for the mean of δ<sup>18</sup>O? How about the value 1000 years ago (1 ka, row 2)? How far back in the record does one have to go to find the first δ<sup>18</sup>O value that would not be considered significantly different from the long-term mean? (Hint: just look at the numbers in a <code>View()</code> window. Also, you will have to mentally interpolate between values. For example, the δ<sup>18</sup>O at 2 ka is -1.91, and that at 3ka is -1.83, so at any time between 2ka and 3ka the value of δ<sup>18</sup>O is somewhere between -1.91 and -1.83.)</p>
 </blockquote>
-
-<p>Getting the standard error and confidence limits for a number of variables would quickly become tedious.  <code>R</code> allows (and encourages) the creation of functions that can be &quot;reused&quot; for different variables.  The following is such a function (<code>descr()</code>) that describes a variable:</p>
-
-<div><pre><code class="language-none"># function for describing a variable
+<p>Getting the standard error and confidence limits for a number of variables would quickly become tedious. <code>R</code> allows (and encourages) the creation of functions that can be “reused” for different variables. The following is such a function (<code>descr()</code>) that describes a variable:</p>
+<pre><code># function for describing a variable
 # usage:  descr(x), where x is the name of a variable
 descr &lt;- function(x) {
     x_mean &lt;- mean(x); cat(&quot; Mean=&quot;, x_mean, &quot;\n&quot;)
@@ -349,40 +458,28 @@ descr &lt;- function(x) {
     x_upperCI &lt;- x_mean + 2*x_semean; cat(&quot; Upper=&quot;, x_upperCI, &quot;\n&quot;)
     x_lowerCI &lt;- x_mean - 2*x_semean; cat(&quot; Lower=&quot;, x_lowerCI, &quot;\n&quot;)
     cat(&quot; &quot;, &quot;\n&quot;)
-    }</code></pre></div>
-
-<p>Copy and paste the function into <code>R</code> (making sure you include the last curly bracket).  Nothing will happen, but the function can now be used as follows:</p>
-
-<div><pre><code class="language-none">descr(O18)
-descr(Insol)</code></pre></div>
-
+    }</code></pre>
+<p>Copy and paste the function into <code>R</code> (making sure you include the last curly bracket). Nothing will happen, but the function can now be used as follows:</p>
+<pre><code>descr(O18)
+descr(Insol)</code></pre>
 <p><strong>3. Probability Plots</strong></p>
-
-<p>The question concerning how well an observed distribution matches the normal distribution (Q2 above) can be answered more directly using a graphical display called a &quot;quantile plot&quot; or &quot;QQ&quot; plot.   The normal probability plot (what R calls a QQ Normal (<code>qqnorm()</code> plot) is a scatter diagram containing the values of a particular variable (plotted along the x-axis) and the values that would be returned by the cumulative density function (cdf) of a normal distribution with the same mean and standard deviation as the variable under consideration (plotted along the y-axis). The idea is that if the data really are normally distributed, then the normal probability plot should appear as a straight line, and as the distribution gets less-and-less normal, the normal probability plot will become more-and-more nonlinear.</p>
-
+<p>The question concerning how well an observed distribution matches the normal distribution (Q2 above) can be answered more directly using a graphical display called a “quantile plot” or “QQ” plot. The normal probability plot (what R calls a QQ Normal (<code>qqnorm()</code> plot) is a scatter diagram containing the values of a particular variable (plotted along the x-axis) and the values that would be returned by the cumulative density function (cdf) of a normal distribution with the same mean and standard deviation as the variable under consideration (plotted along the y-axis). The idea is that if the data really are normally distributed, then the normal probability plot should appear as a straight line, and as the distribution gets less-and-less normal, the normal probability plot will become more-and-more nonlinear.</p>
 <p>Get a normal probability plot or QQ Normal plot for the δ<sup>18</sup>O data:</p>
-
-<div><pre><code class="language-none"># qqnorm plot with a line
+<pre><code># qqnorm plot with a line
 qqnorm(O18)
 qqline(O18)  
 
 # histogram and density plot for comparison
 hist(O18, breaks=40, probability=T)
-lines(density(O18))</code></pre></div>
-
+lines(density(O18))</code></pre>
 <blockquote>
-<p>Q4:  What does the normal probability plot indicate about the distributions of δ<sup>18</sup>O values? Does the pattern of the points on the plot suggest anything about the way in which the observed distribution of δ<sup>18</sup>O departs from the normal distribution (if it indeed does)?  Repeat the above analysis for insolation (<code>Insol</code>).  Which variable appears to be closest to one that is normally distributed?</p>
+<p>Q4: What does the normal probability plot indicate about the distributions of δ<sup>18</sup>O values? Does the pattern of the points on the plot suggest anything about the way in which the observed distribution of δ<sup>18</sup>O departs from the normal distribution (if it indeed does)? Repeat the above analysis for insolation (<code>Insol</code>). Which variable appears to be closest to one that is normally distributed?</p>
 </blockquote>
-
 <p><strong>4. Two-Sample Difference-of-Means Tests (t-tests)</strong></p>
-
-<p>The question of whether two groups of observations are similar often arises.  Similarity between groups of observations could be indicated by differences in the descriptive statistics of each group, in group-wise descriptive plots or in the distributions of variables. The most common index of &quot;differentness&quot; of groups of observations is provided by a comparison of the means of particular variables among the groups of observations. The test statistic that is appropriate for comparing two means is the t-statistic, which can be thought of as a &quot;scaled&quot; difference between two means, where the observed difference between two means is scaled by an estimate of the uncertainty in or variability of the the means.</p>
-
-<p>Download and read the data set <a href="http://geog.uoregon.edu/GeogR/data/csv/orsim.csv">[orsim.csv]</a> (and call it <code>orsim</code> in R). This data set includes climate values (January and July temperature and precipitation) simulated by a regional climate model for present, and for potential future conditions when the concentration of carbon dioxide in the atmosphere has doubled, for a set of model grid points that cover Oregon. The variables named <code>TJan1x</code>, <code>TJul1</code>x, <code>PJan1x</code> and <code>PJul1x</code> are the simulated present values of temperature (<code>T</code>) and precipitation (<code>P</code>), while the variables with &quot;<code>2x</code>&quot; in their names are those for the &quot;doubled CO2 scenarios&quot; that are intended to describe the climate of the next century.</p>
-
-<p>Use one of the mapping procedures described in previous exercises to get an impression of the basic pattern of climate over Oregon.  Note that the grid pattern in this particular data set is not parallel to the graticule (lat/lon lines).  Check to make sure the Oregon county outlines shape files (<code>orotl.shp</code>) are available; if not, see Part 2 of Exercise 4.  Here&#39;s some code:  </p>
-
-<div><pre><code class="language-none"># load the appropriate packages
+<p>The question of whether two groups of observations are similar often arises. Similarity between groups of observations could be indicated by differences in the descriptive statistics of each group, in group-wise descriptive plots or in the distributions of variables. The most common index of “differentness” of groups of observations is provided by a comparison of the means of particular variables among the groups of observations. The test statistic that is appropriate for comparing two means is the t-statistic, which can be thought of as a “scaled” difference between two means, where the observed difference between two means is scaled by an estimate of the uncertainty in or variability of the the means.</p>
+<p>Download and read the data set <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/orsim.csv">[orsim.csv]</a> (and call it <code>orsim</code> in R). This data set includes climate values (January and July temperature and precipitation) simulated by a regional climate model for present, and for potential future conditions when the concentration of carbon dioxide in the atmosphere has doubled, for a set of model grid points that cover Oregon. The variables named <code>TJan1x</code>, <code>TJul1</code>x, <code>PJan1x</code> and <code>PJul1x</code> are the simulated present values of temperature (<code>T</code>) and precipitation (<code>P</code>), while the variables with “<code>2x</code>” in their names are those for the “doubled CO2 scenarios” that are intended to describe the climate of the next century.</p>
+<p>Use one of the mapping procedures described in previous exercises to get an impression of the basic pattern of climate over Oregon. Note that the grid pattern in this particular data set is not parallel to the graticule (lat/lon lines). Check to make sure the Oregon county outlines shape files (<code>orotl.shp</code>) are available; if not, see Part 2 of Exercise 4. Here’s some code:</p>
+<pre><code># load the appropriate packages
 library(maptools) # also loads sp
 library(rgeos)
 library(RColorBrewer)
@@ -408,30 +505,22 @@ colorcode &lt;- plotclr[colornum]
 # now the points
 points(orsim$Lon, orsim$Lat, pch=16, col=colorcode, cex=2)
 points(orsim$Lon, orsim$Lat, cex=2)
-legend(-116, 44, legend=leglabs(brks), fill=plotclr, cex=0.6, bty=&quot;n&quot;)</code></pre></div>
-
-<p>Note the <code>plotvar</code> assignment computes the difference between the 1x and 2x CO2 simulations.  Also note that for temperature, it makes sense to reorder the colors, so that blue is low and orange is high, while for precipitation, the unreordered sequence orange for low and blue for high works better.  The line <code>plotclr &lt;- plotclr[nclr:1]</code> does the reordering.  Comment it out (with a <code>#</code>) if you don&#39;t want to reorder, remove the <code>#</code> if you do.</p>
-
-<p>How would a doubling of carbon dioxide in the atmosphere affect temperature over Oregon? From what we already know about the greenhouse effect, atmospheric change, and basic climatology, we can suspect that the temperatures will increase with an increase in carbon dioxide. The question is, are the simulated temperatures for the &quot;enhanced greenhouse&quot;-situation significantly higher than those for present?</p>
-
-<p>A two-sample <em>t</em>-test can be performed as follows: </p>
-
-<div><pre><code class="language-none"># t-tests among groups with different variances
+legend(-116, 44, legend=leglabs(brks), fill=plotclr, cex=0.6, bty=&quot;n&quot;)</code></pre>
+<p>Note the <code>plotvar</code> assignment computes the difference between the 1x and 2x CO2 simulations. Also note that for temperature, it makes sense to reorder the colors, so that blue is low and orange is high, while for precipitation, the unreordered sequence orange for low and blue for high works better. The line <code>plotclr &lt;- plotclr[nclr:1]</code> does the reordering. Comment it out (with a <code>#</code>) if you don’t want to reorder, remove the <code>#</code> if you do.</p>
+<p>How would a doubling of carbon dioxide in the atmosphere affect temperature over Oregon? From what we already know about the greenhouse effect, atmospheric change, and basic climatology, we can suspect that the temperatures will increase with an increase in carbon dioxide. The question is, are the simulated temperatures for the “enhanced greenhouse”-situation significantly higher than those for present?</p>
+<p>A two-sample <em>t</em>-test can be performed as follows:</p>
+<pre><code># t-tests among groups with different variances
 attach(orsim)
 boxplot(TJan2x, TJan1x)
 print(mean(TJan2x)-mean(TJan1x)) # the temperature difference
 tt_TJan &lt;- t.test(TJan2x, TJan1x)
-tt_TJan</code></pre></div>
-
+tt_TJan</code></pre>
 <blockquote>
-<p>Q5: What is the value of the <em>t</em>-statistic for a comparison of the simulated present and potential future January mean temperature over Oregon? Is this value large enough to be significant?  (Hint:  examine the <em>p</em>-value.)</p>
+<p>Q5: What is the value of the <em>t</em>-statistic for a comparison of the simulated present and potential future January mean temperature over Oregon? Is this value large enough to be significant? (Hint: examine the <em>p</em>-value.)</p>
 </blockquote>
-
-<p>In performing a t-test, the &quot;default&quot; null hypothesis, Ho, is that the means of the two groups of observations are equal, and the alternative hypothesis (Ha) is that the are not. A more explicit alternative hypothesis can be stated when, as is the case for this climate data, we expect the mean of one group (the present in this case) to be smaller than the mean of the other group (the doubled carbon dioxide scenario). In such a situation, where the potential sign of the difference between group means is known, a more &quot;decisive&quot; test can be made, by adopting a different, &quot;one-sided&quot; alternative hypothesis:</p>
-
+<p>In performing a t-test, the “default” null hypothesis, Ho, is that the means of the two groups of observations are equal, and the alternative hypothesis (Ha) is that the are not. A more explicit alternative hypothesis can be stated when, as is the case for this climate data, we expect the mean of one group (the present in this case) to be smaller than the mean of the other group (the doubled carbon dioxide scenario). In such a situation, where the potential sign of the difference between group means is known, a more “decisive” test can be made, by adopting a different, “one-sided” alternative hypothesis:</p>
 <p>For January precipitation (<code>PJan1x</code> and <code>PJan2x</code>) test the hypotheses that <code>PJan1x</code> and <code>PJan2x</code> are equal and that <code>PJan1x</code> is less than <code>PJan2x</code>.</p>
-
-<div><pre><code class="language-none"># two-tailed test
+<pre><code># two-tailed test
 boxplot(PJan2x, PJan1x)
 mean(PJan2x)-mean(PJan1x)
 tt_PJan_1 &lt;- t.test(PJan2x, PJan1x)
@@ -441,80 +530,64 @@ tt_PJan_1
 boxplot(PJan2x, PJan1x)
 mean(PJan2x)-mean(PJan1x)
 tt_PJan_2 &lt;- t.test(PJan2x, PJan1x, alternative=&quot;greater&quot;)
-tt_PJan_2</code></pre></div>
-
+tt_PJan_2</code></pre>
 <blockquote>
-<p>Q6:  Is future winter precipitation (<code>PJan2x</code>) the same as present (<code>PJan1x</code>), or is it significantly greater than present?</p>
+<p>Q6: Is future winter precipitation (<code>PJan2x</code>) the same as present (<code>PJan1x</code>), or is it significantly greater than present?</p>
 </blockquote>
-
 <p><strong>5. Analysis of Variance</strong></p>
-
-<p>Many times, more than two groups of observations exist. Although it is possible to compare pairs of groups of observations, what often happens is that some comparisons appear significant, some don’t, and it may be difficult to reach an overall conclusion about whether the groups jointly are significantly different. The procedure known as &quot;analysis of variance&quot; (ANOVA) allows a single overall measure of the difference in the means among more than two groups to be computed. The statistic generated in an analysis of variance is the <em>F</em>-statistic, which is a measure of the variability among groups of data relative to the variability within groups -- as the group means become more distinct, the <em>F</em>-statistic increases in size, while as the groups become more internally variable, the <em>F</em>-statistic decreases.</p>
-
-<p>Download and read in the Scandinavian EU Preference Vote data <a href="http://geog.uoregon.edu/GeogR/data/csv/scanvote.csv">[<code>scanvote.csv</code>]</a> if it&#39;s not already in your workspace (call it <code>scanvote</code> in R, and attach it). These data describe the percentages of votes in favor of membership in the European Union (Yes(%)), by administrative district in Finland, Norway, and Sweden, collected by Alec Murphy.  As always, plot the data first.  A boxplot or stripchart by country would be good (e.g. <code>boxplot(Yes ~ Country)</code>).  Use the <code>descr()</code> function from section 1 above and <code>tapply()</code> to calculate standard errors of the mean for each country, e.g.:</p>
-
-<div><pre><code class="language-none">attach(scanvote)
-tapply(Yes, Country, descr)</code></pre></div>
-
+<p>Many times, more than two groups of observations exist. Although it is possible to compare pairs of groups of observations, what often happens is that some comparisons appear significant, some don’t, and it may be difficult to reach an overall conclusion about whether the groups jointly are significantly different. The procedure known as “analysis of variance” (ANOVA) allows a single overall measure of the difference in the means among more than two groups to be computed. The statistic generated in an analysis of variance is the <em>F</em>-statistic, which is a measure of the variability among groups of data relative to the variability within groups – as the group means become more distinct, the <em>F</em>-statistic increases in size, while as the groups become more internally variable, the <em>F</em>-statistic decreases.</p>
+<p>Download and read in the Scandinavian EU Preference Vote data <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/scanvote.csv">[<code>scanvote.csv</code>]</a> if it’s not already in your workspace (call it <code>scanvote</code> in R, and attach it). These data describe the percentages of votes in favor of membership in the European Union (Yes(%)), by administrative district in Finland, Norway, and Sweden, collected by Alec Murphy. As always, plot the data first. A boxplot or stripchart by country would be good (e.g. <code>boxplot(Yes ~ Country)</code>). Use the <code>descr()</code> function from section 1 above and <code>tapply()</code> to calculate standard errors of the mean for each country, e.g.:</p>
+<pre><code>attach(scanvote)
+tapply(Yes, Country, descr)</code></pre>
 <p>Examine the text output and the plots to see how distinct the groups (countries) appear, and compare the means and standard errors of the mean to check the similarity of the means among countries.</p>
-
-<p>Now do an analysis of variance: </p>
-
-<div><pre><code class="language-none"># anova
+<p>Now do an analysis of variance:</p>
+<pre><code># anova
 aov1 &lt;- aov(Yes ~ Country)
 aov1
 summary(aov1)
 hov1 &lt;- bartlett.test(Yes ~ Country)
-hov1</code></pre></div>
-
-<p>The <em>F</em>-statistic has as its reference distribution, the <em>F</em>-distribution (no surprise there). The <em>F</em>-distribution varies considerably with the number of groups and the number of observations within groups, and is not as easily visualized as the normal or <em>t</em>-distributions. </p>
-
+hov1</code></pre>
+<p>The <em>F</em>-statistic has as its reference distribution, the <em>F</em>-distribution (no surprise there). The <em>F</em>-distribution varies considerably with the number of groups and the number of observations within groups, and is not as easily visualized as the normal or <em>t</em>-distributions.</p>
 <blockquote>
-<p>Q7: What is the value of the <em>F</em>-statistic, and how unusual is this value for the analysis of variance of these data? (Hint, look at the <em>p</em>-value.) Are the variances similar among groups?  What does this suggest about the difference among countries in preference for joining the EU?</p>
+<p>Q7: What is the value of the <em>F</em>-statistic, and how unusual is this value for the analysis of variance of these data? (Hint, look at the <em>p</em>-value.) Are the variances similar among groups? What does this suggest about the difference among countries in preference for joining the EU?</p>
 </blockquote>
-
-<p>(See the short guide to interpreting test statistics, <em>p</em>-values, and significance for information on interpreting p-values <a href="http://geog.uoregon.edu/GeogR/topics/interpstats.pdf">[link]</a>. </p>
-
+<p>(See the short guide to interpreting test statistics, <em>p</em>-values, and significance for information on interpreting p-values <a href="https://pjbartlein.github.io/GeogDataAnalysis/topics/interpstats.pdf">[link]</a>.</p>
 <p>There is an interesting summary plot of an analysis of variance object that provides further visualization of the differences among groups</p>
-
-<div><pre><code class="language-none">plot(aov1)</code></pre></div>
-
-<p>Finally, download and read in the Summit Cr. geomorphic data project <a href="http://geog.uoregon.edu/GeogR/data/csv/sumcr.csv">[<code>sumcr.csv</code>]</a> if you don&#39;t already have it, and do an analysis of variance on water-surface width (<code>WidthWS</code>), with group membership determined by <code>Reach</code>. Compare the extent of overlap of the confidence intervals for the group means and the values of the <em>F</em>-statistics for this analysis, and the previous one on preferences. You should see how the size of the <em>F</em>-statistic reflects the distinctiveness of the groups.</p>
-
+<pre><code>plot(aov1)</code></pre>
+<p>Finally, download and read in the Summit Cr. geomorphic data project <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/sumcr.csv">[<code>sumcr.csv</code>]</a> if you don’t already have it, and do an analysis of variance on water-surface width (<code>WidthWS</code>), with group membership determined by <code>Reach</code>. Compare the extent of overlap of the confidence intervals for the group means and the values of the <em>F</em>-statistics for this analysis, and the previous one on preferences. You should see how the size of the <em>F</em>-statistic reflects the distinctiveness of the groups.</p>
 <blockquote>
-<p>Q8 Decribe the results.  Do water-surface widths differ significantly among reaches?</p>
+<p>Q8 Decribe the results. Do water-surface widths differ significantly among reaches?</p>
 </blockquote>
-
-<p><strong>6.  What to hand in</strong></p>
-
+<p><strong>6. What to hand in</strong></p>
 <p>Hand in the answers to the above questions, plus the plot you made of the Scandinavian vote data.</p>
 
 
 
-<script type="text/javascript">
-var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
-</script>
 
-<script type="text/x-mathjax-config">
-(function () {
+</div>
 
-MathJax.Hub.Config({
-	'showProcessingMessages': false,
-	'messageStyle': 'none'
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
 });
 
-if (typeof MathJaxListener !== 'undefined') {
-	MathJax.Hub.Register.StartupHook('End', function () {
-		MathJaxListener.invokeCallbackForKey_('End');
-	});
-}
 
-})();
 </script>
 
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 </body>
-
 </html>

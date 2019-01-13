@@ -1,268 +1,584 @@
 <!DOCTYPE html>
-<html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>ex08</title>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Exercise 8</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
-body, td {
-   font-family: Times, TimesNewRoman, serif;
-   background-color: white;
-   font-size: 1.0em;
-   width:  940px;
-   margin: 30px;
-   right:  860px;
-   text-align:justify;
-}
-
-tt, code, pre {
-   font-family: Consolas, Monaco, monospace;
-   font-size: 0.95em;
-   font-weight: bolder;
-}
-
 h1 {
-   font-size:1.8em;
-   font-weight: normal;
+  font-size: 34px;
 }
-
+h1.title {
+  font-size: 38px;
+}
 h2 {
-   font-size:1.4em;
-   font-weight: normal;
+  font-size: 30px;
 }
-
 h3 {
-   font-size:1.4em;
-   font-weight: normal;
-   font-style: italic;
+  font-size: 24px;
 }
-
 h4 {
-   font-size:1.2em;
-   font-weight: normal;
+  font-size: 18px;
 }
-
 h5 {
-   font-size:0.9em;
+  font-size: 16px;
 }
-
 h6 {
-   font-size:0.8em;
+  font-size: 12px;
 }
-
-a:visited {
-   color: rgb(50%, 0%, 50%);
-}
-
-pre { 
-   margin-top: 0;
-   max-width: 100%;
-   border: 1px solid #999999;
-   white-space: pre-wrap;
-}
-
-pre code {
-   display: block; padding: 0.5em;
-   background-color:  #E0E0E0;
-}
-
-.r, .noeval, .cpp {
-   background-color: #eeeeee;
-}
-
-table, td, th {
-  border: none;
-}
-
-blockquote {
-   color:#000000;
-   margin:0;
-   padding-left: 1em;
-   padding-right: 1em;
-   border-left: 0.5em #E0E0E0 solid;
-   border-right: 0.5em #E0E0E0 solid
-}
-
-hr {
-   height: 0px;
-   border-bottom: none;
-   border-top-width: thin;
-   border-top-style: dotted;
-   border-top-color: #999999;
-}
-
-@media print {
-   * {
-      background: transparent !important;
-      color: black !important;
-      filter:none !important;
-      -ms-filter: none !important;
-   }
-
-   body {
-      font-size:11pt;
-      max-width:90%;
-   }
-
-   pre, tt, code {
-      font-size: 10pt;
-      max-width: 100%
-      font-weight: normal;
-   }
-
-   a, a:visited {
-      text-decoration: underline;
-   }
-
-   hr {
-      visibility: hidden;
-      page-break-before: always;
-   }
-
-   pre, blockquote {
-      page-break-inside: auto;
-   }
-
-   tr, img {
-      page-break-inside: avoid;
-   }
-
-   img {
-      max-width: 100% !important;
-   }
-
-   p, h2, h3 {
-      orphans: 3; widows: 3;
-   }
-
-   h2, h3 {
-      page-break-after: avoid;
-   }
+.table th:not([align]) {
+  text-align: left;
 }
 </style>
 
+<link rel="stylesheet" href="html-md-01.css" type="text/css" />
 
 </head>
 
 <body>
 
-<p><strong>Geography 4/595:  Geographic Data Analysis</strong><br>
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Geographic Data Analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="overview.html">Overview</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Topics
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Lecture topics</li>
+    <li>
+      <a href="lec01.html">Introduction to the course</a>
+    </li>
+    <li>
+      <a href="lec02.html">Univariate plots</a>
+    </li>
+    <li>
+      <a href="lec03.html">Bivariate plots</a>
+    </li>
+    <li>
+      <a href="lec04.html">Descriptive statistics</a>
+    </li>
+    <li>
+      <a href="lec05.html">Multivariate plots</a>
+    </li>
+    <li>
+      <a href="lec06.html">Maps in R</a>
+    </li>
+    <li>
+      <a href="lec07.html">Geospatial analysis in R</a>
+    </li>
+    <li>
+      <a href="lec08.html">Data wrangling and matrix algebra</a>
+    </li>
+    <li>
+      <a href="lec09.html">Reference distributions</a>
+    </li>
+    <li>
+      <a href="lec10.html">Statistical inference</a>
+    </li>
+    <li>
+      <a href="lec11.html">Analysis of variance</a>
+    </li>
+    <li>
+      <a href="lec12.html">Regression analysis</a>
+    </li>
+    <li>
+      <a href="lec13.html">More regression analysis</a>
+    </li>
+    <li>
+      <a href="lec14.html">Nonparametric regression</a>
+    </li>
+    <li>
+      <a href="lec15.html">GLMs, GAMs, and CARTs</a>
+    </li>
+    <li>
+      <a href="lec16.html">Principal components and factor analyses</a>
+    </li>
+    <li>
+      <a href="lec17.html">MANOVA and discriminant analysis</a>
+    </li>
+    <li>
+      <a href="lec18.html">Multivariate distances and cluster analysis</a>
+    </li>
+    <li>
+      <a href="lec19.html">High-resolution and high-dimension data</a>
+    </li>
+    <li>
+      <a href="lec20.html">Analysis and visualization of large raster data sets</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Exercises &amp; Exams
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Exercises</li>
+    <li>
+      <a href="ex01.html">Exercise 01 -- Getting R and RStudio</a>
+    </li>
+    <li>
+      <a href="ex02.html">Exercise 02 -- Univariate plots</a>
+    </li>
+    <li>
+      <a href="ex03.html">Exercise 03 -- Bivariate plots and descriptive statistics</a>
+    </li>
+    <li>
+      <a href="ex04.html">Exercise 04 -- Multivariate plots</a>
+    </li>
+    <li>
+      <a href="ex05.html">Exercise 05 -- Data wrangling and matrix algebra</a>
+    </li>
+    <li>
+      <a href="ex06.html">Exercise 06 -- CI's, t-tests, ANOVA</a>
+    </li>
+    <li>
+      <a href="ex07.html">Exercise 07 -- Regression analysis</a>
+    </li>
+    <li>
+      <a href="ex08.html">Exercise 08 -- Multivariate analysis</a>
+    </li>
+    <li class="dropdown-header">Exams</li>
+    <li>
+      <a href="exam1_2018.html">Exam 1</a>
+    </li>
+    <li>
+      <a href="exam2_2018.html">Exam 2</a>
+    </li>
+    <li class="dropdown-header">Other materials</li>
+    <li>
+      <a href="packages-and-data.html">Packages and Data</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="readings.html">Readings</a>
+    </li>
+    <li>
+      <a href="oldpages.html">Old course web pages</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Exercise 8</h1>
+
+</div>
+
+
+<p><strong>Geography 4/595: Geographic Data Analysis</strong><br />
 <strong>Winter 2018</strong></p>
-
-<p><strong>Exercise 8:  Multivariate Analysis</strong><br>
+<p><strong>Exercise 8: Multivariate Analysis</strong><br />
 <strong>Finish by Monday, March 19</strong></p>
-
-<p><strong>1. Introduction</strong>  </p>
-
-<p>The data set used for most of this exercise consists of a subset of the variables and observations in a data set from Drew Lamb’s thesis, observed for 120 streams in northeastern Oregon.  The variables are defined as follows:</p>
-
-<div><pre><code class="language-none">1) Stream – stream name                         8) SmLWD – no. small large woody debris ( LWD) per mile
+<p><strong>1. Introduction</strong></p>
+<p>The data set used for most of this exercise consists of a subset of the variables and observations in a data set from Drew Lamb’s thesis, observed for 120 streams in northeastern Oregon. The variables are defined as follows:</p>
+<pre><code>1) Stream – stream name                         8) SmLWD – no. small large woody debris ( LWD) per mile
 2) DA –  drainage area                          9) LrgLWD – no. large woody debris (LWD) per mile
 3) Health – stream “health” (factor)           10) PoolDepth – depth of pools                   
 4) ReachLen – length of the reach              11) PoolArea – area of habitat units that are pools
 5) Pools – number of pools per mile of stream  12) WDriff – width-to-depth ratio in pools  
 6) DeepPools – number of deep pools per mile   13) PRratio – pool-to-riffle ratio  
-7) LargePools – number of large pools per mile 14) BFWDratio -- bankfull width-to-depth ratio</code></pre></div>
-
-<p>There are two version of the data set:  1) the original values <a href="http://geog.uoregon.edu/GeogR/data/csv/streams4.csv">[streams4.csv]</a> and 2) transformed values <a href="http://geog.uoregon.edu/GeogR/data/csv/tstreams4.csv">[tstreams4.csv]</a>.  The exercise will focus on the latter.</p>
-
-<p>Read the .csv file the usual way, and name the resulting object <code>tstreams</code>.  If you&#39;ve loaded the <code>geog495.RData</code> workspace, <code>tstreams</code> should already be there.</p>
-
-<p>NOTE:  The variable names are the same in the two data sets, and so they both cannot be attached at the same time. </p>
-
-<p><strong>2. Multivariate plots</strong>  </p>
-
-<p>To start, download the .csv files to your working directory and read them into your workspace, if they&#39;re not already there</p>
-
+7) LargePools – number of large pools per mile 14) BFWDratio -- bankfull width-to-depth ratio</code></pre>
+<p>There are two version of the data set: 1) the original values <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/streams4.csv">[streams4.csv]</a> and 2) transformed values <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/tstreams4.csv">[tstreams4.csv]</a>. The exercise will focus on the latter.</p>
+<p>Read the .csv file the usual way, and name the resulting object <code>tstreams</code>. If you’ve loaded the <code>geog495.RData</code> workspace, <code>tstreams</code> should already be there.</p>
+<p>NOTE: The variable names are the same in the two data sets, and so they both cannot be attached at the same time.</p>
+<p><strong>2. Multivariate plots</strong></p>
+<p>To start, download the .csv files to your working directory and read them into your workspace, if they’re not already there</p>
 <p>Get matrix scatter diagrams of the two data sets:</p>
-
-<div><pre><code class="language-r">plot(streams[3:13], pch=16, cex=.5)
-plot(tstreams[3:13], pch=16, cex=.5)</code></pre></div>
-
-<p>A few features should emerge, including the fact that for some variables, many zeros are observed (i.e. the count or frequency variables), and that some values for <code>BFWDratio</code> have evidently been estimated using drainage area.  (How can you tell?)  Notice that for some relationships, like that between <code>PoolDepth</code> and <code>PoolArea</code> the relationship is clearer in the transformed data set.  Overall the transformed data set exhibits stronger linear relationships among variables, and so this one will be used below.</p>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">plot</span>(streams[<span class="dv">3</span><span class="op">:</span><span class="dv">13</span>], <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">cex=</span>.<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">plot</span>(tstreams[<span class="dv">3</span><span class="op">:</span><span class="dv">13</span>], <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">cex=</span>.<span class="dv">5</span>)</a></code></pre></div>
+<p>A few features should emerge, including the fact that for some variables, many zeros are observed (i.e. the count or frequency variables), and that some values for <code>BFWDratio</code> have evidently been estimated using drainage area. (How can you tell?) Notice that for some relationships, like that between <code>PoolDepth</code> and <code>PoolArea</code> the relationship is clearer in the transformed data set. Overall the transformed data set exhibits stronger linear relationships among variables, and so this one will be used below.</p>
 <p><strong>3. Principal Components Analysis (PCA)</strong></p>
-
-<p>Begin by doing a simple principal components analysis on variables 3 through 13 (i.e. just the continuous variables, and not the factor Health).</p>
-
-<div><pre><code class="language-none"># principal components analysis of (transformed) NE Oregon streams data
+<p>Begin by doing a simple principal components analysis on variables 3 through 13 (i.e. just the continuous variables, and not the factor Health).</p>
+<pre><code># principal components analysis of (transformed) NE Oregon streams data
 tstreams_matrix &lt;- data.matrix(tstreams[,3:13])
 # rownames combining stream name and U/H
 rownames(tstreams_matrix) &lt;- paste(as.character(tstreams[,2]), as.character(tstreams[,1]))
 library(psych)
-tstreams_pca &lt;- principal(tstreams_matrix, nfactors=2, rotate=&quot;none&quot;)</code></pre></div>
-
-<p>Columns 3 through 13 are copied into a matrix for convenience, and then the <code>princomp()</code> function does the analysis.  Now take a look at the results:</p>
-
-<div><pre><code class="language-none"># display the results
+tstreams_pca &lt;- principal(tstreams_matrix, nfactors=2, rotate=&quot;none&quot;)</code></pre>
+<p>Columns 3 through 13 are copied into a matrix for convenience, and then the <code>princomp()</code> function does the analysis. Now take a look at the results:</p>
+<pre><code># display the results
 tstreams_pca
 summary(tstreams_pca)
 print(loadings(tstreams_pca),cutoff=0.0)
 biplot(tstreams_pca$scores[,1:2], loadings(tstreams_pca)[,1:2],
-  main=&quot;PCA Biplot -- 2 Components&quot;, cex=0.5)</code></pre></div>
-
-<p>Typing the name of the resulting PCA object (<code>tstreams_pca</code>) along with the application of <code>summary()</code> function produces information on the relative importance of the principal components.  Important components are generally regarded as those with variances (eigenvalues) greater than 1.0.  Printing the results of the application of the  <code>loadings()</code> function produces a table that contains the correlations between the original variables and the new components, while the <code>screeplot()</code> function gives a graphic picture of the importance of the first few components.</p>
-
-<p>The <code>biplot()</code> function shows both the observations (labeled by row number here) and the variables (represented by vectors) on the same display (i.e., a biplot).  </p>
-
-<p>The components of the biplot are generated this way:  The &quot;component scores&quot; or the values of the first two new components are first plotted as a labeled scatter diagram, where the labels above are the  (other things could be plotted, like the observation number)</p>
-
-<div><pre><code class="language-none"># biplot -- observations
+  main=&quot;PCA Biplot -- 2 Components&quot;, cex=0.5)</code></pre>
+<p>Typing the name of the resulting PCA object (<code>tstreams_pca</code>) along with the application of <code>summary()</code> function produces information on the relative importance of the principal components. Important components are generally regarded as those with variances (eigenvalues) greater than 1.0. Printing the results of the application of the <code>loadings()</code> function produces a table that contains the correlations between the original variables and the new components, while the <code>screeplot()</code> function gives a graphic picture of the importance of the first few components.</p>
+<p>The <code>biplot()</code> function shows both the observations (labeled by row number here) and the variables (represented by vectors) on the same display (i.e., a biplot).</p>
+<p>The components of the biplot are generated this way: The “component scores” or the values of the first two new components are first plotted as a labeled scatter diagram, where the labels above are the (other things could be plotted, like the observation number)</p>
+<pre><code># biplot -- observations
 plot(tstreams_pca$scores[,1:2], type=&quot;n&quot;)
-text(tstreams_pca$scores[,1:2], labels=seq(1:length(tstreams[,1])))</code></pre></div>
-
+text(tstreams_pca$scores[,1:2], labels=seq(1:length(tstreams[,1])))</code></pre>
 <p>Then the vectors are drawn by overlaying a scatter plot of the loadings of the first two components:</p>
-
-<div><pre><code class="language-none"># biplot -- variables
+<pre><code># biplot -- variables
 plot(loadings(tstreams_pca)[,1:2])
-text(loadings(tstreams_pca)[,1:2], labels=colnames(tstreams_matrix))</code></pre></div>
-
-<p>The network plot provided by the <code>qgraph</code> package can also be used to visualize the relationship between the components and the original variables.  </p>
-
-<div><pre><code class="language-none">library(qgraph)
-qg_tstreams_pca &lt;- qgraph(tstreams_pca)</code></pre></div>
-
-<p>The <code>qgraph()</code> function generates a plain plot of the loadings, where the component (loadings) are represented by the numbered circles, the variables by squares labeled by abbreviations of the variable names, and the strength and sign of the loadings by colored arrows (red = negative; green = positive; and with the width of the arrow scaled to represent the magnitude of the loadings).  A more useful version of the plot can be generated using the <code>layout=&quot;spring&quot;</code> argument, which forces the line segments representing the loadings to be scaled inversely proportionally to the magnitude of he loadings (shorter segments represent higher loadings).  (Note that the red color indicating negative loadings is also replaced by magenta, facilitating the interpretation of the plot by color-deficient viewers.)</p>
-
-<div><pre><code class="language-none">qgraph(qg_tstreams_pca, posCol=&quot;darkgreen&quot;, layout=&quot;spring&quot;, negCol=&quot;darkmagenta&quot;, edge.width=2,        arrows=FALSE)</code></pre></div>
-
+text(loadings(tstreams_pca)[,1:2], labels=colnames(tstreams_matrix))</code></pre>
+<p>The network plot provided by the <code>qgraph</code> package can also be used to visualize the relationship between the components and the original variables.</p>
+<pre><code>library(qgraph)
+qg_tstreams_pca &lt;- qgraph(tstreams_pca)</code></pre>
+<p>The <code>qgraph()</code> function generates a plain plot of the loadings, where the component (loadings) are represented by the numbered circles, the variables by squares labeled by abbreviations of the variable names, and the strength and sign of the loadings by colored arrows (red = negative; green = positive; and with the width of the arrow scaled to represent the magnitude of the loadings). A more useful version of the plot can be generated using the <code>layout=&quot;spring&quot;</code> argument, which forces the line segments representing the loadings to be scaled inversely proportionally to the magnitude of he loadings (shorter segments represent higher loadings). (Note that the red color indicating negative loadings is also replaced by magenta, facilitating the interpretation of the plot by color-deficient viewers.)</p>
+<pre><code>qgraph(qg_tstreams_pca, posCol=&quot;darkgreen&quot;, layout=&quot;spring&quot;, negCol=&quot;darkmagenta&quot;, edge.width=2,        arrows=FALSE)</code></pre>
 <blockquote>
-<p>Q1: How many important components are there?  Is there a natural breakpoint between the important and less-important components?  </p>
-
-<p>Q2: Does the biplot clearly reveal the “structure” in the data (i.e. groups of vectors at right-angles to one another), or is it ambiguous (vectors aimed all over the place)?  Are the locations of the individual (numbered) observations on the biplot consistent with your interpretation of the components?  (You&#39;ll have to look at the data in some way to answer the last part.)</p>
+<p>Q1: How many important components are there? Is there a natural breakpoint between the important and less-important components?</p>
 </blockquote>
-
+<blockquote>
+<p>Q2: Does the biplot clearly reveal the “structure” in the data (i.e. groups of vectors at right-angles to one another), or is it ambiguous (vectors aimed all over the place)? Are the locations of the individual (numbered) observations on the biplot consistent with your interpretation of the components? (You’ll have to look at the data in some way to answer the last part.)</p>
+</blockquote>
 <p><strong>4. Simple Factor Analysis</strong></p>
-
-<p>Next, do a simple (unrotated) factor analysis of the same variables:  </p>
-
-<div><pre><code class="language-none"># factor analysis:  extract 4 factors, no rotation
+<p>Next, do a simple (unrotated) factor analysis of the same variables:</p>
+<pre><code># factor analysis:  extract 4 factors, no rotation
 tstreams_fa1 &lt;- factanal(tstreams_matrix, factors=4, rotation=&quot;none&quot;,
   scores=&quot;regression&quot;)
 tstreams_fa1 # list the results
 print(loadings(tstreams_fa1),cutoff=0.7)
 biplot(tstreams_fa1$scores[,1:2], loadings(tstreams_fa1)[,1:2],
-  main=&quot;PCA/Factor Analysis Biplot -- 4 Components&quot;, cex=0.5)</code></pre></div>
-
-<p>And here&#39;s the <code>qgraph</code> plot:</p>
-
-<div><pre><code class="language-none">qg_tstreams_fa1 &lt;- qgraph(tstreams_fa1)
+  main=&quot;PCA/Factor Analysis Biplot -- 4 Components&quot;, cex=0.5)</code></pre>
+<p>And here’s the <code>qgraph</code> plot:</p>
+<pre><code>qg_tstreams_fa1 &lt;- qgraph(tstreams_fa1)
 qgraph(qg_tstreams_fa1, posCol=&quot;darkgreen&quot;, layout=&quot;spring&quot;, negCol=&quot;darkmagenta&quot;, edge.width=2,
-  arrows=FALSE)</code></pre></div>
-
+  arrows=FALSE)</code></pre>
 <blockquote>
-<p>Q3:  Compare the results of the factor analysis to the principal components analysis.  What looks similar, what looks different?   Hint:  Focus on the the two biplots, and the relative position of the vectors and points as opposed to their absolute positions on the diagrams.  What are the basic “dimensions” of the data?  From the perspective of somebody administering a field measurement-and-monitoring program, are there any redundancies among the variables that might be eliminated?</p>
+<p>Q3: Compare the results of the factor analysis to the principal components analysis. What looks similar, what looks different? Hint: Focus on the the two biplots, and the relative position of the vectors and points as opposed to their absolute positions on the diagrams. What are the basic “dimensions” of the data? From the perspective of somebody administering a field measurement-and-monitoring program, are there any redundancies among the variables that might be eliminated?</p>
 </blockquote>
-
 <p><strong>5. Rotated Factors</strong></p>
-
 <p>Next, we’ll rotate the factors to try to make them more interpretable.</p>
-
-<div><pre><code class="language-none"># factor analysis with rotation
+<pre><code># factor analysis with rotation
 tstreams_fa2 &lt;- factanal(tstreams_matrix, factors=3, rotation=&quot;varimax&quot;,
   scores=&quot;regression&quot;)
 tstreams_fa2
@@ -272,34 +588,25 @@ biplot(tstreams_fa2$scores[,1:2], loadings(tstreams_fa2)[,1:2],
 
 qg_tstreams_fa2 &lt;- qgraph(tstreams_fa2)
 qgraph(qg_tstreams_fa2, posCol=&quot;darkgreen&quot;, layout=&quot;spring&quot;, negCol=&quot;darkmagenta&quot;, edge.width=2,
-  arrows=FALSE)</code></pre></div>
-
+  arrows=FALSE)</code></pre>
 <blockquote>
-<p>Q4:  How do the loadings and the biplot change?  Which result, the unrotated or the rotated factors seem more interpretable?  Hint:  a more complicated analysis might not be better.  </p>
-
-<p>Q5:  What are the basic “dimensions” of the data?  From the perspective of somebody administering a field measurement and monitoring program, are there any redundancies among the variables that might be eliminated?</p>
+<p>Q4: How do the loadings and the biplot change? Which result, the unrotated or the rotated factors seem more interpretable? Hint: a more complicated analysis might not be better.</p>
 </blockquote>
-
+<blockquote>
+<p>Q5: What are the basic “dimensions” of the data? From the perspective of somebody administering a field measurement and monitoring program, are there any redundancies among the variables that might be eliminated?</p>
+</blockquote>
 <p><strong>6. Multivariate Analysis of Variance (MANOVA)</strong></p>
-
-<p>The status of the streams were described by the land managers in terms of their perceived “ecological health” this is coded here by the variable <code>Health</code>.  A multivariate analysis of variance is aimed at answering the question &quot;are the healthy (<code>Health=H</code>) and &quot;less-healthy&quot; (<code>Health=U</code>) groups of reaches similar in their fluvial geomorphic characteristics?</p>
-
-<p>Take a look at some plots first, to get a subjective idea of how the groups of observations differ (<code>histogram()</code> is a <code>lattice</code> function, so load the <code>lattice</code> library first).  Also attach <code>streams</code> (up to this point variables have been implicitly referred to as columns in data matrices).</p>
-
-<div><pre><code class="language-none">library(lattice)
+<p>The status of the streams were described by the land managers in terms of their perceived “ecological health” this is coded here by the variable <code>Health</code>. A multivariate analysis of variance is aimed at answering the question “are the healthy (<code>Health=H</code>) and”less-healthy&quot; (<code>Health=U</code>) groups of reaches similar in their fluvial geomorphic characteristics?</p>
+<p>Take a look at some plots first, to get a subjective idea of how the groups of observations differ (<code>histogram()</code> is a <code>lattice</code> function, so load the <code>lattice</code> library first). Also attach <code>streams</code> (up to this point variables have been implicitly referred to as columns in data matrices).</p>
+<pre><code>library(lattice)
 # attach streams
-attach(streams)</code></pre></div>
-
-<p>Here&#39;s set of histograms for <code>PoolDepth</code>, conditioned on <code>Health</code>.</p>
-
-<div><pre><code class="language-none"># plot distributions by groups
-histogram(~ PoolDepth | Health, nint=20, layout=c(1,2), aspect=1/2)</code></pre></div>
-
-<p>The <code>nint</code>, <code>layout</code> and <code>aspect</code> function arguments arrange a couple of nice histograms, plotted one above the other in order to make comparison of the groups easier than if the histograms were plotted side-by-side.  Look at a number of variables this way to get an idea of what is going on in the data.</p>
-
-<p>Next, take a look at a univariate analyses of variance (ANOVA), to look at the significance of the differences in means between groups. For one of the variables (e.g. PoolDepth):</p>
-
-<div><pre><code class="language-none"># one-way analysis of variance
+attach(streams)</code></pre>
+<p>Here’s set of histograms for <code>PoolDepth</code>, conditioned on <code>Health</code>.</p>
+<pre><code># plot distributions by groups
+histogram(~ PoolDepth | Health, nint=20, layout=c(1,2), aspect=1/2)</code></pre>
+<p>The <code>nint</code>, <code>layout</code> and <code>aspect</code> function arguments arrange a couple of nice histograms, plotted one above the other in order to make comparison of the groups easier than if the histograms were plotted side-by-side. Look at a number of variables this way to get an idea of what is going on in the data.</p>
+<p>Next, take a look at a univariate analyses of variance (ANOVA), to look at the significance of the differences in means between groups. For one of the variables (e.g. PoolDepth):</p>
+<pre><code># one-way analysis of variance
 
 # test for homogeneity of group variances
 tapply(PoolDepth, Health, var)
@@ -307,76 +614,51 @@ bartlett.test(PoolDepth ~ Health)
 
 # analysis of variance
 streams_aov1 &lt;- aov(PoolDepth ~ Health)
-summary(streams_aov1)</code></pre></div>
-
-<p>(Here&#39;s a link to the guide for interpreting <em>p</em>-values. <a href="http://geog.uoregon.edu/GeogR/topics/interpstats.pdf">[interpstats.pdf]</a>)</p>
-
-<p>The test for homogeneity of group variances is done first, because if the variances are significantly different (i.e. the <em>p</em>-value for the Bartlett test is close to zero), then it really doesn&#39;t make sense to ask whether the means are different.  In the analysis of variance, large <em>F</em> statistics (and consequently small <em>p</em>-values) signal significant differences between (or among) groups.</p>
-
-<p>You could examine each variable in the data set this way, and it&#39;s likely that some variables will appear to have means that are significantly different between groups, others that aren&#39;t, and still others that may be borderline, and so it may be difficult to get and overall sense of whether the two groups of streams are different.  Also, it&#39;s likely that if enough pairwise comparisons are done, some &quot;significant&quot; results (1 in 20) will turn up even if the groups of observations have identical means.</p>
-
-<p>Multivariate analysis of variance (MANOVA) provides a single-number test statistic that can be used to answer the question &quot;overall, are the group means significantly different?&quot;</p>
-
-<div><pre><code class="language-none"># MANOVA
+summary(streams_aov1)</code></pre>
+<p>(Here’s a link to the guide for interpreting <em>p</em>-values. <a href="https://pjbartlein.github.io/GeogDataAnalysis/topics/interpstats.pdf">[interpstats.pdf]</a>)</p>
+<p>The test for homogeneity of group variances is done first, because if the variances are significantly different (i.e. the <em>p</em>-value for the Bartlett test is close to zero), then it really doesn’t make sense to ask whether the means are different. In the analysis of variance, large <em>F</em> statistics (and consequently small <em>p</em>-values) signal significant differences between (or among) groups.</p>
+<p>You could examine each variable in the data set this way, and it’s likely that some variables will appear to have means that are significantly different between groups, others that aren’t, and still others that may be borderline, and so it may be difficult to get and overall sense of whether the two groups of streams are different. Also, it’s likely that if enough pairwise comparisons are done, some “significant” results (1 in 20) will turn up even if the groups of observations have identical means.</p>
+<p>Multivariate analysis of variance (MANOVA) provides a single-number test statistic that can be used to answer the question “overall, are the group means significantly different?”</p>
+<pre><code># MANOVA
 Y &lt;- cbind(DA, ReachLen, Pools, DeepPools, LargePools, SmLWD, LrgLWD,
   PoolDepth, PoolArea, PRratio, BFWDratio)
 streams_mva1 &lt;- manova(Y ~ Health)
 summary.aov(streams_mva1)
-summary(streams_mva1, test=&quot;Wilks&quot;)</code></pre></div>
-
-<p>Note the creation of a new temporary variable (<code>Y</code>) that makes it efficient to apply the <code>manova()</code>function.  Wilks lambda statistic can be interpreted as a multivariate generalization of the univariate <em>F</em> statistic.   The <code>summary.aov()</code> function creates most of the output -- individual ANOVAs of for the variables in the data set.  The <code>summary()</code> function applied to a <code>manova()</code> object produces the Wilk&#39;s lambda statistic.</p>
-
+summary(streams_mva1, test=&quot;Wilks&quot;)</code></pre>
+<p>Note the creation of a new temporary variable (<code>Y</code>) that makes it efficient to apply the <code>manova()</code>function. Wilks lambda statistic can be interpreted as a multivariate generalization of the univariate <em>F</em> statistic. The <code>summary.aov()</code> function creates most of the output – individual ANOVAs of for the variables in the data set. The <code>summary()</code> function applied to a <code>manova()</code> object produces the Wilk’s lambda statistic.</p>
 <blockquote>
-<p>Q6:  Do the groups of observations differ significantly?  </p>
+<p>Q6: Do the groups of observations differ significantly?</p>
 </blockquote>
-
 <p><strong>7. Discriminant Analysis</strong></p>
-
-<p>A discriminant analysis focuses on the issue of how two (or more) groups of observations differ (and also includes the sort of information provided by an analysis of variance on whether the groups are different).  Whereas MANOVA answers the question &quot;are the groups different?&quot; discriminant analysis answers the question &quot;how are they different.)</p>
-
-<p>Do a simple discriminant analysis on these data, using the <code>lda()</code> function from the Venebles and Ripley MASS library:  </p>
-
-<div><pre><code class="language-none"># linear discriminant analysis
+<p>A discriminant analysis focuses on the issue of how two (or more) groups of observations differ (and also includes the sort of information provided by an analysis of variance on whether the groups are different). Whereas MANOVA answers the question “are the groups different?” discriminant analysis answers the question &quot;how are they different.)</p>
+<p>Do a simple discriminant analysis on these data, using the <code>lda()</code> function from the Venebles and Ripley MASS library:</p>
+<pre><code># linear discriminant analysis
 library(MASS)
 
 health_lda1 &lt;- lda(Health ~ DA + ReachLen + Pools + DeepPools + LargePools
-    + SmLWD + LrgLWD + PoolDepth + PoolArea + PRratio + BFWDratio)</code></pre></div>
-
-<p>Note the formula, Health depends on the other variables.  List and plot the results.  </p>
-
-<div><pre><code class="language-none">health_lda1
-plot(health_lda1)</code></pre></div>
-
-<p>Because there are only two groups of observations here, there will be only one discriminant function. </p>
-
-<div><pre><code class="language-none">health_dscore &lt;- predict(health_lda1, dimen=1)$x
+    + SmLWD + LrgLWD + PoolDepth + PoolArea + PRratio + BFWDratio)</code></pre>
+<p>Note the formula, Health depends on the other variables. List and plot the results.</p>
+<pre><code>health_lda1
+plot(health_lda1)</code></pre>
+<p>Because there are only two groups of observations here, there will be only one discriminant function.</p>
+<pre><code>health_dscore &lt;- predict(health_lda1, dimen=1)$x
 boxplot(health_dscore ~ Health)
-cor(tstreams[3:13],health_dscore)</code></pre></div>
-
-<p>The <code>predict(...)$x</code> function gets the &quot;discriminant scores&quot; (the <code>x&#39;s</code>) which are assigned to the variable <code>health_dscore</code>, the <code>boxplot()</code> function plots them by group (and should show clear variations of the discriminant scores among groups if the groups are distinctly different), while the <code>cor()</code> function gets the correlations between the new &quot;discrimimant function&quot; and the original variables (called &quot;canonical coefficients&quot;), which may be interpreted like PCA loadings.  These values show which variables are most closely correlated with the discriminant scores, and consequently which variables best illustrate the differences between or among the groups.</p>
-
+cor(tstreams[3:13],health_dscore)</code></pre>
+<p>The <code>predict(...)$x</code> function gets the “discriminant scores” (the <code>x's</code>) which are assigned to the variable <code>health_dscore</code>, the <code>boxplot()</code> function plots them by group (and should show clear variations of the discriminant scores among groups if the groups are distinctly different), while the <code>cor()</code> function gets the correlations between the new “discrimimant function” and the original variables (called “canonical coefficients”), which may be interpreted like PCA loadings. These values show which variables are most closely correlated with the discriminant scores, and consequently which variables best illustrate the differences between or among the groups.</p>
 <p>Examine the ability of the new discriminant function to correctly classify the healthiness of the stream reaches.</p>
-
-<div><pre><code class="language-none">health_class &lt;- predict(health_lda1, dimen=1)$class
+<pre><code>health_class &lt;- predict(health_lda1, dimen=1)$class
 class_table &lt;- table(Health, health_class)
 mosaicplot(class_table, color=T)
-detach(streams)</code></pre></div>
-
-<p>The <code>predict(...)$class</code> function gets the group that the new discriminant function would assign each original observation to based on the values of the individual variables, the <code>table()</code> function provides a cross tabulation of the observed healthiness of the streams (<code>Health</code>), and that predicted by the discriminant function (<code>health_class</code>).  The <code>mosaic()</code> function plots the table.</p>
-
+detach(streams)</code></pre>
+<p>The <code>predict(...)$class</code> function gets the group that the new discriminant function would assign each original observation to based on the values of the individual variables, the <code>table()</code> function provides a cross tabulation of the observed healthiness of the streams (<code>Health</code>), and that predicted by the discriminant function (<code>health_class</code>). The <code>mosaic()</code> function plots the table.</p>
 <blockquote>
-<p>Q7:  How do the two groups of observations differ?  Would knowing the values of a few variables allow you to correctly classify the healthiness of streams for which stream health has yet to be measured in the field?</p>
+<p>Q7: How do the two groups of observations differ? Would knowing the values of a few variables allow you to correctly classify the healthiness of streams for which stream health has yet to be measured in the field?</p>
 </blockquote>
-
 <p>You can detach the streams data frame at this point.</p>
-
-<p><strong>8.  Cluster analysis</strong></p>
-
-<p>Attempt to define the climate regions of Oregon (as expressed in the climate-station data in <a href="http://geog.uoregon.edu/GeogR/data/csv/orstationc.csv">[orstationc.csv]</a> via an &quot;agglomerative-hierarchical&quot; cluster analysis.  In such an analysis, individual objects (observations) are combined according to their (dis)similarity, with the two most similar objects being combined first (to create a new composite object), then the next most similar objects, and so on until a single object is defined.  The sequence of combinations is illustrated using a &quot;dendrogram&quot; (cluster tree), and this can be examined to determine the number of clusters.  The function cutree determines the cluster membership of each observation, which can be listed or plotted.</p>
-
-<p>Begin with a map, labeled by station name (see Exercise 7 for the shapefile components, or get them from the <a href="http://geog.uoregon.edu/GeogR/data/index.html">[data sets and shapefiles]</a> web page.)  The shapefile may also already be in your workspace.</p>
-
-<div><pre><code class="language-none"># hierarchical clustering of Oregon climate station data
+<p><strong>8. Cluster analysis</strong></p>
+<p>Attempt to define the climate regions of Oregon (as expressed in the climate-station data in <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/orstationc.csv">[orstationc.csv]</a> via an “agglomerative-hierarchical” cluster analysis. In such an analysis, individual objects (observations) are combined according to their (dis)similarity, with the two most similar objects being combined first (to create a new composite object), then the next most similar objects, and so on until a single object is defined. The sequence of combinations is illustrated using a “dendrogram” (cluster tree), and this can be examined to determine the number of clusters. The function cutree determines the cluster membership of each observation, which can be listed or plotted.</p>
+<p>Begin with a map, labeled by station name (see Exercise 7 for the shapefile components, or get them from the <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/index.html">[data sets and shapefiles]</a> web page.) The shapefile may also already be in your workspace.</p>
+<pre><code># hierarchical clustering of Oregon climate station data
 library(maptools)
 library(lattice)
 attach(orstationc)
@@ -384,27 +666,20 @@ attach(orstationc)
 plot(lon, lat, xlim=c(-125, -116), ylim=c(41,47),
    xlab=&quot;Latitude&quot;, ylab=&quot;Longitude&quot;, type=&quot;n&quot;)
 plot(orotl.shp, add=T)
-text(lon, lat, labels=station, cex=0.6)</code></pre></div>
-
+text(lon, lat, labels=station, cex=0.6)</code></pre>
 <p>Calculate a dissimilarity (distance) matrix:</p>
-
-<div><pre><code class="language-none"># get dissimilarities (distances) and cluster
+<pre><code># get dissimilarities (distances) and cluster
 X &lt;- as.matrix(orstationc[,5:10])
 X_dist &lt;- dist(scale(X))
 grid &lt;- expand.grid(obs1 = seq(1:92), obs2 = seq(1:92))
 levelplot(as.matrix(X_dist)/max(X_dist) ~ obs1*obs2, data=grid, 
-    col.regions = gray(seq(0,1,by=0.0625)), xlab=&quot;observation&quot;, ylab=&quot;observation&quot;)</code></pre></div>
-
-<p>For convenience, a matrix, <code>X</code>, is created to omit the variables we don&#39;t want to include in the clustering (i.e. the non-climatic information).  The <code>levelplot()</code> function plots the dissimilarity matrix that the cluster analysis works with.  Now do the cluster analysis:</p>
-
-<div><pre><code class="language-none">X_clusters &lt;- hclust(X_dist, method = &quot;ward.D2&quot;)
-plot(X_clusters, labels=station, cex=0.5)</code></pre></div>
-
-<p>The <code>plot()</code> function (or <code>pltclust()</code> function) plots the dendrogram. </p>
-
-<p>The dendrogram can be inspected to get an idea of how many distinct clusters there are (and it can also identify unusual points--look for Crater Lake <code>CLK</code>).  As a first guess, let&#39;s say there were three distinct clusters evident in the dendrogram.</p>
-
-<div><pre><code class="language-none"># cut dendrogram and plot points in each cluster (chunk 1)
+    col.regions = gray(seq(0,1,by=0.0625)), xlab=&quot;observation&quot;, ylab=&quot;observation&quot;)</code></pre>
+<p>For convenience, a matrix, <code>X</code>, is created to omit the variables we don’t want to include in the clustering (i.e. the non-climatic information). The <code>levelplot()</code> function plots the dissimilarity matrix that the cluster analysis works with. Now do the cluster analysis:</p>
+<pre><code>X_clusters &lt;- hclust(X_dist, method = &quot;ward.D2&quot;)
+plot(X_clusters, labels=station, cex=0.5)</code></pre>
+<p>The <code>plot()</code> function (or <code>pltclust()</code> function) plots the dendrogram.</p>
+<p>The dendrogram can be inspected to get an idea of how many distinct clusters there are (and it can also identify unusual points–look for Crater Lake <code>CLK</code>). As a first guess, let’s say there were three distinct clusters evident in the dendrogram.</p>
+<pre><code># cut dendrogram and plot points in each cluster (chunk 1)
 nclust &lt;- 3
 clusternum &lt;- cutree(X_clusters, k=nclust)
 
@@ -413,19 +688,14 @@ plot(lon, lat, xlim=c(-125, -116), ylim=c(41,47), xlab=&quot;Latitude&quot;, yla
      main=paste(as.character(nclust), &quot;Clusters&quot;), type=&quot;n&quot;)
 plot(orotl.shp, add=T)
 text(lon, lat, labels=clusternum)
-print(cbind(station, clusternum, as.character(Name)))</code></pre></div>
-
-<p>The <code>cutree()</code> function determines the cluster membership of each observation, and a map of the cluster membership of each station is generated.  A list of the station id&#39;s, the cluster number and name of the stations is provided by the <code>print()</code> function</p>
-
+print(cbind(station, clusternum, as.character(Name)))</code></pre>
+<p>The <code>cutree()</code> function determines the cluster membership of each observation, and a map of the cluster membership of each station is generated. A list of the station id’s, the cluster number and name of the stations is provided by the <code>print()</code> function</p>
 <p>Just looking at the map suggests that three clusters might do an ok job of assigning the stations to groups that have similar climates, but this should be checked.</p>
-
-<div><pre><code class="language-none"># examine clusters -- simple plots (chunk 2)
+<pre><code># examine clusters -- simple plots (chunk 2)
 tapply(tjan, clusternum, mean)
-histogram(~ tjan | clusternum, nint=20, layout=c(1,3))</code></pre></div>
-
-<p>Note how many of the histograms seem multimodal--this is a clear sign of inhomogeneity of the clusters.  Let&#39;s see how the clusters differ.</p>
-
-<div><pre><code class="language-none"># discriminant analysis (chunk 3)
+histogram(~ tjan | clusternum, nint=20, layout=c(1,3))</code></pre>
+<p>Note how many of the histograms seem multimodal–this is a clear sign of inhomogeneity of the clusters. Let’s see how the clusters differ.</p>
+<pre><code># discriminant analysis (chunk 3)
 library(MASS)
 cluster_lda1 &lt;- lda(clusternum ~ tjan + tjul + tann + pjan + pjul + pann)
 cluster_lda1
@@ -435,40 +705,41 @@ cluster_dscore &lt;- predict(cluster_lda1, dimen=nclust)$x
 for (j in 1:(nclust-1)) {
   boxplot(cluster_dscore[,j] ~ clusternum, xlab=paste(&quot;LD&quot;, as.character(j), sep=&quot;&quot;))
   }
-cor(orstationc[5:10],cluster_dscore)</code></pre></div>
-
-<p>The discriminant analysis here is used to answer the question &quot;how do the clusters of stations differ climatically?&quot;  In this case, it looks like <code>pann</code> and <code>tann</code> are the variables most closely correlated with each discriminant function, and because each of these variables are more-or-less averages of the seasonal extreme variables, that might explain why the clusters seem inhomogeneous.  </p>
-
-<p>The analysis can be repeated, extracting different numbers of clusters.  The easiest way to do this is to copy the three chunks of code above into a text editor, changing the assignment to <code>nclust</code> and including or excluding  before executing each chunk, one at a time.</p>
-
+cor(orstationc[5:10],cluster_dscore)</code></pre>
+<p>The discriminant analysis here is used to answer the question “how do the clusters of stations differ climatically?” In this case, it looks like <code>pann</code> and <code>tann</code> are the variables most closely correlated with each discriminant function, and because each of these variables are more-or-less averages of the seasonal extreme variables, that might explain why the clusters seem inhomogeneous.</p>
+<p>The analysis can be repeated, extracting different numbers of clusters. The easiest way to do this is to copy the three chunks of code above into a text editor, changing the assignment to <code>nclust</code> and including or excluding before executing each chunk, one at a time.</p>
 <blockquote>
-<p>Q8: In this first iteration, 3 clusters were identified.  Try varying this number between, say, 2 and 8 clusters.    Describe the trade-off between the number of clusters and the homogeneity of the clusters. (This is the classical &quot;regionalization&quot; problem in geography.)</p>
+<p>Q8: In this first iteration, 3 clusters were identified. Try varying this number between, say, 2 and 8 clusters. Describe the trade-off between the number of clusters and the homogeneity of the clusters. (This is the classical “regionalization” problem in geography.)</p>
 </blockquote>
-
-<p>That&#39;s it.</p>
-
+<p>That’s it.</p>
 
 
-<script type="text/x-mathjax-config">
-(function () {
 
-MathJax.Hub.Config({
-	'showProcessingMessages': false,
-	'messageStyle': 'none'
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
 });
 
-if (typeof MathJaxListener !== 'undefined') {
-	MathJax.Hub.Register.StartupHook('End', function () {
-		MathJaxListener.invokeCallbackForKey_('End');
-	});
-}
 
-})();
 </script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 </body>
-
 </html>
