@@ -78,6 +78,8 @@ navbar:
     menu:
     - text: Readings
       href: readings.html
+    - text: Datasets
+      href: datasets.html
     - text: Old course web pages
       href: oldpages.html
   right:
