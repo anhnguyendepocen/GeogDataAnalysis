@@ -283,6 +283,9 @@ $(document).ready(function () {
       <a href="lec03.html">Bivariate plots</a>
     </li>
     <li>
+      <a href="ggplot2.html">ggplot2 versions of basic plots</a>
+    </li>
+    <li>
       <a href="lec04.html">Descriptive statistics</a>
     </li>
     <li>
@@ -418,9 +421,9 @@ $(document).ready(function () {
 
 
 <p><strong>Geography 4/595: Geographic Data Analysis</strong><br />
-<strong>Winter 2018</strong></p>
+<strong>Winter 2019</strong></p>
 <p><strong>Exercise 4: Multivariate Plots</strong><br />
-<strong>Finish by Monday, February 5th</strong></p>
+<strong>Finish by Monday, February 4th</strong></p>
 <p><strong>1. Introduction</strong></p>
 <p><strong>Read through the exercise before attempting to complete it.</strong></p>
 <p>The purpose of this exercise is to explore some of the general multivariate plotting procedures available in R, including maps, multivariate plots in particular, conditioning plots (coplots), and Trellis/Lattice graphics. Before getting into the exercise, there are several set-up things to do that will facilitate completing this exercise and reproducing the examples in lectures.</p>
@@ -475,7 +478,8 @@ plotclr &lt;- brewer.pal(nclr,&quot;PuBu&quot;) # get nclr colors
 # find equal-frequency intervals
 class &lt;- classIntervals(plotvar, nclr, style=&quot;quantile&quot;)
 colcode &lt;- findColours(class, plotclr)
-cutpts &lt;- round(class$brks, digits=1)</code></pre>
+cutpts &lt;- round(class$brks, digits=1)
+cutpts</code></pre>
 <p>Nothing more will appear in the graphics window yet. This is still part of the set up. Print (by typing at the command line, or using the <code>print()</code> function (e.g. <code>print(plotvar)</code> the variables <code>plotvar</code>, <code>plotclr</code>, <code>colornum</code>, <code>brks</code> and <code>colorcode</code> to get an idea of what the above block of code does.</p>
 <p>The third block of code makes a map:</p>
 <pre><code># Block 3: plot the shape file and the selected variable

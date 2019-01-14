@@ -11,7 +11,7 @@
 
 
 
-<title>Descriptive statistics</title>
+<title>ggplot2 versions of simple plots</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -371,6 +371,9 @@ $(document).ready(function () {
       <a href="lec03.html">Bivariate plots</a>
     </li>
     <li>
+      <a href="ggplot2.html">ggplot2 versions of basic plots</a>
+    </li>
+    <li>
       <a href="lec04.html">Descriptive statistics</a>
     </li>
     <li>
@@ -500,7 +503,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Descriptive statistics</h1>
+<h1 class="title toc-ignore">ggplot2 versions of simple plots</h1>
 
 </div>
 
@@ -532,13 +535,15 @@ $(document).ready(function () {
 <p>In the case of graphics (e.g. Wickham, H., 2016, <em>ggplot2 – Elegant Graphics for Data Analysis, 2nd. Ed.</em>, Springer, available online from <a href="http://library.uoregon.edu">[http://library.uoregon.edu]</a>) the components are:</p>
 <ul>
 <li><em>Data</em> (e.g. in a dataframe)</li>
-<li><em>Aes</em> (“aesthetic mappings”&quot;, that describe how variables are mapped to perceivable attributes of a graphics)</li>
-<li><em>Layers</em> (made up of geometric elements)</li>
-<li><em>Geoms</em> (the geometric objects like points, lines, polygons that )</li>
+<li><em>Coordinate Systems</em> (the coordinate system of a plot)</li>
+<li><em>Geoms</em> and their “aesthetic mappings” (the geometric objects like points, lines, polygons that represent the data)</li>
+</ul>
+<p>These functions return <em>Layers</em> (made up of geometric elements) that build up the plot. In addition, plots are composed of</p>
+<ul>
 <li><em>Stats</em> (or “statistical transformations”, i.e. curves)</li>
 <li><em>Scales</em> (that map data into the “aesthetic space”, i.e. axes and legends)</li>
-<li><em>Coord</em> (the coordinate system of a plot)</li>
 <li><em>Facets</em> (e.g subsets of data in individual plots)</li>
+<li><em>Legends</em> and</li>
 <li><em>Themes</em> (that control things like background colors, fonts, etc.)</li>
 </ul>
 </div>

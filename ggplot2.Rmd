@@ -1,5 +1,5 @@
 ---
-title: "Descriptive statistics"
+title: "ggplot2 versions of simple plots"
 output: 
   html_document:
     fig_caption: no
@@ -33,13 +33,15 @@ The **R** package `ggplot2` by Hadley Wickham provides an alternative approach t
 In the case of graphics (e.g. Wickham, H., 2016, *ggplot2 -- Elegant Graphics for Data Analysis, 2nd. Ed.*, Springer, available online from [[http://library.uoregon.edu]](http://library.uoregon.edu)) the components are:
 
 - *Data* (e.g. in a dataframe)
-- *Aes* ("aesthetic mappings"", that describe how variables are mapped to perceivable attributes of a graphics)
-- *Layers* (made up of geometric elements)
-- *Geoms* (the geometric objects like points, lines, polygons that )
+- *Coordinate Systems* (the coordinate system of a plot)
+- *Geoms* and their "aesthetic mappings" (the geometric objects like points, lines, polygons that represent the data)
+
+These functions return *Layers* (made up of geometric elements) that build up the plot.  In addition, plots are composed of 
+
 - *Stats* (or "statistical transformations", i.e. curves)
 - *Scales* (that map data into the "aesthetic space", i.e. axes and legends)
-- *Coord* (the coordinate system of a plot)
 - *Facets* (e.g subsets of data in individual plots)
+- *Legends* and
 - *Themes* (that control things like background colors, fonts, etc.)
 
 ```{r source, echo=FALSE}

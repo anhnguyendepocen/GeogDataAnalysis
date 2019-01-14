@@ -13,6 +13,8 @@ navbar:
       href: lec02.html
     - text: Bivariate plots
       href: lec03.html
+    - text: ggplot2 versions of basic plots
+      href: ggplot2.html
     - text: Descriptive statistics
       href: lec04.html
     - text: Multivariate plots

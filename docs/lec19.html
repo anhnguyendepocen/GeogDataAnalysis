@@ -371,6 +371,9 @@ $(document).ready(function () {
       <a href="lec03.html">Bivariate plots</a>
     </li>
     <li>
+      <a href="ggplot2.html">ggplot2 versions of basic plots</a>
+    </li>
+    <li>
       <a href="lec04.html">Descriptive statistics</a>
     </li>
     <li>
@@ -906,16 +909,14 @@ $(document).ready(function () {
 <p>Even though the data have a decadal time step, there still are a lot of layers. Subset the brick by taking every tenth observation.</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1">tas2 &lt;-<span class="st"> </span><span class="kw">subset</span>(tas_anm_ann, <span class="dt">subset=</span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">2201</span>, <span class="dt">by=</span><span class="dv">10</span>))</a>
 <a class="sourceLine" id="cb46-2" data-line-number="2">tas2</a></code></pre></div>
-<pre><code>## class       : RasterBrick 
+<pre><code>## class       : RasterStack 
 ## dimensions  : 48, 96, 4608, 221  (nrow, ncol, ncell, nlayers)
 ## resolution  : 3.75, 3.708898  (x, y)
 ## extent      : -178.125, 181.875, -89.01354, 89.01354  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0 
-## data source : in memory
 ## names       :         X22,       X21.9,       X21.8,       X21.7,       X21.6,       X21.5,       X21.4,       X21.3,       X21.2,       X21.1,         X21,       X20.9,       X20.8,       X20.7,       X20.6, ... 
 ## min values  : -29.7942562, -30.0634670, -29.7796078, -29.9451656, -29.4976559, -29.6770687, -29.4736080, -29.7500515, -30.2059383, -30.2687893, -30.0374050, -30.3951168, -29.9945583, -30.1629086, -30.3428860, ... 
-## max values  :   7.3065739,   7.4843855,   8.7410126,   7.2156219,   8.2437897,   7.4258270,   7.3160954,   7.9923038,   8.8214312,   6.9421635,   7.4098454,   8.1890507,   7.5809784,   7.0558414,   7.2613068, ... 
-## z-value     : 0, 22 (min, max)</code></pre>
+## max values  :   7.3065739,   7.4843855,   8.7410126,   7.2156219,   8.2437897,   7.4258270,   7.3160954,   7.9923038,   8.8214312,   6.9421635,   7.4098454,   8.1890507,   7.5809784,   7.0558414,   7.2613068, ...</code></pre>
 <p>Set up for mapping, and plot the first layer, just to get oriented.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">mapTheme &lt;-<span class="st"> </span><span class="kw">rasterTheme</span>(<span class="dt">region=</span>(<span class="kw">rev</span>(<span class="kw">brewer.pal</span>(<span class="dv">10</span>,<span class="st">&quot;RdBu&quot;</span>))))</a>
 <a class="sourceLine" id="cb48-2" data-line-number="2">cutpts &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">40</span>,<span class="op">-</span><span class="dv">10</span>,<span class="op">-</span><span class="dv">5</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">20</span>)</a>

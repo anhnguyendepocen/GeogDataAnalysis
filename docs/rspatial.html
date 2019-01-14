@@ -11,7 +11,7 @@
 
 
 
-<title>Overview</title>
+<title>rspatial.utf8.md</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -415,253 +415,43 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Overview</h1>
 
 </div>
 
 <div id="TOC">
 <ul>
-<li><a href="#course-objectives"><span class="toc-section-number">1</span> Course objectives</a></li>
-<li><a href="#topics-covered"><span class="toc-section-number">2</span> Topics covered</a></li>
-<li><a href="#schedule---winter-2019"><span class="toc-section-number">3</span> Schedule - Winter 2019</a></li>
-<li><a href="#grading-and-course-mechanics"><span class="toc-section-number">4</span> Grading and course mechanics</a></li>
+<li><a href="#spatial-data-and-geospatial-analyses-in-r"><span class="toc-section-number">0.1</span> Spatial data and geospatial analyses in R</a></li>
+<li><a href="#spatial-classes"><span class="toc-section-number">0.2</span> Spatial classes</a></li>
 </ul>
 </div>
 
-<div id="course-objectives" class="section level1">
-<h1><span class="header-section-number">1</span> Course objectives</h1>
-<p>Phenomena describable by multiple variables arise in many subfields of physical and human geography and related disciplines. The focus of this course is on the analysis and display of multivariate geographical data by traditional multivariate methods and by newer methods of scientific visualization.</p>
-</div>
-<div id="topics-covered" class="section level1">
-<h1><span class="header-section-number">2</span> Topics covered</h1>
-<p>The specific topics that will be examined include:</p>
+<div id="spatial-data-and-geospatial-analyses-in-r" class="section level2">
+<h2><span class="header-section-number">0.1</span> Spatial data and geospatial analyses in R</h2>
+<p>CRAN Spatial taskview: <a href="https://cran.r-project.org/web/views/Spatial.html" class="uri">https://cran.r-project.org/web/views/Spatial.html</a></p>
+<p>The bulk of the geospatial/GISci analysis tools are contained in the following packages:</p>
 <ul>
-<li>the nature of geographical data</li>
-<li>univariate and bivariate plots</li>
-<li>descriptive statistics</li>
-<li>multivariate plots</li>
-<li>Trellis/lattice plots and conditioning</li>
-<li>“data wrangling” and matrix algebra</li>
-<li>reference distributions</li>
-<li>statistical inference</li>
-<li>analysis of variance</li>
-<li>regression analysis</li>
-<li>nonparametric regression</li>
-<li>contouring and surface fitting</li>
-<li>principal components and factor analysis</li>
-<li>discriminant analysis and MANOVA</li>
-<li>cluster analysis</li>
-<li>high-resolution and high-dimension data</li>
+<li><code>maptools</code> reading and writing spatial data, particularly shapefiles</li>
+<li><code>sp</code> manipulating data in one of the Spatial Data classes</li>
+<li><code>rgdal</code> R “bindings” to GDAL (Geospatial Data Abstraction Layer)</li>
+<li><code>rgeos</code> R interface to the GEOS “geometry engine” (overlays, etc.)</li>
 </ul>
+<p>The book (ASDAR2) R.S. Bivand, E. Pebesma, V. Gómez-Rubio (2013) <em>Applied Spatial Data Analysis with R, 2nd Ed.</em>, Springer.</p>
+<p>Here’s a .pdf: <a href="http://link.springer.com/content/pdf/10.1007%2F978-1-4614-7618-4.pdf">http://link.springer.com/content/pdf/10.1007%2F978-1-4614-7618-4.pdf</a> (must be on UO Network)</p>
+<p>There is also an R package <code>maps</code> that includes a world database, and methods for plotting with the R core graphics.</p>
 </div>
-<div id="schedule---winter-2019" class="section level1">
-<h1><span class="header-section-number">3</span> Schedule - Winter 2019</h1>
-<table>
-<colgroup>
-<col width="13%" />
-<col width="13%" />
-<col width="34%" />
-<col width="13%" />
-<col width="13%" />
-<col width="13%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Lec</th>
-<th>Day</th>
-<th>Date</th>
-<th>Topic – see individual pages for readings</th>
-<th>Exercises and Exams (out)</th>
-<th>due</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>===</td>
-<td>===</td>
-<td>======</td>
-<td>=====================================</td>
-<td>=========================</td>
-<td>====</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>M</td>
-<td>7-Jan</td>
-<td>Intro, data analysis and visualization in R</td>
-<td>1 Getting and using R &amp; RStudio</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>W</td>
-<td>9-Jan</td>
-<td>Univariate plots</td>
-<td>2 Univariate plots</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>M</td>
-<td>14-Jan</td>
-<td>Bivariate plots  </td>
-<td>Packages and data</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>W</td>
-<td>16-Jan</td>
-<td>Descriptive statistics</td>
-<td>3 Bivariate plots and statistics</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>W</td>
-<td>23-Jan</td>
-<td>Multivariate plots</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td>M</td>
-<td>28-Jan</td>
-<td>Maps in R</td>
-<td>4 Multivariate plots</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td>W</td>
-<td>30-Jan</td>
-<td>Geospatial analysis in R</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>8</td>
-<td>M</td>
-<td>04-Feb</td>
-<td>Data wrangling and matrix algebra</td>
-<td>5 Matrix algebra</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td>W</td>
-<td>06-Feb</td>
-<td>Reference distributions</td>
-<td>Exam 1 – due 18-Feb</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>M</td>
-<td>11-Feb</td>
-<td>Statistical inference        </td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td>W</td>
-<td>13-Feb</td>
-<td>Analysis of variance        </td>
-<td>6 CI’s, t-tests, ANOVA</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>12</td>
-<td>M</td>
-<td>18-Feb</td>
-<td>Regression analysis        </td>
-<td></td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>13</td>
-<td>W</td>
-<td>20-Feb</td>
-<td>More regression analysis        </td>
-<td>7 Regression analysis</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>14</td>
-<td>M</td>
-<td>25-Feb</td>
-<td>Nonparametric regression        </td>
-<td></td>
-<td>6</td>
-</tr>
-<tr class="even">
-<td>15</td>
-<td>W</td>
-<td>27-Feb</td>
-<td>Principal components and factor analysis</td>
-<td>       </td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>16</td>
-<td>M</td>
-<td>4-Mar</td>
-<td>MANOVA, discriminant analysis</td>
-<td>8 Multivariate analysis</td>
-<td>7</td>
-</tr>
-<tr class="even">
-<td>17</td>
-<td>W</td>
-<td>6-Mar</td>
-<td>Multivariate distances and cluster analysis</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>18</td>
-<td>M</td>
-<td>11-Mar</td>
-<td>High-resolution and high-dimensional data sets</td>
-<td>Exam 2 – due 21-Mar</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>19</td>
-<td>W</td>
-<td>13-Mar</td>
-<td>Analysis and visualization of large raster data sets</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Th</td>
-<td>21-Mar</td>
-<td>Exam 2   due        </td>
-<td></td>
-<td>8</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="grading-and-course-mechanics" class="section level1">
-<h1><span class="header-section-number">4</span> Grading and course mechanics</h1>
-<p>Format and grading: Lectures, mid-term and final take-home exams, and eight exercises. Both exams and all exercises must be completed to receive a passing grade for the course. Basis for grading: Undergraduates: exam 1 (18%), exam 2 (18%), exercise 1-8 (8% each, 64%) total. Graduates: exam 1 (12%), exam 2 (12%), exercise 1-8 (8% each, 64%), short write-up of the analysis of a “real” data sets (12%). Points will be deducted for late submission of exercises (without prior arrangements): 1 pt. after 1 day, 2 pts. after 1 week. Exercises are due before 5pm on their due date. Do not skip class to work on an exercise.</p>
-<p>Prerequisite: GEOG 4/581 GIScience I (or GEOG 4/516 Introductory Geographic Information Systems)</p>
-<p>Expected effort: Lectures will meet for 1.5 hours each, twice a week, and the half-hour immediately following lectures will be devoted to issues that arise while using R for the exercises. Exercises will require around 4 hours each for completion; more or less time may be required depending on the efficiency with which they are done. Plan on spending about 4 hours per week on reading and reviewing class web pages and notes. In addition a few hours may be required for downloading and setting up R.</p>
-<p>Other topics: As is implied by the topic of the course, the visual inspection and interpretation of the output of computer analyses will be important, but accommodation for alternative methods of course-material access may be possible–please see me a soon as possible. Collaboration on the exercises is not prohibited (and in fact is a good idea) but the answers must be composed individually. Similarly, discussion of the exam questions may be useful in forming answers, but again, the answers must be composed individually.</p>
-<p>Academic Misconduct: The University Student Conduct Code (available at conduct.uoregon.edu) defines academic misconduct. Students are prohibited from committing or attempting to commit any act that constitutes academic misconduct. By way of example, students should not give or receive (or attempt to give or receive) unauthorized help on assignments or examinations without express permission from the instructor. Students should properly acknowledge and document all sources of information (e.g. quotations, paraphrases, ideas) and use only the sources and resources authorized by the instructor. If there is any question about whether an act constitutes academic misconduct, it is the students’ obligation to clarify the question with the instructor before committing or attempting to commit the act. Additional information about a common form of academic misconduct, plagiarism, is available at:<br />
-<a href="http://researchguides.uoregon.edu/citing-plagiarism">[http://researchguides.uoregon.edu/citing-plagiarism]</a></p>
-<p>No make-up tests will be given unless you provide documentation in advance and for a reason that is valid in the instructor’s judgment, or you provide a medical excuse within a week after the test.</p>
-<p>Also, the support provided by the following may be useful:</p>
+<div id="spatial-classes" class="section level2">
+<h2><span class="header-section-number">0.2</span> Spatial classes</h2>
+<p>There are several related “classes” of spatial data in R, each consisting of the specific spatial coordinate or geometry data, or the coordinate or geometry data and an associate data frame:</p>
 <ul>
-<li>UO Campus Life Resources <a href="https://studentlife.uoregon.edu/campuslife">[https://studentlife.uoregon.edu/campuslife]</a></li>
-<li>UO Counseling Center <a href="https://counseling.uoregon.edu/">[https://counseling.uoregon.edu/]</a></li>
-<li>UO Tutoring and Academic Engagement Center <a href="https://engage.uoregon.edu">[https://engage.uoregon.edu]</a></li>
+<li><code>SpatialPoints</code> and <code>SpatialPointsDataFrame</code></li>
+<li><code>SpatialLines</code> and <code>SpatialLinesDataFrame</code></li>
+<li><code>SpatialPolygons</code> and <code>SpatialPolygonDataFrame</code></li>
+<li><code>SpatialPixels</code> and <code>SpatialPixelDataFrame</code></li>
+<li><code>SpatialGrid</code> and <code>SpatialGridDataFrame</code></li>
+<li><code>SpatialMultiPoints</code> and <code>SpatialMultiPointsDataFrame</code></li>
 </ul>
+<p>The names of the classes pretty much describe the kind of information they contain. One way to look at the landscape of geospatial data analysis in R is that <code>maptools</code> and <code>rgdal</code> cover reading and writing the spatial data classes, <code>sp</code> handles plotting, conversions and manipulations (including projections with <code>SpTransform()</code>) and <code>rgeos</code> handles geospatial analysis tasks.</p>
+<p>Many of the functions in these packages will be exercised below, but these examples are by now means exhaustive.</p>
 </div>
 
 
