@@ -41,7 +41,8 @@ Load two shape files, one of Oreogon county outlines, the other of climate-stati
 otl_path <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/shp_files/OR/"
 otl_name <- "orotl.shp"
 otl_file <- paste(otl_path, otl_name, sep="")
-orotl_shp <- readShapeLines(otl_file)
+# orotl_shp <- readShapeLines(otl_file) # deprecated
+orotl_shp <- readOGR(otl_file)
 ```
 
 Check what kind of spatial data class this shapefile is
@@ -64,7 +65,8 @@ Now get the climate-station data
 orstations_path <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/shp_files/OR/"
 orstations_name <- "orstations.shp"
 orstations_file <- paste(orstations_path, orstations_name, sep="")
-orstations_shp <- readShapePoints(orstations_file)
+#orstations_shp <- readShapePoints(orstations_file) # deprecated
+orstations_shp <- readOGR(orstations_file)
 
 # check stations shapefile
 class(orstations_shp)
@@ -303,7 +305,8 @@ Read the shapefile for *Picea mariana*
 shp_path <- "/Users/bartlein/Dropbox/DataVis/working/ESSD/data/shp_files/USGS_pp1650/"
 shp_name <- "picemari.shp"
 shp_file <- paste(shp_path, shp_name, sep="")
-picea_shp <- readShapePoly(shp_file)
+# picea_shp <- readShapePoly(shp_file) # deprecated
+picea_shp <- readOGR(shp_file)
 ```
 
 Add a coordinate refernce system to the shapefile, and plot it:

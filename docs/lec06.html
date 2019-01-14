@@ -1090,10 +1090,15 @@ $(document).ready(function () {
 <p><img src="lec06_files/figure-html/newShapefile-1.png" width="2100" /></p>
 <p>Write out the data frame</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">outshp &lt;-<span class="st"> &quot;pnwshp&quot;</span></a>
-<a class="sourceLine" id="cb47-2" data-line-number="2"><span class="co">#writeLinesShape(pnw.SLDF, outshp, factor2char = TRUE)</span></a></code></pre></div>
+<a class="sourceLine" id="cb47-2" data-line-number="2"><span class="co">#writeLinesShape(pnw.SLDF, outshp, factor2char = TRUE) # deprecated</span></a>
+<a class="sourceLine" id="cb47-3" data-line-number="3"><span class="kw">writeOGR</span>(pnw.SLDF, outshp, <span class="st">&quot;sldf&quot;</span>, <span class="dt">driver=</span><span class="st">&quot;ESRI Shapefile&quot;</span>, <span class="dt">overwrite_layer =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>Read it back in to check</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">pnw &lt;-<span class="st"> </span><span class="kw">readShapeLines</span>(<span class="st">&quot;pnwshp&quot;</span>)</a></code></pre></div>
-<pre><code>## Warning: use rgdal::readOGR or sf::st_read</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="co">#pnw &lt;- readShapeLines(&quot;pnwshp&quot;) # deprecated</span></a>
+<a class="sourceLine" id="cb48-2" data-line-number="2">pnw &lt;-<span class="st"> </span><span class="kw">readOGR</span>(outshp, <span class="st">&quot;sldf&quot;</span>)</a></code></pre></div>
+<pre><code>## OGR data source with driver: ESRI Shapefile 
+## Source: &quot;/Users/bartlein/Dropbox/DataVis/working/GeogDataAnalysis/pnwshp&quot;, layer: &quot;sldf&quot;
+## with 218 features
+## It has 1 fields</code></pre>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="kw">plot</span>(pnw)</a>
 <a class="sourceLine" id="cb50-2" data-line-number="2"><span class="kw">points</span>(orstations.shp)</a></code></pre></div>
 <p><img src="lec06_files/figure-html/readNewShape-1.png" width="2100" /></p>

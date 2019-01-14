@@ -659,13 +659,15 @@ Write out the data frame
 
 ```{r writeSpatialDataFrame}
 outshp <- "pnwshp"
-#writeLinesShape(pnw.SLDF, outshp, factor2char = TRUE)
+#writeLinesShape(pnw.SLDF, outshp, factor2char = TRUE) # deprecated
+writeOGR(pnw.SLDF, outshp, "sldf", driver="ESRI Shapefile", overwrite_layer = TRUE)
 ```
 
 Read it back in to check
 
 ```{r readNewShape}
-pnw <- readShapeLines("pnwshp")
+#pnw <- readShapeLines("pnwshp") # deprecated
+pnw <- readOGR(outshp, "sldf")
 plot(pnw)
 points(orstations.shp)
 ```
