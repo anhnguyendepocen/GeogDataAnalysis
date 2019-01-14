@@ -506,35 +506,37 @@ $(document).ready(function () {
 
 <div id="TOC">
 <ul>
-<li><a href="#maps-in-r-example-data-and-setup"><span class="toc-section-number">1</span> Maps in R – example data and setup</a></li>
-<li><a href="#some-simple-maps"><span class="toc-section-number">2</span> Some simple maps</a><ul>
-<li><a href="#oregon-county-census-data-attribute-data-in-the-orcounty.shp-shape-file"><span class="toc-section-number">2.1</span> Oregon county census data – attribute data in the <code>orcounty.shp</code> shape file</a></li>
-<li><a href="#symbol-plot-oregon-climate-station-data-data-in-the-orstationc.csv-file-basemap-in-orotl.shp"><span class="toc-section-number">2.2</span> Symbol plot: Oregon climate station data – data in the <code>orstationc.csv</code> file, basemap in <code>orotl.shp</code></a></li>
-<li><a href="#oregon-climate-station-data-locations-and-data-in-shape-file"><span class="toc-section-number">2.3</span> Oregon climate station data – locations and data in shape file</a></li>
+<li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#maps-in-r-example-data-and-setup"><span class="toc-section-number">2</span> Maps in R – example data and setup</a></li>
+<li><a href="#some-simple-maps"><span class="toc-section-number">3</span> Some simple maps</a><ul>
+<li><a href="#oregon-county-census-data-attribute-data-in-the-orcounty.shp-shape-file"><span class="toc-section-number">3.1</span> Oregon county census data – attribute data in the <code>orcounty.shp</code> shape file</a></li>
+<li><a href="#symbol-plot-oregon-climate-station-data-data-in-the-orstationc.csv-file-basemap-in-orotl.shp"><span class="toc-section-number">3.2</span> Symbol plot: Oregon climate station data – data in the <code>orstationc.csv</code> file, basemap in <code>orotl.shp</code></a></li>
+<li><a href="#oregon-climate-station-data-locations-and-data-in-shape-file"><span class="toc-section-number">3.3</span> Oregon climate station data – locations and data in shape file</a></li>
 </ul></li>
-<li><a href="#variations-in-color-scales-and-representation"><span class="toc-section-number">3</span> Variations in color scales and representation</a><ul>
-<li><a href="#oregon-county-census-data-equal-frequency-class-intervals"><span class="toc-section-number">3.1</span> Oregon county census data – equal-frequency class intervals</a></li>
-<li><a href="#oregon-county-census-data-equal-width-class-intervals"><span class="toc-section-number">3.2</span> Oregon county census data – equal-width class intervals</a></li>
-<li><a href="#the-bubble-plot-on-a-map"><span class="toc-section-number">3.3</span> The bubble plot (on a map)</a></li>
-<li><a href="#dot-maps"><span class="toc-section-number">3.4</span> Dot maps</a></li>
+<li><a href="#variations-in-color-scales-and-representation"><span class="toc-section-number">4</span> Variations in color scales and representation</a><ul>
+<li><a href="#oregon-county-census-data-equal-frequency-class-intervals"><span class="toc-section-number">4.1</span> Oregon county census data – equal-frequency class intervals</a></li>
+<li><a href="#oregon-county-census-data-equal-width-class-intervals"><span class="toc-section-number">4.2</span> Oregon county census data – equal-width class intervals</a></li>
+<li><a href="#the-bubble-plot-on-a-map"><span class="toc-section-number">4.3</span> The bubble plot (on a map)</a></li>
+<li><a href="#dot-maps"><span class="toc-section-number">4.4</span> Dot maps</a></li>
 </ul></li>
-<li><a href="#projection-and-spatial-transformation"><span class="toc-section-number">4</span> Projection and spatial transformation</a><ul>
-<li><a href="#a-simple-example"><span class="toc-section-number">4.1</span> A simple example</a></li>
-<li><a href="#a-second-example"><span class="toc-section-number">4.2</span> A second example</a></li>
+<li><a href="#projection-and-spatial-transformation"><span class="toc-section-number">5</span> Projection and spatial transformation</a><ul>
+<li><a href="#a-simple-example"><span class="toc-section-number">5.1</span> A simple example</a></li>
+<li><a href="#a-second-example"><span class="toc-section-number">5.2</span> A second example</a></li>
 </ul></li>
-<li><a href="#the-maps-package"><span class="toc-section-number">5</span> The maps package</a><ul>
-<li><a href="#oregon-county-census-data-bubble-plots-of-orcounty.csv-data"><span class="toc-section-number">5.1</span> Oregon county census data – bubble plots of orcounty.csv data</a></li>
+<li><a href="#the-maps-package"><span class="toc-section-number">6</span> The maps package</a><ul>
+<li><a href="#oregon-county-census-data-bubble-plots-of-orcounty.csv-data"><span class="toc-section-number">6.1</span> Oregon county census data – bubble plots of orcounty.csv data</a></li>
 </ul></li>
-<li><a href="#further-examples-illustrating-map-projection-using-the-maps-package"><span class="toc-section-number">6</span> Further examples illustrating map projection using the <code>maps</code> package</a><ul>
-<li><a href="#unprojected-maps"><span class="toc-section-number">6.1</span> Unprojected maps</a></li>
-<li><a href="#projected-maps"><span class="toc-section-number">6.2</span> Projected maps</a></li>
-<li><a href="#basemap-shapefile-generation-using-the-maps-package"><span class="toc-section-number">6.3</span> Basemap shapefile generation using the <code>maps</code> package</a></li>
+<li><a href="#further-examples-illustrating-map-projection-using-the-maps-package"><span class="toc-section-number">7</span> Further examples illustrating map projection using the <code>maps</code> package</a><ul>
+<li><a href="#unprojected-maps"><span class="toc-section-number">7.1</span> Unprojected maps</a></li>
+<li><a href="#projected-maps"><span class="toc-section-number">7.2</span> Projected maps</a></li>
+<li><a href="#basemap-shapefile-generation-using-the-maps-package"><span class="toc-section-number">7.3</span> Basemap shapefile generation using the <code>maps</code> package</a></li>
 </ul></li>
-<li><a href="#readings"><span class="toc-section-number">7</span> Readings</a></li>
+<li><a href="#readings"><span class="toc-section-number">8</span> Readings</a></li>
 </ul>
 </div>
 
-<p>#Introduction#</p>
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
 <p>One extremely useful feature of <strong>R</strong> for analyzing geographical data is its ability to provide maps of data in the same computing environment that the data analysis is being performed in, and moreover, to read, manipulate and analyze data with explicitly spatial coordinate information. This facility for handling spatial data is being implemented as part of the <code>sp</code> package which provides an internal format for spatial data, and a number of functions for its input, output and display (together constituting a set of “classes and methods”), the <code>rgeos</code> package, which implements many of the spatial topology functions that formerly required a full suite of GIS software. The main package(s) for working with spatial data include:</p>
 <ul>
 <li><p><code>sp</code> – provides a way to read and display ESRI shapefiles (and the feature attribute data they may contain) (Edzer Pebesma, Roger Bivand, Barry Rowlingson, Virgilio Gomez-Rubio, Robert Hijmans)</p></li>
@@ -558,8 +560,9 @@ $(document).ready(function () {
 <p>Simple features (<code>sf</code>) web site <a href="https://r-spatial.github.io/sf/index.html">[https://r-spatial.github.io/sf/index.html]</a></p>
 <p>Stars project (<code>stars</code>) web site <a href="http://r-spatial.org/r/2017/11/23/stars1.html">[http://r-spatial.org/r/2017/11/23/stars1.html]</a></p>
 <p>Lovelace, R., J. Nowosad, and J. Muenchow, 2017, <em>Geocomputation with R</em> <a href="https://bookdown.org/robinlovelace/geocompr/">[https://bookdown.org/robinlovelace/geocompr/]</a></p>
+</div>
 <div id="maps-in-r-example-data-and-setup" class="section level1">
-<h1><span class="header-section-number">1</span> Maps in R – example data and setup</h1>
+<h1><span class="header-section-number">2</span> Maps in R – example data and setup</h1>
 <p>The examples here use several libraries, datasets, and shapefiles that should be downloaded and/or installed, and read in before proceeding. This will make the examples easier to follow, but they will fail if the data sets do not exist or have not been read in. For one of the example data sets, Oregon climate-station data, the data are available in two forms–as a .csv file (orstation.csv), and included as part of the orstations shape file. as a consequence, the individual variables will be referred to by their “full” names (e.g. orstationc$tann).</p>
 <p>Required libraries:</p>
 <p><code>maptools</code> (and <code>sp</code>), <code>rgdal</code>, <code>RColorBrewer</code>, <code>classInt</code>, <code>maps</code>, <code>rgeos</code></p>
@@ -616,10 +619,10 @@ $(document).ready(function () {
 <p><a href="lec06.html">[Back to top]</a></p>
 </div>
 <div id="some-simple-maps" class="section level1">
-<h1><span class="header-section-number">2</span> Some simple maps</h1>
+<h1><span class="header-section-number">3</span> Some simple maps</h1>
 <p>R has the capability of plotting some simple maps using the maptools package, which can read and plot ESRI shapefiles. Here are a couple of examples:</p>
 <div id="oregon-county-census-data-attribute-data-in-the-orcounty.shp-shape-file" class="section level2">
-<h2><span class="header-section-number">2.1</span> Oregon county census data – attribute data in the <code>orcounty.shp</code> shape file</h2>
+<h2><span class="header-section-number">3.1</span> Oregon county census data – attribute data in the <code>orcounty.shp</code> shape file</h2>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># equal-frequency class intervals -- block 1</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2">plotvar &lt;-<span class="st"> </span>orcounty.shp<span class="op">@</span>data<span class="op">$</span>POP1990</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3">nclr &lt;-<span class="st"> </span><span class="dv">8</span></a>
@@ -639,7 +642,7 @@ $(document).ready(function () {
 <p>In the second block, the first use of the <code>plot()</code> function plots the shapefile within an appropriate range of latitudes and longitudes, while the second use plots colored polygons on top. The rest of block 2 adds a title and legend. It’s a little clunky, and the placement of labels are not great, but it’s quick.</p>
 </div>
 <div id="symbol-plot-oregon-climate-station-data-data-in-the-orstationc.csv-file-basemap-in-orotl.shp" class="section level2">
-<h2><span class="header-section-number">2.2</span> Symbol plot: Oregon climate station data – data in the <code>orstationc.csv</code> file, basemap in <code>orotl.shp</code></h2>
+<h2><span class="header-section-number">3.2</span> Symbol plot: Oregon climate station data – data in the <code>orstationc.csv</code> file, basemap in <code>orotl.shp</code></h2>
 <p>Here’s a map of the Oregon climate station data with the data coming from the <code>rstationc.csv</code> file, and the basemap from <code>orotl.shp</code></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># symbol plot -- equal-interval class intervals</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2">plotvar &lt;-<span class="st"> </span>orstationc<span class="op">$</span>tann</a>
@@ -659,7 +662,7 @@ $(document).ready(function () {
 <p><img src="lec06_files/figure-html/map2-1.png" width="2100" /></p>
 </div>
 <div id="oregon-climate-station-data-locations-and-data-in-shape-file" class="section level2">
-<h2><span class="header-section-number">2.3</span> Oregon climate station data – locations and data in shape file</h2>
+<h2><span class="header-section-number">3.3</span> Oregon climate station data – locations and data in shape file</h2>
 <p>Here’s a third map with the Oregon climate station data locations and data coming from the shape file:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># symbol plot -- equal-interval class intervals</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">plotvar &lt;-<span class="st"> </span>orstations.shp<span class="op">@</span>data<span class="op">$</span>pann</a>
@@ -683,10 +686,10 @@ $(document).ready(function () {
 </div>
 </div>
 <div id="variations-in-color-scales-and-representation" class="section level1">
-<h1><span class="header-section-number">3</span> Variations in color scales and representation</h1>
+<h1><span class="header-section-number">4</span> Variations in color scales and representation</h1>
 <p>This set of examples illustrates some more applications of the maptools package, and some variations in the construction of class intervals for choropleth maps and symbolic representation of the Oregon county-level census data:</p>
 <div id="oregon-county-census-data-equal-frequency-class-intervals" class="section level2">
-<h2><span class="header-section-number">3.1</span> Oregon county census data – equal-frequency class intervals</h2>
+<h2><span class="header-section-number">4.1</span> Oregon county census data – equal-frequency class intervals</h2>
 <p>Here, the class intervals are defined such that each class has the same number of observations.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># equal-frequency class intervals</span></a>
 <a class="sourceLine" id="cb9-2" data-line-number="2">plotvar &lt;-<span class="st"> </span>orcounty.shp<span class="op">@</span>data<span class="op">$</span>POP1990</a>
@@ -704,7 +707,7 @@ $(document).ready(function () {
 <p><img src="lec06_files/figure-html/map4-1.png" width="2100" /></p>
 </div>
 <div id="oregon-county-census-data-equal-width-class-intervals" class="section level2">
-<h2><span class="header-section-number">3.2</span> Oregon county census data – equal-width class intervals</h2>
+<h2><span class="header-section-number">4.2</span> Oregon county census data – equal-width class intervals</h2>
 <p>Now, the classes are defined so than each class has the same “width”.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">#equal-width class intervals of 1990 population</span></a>
 <a class="sourceLine" id="cb10-2" data-line-number="2">plotvar &lt;-<span class="st"> </span>orcounty.shp<span class="op">@</span>data<span class="op">$</span>POP1990</a>
@@ -724,7 +727,7 @@ $(document).ready(function () {
 <p>The same data are being plotted here, the difference is the way in which class intervals are defined. Equal-frequency class intervals create a general gradient of county sizes from the small ones in the northern Willamette Valley to the larger eastern Oregon ones, while the equal-width class intervals emphasize the large differences in the size of the counties.</p>
 </div>
 <div id="the-bubble-plot-on-a-map" class="section level2">
-<h2><span class="header-section-number">3.3</span> The bubble plot (on a map)</h2>
+<h2><span class="header-section-number">4.3</span> The bubble plot (on a map)</h2>
 <p>We tend to be influenced more by the simple area of an object on the page or screen than by whatever is being plotted. For example, here’s the 1990 county population, plotted as polygons.</p>
 <p>Notice above that Multnomah county, the most populated one, despite being plotted in a dark color, gets kind of dominated by the larger, less populated counties that surround it. The eastern Oregon counties, the least populated, occupy the greatest area on the map. The solution is the bubble plot:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># bubble plot equal-frequency class intervals</span></a>
@@ -751,7 +754,7 @@ $(document).ready(function () {
 <p>Here the size of each symbol is calculated using the county population using the code at the end of the first block, and then the symbol is plotted at the centroid of each county, which is located using the coordinates() function. Note that the symbol sizes could be made vary continuously.</p>
 </div>
 <div id="dot-maps" class="section level2">
-<h2><span class="header-section-number">3.4</span> Dot maps</h2>
+<h2><span class="header-section-number">4.4</span> Dot maps</h2>
 <p>Another way to plot data that applies to polygons (counties, states, countries, etc.), is the time-honored dot map:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># maptools dot-density maps</span></a>
 <a class="sourceLine" id="cb12-2" data-line-number="2"><span class="co"># warning: this can take a little while</span></a>
@@ -776,7 +779,7 @@ $(document).ready(function () {
 </div>
 </div>
 <div id="projection-and-spatial-transformation" class="section level1">
-<h1><span class="header-section-number">4</span> Projection and spatial transformation</h1>
+<h1><span class="header-section-number">5</span> Projection and spatial transformation</h1>
 <p>The <code>sp</code> class and <code>maptools</code> package provide a mechanism for doing projected maps. (Note that the projection parameters used in the example here are not really appropriate for the area being plotted, but were chosen to make the fact that the data are projected evident.)</p>
 <p>Load some libraries:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">library</span>(sp)</a>
@@ -792,7 +795,7 @@ $(document).ready(function () {
 ##  Linking to sp version: 1.2-5</code></pre>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">library</span>(rgeos)</a></code></pre></div>
 <div id="a-simple-example" class="section level2">
-<h2><span class="header-section-number">4.1</span> A simple example</h2>
+<h2><span class="header-section-number">5.1</span> A simple example</h2>
 <p>The first block of code below is the standard setup for determining plotting colors.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># equal-frequency class intervals -- spplot &amp; projected</span></a>
 <a class="sourceLine" id="cb17-2" data-line-number="2">plotvar &lt;-<span class="st"> </span>orstations.shp<span class="op">@</span>data<span class="op">$</span>tann <span class="co"># gets data from shapefile .dbf</span></a>
@@ -831,7 +834,7 @@ $(document).ready(function () {
 <p>Note that the map is a little different from that made using the standard <code>plot()</code> function. <code>spplot()</code> function uses the <code>lattice</code> package for plotting, and (in these examples) automatically adds a legend. The map is a little awkward looking, which is intended to illustrate the fact that it is indeed projected. A better choice for the <code>+lon_0=</code> argument in the projection string above would be <code>+lon_0=-120</code></p>
 </div>
 <div id="a-second-example" class="section level2">
-<h2><span class="header-section-number">4.2</span> A second example</h2>
+<h2><span class="header-section-number">5.2</span> A second example</h2>
 <p>Here’s a second example, Oregon county census data, where the data being plotted comes from the orcounty.shp shape file, and again is plotted using different choices for class-interval definitions. First, equal-frequency class intervals:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># project Oregon county data</span></a>
 <a class="sourceLine" id="cb22-2" data-line-number="2">aea.proj &lt;-<span class="st"> &quot;+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-110</span></a>
@@ -862,10 +865,10 @@ $(document).ready(function () {
 </div>
 </div>
 <div id="the-maps-package" class="section level1">
-<h1><span class="header-section-number">5</span> The maps package</h1>
+<h1><span class="header-section-number">6</span> The maps package</h1>
 <p>The R <code>maps</code> package provides a means of mapping data that are not necessarily components of a shapefile. The package provides a way of plotting choropleth maps using polygons that it contains (U.S. states and counties, countries of the world), and can use it’s internal polygons to provide unfilled basemaps for point data. The following example replicate the bubble plots done using the maptools package.</p>
 <div id="oregon-county-census-data-bubble-plots-of-orcounty.csv-data" class="section level2">
-<h2><span class="header-section-number">5.1</span> Oregon county census data – bubble plots of orcounty.csv data</h2>
+<h2><span class="header-section-number">6.1</span> Oregon county census data – bubble plots of orcounty.csv data</h2>
 <p>After loading the <code>map</code> and <code>mapproj</code> libraries, take a quick look at the <code>orcounty.csv</code> data</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">library</span>(maps)</a>
 <a class="sourceLine" id="cb24-2" data-line-number="2"><span class="kw">library</span>(mapproj)</a>
@@ -986,10 +989,10 @@ $(document).ready(function () {
 </div>
 </div>
 <div id="further-examples-illustrating-map-projection-using-the-maps-package" class="section level1">
-<h1><span class="header-section-number">6</span> Further examples illustrating map projection using the <code>maps</code> package</h1>
+<h1><span class="header-section-number">7</span> Further examples illustrating map projection using the <code>maps</code> package</h1>
 <p>The <code>maps</code> package can provide outlines of, for example, the globe, countries, or U.S. counties. These outlines can be projected providing less distorted views of a data set than simply plotting data as a function of latitude and longitude. Here are some examples that plot the locations of the Oregon climate-station data.</p>
 <div id="unprojected-maps" class="section level2">
-<h2><span class="header-section-number">6.1</span> Unprojected maps</h2>
+<h2><span class="header-section-number">7.1</span> Unprojected maps</h2>
 <p>First, a map of Oregon alone:</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="co"># unprojected, Oregon</span></a>
 <a class="sourceLine" id="cb35-2" data-line-number="2"><span class="kw">map</span>(<span class="st">&quot;county&quot;</span>, <span class="st">&quot;oregon&quot;</span>, <span class="dt">fill=</span><span class="ot">FALSE</span>)</a>
@@ -1008,7 +1011,7 @@ $(document).ready(function () {
 <p><img src="lec06_files/figure-html/map19-1.png" width="2100" /></p>
 </div>
 <div id="projected-maps" class="section level2">
-<h2><span class="header-section-number">6.2</span> Projected maps</h2>
+<h2><span class="header-section-number">7.2</span> Projected maps</h2>
 <p>The same approach can be used to produce a projected map as follows:</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="co"># projected map of Oregon and adjacent states</span></a>
 <a class="sourceLine" id="cb37-2" data-line-number="2">proj.type &lt;-<span class="st"> &quot;albers&quot;</span></a>
@@ -1039,7 +1042,7 @@ $(document).ready(function () {
 <p><img src="lec06_files/figure-html/map21-1.png" width="2100" /></p>
 </div>
 <div id="basemap-shapefile-generation-using-the-maps-package" class="section level2">
-<h2><span class="header-section-number">6.3</span> Basemap shapefile generation using the <code>maps</code> package</h2>
+<h2><span class="header-section-number">7.3</span> Basemap shapefile generation using the <code>maps</code> package</h2>
 <p>The <code>map2SpatialLines()</code> function in the <code>maptools</code> function can be used to transform lines extracted from the <code>maps</code> package into <code>sp</code> package-compatible format to provide basemaps for plotting other data sets. Here is an example for the Pacific Northwest.</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="co"># extract county outlines from maps() database</span></a>
 <a class="sourceLine" id="cb39-2" data-line-number="2">pnw.outlines &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="st">&quot;county&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;oregon&quot;</span>,<span class="st">&quot;washington&quot;</span>, <span class="st">&quot;california&quot;</span>,</a>
@@ -1107,7 +1110,7 @@ $(document).ready(function () {
 </div>
 </div>
 <div id="readings" class="section level1">
-<h1><span class="header-section-number">7</span> Readings</h1>
+<h1><span class="header-section-number">8</span> Readings</h1>
 <p>Chapter 3 in Bivand, R., et al. (2013) <em>Applied Spatial Data Analysis with R</em>, 2nd edition. (Search for the eBook version on the UO Library page <a href="http://library.uoregon.edu">[http://library.uoregon.edu]</a>) (The whole book is worth looking at, but Ch. 3 is the key reference for the display of spatial data (i.e. mapping).)</p>
 </div>
 

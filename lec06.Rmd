@@ -15,7 +15,7 @@ knitr::opts_chunk$set(dev='png', dpi=300, cache=TRUE)
 pdf.options(useDingbats = TRUE)
 ```
 
-#Introduction#
+# Introduction #
 
 One extremely useful feature of **R** for analyzing geographical data is its ability to provide maps of data in the same computing environment that the data analysis is being performed in, and moreover, to read, manipulate and analyze data with explicitly spatial coordinate information.  This facility for handling spatial data is being implemented as part of the `sp` package which provides an internal format for spatial data, and a number of functions for its input, output and display (together constituting a set of "classes and methods"), the `rgeos` package, which implements many of the spatial topology functions that formerly required a full suite of GIS software.    The main package(s) for working with spatial data include:
 
