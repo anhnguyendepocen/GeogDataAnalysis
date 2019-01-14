@@ -454,16 +454,15 @@ $(document).ready(function () {
 <ol style="list-style-type: decimal">
 <li>Would you like to use a personal library instead?`<br />
 </li>
-<li>Would you like to create a personal library <code>'C:\Users\bartlein\Documents/R/win-library/3.5'</code> to install packages into?</li>
+<li>Would you like to create a personal library <code>'C:\Users\bartlein\Documents\R\win-library\3.5'</code> to install packages into?</li>
 </ol>
 <p>Respond yes to both.</p>
 <p>Generally, the first time a package is installed, R will want to know which “CRAN Mirror” you want to use. The closest one to us is in Seattle, and if the message <code>--- Please select a CRAN mirror for use in this session ---</code> appears, select “<code>USA (WA) [https]</code>”.</p>
 <p>and something like the following confirmation should appear:</p>
-<pre><code>## trying URL &#39;https://cran.rstudio.com/bin/macosx/el-capitan/contrib/3.4/sp_1.2-5.tgz&#39;
-## Content type &#39;application/x-gzip&#39; length 1545668 bytes (1.5 MB)
+<pre><code>## trying URL &#39;https://cran.rstudio.com/bin/macosx/el-capitan/contrib/3.5/sp_1.3-1.tgz&#39;
+## Content type &#39;application/x-gzip&#39; length 1873005 bytes (1.8 MB)
 ## ==================================================
 ## downloaded 1.5 MB
-
 ## package ‘sp’ successfully unpacked and MD5 sums checked
 
 ## The downloaded binary packages are in
@@ -474,7 +473,7 @@ $(document).ready(function () {
 <pre><code>## Error in install.packages : missing value where TRUE/FALSE needed</code></pre>
 <p>If that happens, quit RStudio and try again. Note that if RStudio occupies the whole screen, the individual questions about creating the library may be hidden.</p>
 <p>You can also use the Tools &gt; Install packages… menu. If the personal library does not exist, the following message will appear</p>
-<pre><code>## Would you like to create a personal library &#39;C:\Users\bartlein\Documents/R/win-library/3.5&#39; 
+<pre><code>## Would you like to create a personal library &#39;C:\Users\bartlein\Documents\R\win-library\3.5&#39; 
 ## to install packages into?  </code></pre>
 <p>Reply yes, and select or type in the following in the dialog box that appears:</p>
 <ol style="list-style-type: decimal">
@@ -482,34 +481,34 @@ $(document).ready(function () {
 </li>
 <li>Packages: <code>sp</code><br />
 </li>
-<li>Install to Library: <code>C:\Users\bartlein\Documents/R/win-library/3.4 (Default)</code></li>
+<li>Install to Library: <code>C:\Users\bartlein\Documents\R\win-library\3.5 (Default)</code></li>
 <li>Make sure “install dependencies” is checked</li>
 </ol>
 <p>The following confirmation should appear:</p>
-<pre><code>## Installing package into ‘C:/Users/bartlein/Documents/R/win-library/3.4’
+<pre><code>## Installing package into ‘C:/Users/bartlein/Documents/R/win-library/3.5’
 ## (as ‘lib’ is unspecified)
-## trying URL &#39;https://cran.rstudio.com/bin/windows/contrib/3.4/sp_1.2-6.zip&#39;
-## Content type &#39;application/zip&#39; length 1538815 bytes (1.5 MB)
+## trying URL &#39;https://cran.rstudio.com/bin/macosx/el-capitan/contrib/3.5/sp_1.3-1.tgz&#39;
+## Content type &#39;application/x-gzip&#39; length 1873005 bytes (1.8 MB)
 ## downloaded 1.5 MB
 
 ## package ‘sp’ successfully unpacked and MD5 sums checked
 
 ## The downloaded binary packages are in
 ##  C:\Users\bartlein\AppData\Local\Temp\RtmpOIfXVB\downloaded_packages</code></pre>
-<p><em>R on Mac OS X</em></p>
+<p><em>R on Mac OS X, MacOS</em></p>
 <p>The R GUI on the Mac has a useful package installer built in. Before using the installer (or Console (command-line) approach) the first time, it’s useful to sent the “Default CRAN mirror” (repository) using the R &gt; Preferences &gt; Startup dialog box. Select “<code>USA (WA) [https]</code>” which will display the URL <code>https://cran.fhcrc.org</code>.</p>
 <p>The Packages &amp; Data &gt; Package Installer dialog allows you to get a list of all available packages from a particular repository, by clicking on the “get list” button, or to search for a particular package by typing its name in the “Package Search” field (but even that can produce a long list, as in the case of the <code>sp</code> package, because the letters “sp” appear in many package names). In either case, once a package is selected by clicking on it, the “Install Selected” button starts the download and installation.</p>
 <p>You should see a confirmation like the following:</p>
-<pre><code>## trying URL &#39;https://cran.rstudio.com/bin/macosx/el-capitan/contrib/3.4/sp_1.2-5.tgz&#39;
-## Content type &#39;application/x-gzip&#39; length 1545668 bytes (1.5 MB)
+<pre><code>## trying URL &#39;https://cran.rstudio.com/bin/macosx/el-capitan/contrib/3.5/sp_1.3-1.tgz&#39;
+## Content type &#39;application/x-gzip&#39; length 1873005 bytes (1.8 MB)
 ## ==================================================
-## downloaded 1.5 MB
+## downloaded 1.8 MB
 
 ## package ‘sp’ successfully unpacked and MD5 sums checked
 
 ## The downloaded binary packages are in
 ##        C:\Users\bartlein\AppData\Local\Temp\RtmpymDcKp\downloaded_packages</code></pre>
-<p><em>RStudio on Mac OS X</em></p>
+<p><em>RStudio on Mac OS X, MacOS</em></p>
 <p>In RStudio running on the Mac, the Tools &gt; Install Packages menu brings up a dialog box. Select or type in the following in the dialog box:</p>
 <ol style="list-style-type: decimal">
 <li>Install from: <code>Repository (CRAN)</code><br />

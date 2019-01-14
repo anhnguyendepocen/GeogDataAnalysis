@@ -45,7 +45,7 @@ In the R for Windows GUI, packages can be installed at the Console command line,
 This message indicates that the personal library file hadn't been created earlier. R will immediately pop up two dialog boxes, one after the other:  
 
 1. Would you like to use a personal library instead?`  
-1. Would you like to create a personal library `'C:\Users\bartlein\Documents/R/win-library/3.5'` to install packages into?  
+1. Would you like to create a personal library `'C:\Users\bartlein\Documents\R\win-library\3.5'` to install packages into?  
 
 Respond yes to both.
 
@@ -53,11 +53,10 @@ Generally, the first time a package is installed, R will want to know which "CRA
 
 and something like the following confirmation should appear:
 
-	## trying URL 'https://cran.rstudio.com/bin/macosx/el-capitan/contrib/3.4/sp_1.2-5.tgz'
-	## Content type 'application/x-gzip' length 1545668 bytes (1.5 MB)
+	## trying URL 'https://cran.rstudio.com/bin/macosx/el-capitan/contrib/3.5/sp_1.3-1.tgz'
+	## Content type 'application/x-gzip' length 1873005 bytes (1.8 MB)
 	## ==================================================
 	## downloaded 1.5 MB
-	
 	## package ‘sp’ successfully unpacked and MD5 sums checked
 	
 	## The downloaded binary packages are in
@@ -76,22 +75,22 @@ If that happens, quit RStudio and try again.  Note that if RStudio occupies the 
 
 You can also use the Tools > Install packages... menu.  If the personal library does not exist, the following message will appear
 
-	## Would you like to create a personal library 'C:\Users\bartlein\Documents/R/win-library/3.5' 
+	## Would you like to create a personal library 'C:\Users\bartlein\Documents\R\win-library\3.5' 
 	## to install packages into?  
 
 Reply yes, and select or type in the following in the dialog box that appears:  
 
 1. Install from:  `Repository (CRAN, CRANextras)`  
 1. Packages:  `sp`  
-1. Install to Library:  `C:\Users\bartlein\Documents/R/win-library/3.4 (Default)`
+1. Install to Library:  `C:\Users\bartlein\Documents\R\win-library\3.5 (Default)`
 2. Make sure "install dependencies" is checked  
 
 The following confirmation should appear:
 
-	## Installing package into ‘C:/Users/bartlein/Documents/R/win-library/3.4’
+	## Installing package into ‘C:/Users/bartlein/Documents/R/win-library/3.5’
 	## (as ‘lib’ is unspecified)
-	## trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.4/sp_1.2-6.zip'
-	## Content type 'application/zip' length 1538815 bytes (1.5 MB)
+	## trying URL 'https://cran.rstudio.com/bin/macosx/el-capitan/contrib/3.5/sp_1.3-1.tgz'
+	## Content type 'application/x-gzip' length 1873005 bytes (1.8 MB)
 	## downloaded 1.5 MB
 	
 	## package ‘sp’ successfully unpacked and MD5 sums checked
@@ -99,7 +98,7 @@ The following confirmation should appear:
 	## The downloaded binary packages are in
 	## 	C:\Users\bartlein\AppData\Local\Temp\RtmpOIfXVB\downloaded_packages
 
-*R on Mac OS X*  
+*R on Mac OS X, MacOS*  
 
 The R GUI on the Mac has a useful package installer built in.  Before using the installer (or Console (command-line) approach) the first time, it's useful to sent the "Default CRAN mirror" (repository) using the R > Preferences > Startup dialog box.  Select "`USA (WA) [https]`" which will display the URL `https://cran.fhcrc.org`.
 
@@ -107,17 +106,17 @@ The Packages & Data > Package Installer dialog allows you to get a list of all a
 
 You should see a confirmation like the following:
 
-	## trying URL 'https://cran.rstudio.com/bin/macosx/el-capitan/contrib/3.4/sp_1.2-5.tgz'
-	## Content type 'application/x-gzip' length 1545668 bytes (1.5 MB)
+	## trying URL 'https://cran.rstudio.com/bin/macosx/el-capitan/contrib/3.5/sp_1.3-1.tgz'
+	## Content type 'application/x-gzip' length 1873005 bytes (1.8 MB)
 	## ==================================================
-	## downloaded 1.5 MB
+	## downloaded 1.8 MB
 	
 	## package ‘sp’ successfully unpacked and MD5 sums checked
 	
 	## The downloaded binary packages are in
 	##        C:\Users\bartlein\AppData\Local\Temp\RtmpymDcKp\downloaded_packages
 
-*RStudio on Mac OS X*
+*RStudio on Mac OS X, MacOS*
 
 In RStudio running on the Mac, the Tools > Install Packages menu brings up a dialog box.
 Select or type in the following in the dialog box:  
@@ -174,7 +173,6 @@ At the time of this writing, the "source" versions of several of the spatial pac
 There are several packages that are used in lectures, and if you want to reproduce those examples, the packages can be downloaded the same way.
 
 	url_string <- "https://pjbartlein.github.io/GeogDataAnalysis/R/sources/install-lecture-packages.R.txt"
-
 
 and then
 
