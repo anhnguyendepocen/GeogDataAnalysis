@@ -16,5 +16,289 @@ knitr::opts_chunk$set(dev='png', dpi=300, cache=FALSE)
 pdf.options(useDingbats = TRUE)
 ```
 
-```{r child="ex04.md"}
+**Geography 4/595:  Geographic Data Analysis**  
+**Winter 2019**
+
+**Exercise 4:  Multivariate Plots**  
+**Finish by  Monday, February 4th**
+
+**1.  Introduction** 
+
+**Read through the exercise before attempting to complete it.**
+
+The purpose of this exercise is to explore some of the general multivariate plotting procedures available in R, including maps, multivariate plots in particular, conditioning plots (coplots), and Trellis/Lattice graphics.   Before getting into the exercise, there are several set-up things to do that will facilitate completing this exercise and reproducing the examples in lectures.
+
+This exercise uses a number of "R packages" or libraries of functions, data sets, etc. that must be downloaded and installed from "CRAN" (you will need to be connected to the Internet to do this).  This can be done by following the instructions in [[Installing Packages and Workspaces]](https://pjbartlein.github.io/GeogDataAnalysis/packages-and-data.html)
+
+Alternatively, in the Windows R Gui, there is a menu choice "Packages" that assists in downloading and installing packages, (see Packages > Install package(s) from CRAN), and there is a similar feature on the Mac, and under the Tools menu in RStudio.
+
+For this exercise, you'll need to install the following packages: 
+
+`rgeos`, `sp`, `maptools`, `classInt`, `RColorBrewer`, and `lattice`.
+
+The easiest way to do this is to use the Package menu in Windows, the Packages & Data menu on the Mac, or the Tools > Install packages menu in RStudio but it may be more efficient to just repeatedly use the `install.packages()` function, for example:
+
+```{r echo=TRUE, eval=FALSE}
+install.packages("sp")
 ```
+
+You can check to see if a package has been successfully downloaded and installed by attempting to load the package with the library() function, e.g.
+
+```{r echo=TRUE, eval=FALSE}
+library(maptools)
+```
+
+(NOTE:  If an error message is produced e.g. `Error in library(maptools) : There is no package called 'maptools'` then the download and installation has failed.  If that's the case, packages may also be downloaded and installed using the command line in the R Gui, as follows:  
+
+```{r echo=TRUE, eval=FALSE}
+options(CRAN = "http://cran.us.r-project.org/") # tell R where to look for packages
+install.packages("maptools") # download and install the maptools package
+```
+
+On Windows, you will get the following message:  `--- Please select a CRAN mirror for use in this session ---` and a scrolling list box should open.  It turns out that the closest repository to us is in Seattle and is the last one in the list, so scroll down and select it, and then click on "ok".  You can also use the Packages menu to choose the closest mirror.  On the Mac, you can use the Package Manager and Package Installer to do the same.)
+
+(NOTE:  You don't need to use the command line approach if you use the menu--just download the packages once, and you shouldn't need to do either if you followed in the instructions in [[Installing Packages and Workspaces]](https://pjbartlein.github.io/GeogDataAnalysis/packages-and-data.html).)
+
+Occasionally, it's a good idea to check if packages have been updated; this can be done by typing.
+
+```{r echo=TRUE, eval=FALSE}
+update.packages()
+```
+
+or using the menu, Packages > Update packages from CRAN (Windows) or the R Package Installer (Mac, Packages & Data > R Package Installer).  On Windows, the update may fail; see the workaround at the bottom of Part 5 of Exercise 1.
+
+After downloading and installing, it's ok to delete the installation files if prompted.
+
+Further information can be found in the FAQs:
+[[Windows]](http://cran.us.r-project.org/bin/windows/base/rw-FAQ.html)
+[[General]](http://cran.us.r-project.org/doc/FAQ/R-FAQ.html)
+[[Mac OS X]](http://cran.us.r-project.org/bin/macosx/RMacOSX-FAQ.html)
+
+**2. Simple maps**
+
+Begin by constructing some simple maps of the Oregon climate-station data [[orstationc.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/orstationc.csv).  (See Section 2 of Exercise 3 for directions on how to download and save these data if they are no longer in your working directory.)  Also, before starting, download and save in your working directory the following components of a shape file of Oregon county outlines:
+
+[[orotl.shp]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/orotl.shp)  [[orotl.dbf]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/orotl.dbf)  [[orotl.shx]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/orotl.shx)
+
+You will find it most helpful to use a text editor or the script window in RStudio for this exercise, because you will want to reuse the code the get results for more than one variable.  The internal script editors work fine (Windows:  File > New script; Mac:  File > New Document; RStudio File > New File > R Script), and TextEdit, Notepad or even Word will do the job.
+
+WARNING:  On the Mac GUI (as opposed to RStudio on the Mac), the internal script/document editor in R is smart enough to recognize formatted text, and R may object when you try to execute a script based to text copied in from a document or web page like this one (via Command-C, Command-Tab, Command-V), complaining about "unexpected input", or simply not doing anything.  To work around that, when you paste text in, hold down the Option key also to paste as unformatted text (i.e. Option-Command-V).  If the text in the script editor appears to be formatted as courier-new, delete all of that formatted text and try pasting again.  (Note that you can use the Apple menu > System Preferences > Keyboard > Keyboard Shortcut tab to redefine Command-V to paste as unformatted text only in R.app.)
+
+In general, using RStudio would be the easiest approach for this exercise.
+
+Mapping a single variable is accomplished by executing three blocks of R code:
+
+```{r echo=TRUE, eval=FALSE}
+# Block 1:  set up -- do this once
+library(rgeos)
+library(maptools)
+library(sp)
+library(RColorBrewer)
+library(classInt)
+
+# read and attach climate data
+csvfile <- "orstationc.csv" # assume the data file is in your working directory
+orstationc <- read.csv(csvfile) 
+attach(orstationc)
+# read a county outline shape file
+shapefile <- "orotl.shp"
+orotl.shp <- readShapeLines(shapefile, proj4string=CRS("+proj=longlat"))
+```
+
+Plot the outlines to check that the shape file has been read in correctly.  You should see a map of Oregon:
+
+```{r echo=TRUE, eval=FALSE}
+plot(orotl.shp) # plot the outline
+```
+
+Now the second block:
+
+```{r echo=TRUE, eval=FALSE}
+# Block 2: set variable and get colors
+plotvar <- pjan # pick a variable to plot
+plottitle <- "January Precipitation"
+nclr <- 8 # number of colors
+plotclr <- brewer.pal(nclr,"PuBu") # get nclr colors
+
+# find equal-frequency intervals
+class <- classIntervals(plotvar, nclr, style="quantile")
+colcode <- findColours(class, plotclr)
+cutpts <- round(class$brks, digits=1)
+cutpts
+```
+
+Nothing more will appear in the graphics window yet.  This is still part of the set up.  Print (by typing at the command line, or using the `print()` function (e.g. `print(plotvar)` the variables `plotvar`, `plotclr`, `colornum`, `brks` and `colorcode` to get an idea of what the above block of code does.
+
+The third block of code makes a map:
+
+```{r echo=TRUE, eval=FALSE}
+# Block 3: plot the shape file and the selected variable
+plot(orotl.shp)
+
+# add points
+points(lon, lat, pch=16, col=colcode, cex=2)
+points(lon, lat, cex=2) # draws black line around each point
+
+# add legend
+legend(x=-118, y=43.5, legend=names(attr(colcode, "table")),
+    fill=attr(colcode, "palette"), cex=0.6, bty="n")
+
+# add the title
+title(plottitle)
+# detach orstation
+detach(orstationc)
+```
+
+The first block of code should be executed once.  The five `library()` function calls load various packages.  The `readShapeLines()` function from `maptools` reads in the shape file.
+
+The second block of code sets (a) the variable to plot by assigning, in this case, `pan`n, to `plotvar`  (remember you can discover the names of the variables in the data frame `orstationc` using the `names()` function), and (b) the number of colors to use.  (To plot other variables, replace `pjan` in this example.)  The remainder of this second block figures out which particular color to assign to each observation.
+
+The third block of code plots the shapefile, adds color-coded points, and a legend.  To generate a map of another variable, one would edit the second block of code, and then execute the second and third blocks, by cutting or pasting.
+
+Construct maps for several of the climate variables (`pjan` and `tjul` in particular).
+
+>Q1:  Describe the basic patterns and gradients of winter precipitation and summer temperature across the state.
+
+**3.  The coplot**
+
+Coplots (or conditioning plots) are probably the most commonly used multipanel plot, and an easy-to-use function is available.  The following code creates a coplot for annual temperature, plotted as a function of elevation, given latitude and longitude.  Before executing the code, use search() to check to see that orstationc is still attached, and the lattice library is still loaded.  If not they can be loaded and attached as follows
+	
+```{r echo=TRUE, eval=FALSE}	
+library(lattice)
+attach(orstationc)
+```
+
+Here's the code for the coplot:
+
+```{r echo=TRUE, eval=FALSE}
+coplot(tann ~ elev | lon * lat, number=5, overlap=.5,
+    panel=function(x,y,...) {
+        panel.smooth(x,y,span=.8,iter=5,...)
+        abline(lm(y ~ x), col="blue")
+    } 
+ )
+```
+
+(Be sure to include the trailing curvy bracket and parenthesis when copying and pasting.)
+
+**NOTE**:  The current version of RStudio on the Mac (Version 1.1.463) may produce the error message "`Error in plot.new(): figure margins too large`" and not plot the "shingles" in the top and right-hand margins.  If that happens, the workaround is to write the output to a file:
+
+```{r echo=TRUE, eval=FALSE}
+pdf("coplot.pdf")
+coplot(tann ~ elev | lon * lat, number=5, overlap=.5,
+  panel=function(x,y,...) {
+    points(x,y,...)
+    abline(lm(y ~ x), col="blue")
+  } 
+)
+dev.off()
+```
+
+The `pdf("coplot.pdf") ` function opens a file in your working directory called `coplot.pdf` and writes the plot into that file.  The `dev.off()` function closes that file, and you can then view it using Acrobat or Preview.
+
+Each panel on the diagram shows the relationship between annual average temperature and elevation for a geographical subset of data.  The "panel functions" in `coplot()` allow lowess curves and least-squares lines to be added to the plot to facilitate interpretation.  The individual panels, arranged as they are here, form a map of scatter diagrams.
+
+>Q2:  How do latitude and longitude influence the relationship between temperature and elevation?  Is the relationship "stationary" across the state (i.e. same relationship everywhere), or are there spatial variations in the strength or form of the relationship.
+
+Experiment with the number of coplot shingles and degree of overlap of each (the number and overlap arguments in the coplot() function.
+
+>Q3:  How do these two parameters control the appearance of the resulting diagram? 
+
+>Q4:  What are the tradeoffs involved in changing the number of shingles.  Is there a particular choice that seems to work better?
+
+Detach `orstationc`
+
+```{r echo=TRUE, eval=FALSE}
+detach(orstationc)
+```
+
+**4.  Lattice plots**
+
+This set of plots and analyses use a data set of glacial-cirque locations in Oregon collected by Deb Sea several years ago for a class project.  The data set may be found here:  [[cirques.csv]](https://pjbartlein.github.io/GeogDataAnalysis/data/csv/cirques.csv) and the data can be read into the R workspace after downloading as follows:
+
+```{r echo=TRUE, eval=FALSE}
+csvfile <- "cirques.csv"
+cirques <- read.csv(csvfile)
+attach(cirques)
+names(cirques)
+```
+
+The variables are an index number (`Cirque`), location (`Lat`, `Lon`), elevation in meters (`Elev`), a region indicator (which can be plotted to discover what the regions are; `Region`) and a 0/1 variable that indicates whether each cirque is occupied by a glacier (`Glacier = 1`) or not.
+
+(Should you wish to also do nicer maps of these data, here are the links to the appropriate shapefile components:  [[.dbf]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/cirques.dbf) [[.shp]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/cirques.shp) [[.shx]](https://pjbartlein.github.io/GeogDataAnalysis/data/shp/cirques.shx))
+
+The aim of the analysis is to examine the spatial variations in the elevations of the cirque basins, in order to infer what might be controlling their distribution.  From theory, we might expect that the "glaciation threshold" or elevation at which glaciers may form, should be lower where it is cooler and moister, and higher where it is warm and dry.  The question that can be asked here is whether the Oregon cirque distributions conform to this idea, based on examining that distribution. 
+
+Load the Lattice package and change the default colors:
+
+```{r echo=TRUE, eval=FALSE}
+library(lattice)
+trellis.device(color=TRUE, theme = "col.whitebg") # do on Windows and Mac applications
+```
+
+(A gray-background graphics window will open, but nothing else happens.  In RStudio, you won't need to open a secondary plotting window.) 
+
+Produce a 3-D scatter plot of cirque elevation as a function of latitude and longitude, with the points colored by Glacier
+
+```{r echo=TRUE, eval=FALSE}
+cloud(Elev ~ Lon*Lat, pch=16, cex=1.25, col=1+as.integer(Glacier))
+```
+
+The glaciated cirque basins should appear in red.  Relative to all cirque basins, note where the glaciated ones tend to occur.
+
+Create and plot some conditioning variables:
+
+```{r echo=TRUE, eval=FALSE}
+Lat2 <- equal.count(Lat,4,.5)
+Lon2 <- equal.count(Lon,4,.5)
+plot(Lat2)
+plot(Lon2)
+```
+
+Using those conditioning variables, construct a Lattice-type coplot of elevation as a function of longitude, given (or condtioned by) latitude:
+
+```{r echo=TRUE, eval=FALSE}
+# Cirque elevation as a function of longitude, given latitude
+plot2 <- xyplot(Elev ~ Lon | Lat2,
+    layout = c(4, 2),
+    panel = function(x, y) {
+        panel.grid(v=2)
+        panel.xyplot(x, y)
+        panel.loess(x, y, span = .8, degree = 1, family="gaussian")
+        panel.abline(lm(y~x))
+    },
+    xlab = "Longitude",
+    ylab = "Elevation (m)"
+)
+print(plot2)
+```
+
+The title bar of each panel is shaded to indicate (by means of the darker shading) the particular range of latitudes of the points that are plotted on each panel.  The leftmost panel contains the observations from the lowest latitude band, while the rightmost contains those from the highest latitude band.
+
+Note that the two lines/curves added to the plot (a lowess/loess curve and a straight-line plot) are meant to summarize the relationship within each scatter plot panel, if there is a relationship to be summarized.  In other words, the curves may not appear to fit the data very well at all, which is useful to know.  In other cases, the curves may help to reveal a relationship that would otherwise be difficult to see.  You can eliminate the curves by removing the panel functions
+panel.xyplot(etc.) and panel.abline(etc.)
+
+Edit the above code, to create a coplot for elevation as a function of  latitude, conditioned by longitude.  The most convenient way to do this is to copy and past the block of code into a text editor, make the changes, and the copy and paste then result into R.
+
+>Q5:  Describe the relationships.  (How do cirque elevations vary across the state?  Do the relationships conform to the conceptual model described above?)
+
+Produce two other kinds of Trellis plots
+
+```{r echo=TRUE, eval=FALSE}
+# Lattice stripplot
+plot4 <- stripplot(Glacier ~ Elev | Lat2*Lon2)
+print(plot4)
+
+# Lattice boxplot
+plot5 <- bwplot(Glacier ~ Elev| Lat2*Lon2)
+print(plot5)
+```
+
+Note that on these plots, the unglaciated cirque basins (Glacier = 0) in the data set will be labeled "1", while the glaciated basins (Glacier = 1) in the data set, will be labeled "2" (i.e. the first and second levels of the variable Glacier).
+
+>Q6:  Do the additional plots contribute anything to understanding the distribution of cirque elevations? 
+
+>Q7:  Describe the distribution of cirques across the state, and suggest what might influence that distribution.  It might make sense to take a look at some maps of the climate variables.
+
+>Q8:  Overall, would you say that cirque elevations vary with latitude, longitude and elevation each acting independently, or are there interactions among those controls?
+
