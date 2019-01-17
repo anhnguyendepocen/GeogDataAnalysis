@@ -20,8 +20,72 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="site_libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="site_libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="site_libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #0000ff; } /* Keyword */
+code > span.ch { color: #008080; } /* Char */
+code > span.st { color: #008080; } /* String */
+code > span.co { color: #008000; } /* Comment */
+code > span.ot { color: #ff4000; } /* Other */
+code > span.al { color: #ff0000; } /* Alert */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #008000; font-weight: bold; } /* Warning */
+code > span.cn { } /* Constant */
+code > span.sc { color: #008080; } /* SpecialChar */
+code > span.vs { color: #008080; } /* VerbatimString */
+code > span.ss { color: #008080; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #0000ff; } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ff4000; } /* Preprocessor */
+code > span.do { color: #008000; } /* Documentation */
+code > span.an { color: #008000; } /* Annotation */
+code > span.cv { color: #008000; } /* CommentVar */
+code > span.at { } /* Attribute */
+code > span.in { color: #008000; } /* Information */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -420,6 +484,10 @@ $(document).ready(function () {
 </div>
 
 
+<script>
+  addClassKlippyTo("pre.r, pre.markdown");
+  addKlippy('right', 'top', 'auto', '1', 'Copy code', 'Copied!');
+</script>
 <p><strong>Geography 4/595: Geographic Data Analysis</strong><br />
 <strong>Winter 2019</strong></p>
 <p><strong>Exercise 1: Getting and using R and RStudio</strong><br />
@@ -483,7 +551,7 @@ $(document).ready(function () {
 <li>right-click on the icon, and click on “Create Shortcut”</li>
 <li>paste the shortcut back onto the desktop</li>
 <li>right-click on the new shortcut, and click on “Properties”</li>
-<li>on the “Shortcut” tab, in the field called &quot;Start in:’ enter the full path to the <code>R</code> folder you just created (e.g. <code>c:\Users\bartlein\Documents\geog495\R</code> (Windows will help fill this in) and</li>
+<li>on the “Shortcut” tab, in the field called “Start in:’ enter the full path to the <code>R</code> folder you just created (e.g. <code>c:\Users\bartlein\Documents\geog495\R</code> (Windows will help fill this in) and</li>
 <li>on the “General” tab, change the name of the shortcut to the working folder name (e.g. “<code>geog495</code>”).</li>
 </ol>
 <p>If the shortcut has been properly created, you can click on it to start R, and it will automatically assume that its working folder is the one you created. Other shortcuts and working folders can be created.</p>
@@ -497,11 +565,7 @@ $(document).ready(function () {
 <p><strong>4. Starting R</strong></p>
 <p>To start the R “gui” (graphical user interface), just click on the shortcut you just created (in Windows) or on the R.app GUI (Mac) in the Applications folder (which you can copy to the Dock).</p>
 <p>After a brief pause, you should see the message:</p>
-<pre><code>R version 3.5.2 (2018-12-20) — &quot;Eggshell Igloo&quot;
-Copyright (C) 2018 The R Foundation for Statistical Computing
-Platform: x86_64-apple-darwin15.6.0 (64-bit)
-...      
-[Previously saved workspace restored]</code></pre>
+<p><code>R version 3.5.2 (2018-12-20) — &quot;Eggshell Igloo&quot;</code><br> <code>Copyright (C) 2018 The R Foundation for Statistical Computing</code><br> <code>Platform: x86_64-apple-darwin15.6.0 (64-bit)</code><br> <code>...</code> <code>[Previously saved workspace restored]</code><br></p>
 <p>appear in the “RConsole” window. In Windows, you can verify that R is looking at the correct folder (working directory) by clicking on File &gt; Change dir… on the RGui menu. If you’re in the folder you just created, fine, otherwise you could browse to it from that dialog.</p>
 <p>On the Mac, you will probably be in a default folder. You can use the Misc &gt; Change Working Directory… menu command to browse to the folder you created above. To change the working directory that R starts with each time, you can use the R &gt; Preferences… &gt; General, Startup dialog.</p>
 <p>The command window (or RConsole) is where you type commands and view text (as opposed to graphics) results. The prompt is the character “&gt;” (in red in Windows, usually) at the bottom of the text in the R Console window. If you’ve scrolled away from the prompt, typing anything in the window will bounce you back.</p>
@@ -562,13 +626,13 @@ Platform: x86_64-apple-darwin15.6.0 (64-bit)
 <p><strong>9. A Data Set</strong></p>
 <p>The Summit Cr. geomorphic data consists of 88 observations of 11 variables along an 0.8-km stretch of Summit Cr. in eastern Oregon. This data set was collected by Pat McDowell, Frank Magilligan and their students as part of their study of the effects of cattle “exclosures” on the morphology of stream channels. They divided this stretch of Summit Cr. into individual “hydrologic units” (HU’s) that were either pools, shallow “riffles,” or straight “glides.” The overall study area is divided into three sections: an upstream reach (reach A) in which cattle are permitted to graze, a middle reach (reach B) from which cattle have been excluded, and a downstream reach (reach C), in which cattle were again permitted to graze.</p>
 <p>The dataset contains the following information:</p>
-<table style="width:100%;">
+<table style="width:60%;">
 <colgroup>
-<col width="13%" />
+<col width="8%" />
+<col width="8%" />
+<col width="11%" />
 <col width="13%" />
 <col width="18%" />
-<col width="23%" />
-<col width="31%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -680,31 +744,31 @@ Platform: x86_64-apple-darwin15.6.0 (64-bit)
 <li>save the file.</li>
 </ol>
 <p>To <strong><em>read</em></strong> the Summit Cr. data set into R (Step 2), type the following:</p>
-<pre><code>sumcr &lt;- read.csv(&quot;../data/sumcr.csv&quot;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sumcr &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;../data/sumcr.csv&quot;</span>)</code></pre></div>
 <p>NOTE: This will only work if the file was downloaded to <code>data</code> folder in the working folder. If you saved it somewhere else, like your Downloads folder, you should move it into your working folder. On the Mac, you may have to change the working folder using the Misc &gt; Change Working Directory… menu command. On both a PC or a Mac, you can verify that the file is in the right place by typing:</p>
-<pre><code>dir()</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dir</span>()</code></pre></div>
 <p>NOTE: Punctuation, spelling and case are important. R is case sensitive; in other words, <code>Sumcr</code> is not the same thing as <code>sumcr</code>, and <code>Read.csv</code> is not the same as <code>read.csv</code>.</p>
 <p>If you’re not in the working directory, you can use File &gt; Change dir… (Windows) or Misc &gt; Change Working Directory… (Mac). You can also “strong-arm” the change of the working directory using the <code>setwd()</code> function:</p>
-<pre><code>setwd(&quot;c:\\Users\\bartlein\\Documents\\geog495\\data&quot;) # Windows</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setwd</span>(<span class="st">&quot;c:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">bartlein</span><span class="ch">\\</span><span class="st">Documents</span><span class="ch">\\</span><span class="st">geog495</span><span class="ch">\\</span><span class="st">data&quot;</span>) <span class="co"># Windows</span></code></pre></div>
 <p>Note the use of the double-backslash “<code>\\</code>” in specifying the folder paths in Windows. (R uses a single backslash “<code>\</code>” as an operator, and so the first backslash “escapes” the second, telling R to treat the combination like a single backslash.)</p>
-<pre><code>setwd(&quot;/Users/bartlein/Documents/geog495/data&quot;)  # Mac</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setwd</span>(<span class="st">&quot;/Users/bartlein/Documents/geog495/data&quot;</span>)  <span class="co"># Mac</span></code></pre></div>
 <p>The <code>read.csv()</code> function creates a data frame “object” called “<code>sumcr</code>” that contains the data from the .csv file. Note that the data frame object doesn’t need to have the same name as the file, but by convention it usually does. The “<code>&lt;-</code>” arrow is called the “assignment operator”, which, as it sounds, assigns whatever object is to its right to whatever object is to its left, sometimes creating a new object in the process. In reading a line of text, the operator is usually spoken as “gets” as in “the dataframe <code>sumcr</code> gets the contents of the <code>sumcr.csv</code> file.” In newer versions of R, the equals (=) sign can be used, but in most existing texts and .pdf files, the <code>&lt;-</code> version is used.</p>
 <p>The advantage of the download-first-then-read-in approach is that you have an Excel-editable copy of the data set in your working folder.</p>
 <p>An alternative approach for reading data is to use the <code>file.choose()</code> function to browse to a particular file:</p>
-<pre><code>sumcr &lt;- read.csv(file.choose())</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sumcr &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">file.choose</span>())</code></pre></div>
 <p>This will open a “Select file…” dialog box. There’s a disadvantage to this approach in that it is not “reproducible”–at some later time, you may not be able to recall what file was read in to produce a particular result.</p>
 <p><em>Looking at the data</em></p>
 <p>The first thing to do is to check to see that R indeed has the Summit Cr. data frame in its workspace. This can be done by typing <code>ls()</code> (the list function) at the command line, or (Windows) clicking on Misc &gt; List objects on the RGui menu.</p>
 <p>The data frame can be examined by simply typing the name of the data frame at the command line (e.g. <code>sumcr</code>), which will create a lot of output, or by typing <code>head(sumcr)</code>, which lists the first five lines (and guess what <code>tail(sumcr)</code> does..)..</p>
 <p>The <code>names()</code> function can be used to get a list of the variables in a data frame, e.g.:</p>
-<pre><code>names(sumcr)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(sumcr)</code></pre></div>
 <p>The individual variables are referred to by a “compound” name consisting of the data frame name and the variable name, joined by a dollar sign (<code>$</code>), e.g. <code>sumcr$WidthWS</code> Note that variable names are case-sensitive too (e.g. the name <code>sumcr$WidthWS</code> is not the same as <code>sumcr$widthws</code>.) This manner of referring to variables can be made less cumbersome by using the <code>attach()</code> function. For example, try typing the following (don’t type the material in parentheses, or the comments within a line, just the text in the Courier type face:</p>
-<pre><code>sumcr$WidthWS   # (works ok)
-WidthWS   # (produces the error message &#39;Object &quot;WidthWS&quot; not found&#39;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sumcr<span class="op">$</span>WidthWS   <span class="co"># (works ok)</span>
+WidthWS   <span class="co"># (produces the error message &#39;Object &quot;WidthWS&quot; not found&#39;)</span></code></pre></div>
 <p>Then try typing <code>attach(sumcr)</code>, press Enter, and now type <code>WidthWS</code> on the next line (should work ok now).</p>
 <p><strong>11. What to hand in.</strong></p>
 <p>Use the <code>summary()</code> function to produce a quick summarization of the data set:</p>
-<pre><code>summary(sumcr)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(sumcr)</code></pre></div>
 <p>To print the summary out, select the text, and click on the “print” icon, or use File &gt; Print.</p>
 <p><strong>12. Quitting RStudio</strong></p>
 <p>R does not automatically save any script files you may have created or any updates that may have been made to <code>.RData</code>, but there are dialogs that should pop up when quitting RStudio. Quit RStudio using the File &gt; Quit Session… menu. A dialog box will pop up saying “Quit R Session, Save workspace image to …” Click on “Save”, and likewise for any <code>.R</code> or <code>.Rmd</code> scripts you may have created.</p>

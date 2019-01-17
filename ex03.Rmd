@@ -17,9 +17,6 @@ pdf.options(useDingbats = TRUE)
 klippy::klippy(position = c('top', 'right'))
 ```
 
-##```{r child="ex03.md"}
-##```
-
 **Geography 4/595:  Geographic Data Analysis**  
 **Winter 2019**
 
