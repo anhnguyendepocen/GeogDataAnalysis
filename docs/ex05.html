@@ -20,8 +20,72 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="site_libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="site_libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="site_libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #0000ff; } /* Keyword */
+code > span.ch { color: #008080; } /* Char */
+code > span.st { color: #008080; } /* String */
+code > span.co { color: #008000; } /* Comment */
+code > span.ot { color: #ff4000; } /* Other */
+code > span.al { color: #ff0000; } /* Alert */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #008000; font-weight: bold; } /* Warning */
+code > span.cn { } /* Constant */
+code > span.sc { color: #008080; } /* SpecialChar */
+code > span.vs { color: #008080; } /* VerbatimString */
+code > span.ss { color: #008080; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #0000ff; } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ff4000; } /* Preprocessor */
+code > span.do { color: #008000; } /* Documentation */
+code > span.an { color: #008000; } /* Annotation */
+code > span.cv { color: #008000; } /* CommentVar */
+code > span.at { } /* Attribute */
+code > span.in { color: #008000; } /* Information */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -420,6 +484,10 @@ $(document).ready(function () {
 </div>
 
 
+<script>
+  addClassKlippyTo("pre.r, pre.markdown");
+  addKlippy('right', 'top', 'auto', '1', 'Copy code', 'Copied!');
+</script>
 <p><strong>Geography 4/595: Geographic Data Analysis</strong><br />
 <strong>Winter 2019</strong></p>
 <p><strong>Exercise 5: Some data wrangling and matrix algebra</strong><br />
@@ -436,20 +504,20 @@ $(document).ready(function () {
 <p>The full data set can be downloaded from here: <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/EugeneClim.csv">EugeneClim.csv</a></p>
 <p>(Download these to your current working directory, which can be found using <code>getwd()</code>.)</p>
 <p>Also install the <code>tidyverse</code> package, which in turn installs a number of individual packages that are used in reshaping data.</p>
-<pre><code># install the &quot;tidyverse&quot; suite of packages
-install.packages(&quot;tidyverse&quot;)
-# library
-library(tidyverse)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install the &quot;tidyverse&quot; suite of packages</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)
+<span class="co"># library</span>
+<span class="kw">library</span>(tidyverse)</code></pre></div>
 <p>Read in a typical “tidy” <code>.csv</code> file, that has variables in columns and observations in rows. This can be done in the usual way using the <code>read.csv()</code> function, which creates a standard data frame, or, if the <code>reader</code> packages has been loaded by <code>library(tidyverse)</code>, using the <code>read_csv()</code> function, which creates a “tibble”. The data here are a “short” three-year-long subset of Eugene monthly climate data.</p>
-<pre><code># read a .csv file using the `readr` package
-csv_file &lt;- &quot;/Users/bartlein/Projects/geog495/data/csv/EugeneClim-short.csv&quot;
-eugclim &lt;- read_csv(csv_file)
-eugclim</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read a .csv file using the `readr` package</span>
+csv_file &lt;-<span class="st"> &quot;/Users/bartlein/Projects/geog495/data/csv/EugeneClim-short.csv&quot;</span>
+eugclim &lt;-<span class="st"> </span><span class="kw">read_csv</span>(csv_file)
+eugclim</code></pre></div>
 <p>Produce a few plots to look at the time series of individual variables, and to look at the annual cycle of each. The first use of <code>plot()</code> below plots the time series of monthly average temperature (<code>tavg</code>), while the second illustrates what the annual cycle looks like.</p>
-<pre><code># time-series plot
-plot(eugclim$tavg ~ eugclim$yrmn, type=&quot;o&quot;, pch=16, xaxp=c(2013, 2016, 3))
-# by month
-plot(eugclim$mon, eugclim$tavg, pch=16, xaxp=c(1, 12, 1))</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># time-series plot</span>
+<span class="kw">plot</span>(eugclim<span class="op">$</span>tavg <span class="op">~</span><span class="st"> </span>eugclim<span class="op">$</span>yrmn, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">2013</span>, <span class="dv">2016</span>, <span class="dv">3</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># by month</span>
+<span class="kw">plot</span>(eugclim<span class="op">$</span>mon, eugclim<span class="op">$</span>tavg, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">12</span>, <span class="dv">1</span>))</code></pre></div>
 <p>Repeat the plots for some other variables, in particular <code>prcp</code> (monthly total precipitation).</p>
 <p>(See (see <a href="https://pjbartlein.github.io/GeogDataAnalysis/lec08.html#variables" class="uri">https://pjbartlein.github.io/GeogDataAnalysis/lec08.html#variables</a> for a listing of variables)</p>
 <blockquote>
@@ -457,26 +525,26 @@ plot(eugclim$mon, eugclim$tavg, pch=16, xaxp=c(1, 12, 1))</code></pre>
 </blockquote>
 <p><strong>3. Transforming (reshaping) an alternatively shaped table of data</strong></p>
 <p>An alternative layout for the data table (of just the precipitation-related variables) has the data arranged with variables in rows and months in columns. Read those data in:</p>
-<pre><code># alternative layout of precipitation data
-csv_file &lt;- &quot;/Users/bartlein/Projects/geog495/data/csv/EugeneClim-short-alt-pvars.csv&quot;
-eugclim_alt &lt;- read_csv(csv_file)
-eugclim_alt</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># alternative layout of precipitation data</span>
+csv_file &lt;-<span class="st"> &quot;/Users/bartlein/Projects/geog495/data/csv/EugeneClim-short-alt-pvars.csv&quot;</span>
+eugclim_alt &lt;-<span class="st"> </span><span class="kw">read_csv</span>(csv_file)
+eugclim_alt</code></pre></div>
 <blockquote>
 <p>Q2 Describe the different form of the two tables (<code>eugclim</code> and <code>eugclim_alt</code>). Can you think of a way to produce a time-series plot of precipitation using the data in <code>eugclim_alt</code>? (If so, show the code for doing that, and if not, why not?)</p>
 </blockquote>
 <p>Now use the <code>gather()</code> and <code>spread()</code> functions from the <code>tidyr</code> package to reshape the data. This is done here in two steps:</p>
-<pre><code># reshape by gathering and spreading
-# 1) gather
-eugclim_alt2 &lt;- gather(eugclim_alt, `1`:`12`, key=&quot;month&quot;, value=&quot;cases&quot;)
-eugclim_alt2$month &lt;- as.integer(eugclim_alt2$month)
-eugclim_alt2</code></pre>
-<pre><code># 2) spread
-eugclim_alt3 &lt;- spread(eugclim_alt2, key=&quot;param&quot;, value=cases)
-eugclim_alt3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># reshape by gathering and spreading</span>
+<span class="co"># 1) gather</span>
+eugclim_alt2 &lt;-<span class="st"> </span><span class="kw">gather</span>(eugclim_alt, <span class="st">`</span><span class="dt">1</span><span class="st">`</span><span class="op">:</span><span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="dt">key=</span><span class="st">&quot;month&quot;</span>, <span class="dt">value=</span><span class="st">&quot;cases&quot;</span>)
+eugclim_alt2<span class="op">$</span>month &lt;-<span class="st"> </span><span class="kw">as.integer</span>(eugclim_alt2<span class="op">$</span>month)
+eugclim_alt2</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 2) spread</span>
+eugclim_alt3 &lt;-<span class="st"> </span><span class="kw">spread</span>(eugclim_alt2, <span class="dt">key=</span><span class="st">&quot;param&quot;</span>, <span class="dt">value=</span>cases)
+eugclim_alt3</code></pre></div>
 <p>Plot the reshaped data (<code>eugclim_alt3</code>) to verify that they indeed have been reshaped correctly.</p>
-<pre><code># plot the reshaped data
-eugclim_alt3$yrmn &lt;- eugclim_alt3$year + (as.integer(eugclim_alt3$month)-1)/12
-plot(eugclim_alt3$prcp ~ eugclim_alt3$yrmn, type=&quot;o&quot;, pch=16, col=&quot;blue&quot;, xaxp=c(2013, 2016, 3))</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot the reshaped data</span>
+eugclim_alt3<span class="op">$</span>yrmn &lt;-<span class="st"> </span>eugclim_alt3<span class="op">$</span>year <span class="op">+</span><span class="st"> </span>(<span class="kw">as.integer</span>(eugclim_alt3<span class="op">$</span>month)<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">12</span>
+<span class="kw">plot</span>(eugclim_alt3<span class="op">$</span>prcp <span class="op">~</span><span class="st"> </span>eugclim_alt3<span class="op">$</span>yrmn, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">2013</span>, <span class="dv">2016</span>, <span class="dv">3</span>))</code></pre></div>
 <blockquote>
 <p>Q3: Compare <code>eugclim_alt2</code> and <code>eugclim_alt3</code>. What did the application of <code>gather()</code> do in creating <code>eugclim_alt2</code>, and what did the application of <code>spread()</code> do in creating <code>eugclim_alt3</code>?</p>
 </blockquote>
@@ -485,50 +553,48 @@ plot(eugclim_alt3$prcp ~ eugclim_alt3$yrmn, type=&quot;o&quot;, pch=16, col=&quo
 </blockquote>
 <p><strong>4. A little matrix algebra</strong></p>
 <p>Create three matrices, <strong>A</strong>, <strong>B</strong>, and <strong>C</strong>:</p>
-<pre><code># create three matrices
-# default fill method: byrow = FALSE
-A &lt;- matrix(c(6, 9, 12, 13, 21, 5), nrow=3, ncol=2)
-A
-
-# same elements, but byrow = TRUE
-B &lt;-  matrix(c(6, 9, 12, 13, 21, 5), nrow=3, ncol=2, byrow=TRUE)
-B
-
-# a third matrix
-C &lt;- matrix(c(1,2,3,4,5,6,7,8,9), nrow=3, ncol=3)
-C</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create three matrices</span>
+<span class="co"># default fill method: byrow = FALSE</span>
+A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">21</span>, <span class="dv">5</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">2</span>)
+A</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># same elements, but byrow = TRUE</span>
+B &lt;-<span class="st">  </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">21</span>, <span class="dv">5</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)
+B</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a third matrix</span>
+C &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">3</span>)
+C</code></pre></div>
 <blockquote>
 <p>Q5 Describe the shapes of the three matrices. (Note that the <code>dim()</code> function applied to a matrix (e.g. <code>dim(A)</code>) displays the number of rows and the number of columns in the matrix.)</p>
 </blockquote>
 <p><em>Matrix addition</em></p>
 <p>Add <strong>A</strong> and <strong>B</strong>:</p>
-<pre><code># matrix addition
-F &lt;- A + B
-F</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># matrix addition</span>
+F &lt;-<span class="st"> </span>A <span class="op">+</span><span class="st"> </span>B
+F</code></pre></div>
 <p>Now try adding <strong>A</strong> and <strong>C</strong>:</p>
-<pre><code>G &lt;- A + C</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">G &lt;-<span class="st"> </span>A <span class="op">+</span><span class="st"> </span>C</code></pre></div>
 <blockquote>
 <p>Q6: What happend? Can <strong>A</strong> and <strong>C</strong> be added? Why not? (Again, the <code>dim()</code> function might be useful.)</p>
 </blockquote>
 <p><em>Matrix multiplication</em></p>
 <p>Matrix multiplication (as distinct from element-by-element multiplication) produces a new matrix whose elements are sums of squares and cross products of the elements of matrices being multiplied (see <a href="https://pjbartlein.github.io/GeogDataAnalysis/topics/matrix.pdf">matrix.pdf</a>). Matrix multiplication uses <code>%*%</code> as the operator.</p>
 <p>“Postmultiply” the matrix <strong>C</strong> by <strong>A</strong>:</p>
-<pre><code># matrix multiplication
-Q &lt;- C %*% A
-Q</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># matrix multiplication</span>
+Q &lt;-<span class="st"> </span>C <span class="op">%*%</span><span class="st"> </span>A
+Q</code></pre></div>
 <p>… and try to postmultiply <strong>A</strong> by <strong>B</strong> (e.g. <code>T &lt;- A %*% B</code>)</p>
 <blockquote>
 <p>Q7: What happens here? What are the dimensions of <strong>C</strong>? What does the message <code>non-conformable arguments</code> imply about the shapes of <strong>A</strong> and <strong>B</strong>?</p>
 </blockquote>
 <p><em>Matrix inversion</em></p>
 <p>To illustrate matrix inversion (i.e. the matrix algebra version of scalar division), a realistic matrix can be used, in this case the correlation matrix of the temperature variables in the <code>orstationc</code> data set:</p>
-<pre><code># a realistic matrix, orstationc temperature-variable correlation matrix
-R &lt;- cor(cbind(orstationc$tjan, orstationc$tjul, orstationc$tann))
-R</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a realistic matrix, orstationc temperature-variable correlation matrix</span>
+R &lt;-<span class="st"> </span><span class="kw">cor</span>(<span class="kw">cbind</span>(orstationc<span class="op">$</span>tjan, orstationc<span class="op">$</span>tjul, orstationc<span class="op">$</span>tann))
+R</code></pre></div>
 <p>Get the inverse of <strong>R</strong>:</p>
-<pre><code># matrix inversion
-Rinv &lt;- solve(R)
-Rinv</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># matrix inversion</span>
+Rinv &lt;-<span class="st"> </span><span class="kw">solve</span>(R)
+Rinv</code></pre></div>
 <p>One property of the inverse matrix is that when pre- or postmultiplied by the original matrix, the identity matrix, <strong>I</strong> should be produced.</p>
 <blockquote>
 <p>Q8: Check to see if <code>Rinv</code> is indeed the inverse of <code>R</code>. (Show the results of the check.)</p>
