@@ -13,6 +13,7 @@ output:
 options(width = 105)
 knitr::opts_chunk$set(dev='png', dpi=300, cache=TRUE)
 pdf.options(useDingbats = TRUE)
+klippy::klippy(position = c('top', 'right'))
 ```
 
 #Introduction#
@@ -159,7 +160,7 @@ s3d$points3d(or.map$x,or.map$y,rep(0,length(or.map$x)), type="l")
 
 The `map()` function generates the outlines of a map of Oregon counties, and stores them in `or.map`, then the colors are figured out, and finally a 3-D scatter plot is made (using the `scatterplot3d()` function, and  finally a 3-D scatter plot is made (using the scatterplot3d() function, and the points and droplines are added. 
 
-```{r}
+```{r echo=TRUE, eval=FALSE}
 detach(orstationc)
 ```
 
