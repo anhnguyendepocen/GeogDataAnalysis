@@ -1,8 +1,6 @@
 **Geog. 4/595 --  Advanced Geographic Data Analysis**  
 **Winter 2019 -- Due Monday, February 18th**
 
-Note:  This is the Winter 2018 version.  This year's version will be posted later.
-
 Answer the following questions in clear, complete, and grammatically-correct sentences. You may, however, illustrate any specific answer by using a table or figure, with accompanying text. Be brief, but informative. *Make sure to answer all parts of each question.*
 
 Do not exceed two double-spaced pages (in a 10 or 12-point font, with normal margins) for each question (figures may be attached as additional pages).  Because it is likely that the opportunity to discuss the questions with others will arise, you may do so, but work out and write down the answers yourself.
