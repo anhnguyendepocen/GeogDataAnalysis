@@ -1,4 +1,4 @@
-**Geog. 4/595 --  Advanced Geographic Data Analysis**  
+**Geog. 4/595 -- Geographic Data Analysis**  
 **Winter 2019 -- Due Monday, February 18th**
 
 Answer the following questions in clear, complete, and grammatically-correct sentences. You may, however, illustrate any specific answer by using a table or figure, with accompanying text. Be brief, but informative. *Make sure to answer all parts of each question.*
