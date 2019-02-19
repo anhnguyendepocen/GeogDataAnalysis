@@ -1,13 +1,13 @@
 ---
 title: "Exercise 7"
 output: 
-html_document:
-  fig_caption: no
-  number_sections: no
-  toc: no
-  toc_float: false
-  collapsed: no
-  css: html-md-01.css
+  html_document:
+    fig_caption: no
+    number_sections: no
+    toc: no
+    toc_float: false
+    collapsed: no
+    css: html-md-01.css
 ---
 
 ```{r set-options, echo=FALSE}
