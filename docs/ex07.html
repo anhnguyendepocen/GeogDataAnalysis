@@ -20,8 +20,72 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="site_libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="site_libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="site_libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #0000ff; } /* Keyword */
+code > span.ch { color: #008080; } /* Char */
+code > span.st { color: #008080; } /* String */
+code > span.co { color: #008000; } /* Comment */
+code > span.ot { color: #ff4000; } /* Other */
+code > span.al { color: #ff0000; } /* Alert */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #008000; font-weight: bold; } /* Warning */
+code > span.cn { } /* Constant */
+code > span.sc { color: #008080; } /* SpecialChar */
+code > span.vs { color: #008080; } /* VerbatimString */
+code > span.ss { color: #008080; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #0000ff; } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ff4000; } /* Preprocessor */
+code > span.do { color: #008000; } /* Documentation */
+code > span.an { color: #008000; } /* Annotation */
+code > span.cv { color: #008000; } /* CommentVar */
+code > span.at { } /* Attribute */
+code > span.in { color: #008000; } /* Information */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -51,7 +115,7 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="html-md-01.css" type="text/css" />
+<link rel="stylesheet" href="SI-md-08.css" type="text/css" />
 
 </head>
 
@@ -420,10 +484,14 @@ $(document).ready(function () {
 </div>
 
 
+<script>
+  addClassKlippyTo("pre.r, pre.markdown");
+  addKlippy('right', 'top', 'auto', '1', 'Copy code', 'Copied!');
+</script>
 <p><strong>Geography 4/595: Geographic Data Analysis</strong><br />
-<strong>Winter 2018</strong></p>
+<strong>Winter 2019</strong></p>
 <p><strong>Exercise 7: Regression Analysis</strong><br />
-<strong>Finish by Monday, March 5</strong></p>
+<strong>Finish by Monday, March 4th</strong></p>
 <p><strong>1. Introduction</strong></p>
 <p>The objective of this exercise is to illustrate regression analysis as well as multivariate plotting, which will be used to examine the data set that will be used in the regression analysis. The focus of the exercise is on the relationship between annual mean temperature at climate stations in Oregon and elevation and location as expressed by latitude and longitude. The specific goal will be to build a regression model that fits the response-variable data well, and does not suffer from assumption violations.</p>
 <p>Here’s a link to a .csv file containing the data: <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/ortann.csv">[ortann.csv]</a>.</p>
@@ -432,35 +500,35 @@ $(document).ready(function () {
 <p><strong>2. Maps and scatter plots</strong></p>
 <p>The exercise will involve fitting a succession of models, the “goodness-of-fit” of which can be viewed by examining the patterns in maps of the residuals. These should show progressively less obvious patterns as the fit improves.</p>
 <p>The first step in any regression analysis (or for that matter ANY analysis) is to look at the data. In the example below, the dependent or response variable will be annual temperature at the Oregon climate stations, and the predictors will be elevation and location (latitude and longitude). A quick way to get scatter plots is to produce a matrix plot</p>
-<pre><code>attach(ortann)
-plot(ortann[,2:5])</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attach</span>(ortann)
+<span class="kw">plot</span>(ortann[,<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>])</code></pre></div>
 <p>The square bracket selection omits the first column of the <code>ortann</code> data frame from the plot (which contains the station names).</p>
 <p>To continue, the following script will produce some maps of the data:</p>
-<pre><code># load some packages
-library(maptools)
-library(RColorBrewer)
-library(classInt)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load some packages</span>
+<span class="kw">library</span>(maptools)
+<span class="kw">library</span>(RColorBrewer)
+<span class="kw">library</span>(classInt)
 
-# Set plotting variable and get colors
-plottitle &lt;- &quot;Annual Temperature (C)&quot;
-varname &lt;- &quot;tann&quot; # name of variable to plot
-plotvar &lt;- tann # assignment of variable to plotvar
-nclr &lt;- 8 # number of colors
-plotclr &lt;- brewer.pal(nclr,&quot;PuOr&quot;)
-plotclr &lt;- plotclr[nclr:1] # reorder colors
-class &lt;- classIntervals(plotvar, nclr, style=&quot;quantile&quot;)
-colcode &lt;- findColours(class, plotclr)
-cutpts &lt;- round(class$brks, digits=1)
+<span class="co"># Set plotting variable and get colors</span>
+plottitle &lt;-<span class="st"> &quot;Annual Temperature (C)&quot;</span>
+varname &lt;-<span class="st"> &quot;tann&quot;</span> <span class="co"># name of variable to plot</span>
+plotvar &lt;-<span class="st"> </span>tann <span class="co"># assignment of variable to plotvar</span>
+nclr &lt;-<span class="st"> </span><span class="dv">8</span> <span class="co"># number of colors</span>
+plotclr &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(nclr,<span class="st">&quot;PuOr&quot;</span>)
+plotclr &lt;-<span class="st"> </span>plotclr[nclr<span class="op">:</span><span class="dv">1</span>] <span class="co"># reorder colors</span>
+class &lt;-<span class="st"> </span><span class="kw">classIntervals</span>(plotvar, nclr, <span class="dt">style=</span><span class="st">&quot;quantile&quot;</span>)
+colcode &lt;-<span class="st"> </span><span class="kw">findColours</span>(class, plotclr)
+cutpts &lt;-<span class="st"> </span><span class="kw">round</span>(class<span class="op">$</span>brks, <span class="dt">digits=</span><span class="dv">1</span>)
 
-# Plot the shape file and the selected variable
-plot(orotl.shp, xlim=c(-124.5, -115), ylim=c(41,47))
-# add points
-points(longitude, latitude, pch=16, col=colcode, cex=2)
-points(longitude, latitude, cex=2)
-# add legend
-legend(-117, 45, legend=names(attr(colcode, &quot;table&quot;)),
-     fill=attr(colcode, &quot;palette&quot;), cex=0.6, bty=&quot;n&quot;)
-title(plottitle)</code></pre>
+<span class="co"># Plot the shape file and the selected variable</span>
+<span class="kw">plot</span>(orotl.shp, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">124.5</span>, <span class="op">-</span><span class="dv">115</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">41</span>,<span class="dv">47</span>))
+<span class="co"># add points</span>
+<span class="kw">points</span>(longitude, latitude, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span>colcode, <span class="dt">cex=</span><span class="dv">2</span>)
+<span class="kw">points</span>(longitude, latitude, <span class="dt">cex=</span><span class="dv">2</span>)
+<span class="co"># add legend</span>
+<span class="kw">legend</span>(<span class="op">-</span><span class="dv">117</span>, <span class="dv">45</span>, <span class="dt">legend=</span><span class="kw">names</span>(<span class="kw">attr</span>(colcode, <span class="st">&quot;table&quot;</span>)),
+   <span class="dt">fill=</span><span class="kw">attr</span>(colcode, <span class="st">&quot;palette&quot;</span>), <span class="dt">cex=</span><span class="fl">0.6</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)
+<span class="kw">title</span>(plottitle)</code></pre></div>
 <p>To plot maps of additional variables, only the second and third blocks of code will need to be executed again, after changing:</p>
 <ol style="list-style-type: decimal">
 <li>The title of the plot (<code>plottitle</code> – a text string in quotes)</li>
@@ -471,15 +539,15 @@ title(plottitle)</code></pre>
 <p><strong>3. An initial “null” or “naïve” model</strong></p>
 <p>The simplest of models is one in which a single value, usually the mean, is used as the “fitted value” or prediction for each observation. This model can be thought of as a “naïve” model—the only thing the response variables “knows about” is its own mean value, and nothing about the influence of the eventual predictor variables. It might be the case that the potential predictor variables (elevation, location) have no influence on the response variable, and in such a case, the mean might be the best predictor of the values of the response variable, but a rather boring one from the perspective of explanation.</p>
 <p>The null or naive model can be fit using the lm() function that is used to fit more elaborate models.</p>
-<pre><code># a null model, mean as the prediction
-tann.lm0 &lt;- lm(tann ~ 1)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a null model, mean as the prediction</span>
+tann.lm0 &lt;-<span class="st"> </span><span class="kw">lm</span>(tann <span class="op">~</span><span class="st"> </span><span class="dv">1</span>)</code></pre></div>
 <p>Note the “formula” in the function above; <code>tann ~ 1</code> means “predict <code>tann</code> as a function of a constant value” (namely the mean). The <code>lm()</code> function is silent, meaning it does not produce any output itself, but it can always be examined by typing the name of the object it produces, e.g., <code>tann.lm0</code>, or by applying the <code>summary()</code> or <code>attributes()</code> functions to that object</p>
-<pre><code># plot the regression line
-plot(tann ~ elevation)
-abline(abline(mean(tann),0))</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot the regression line</span>
+<span class="kw">plot</span>(tann <span class="op">~</span><span class="st"> </span>elevation)
+<span class="kw">abline</span>(<span class="kw">abline</span>(<span class="kw">mean</span>(tann),<span class="dv">0</span>))</code></pre></div>
 <p>Here the regression line is simply a horizontal line at the mean value of the response variable. Another way of looking at this is that the slope of the regression line is 0, and the intercept is equal to the mean of the dependent or response variable.</p>
-<pre><code># examine the model object
-summary(tann.lm0)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># examine the model object</span>
+<span class="kw">summary</span>(tann.lm0)</code></pre></div>
 <p>The <code>summary()</code> function here provides, in the case of this initial model, a somewhat overblown description of the mean and standard deviation of <code>tann</code>, which can be verified using the <code>mean()</code> and <code>sd()</code> functions.</p>
 <p>The <code>plot()</code> function with a model object as an argument provides a sequence of four diagnostic plots. These include:</p>
 <ul>
@@ -489,39 +557,39 @@ summary(tann.lm0)</code></pre>
 <li>Cook’s distance: spikes on this plot indicate observations that have an unusually large influence on the regression analysis.</li>
 </ul>
 <p>Before plotting, use the <code>par()</code> function to set up a 2x2 arrangement of plots.</p>
-<pre><code># standard regression diagnostics (4-up)
-oldpar &lt;- par(mfrow = c(2, 2))
-plot(tann.lm0, which=c(1,2,4))
-par(oldpar)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># standard regression diagnostics (4-up)</span>
+oldpar &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
+<span class="kw">plot</span>(tann.lm0, <span class="dt">which=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>))
+<span class="kw">par</span>(oldpar)</code></pre></div>
 <p>(Note that only three plots are produced here—the leverage plot is skipped for this model, because it doesn’t make any sense.))</p>
 <p>The first use of the <code>par()</code> function sets up the RGraphics window to contain four plots on a single page, and <code>par(oldpar)</code> restores the original one-plot per page format. In the case of this “null” model, the normal QQ plot will provide information on the normality of the residuals, while the Cook’s distance plot indicates which observations have large influence on the mean.</p>
 <p>The residuals (deviations from the mean) can be referenced as <code>tann.lm0$residuals</code>. Use the code in Part 2 above to map <code>tann.lm0$residuals</code>. The first three lines of Block 2 should read (note the quotes in the assignment for <code>varname</code> and their absence in the assignment for <code>plotvar</code>–the first is a text string, and the second is the name of an object).</p>
-<pre><code>plottitle &lt;- &quot;Residuals from tann.lm0 (C)&quot;  
-varname &lt;- &quot;tann.lm0$residuals&quot; 
-plotvar &lt;- tann.lm0$residuals   </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plottitle &lt;-<span class="st"> &quot;Residuals from tann.lm0 (C)&quot;</span>  
+varname &lt;-<span class="st"> &quot;tann.lm0$residuals&quot;</span> 
+plotvar &lt;-<span class="st"> </span>tann.lm0<span class="op">$</span>residuals</code></pre></div>
 <blockquote>
-<p>Q1: Compare the values and the patterns of the maps of tann and tann.lm0$residuals. How are they alike, and how are they different? (Hint: Be sure to create and examine the legends.)</p>
+<p>Q1: Compare the values and the patterns of the maps of <code>tann</code> and <code>tann.lm0$residuals</code>. How are they alike, and how are they different? (Hint: Be sure to create and examine the legends.)</p>
 </blockquote>
 <p><strong>4. Bivariate regression</strong></p>
 <p>From previous analyses, it’s apparent that <code>tann</code> has a clear relationship with <code>elevation</code>, and so the successive regressions will begin using elevation as a predictor. Before fitting the regression model, explore the relationship between <code>tann and elevation</code>.</p>
-<pre><code># first regression model -- tann ~ elev
-tann.lm1 &lt;- lm(tann ~ elevation)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first regression model -- tann ~ elev</span>
+tann.lm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(tann <span class="op">~</span><span class="st"> </span>elevation)</code></pre></div>
 <p>The <code>lm()</code> function fits linear (straight-line) relationships between the response variable (<code>tann</code>) and the predictor (<code>elevation</code>). Note the formula used here: <code>tann</code> varies as a function of <code>elevation</code>.</p>
-<pre><code># plot the regression line
-plot(tann ~ elevation)
-abline(tann.lm1, col=&quot;blue&quot;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot the regression line</span>
+<span class="kw">plot</span>(tann <span class="op">~</span><span class="st"> </span>elevation)
+<span class="kw">abline</span>(tann.lm1, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</code></pre></div>
 <p>The <code>plot()</code> and <code>abline()</code> functions plot the data and draw regression line</p>
-<pre><code># examine the model object
-summary(tann.lm1)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># examine the model object</span>
+<span class="kw">summary</span>(tann.lm1)</code></pre></div>
 <p>Note that the summary table now includes the regression coefficients and several goodness-of-fit statistics.</p>
-<pre><code># standard regression diagnostics (4-up)
-oldpar &lt;- par(mfrow = c(2, 2))
-plot(tann.lm1, which=c(1,2,4,5))
-par(oldpar)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># standard regression diagnostics (4-up)</span>
+oldpar &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
+<span class="kw">plot</span>(tann.lm1, <span class="dt">which=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>))
+<span class="kw">par</span>(oldpar)</code></pre></div>
 <p>Replot the residual scatter plot (residuals vs. fitted values), adding a lowess curve to emphasize the pattern.</p>
-<pre><code># another view of the residual scatter diagram
-plot(tann.lm1$fitted.values, tann.lm1$residuals)
-lines(lowess(tann.lm1$fitted.values, tann.lm1$residuals, f=0.80), col=&quot;red&quot;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># another view of the residual scatter diagram</span>
+<span class="kw">plot</span>(tann.lm1<span class="op">$</span>fitted.values, tann.lm1<span class="op">$</span>residuals)
+<span class="kw">lines</span>(<span class="kw">lowess</span>(tann.lm1<span class="op">$</span>fitted.values, tann.lm1<span class="op">$</span>residuals, <span class="dt">f=</span><span class="fl">0.80</span>), <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</code></pre></div>
 <blockquote>
 <p>Q2: Examine the regression output in the console window. Is there a significant relationship between tann and elevation? What are the <em>F</em> statistic, its <em>p</em>-value, the Multiple R-Squared value, and the residual standard error? Are the intercept and slope significantly different from zero (and how do you know)?</p>
 </blockquote>
@@ -533,66 +601,66 @@ lines(lowess(tann.lm1$fitted.values, tann.lm1$residuals, f=0.80), col=&quot;red&
 <p><strong>5. Multiple regression</strong></p>
 <p>One of the assumptions that underlies regression analysis is that we have fit the right model, and one way of expressing the other assumptions that describe the properties of the residuals is that the residuals should appear free of any pattern. This is clearly not the case for the simple model, and the reason should be apparent–the relationship between tann and elevation is not linear. There are two possible solutions. One would be to fit a non-linear model, for example a parabola or quadratic curve to the relationship, but there really isn’t a physical justification for why the temperature decrease with increasing elevation should be non-linear in that particular fashion. An alternative approach is to look for additional predictors variables that might be able to account for the pattern in the residuals, and include these in a “multiple regression model.”</p>
 <p>An obvious set of additional predictor variables for this exercise is provided by latitude and longitude. (In practice, additional variables might not immediately come to mind.) Check to see whether any of the “information” (or pattern) in the residuals might be explained by latitude and longitude by constructing scatter plots with loess curves for the residuals:</p>
-<pre><code># plot residuals vs. other predictors
-plot(tann.lm1$residuals ~ longitude)
-lines(lowess(tann.lm1$residuals ~ longitude, f=0.80), col=&quot;red&quot;)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot residuals vs. other predictors</span>
+<span class="kw">plot</span>(tann.lm1<span class="op">$</span>residuals <span class="op">~</span><span class="st"> </span>longitude)
+<span class="kw">lines</span>(<span class="kw">lowess</span>(tann.lm1<span class="op">$</span>residuals <span class="op">~</span><span class="st"> </span>longitude, <span class="dt">f=</span><span class="fl">0.80</span>), <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
 
-plot(tann.lm1$residuals ~ latitude)
-lines(lowess(tann.lm1$residuals ~ latitude, f=0.80), col=&quot;red&quot;)</code></pre>
+<span class="kw">plot</span>(tann.lm1<span class="op">$</span>residuals <span class="op">~</span><span class="st"> </span>latitude)
+<span class="kw">lines</span>(<span class="kw">lowess</span>(tann.lm1<span class="op">$</span>residuals <span class="op">~</span><span class="st"> </span>latitude, <span class="dt">f=</span><span class="fl">0.80</span>), <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</code></pre></div>
 <blockquote>
 <p>Q4: Describe the relationships between the residuals from the linear model and latitude and longitude. (Hint: It might be good to look at the maps of residuals too.)</p>
 </blockquote>
 <p>The relationships you should have seen in the above question are important enough that we should consider including longitude and latitude as predictors in the regression model. Here’s a multiple regression model that includes location:</p>
-<pre><code># second regression -- tann ~ elevation + latitude + longitude
-tann.lm2 &lt;- lm(tann ~ elevation + latitude + longitude)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># second regression -- tann ~ elevation + latitude + longitude</span>
+tann.lm2 &lt;-<span class="st"> </span><span class="kw">lm</span>(tann <span class="op">~</span><span class="st"> </span>elevation <span class="op">+</span><span class="st"> </span>latitude <span class="op">+</span><span class="st"> </span>longitude)</code></pre></div>
 <p>This code creates another model object <code>tann.lm2</code>, which contains the results of the multiple regression with <code>tann</code> as the response, and <code>elevation</code>, <code>latitude</code>, and <code>longitude</code> as predictors. Examine the diagnostic plots and maps of the residuals from <code>tann.lm2</code>. (Hint remember to change all instances of the model object and variable names in the blocks of code necessary to do this.)</p>
 <blockquote>
 <p>Q5: Look at the summary for this model. Describe how the <em>F</em>-statistic, its <em>p</em>-value, the <em>R<sup>2</sup>, and Residual Standard Error values have changed. Are all the predictors significant (Hint: examine their </em>t*-statistics.) Are any patterns in the residuals from this model less obvious than those from the previous model? Are they completely gone?</p>
 </blockquote>
 <p>Several other multiple regression models with elevation, latitude, and longitude as predictors, (each allowing for interactions among the predictors), in a sense create additional predictors (latitude x longitude, elevation x latitude), which in the case of spatial data as here, allow the predicted “surface” more flexibility. Here are two such interaction models:</p>
-<pre><code>tann.lm3 &lt;- lm(tann ~ elevation + latitude*longitude)</code></pre>
+<p>tann.lm3 &lt;- lm(tann ~ elevation + latitude*longitude)</p>
 <p>(allows for interactions between latitude and longitude, fitting a surface slightly more complex than a simple plane).</p>
-<pre><code>tann.lm4 &lt;- lm(tann ~ elevation*latitude*longitude)</code></pre>
+<p>tann.lm4 &lt;- lm(tann ~ elevation<em>latitude</em>longitude)</p>
 <p>(simultaneous interactions among all three predictors)</p>
 <p>Because the exercise continues below, you might infer that fitting these more elaborate models doesn’t quite take care of the model deficiencies noted above.</p>
 <p><strong>6. Nonparametric (Loess) regression</strong></p>
 <p>It could be the case that the individual and joint relationships between <code>tann</code> and <code>elevation</code>, <code>latitude</code> and <code>longitude</code> in the previous multiple regressions aren’t quite perfectly represented by <em>linear</em> relationships. The loess fitting procedure can be generalized to more than one predictor variable, which allows the flexibility of the loess curve to be extended to the multiple regression context. In essence, the method produces a number of local regression analyses, allowing the form of the relationship to vary across the space defined by the predictor variables, which in this example, turns out to be geographical space.</p>
 <p>Fit a “local” (loess) regression model to the <code>tann</code> data, using <code>elevation</code> as a predictor:</p>
-<pre><code># loess -- simplest model
-tann.lo1 &lt;- loess(tann ~ elevation, span=0.80, degree=2)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># loess -- simplest model</span>
+tann.lo1 &lt;-<span class="st"> </span><span class="kw">loess</span>(tann <span class="op">~</span><span class="st"> </span>elevation, <span class="dt">span=</span><span class="fl">0.80</span>, <span class="dt">degree=</span><span class="dv">2</span>)
 
-# examine the fit
-summary(tann.lo1)
-plot(tann ~ elevation)
-hat &lt;- predict(tann.lo1)
-lines(elevation[order(elevation)], hat[order(elevation)], col=&quot;red&quot;)
-cor(tann, hat)^2 </code></pre>
+<span class="co"># examine the fit</span>
+<span class="kw">summary</span>(tann.lo1)
+<span class="kw">plot</span>(tann <span class="op">~</span><span class="st"> </span>elevation)
+hat &lt;-<span class="st"> </span><span class="kw">predict</span>(tann.lo1)
+<span class="kw">lines</span>(elevation[<span class="kw">order</span>(elevation)], hat[<span class="kw">order</span>(elevation)], <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
+<span class="kw">cor</span>(tann, hat)<span class="op">^</span><span class="dv">2</span> </code></pre></div>
 <p>The extraction of information from the model object (<code>tann.lo1</code>) is a little different when fitting a loess regression model than when fitting a linear model using the <code>lm()</code> function. Because loess regression is “nonparametric” there are no regression coefficients, and <em>F</em>- and <em>t</em>-statistics are not produced; however, the goodness-of-fit of the regression can still be determined using <em>R<sup>2</sum></em> and residual standard error values. For example, the <code>cor()</code> function can be used to get the correlation between the response variable and the fitted values. Squaring this value gives a statistic comparable with the <em>R<sup>2</sum></em> values from earlier regressions.</p>
-<pre><code># residual scatter diagram
-plot(tann.lo1$fitted, tann.lo1$residuals)
-lines(lowess(tann.lo1$fitted, tann.lo1$residuals, f=0.80), col=&quot;red&quot;)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># residual scatter diagram</span>
+<span class="kw">plot</span>(tann.lo1<span class="op">$</span>fitted, tann.lo1<span class="op">$</span>residuals)
+<span class="kw">lines</span>(<span class="kw">lowess</span>(tann.lo1<span class="op">$</span>fitted, tann.lo1<span class="op">$</span>residuals, <span class="dt">f=</span><span class="fl">0.80</span>), <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
 
-# normal probablility plot
-qqnorm(tann.lo1$residuals)</code></pre>
+<span class="co"># normal probablility plot</span>
+<span class="kw">qqnorm</span>(tann.lo1<span class="op">$</span>residuals)</code></pre></div>
 <p>This block of code constructs the residual scatter diagram. Note that the fitted (predicted) values and the residuals are contained in the variables <code>tann.lo1$fitted</code>, and <code>tann.lo1$residuals</code>.</p>
 <blockquote>
 <p>Q6: Compare the results of this regression with the first linear regression (tann.lm1), in particular compare the goodness of fit, residual scatter diagram, and map patterns of residual. Does fitting a flexible or local curve improve the fit relative to fitting a straight line?</p>
 </blockquote>
 <p>Now fit an expanded model with elevation, latitude, and longitude as predictors (equivalent to <code>tann.lm2</code>):</p>
-<pre><code># loess -- elevation, latitude, and longitude
-tann.lo2 &lt;- loess(tann ~ elevation + latitude + longitude, span=0.80, degree=2)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># loess -- elevation, latitude, and longitude</span>
+tann.lo2 &lt;-<span class="st"> </span><span class="kw">loess</span>(tann <span class="op">~</span><span class="st"> </span>elevation <span class="op">+</span><span class="st"> </span>latitude <span class="op">+</span><span class="st"> </span>longitude, <span class="dt">span=</span><span class="fl">0.80</span>, <span class="dt">degree=</span><span class="dv">2</span>)
 
-# examine the fit
-summary(tann.lo2)
-hat &lt;- predict(tann.lo2)
-cor(tann, hat)^2
+<span class="co"># examine the fit</span>
+<span class="kw">summary</span>(tann.lo2)
+hat &lt;-<span class="st"> </span><span class="kw">predict</span>(tann.lo2)
+<span class="kw">cor</span>(tann, hat)<span class="op">^</span><span class="dv">2</span>
 
-# residual scatter diagram
-plot(tann.lo2$fitted, tann.lo2$residuals)
-lines(lowess(tann.lo2$fitted, tann.lo2$residuals, f=0.80), col=&quot;red&quot;)
+<span class="co"># residual scatter diagram</span>
+<span class="kw">plot</span>(tann.lo2<span class="op">$</span>fitted, tann.lo2<span class="op">$</span>residuals)
+<span class="kw">lines</span>(<span class="kw">lowess</span>(tann.lo2<span class="op">$</span>fitted, tann.lo2<span class="op">$</span>residuals, <span class="dt">f=</span><span class="fl">0.80</span>), <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
 
-# normal probablility plot
-qqnorm(tann.lo2$residuals)</code></pre>
+<span class="co"># normal probablility plot</span>
+<span class="kw">qqnorm</span>(tann.lo2<span class="op">$</span>residuals)</code></pre></div>
 <blockquote>
 <p>Q7: Does the loess regression fit the <code>tann</code> data better, worse, or about the same as the multiple regression? (Note: it might be easier to answer Q7 and Q8 simultaneously.) Examine the residual scatter diagrams and QQ Normal plots. Has there been any improvement (i.e. less pattern) in the residuals of the <code>tann.lo2</code> model relative to those from the other regressions?</p>
 </blockquote>
