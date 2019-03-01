@@ -147,7 +147,6 @@ A two-sample *t*-test can be performed as follows:
 
 ```{r echo=TRUE, eval=FALSE}
 # t-tests among groups with different variances
-attach(orsim)
 boxplot(TJan2x, TJan1x)
 print(mean(TJan2x)-mean(TJan1x)) # the temperature difference
 tt_TJan <- t.test(TJan2x, TJan1x)

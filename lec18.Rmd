@@ -12,6 +12,7 @@ output:
 ```{r set-options, echo=FALSE}
 options(width = 105)
 load(".Rdata")
+klippy::klippy(position = c('top', 'right'))
 ```
 
 # Introduction #
