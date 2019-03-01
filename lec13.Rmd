@@ -279,7 +279,7 @@ par(oldpar)
 
 # An example of iterative diagnostic analysis #
 
-*Multiple regression* is the extension of bivariate regression to the case where there are multiple predictor variables.  (The case where there are multiple predictors and multiple responses is generally referred to as *multivariate regression*.)  This example illustrates the development of a "transfer function" a not=ideally named approach for reconstructing past climates from fossil pollen data.  The idea is to build a regression equation that illustrates the relationship between a particular climate variable as the response to a number of pollen variables as predictors using modern pollen and climate data, and then to apply this relationship "downcore" to fossil-pollen data (plugging in pollen, and getting out climate).  The data set has a few issues that often arise in practice, including the fact that the pollen variables (pollen types) are themselves correlated (violating the OLS assumption of no collinearity), and the climate variables are highly spatially autocorrelated, which could lead to autocorrelation in the residuals (violating another OLS assumption, homogeneity of variance of the residual).  The relationships between the climate and pollen variables are often curvilinear (violating yet another assumption, correct specification of the model).
+*Multiple regression* is the extension of bivariate regression to the case where there are multiple predictor variables.  (The case where there are multiple predictors and multiple responses is generally referred to as *multivariate regression*.)  This example illustrates the development of a "transfer function" a not-ideally named approach for reconstructing past climates from fossil pollen data.  The idea is to build a regression equation that illustrates the relationship between a particular climate variable as the response to a number of pollen variables as predictors using modern pollen and climate data, and then to apply this relationship "downcore" to fossil-pollen data (plugging in pollen, and getting out climate).  The data set has a few issues that often arise in practice, including the fact that the pollen variables (pollen types) are themselves correlated (violating the OLS assumption of no collinearity), and the climate variables are highly spatially autocorrelated, which could lead to autocorrelation in the residuals (violating another OLS assumption, homogeneity of variance of the residual).  The relationships between the climate and pollen variables are often curvilinear (violating yet another assumption, correct specification of the model).
 
 These issues will be examined using the standard diagnostic plots, as well as the Moran statistic for assessing spatial autocorrelation, and the curvilinearity/collinearity issue will be handled by transformation and "best subsets" predictor selection.  
 
@@ -302,14 +302,7 @@ library(rgeos)
 library(RColorBrewer)
 library(spdep)
 library(leaps)
-attach(midwtf2)
 ```
-
-```{r reg02}
-names(midwtf2)
-attach(midwtf2)
-```
-
 
 The pollen variables with numbers in their names (e.g. `Querc.25`) are transformation of the original pollen variables (`Quercus`) constructed using "power function" transformations (i.e. `Querc.25 <- Quercus^0.25`) to linearize the relationships between climate and pollen (see the scatter diagrams below).  The transformation parameters were chosen by inspecting individual scatter diagrams between a climate variable and pollen variable.
 
@@ -318,6 +311,9 @@ The pollen variables with numbers in their names (e.g. `Querc.25`) are transform
 *Always* look at the data before running any kind of analysis. Begin by mapping the data.  Get the point locations of each modern pollen (and climate) sample, and plot the distance-weighted neighbors (for calculating the Moran statistic) using a distance threshold of 100km
 
 ```{r mr03}
+attach(midwtf2)
+names(midwtf2)
+
 # get point locations of modern data
 midwtf2.loc=cbind(longitud, latitude)
 
