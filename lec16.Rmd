@@ -23,7 +23,7 @@ load(".Rdata")
 
 *Principal components analysis (PCA)* is a widely used multivariate analysis method, the general aim of which is to reveal systematic covariations among a group of variables.   The analysis can be motivated in a number of different ways, including (in geographical contexts) finding groups of variables that measure the same underlying dimensions of a data set, describing the basic anomaly patterns that appear in spatial data sets, or producing a general index of the common variation of a set of variables.
 
-- Example:  Davis' boxes ([data](https://pjbartlein.github.io/GeogDataAnalysis/figures/Davis_PCA_data.png), [plot](https://pjbartlein.github.io/GeogDataAnalysis/figures/Davis_PCA_boxes.png), [scatter](https://pjbartlein.github.io/GeogDataAnalysis/figures/Davis_PCA_scatter.png), [components](https://pjbartlein.github.io/GeogDataAnalysis/figures/Davis_PCA_scores.png)), (Davis, J.C., 2001, *Statistics and Data Analysis in Geology*, Wiley)
+- Example:  Davis' boxes ([data](https://pjbartlein.github.io/GeogDataAnalysis/figures/Davis_PCA_data.png), [plot](https://pjbartlein.github.io/GeogDataAnalysis/images/Davis_PCA_boxes.png), [scatter](https://pjbartlein.github.io/GeogDataAnalysis/images/Davis_PCA_scatter.png), [components](https://pjbartlein.github.io/GeogDataAnalysis/images/Davis_PCA_scores.png)), (Davis, J.C., 2001, *Statistics and Data Analysis in Geology*, Wiley)
 - [Derivation of principal components](https://pjbartlein.github.io/GeogDataAnalysis/topics/pca.pdf)
 
 # Properties of principal components #
