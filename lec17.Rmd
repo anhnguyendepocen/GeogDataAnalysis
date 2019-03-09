@@ -29,8 +29,8 @@ Multivariate analysis of variance, or MANOVA, like univariate analysis of varian
 
 Illustration of the conceptual model:
 
-- The univariate analysis of variance situation [[aov.gif]](https://pjbartlein.github.io/GeogDataAnalysis/figures/aov.gif)
-- The multivariate analysis of variance situation [[manova.gif]](https://pjbartlein.github.io/GeogDataAnalysis/figures/manova1.gif)
+- The univariate analysis of variance situation [[aov.gif]](https://pjbartlein.github.io/GeogDataAnalysis/images/aov.gif)
+- The multivariate analysis of variance situation [[manova.gif]](https://pjbartlein.github.io/GeogDataAnalysis/images/manova1.gif)
 
 - [Details of MANOVA](https://pjbartlein.github.io/GeogDataAnalysis/topics/manova.pdf)
 
