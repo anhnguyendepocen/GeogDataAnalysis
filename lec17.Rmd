@@ -101,11 +101,11 @@ In short, the analysis can be thought of as answering the related questions:  Ar
 
 Illustration of the conceptual model
 
-- The discriminant analysis situation:  [[discrim1.gif]](https://pjbartlein.github.io/GeogDataAnalysis/figures/discrim1.gif)
+- The discriminant analysis situation:  [[discrim1.gif]](https://pjbartlein.github.io/GeogDataAnalysis/images/discrim1.gif)
 
 Details and examples
 
-- [Details of discriminant analysis](https://pjbartlein.github.io/GeogDataAnalysis/topics/da.pdf)
+- [Details of discriminant analysis](https://pjbartlein.github.io/GeogDataAnalysis/topics/da.html)
 
 As an example of discriminant analysis, following up on the MANOVA of the Summit Cr. data, we can investigate how the reaches differ from one another, or in other words, we can identify the variables that best illustrate the difference among the reaches.
 
