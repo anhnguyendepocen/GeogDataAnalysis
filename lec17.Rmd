@@ -32,7 +32,7 @@ Illustration of the conceptual model:
 - The univariate analysis of variance situation [[aov.gif]](https://pjbartlein.github.io/GeogDataAnalysis/images/aov.gif)
 - The multivariate analysis of variance situation [[manova.gif]](https://pjbartlein.github.io/GeogDataAnalysis/images/manova1.gif)
 
-- [Details of MANOVA](https://pjbartlein.github.io/GeogDataAnalysis/topics/manova.pdf)
+- [Details of MANOVA](https://pjbartlein.github.io/GeogDataAnalysis/topics/manova.html)
 
 ## ANOVA on individual variables ##
 
