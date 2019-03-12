@@ -201,7 +201,7 @@ hov1
 
 The *F*-statistic has as its reference distribution, the *F*-distribution (no surprise there). The *F*-distribution varies considerably with the number of groups and the number of observations within groups, and is not as easily visualized as the normal or *t*-distributions. 
 
->Q7: What is the value of the *F*-statistic, and how unusual is this value for the analysis of variance of these data? (Hint, look at the *p*-value.) Are the variances similar among groups?  What does this suggest about the difference among countries in preference for joining the EU?
+>Q7: What is the value of the *F*-statistic, and how unusual is this value for the analysis of variance of these data? (Hint, look at the *p*-value, right next to the *F* statistic, lablelled `Pr(>F)`.) Are the variances similar among groups?  What does this suggest about the difference among countries in preference for joining the EU?
 
 (See the short guide to interpreting test statistics, *p*-values, and significance for information on interpreting p-values [[link]](https://pjbartlein.github.io/GeogDataAnalysis/topics/interpstats.pdf). 
 
