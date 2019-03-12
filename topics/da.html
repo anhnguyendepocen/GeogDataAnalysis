@@ -243,13 +243,14 @@ pre[class*="language-"] {
 
 <p>Discriminant analysis has several interrelated objectives that include: </p>
 
-<p>• identification of how one or more groups of observations differ as described by one or more, usually interrelated variables; </p>
+<ul>
+<li>identification of how one or more groups of observations differ as described by one or more, usually interrelated variables; </li>
+<li>assignment or classification of new observations to one or another of the groups based on the values of the variables.</li>
+</ul>
 
-<p>• assignment or classification of new observations to one or another of the groups based on the values of the variables.</p>
+<p>In the general case, there are <em>m</em> groups, of sizes \({n_1},{n_2},...,{n_m}\), and <em>p</em> variables \({X_1},{X_2},...,{X_p}\) that describe the observations.  The objective of determining how the groups differ can be met by deriving a new variable (a linear combination of the existing variables) that, as in principal components analysis, has certain desirable properties.  One desirable property of the new variable is that when plotted along it, the group centroids should show maximum separation, and it is possible to show that this is achieved when the between-groups variance is maximized relative to the within-groups variance.</p>
 
-<p>In the general case, there are m groups, of sizes \({n_1},{n_2},...,{n_m}\), and p variables \({X_1},{X_2},...,{X_p}\)that describe the observations.  The objective of determining how the groups differ can be met by deriving a new variable (a linear combination of the existing variables) that, as in principal components analysis, has certain desirable properties.  One desirable property of the new variable is that when plotted along it, the group centroids should show maximum separation, and it is possible to show that this is achieved when the between-groups variance is maximized relative to the within-groups variance.</p>
-
-<p>Let the \(p \times p\) symmetric matrix \({\bf{T}}\) be a matrix of the sums-of-squares and cross-products of the variables calculated over all observations, and let \({{\bf{W}}_i}\) be a similar matrix for just the observations in group i, and let </p>
+<p>Let the \(p \times p\) symmetric matrix \({\bf{T}}\) be a matrix of the sums-of-squares and cross-products of the variables calculated over all observations, and let \({{\bf{W}}_i}\) be a similar matrix for just the observations in group <em>i</em>, and let </p>
 
 <p>\[{\bf{W}} = {{\bf{W}}_1} + {{\bf{W}}_2} + ... + {{\bf{W}}_m}.\]</p>
 
@@ -257,11 +258,11 @@ pre[class*="language-"] {
 
 <p>\[{\bf{B}} = {\bf{T}} - {\bf{W}}.\]</p>
 
-<p>A linear combination, referred to as a canonical discriminant function,\({Z_1}\)can be defined as</p>
+<p>A linear combination, referred to as a canonical discriminant function, \({Z_1}\)can be defined as</p>
 
 <p>\[{Z_1} = {a_{11}}{X_1} + {a_{12}}{X_2} + ... + {a_{1p}}{X_p}\]</p>
 
-<p>such that it would produce the maximum possible F-ratio in a one-way analysis of variance of \({Z_1}\), that is, the maximum possible ratio of the “between” to the “within” groups sum-of-squares; these are given by \({\bf{a&#39;Ba}},\) and \({\bf{a&#39;Wa}}\)respectively.</p>
+<p>such that it would produce the maximum possible <em>F</em>-ratio in a one-way analysis of variance of \({Z_1}\), that is, the maximum possible ratio of the “between” to the “within” groups sum-of-squares; these are given by \({\bf{a&#39;Ba}},\) and \({\bf{a&#39;Wa}}\)respectively.</p>
 
 <p>The optimization problem in discriminant analysis is therefore to
 \[\max ({\lambda _1}) = ({\bf{a&#39;Ba}})/({\bf{a&#39;Wa}}).\]</p>
@@ -270,7 +271,7 @@ pre[class*="language-"] {
 
 <p>\[({\bf{B}} - {\lambda _1}{\bf{W}}){\bf{a}} = 0\]</p>
 
-<p>and \({\lambda _1}\) can be recognized as the first eigenvalue of the matrix \({{\bf{W}}^{{\bf{ - 1}}}}{\bf{B}}\) and a as the corresponding eigenvector.</p>
+<p>and \({\lambda _1}\) can be recognized as the first eigenvalue of the matrix \({{\bf{W}}^{{\bf{ - 1}}}}{\bf{B}}\) and \({\bf{a}}\) a as the corresponding eigenvector.</p>
 
 <p>When the number of groups is greater than 2, additional canonical discriminant functions can be defined in much the same way. </p>
 
@@ -278,7 +279,7 @@ pre[class*="language-"] {
 
 <p>\[\Lambda  = \frac{{|{\bf{B}}|}}{{|{\bf{W}} + {\bf{B}}|}} = \frac{1}{{1 + {\lambda _1}}} \times \frac{1}{{1 + {\lambda _2}}} \times ... \times \frac{1}{{1 + {\lambda _p}}}\]</p>
 
-<p>and in turn a statistic based on \(\Lambda \) can be compared with the F distribution.</p>
+<p>and in turn a statistic based on \(\Lambda \) can be compared with the <em>F</em> distribution.</p>
 
 
 
