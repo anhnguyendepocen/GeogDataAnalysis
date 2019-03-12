@@ -195,11 +195,16 @@ Now do an analysis of variance:
 aov1 <- aov(Yes ~ Country)
 aov1
 summary(aov1)
-hov1 <- bartlett.test(Yes ~ Country)
-hov1
 ```
 
 The *F*-statistic has as its reference distribution, the *F*-distribution (no surprise there). The *F*-distribution varies considerably with the number of groups and the number of observations within groups, and is not as easily visualized as the normal or *t*-distributions. 
+
+Also do the homogeneity of variance test.
+
+```{r echo=TRUE, eval=FALSE}
+hov1 <- bartlett.test(Yes ~ Country)
+hov1
+```
 
 >Q7: What is the value of the *F*-statistic, and how unusual is this value for the analysis of variance of these data? (Hint, look at the *p*-value, right next to the *F* statistic, lablelled `Pr(>F)`.) Are the variances similar among groups?  What does this suggest about the difference among countries in preference for joining the EU?
 

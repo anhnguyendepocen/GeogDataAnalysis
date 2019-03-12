@@ -643,16 +643,17 @@ $(document).ready(function () {
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co"># anova</span></a>
 <a class="sourceLine" id="cb9-2" title="2">aov1 &lt;-<span class="st"> </span><span class="kw">aov</span>(Yes <span class="op">~</span><span class="st"> </span>Country)</a>
 <a class="sourceLine" id="cb9-3" title="3">aov1</a>
-<a class="sourceLine" id="cb9-4" title="4"><span class="kw">summary</span>(aov1)</a>
-<a class="sourceLine" id="cb9-5" title="5">hov1 &lt;-<span class="st"> </span><span class="kw">bartlett.test</span>(Yes <span class="op">~</span><span class="st"> </span>Country)</a>
-<a class="sourceLine" id="cb9-6" title="6">hov1</a></code></pre></div>
+<a class="sourceLine" id="cb9-4" title="4"><span class="kw">summary</span>(aov1)</a></code></pre></div>
 <p>The <em>F</em>-statistic has as its reference distribution, the <em>F</em>-distribution (no surprise there). The <em>F</em>-distribution varies considerably with the number of groups and the number of observations within groups, and is not as easily visualized as the normal or <em>t</em>-distributions.</p>
+<p>Also do the homogeneity of variance test.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">hov1 &lt;-<span class="st"> </span><span class="kw">bartlett.test</span>(Yes <span class="op">~</span><span class="st"> </span>Country)</a>
+<a class="sourceLine" id="cb10-2" title="2">hov1</a></code></pre></div>
 <blockquote>
 <p>Q7: What is the value of the <em>F</em>-statistic, and how unusual is this value for the analysis of variance of these data? (Hint, look at the <em>p</em>-value, right next to the <em>F</em> statistic, lablelled <code>Pr(&gt;F)</code>.) Are the variances similar among groups? What does this suggest about the difference among countries in preference for joining the EU?</p>
 </blockquote>
 <p>(See the short guide to interpreting test statistics, <em>p</em>-values, and significance for information on interpreting p-values <a href="https://pjbartlein.github.io/GeogDataAnalysis/topics/interpstats.pdf">[link]</a>.</p>
 <p>There is an interesting summary plot of an analysis of variance object that provides further visualization of the differences among groups</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">plot</span>(aov1)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">plot</span>(aov1)</a></code></pre></div>
 <p>Finally, download and read in the Summit Cr. geomorphic data project <a href="https://pjbartlein.github.io/GeogDataAnalysis/data/csv/sumcr.csv">[<code>sumcr.csv</code>]</a> if you don’t already have it, and do an analysis of variance on water-surface width (<code>WidthWS</code>), with group membership determined by <code>Reach</code>. Compare the extent of overlap of the confidence intervals for the group means and the values of the <em>F</em>-statistics for this analysis, and the previous one on preferences. You should see how the size of the <em>F</em>-statistic reflects the distinctiveness of the groups.</p>
 <blockquote>
 <p>Q8 Decribe the results. Do water-surface widths differ significantly among reaches?</p>
