@@ -102,13 +102,16 @@ The network plot provided by the `qgraph` package can also be used to visualize 
 
 ```{r echo=TRUE, eval=FALSE}
 library(qgraph)
-qg_tstreams_pca <- qgraph(tstreams_pca)
+# qg_tstreams_pca <- qgraph(tstreams_pca) qgraph.pca() does not work for qgraph >= 1.6
+# workaround
+tstreams.pca.loadings <- loadings(tstreams_pca)
+qgraph.loadings(tstreams.pca.loadings[,1:2], posCol="darkgreen", layout="circle", negCol="darkmagenta", edge.width=1)
 ```
 
 The `qgraph()` function generates a plain plot of the loadings, where the component (loadings) are represented by the numbered circles, the variables by squares labeled by abbreviations of the variable names, and the strength and sign of the loadings by colored arrows (red = negative; green = positive; and with the width of the arrow scaled to represent the magnitude of the loadings).  A more useful version of the plot can be generated using the `layout="spring"` argument, which forces the line segments representing the loadings to be scaled inversely proportionally to the magnitude of he loadings (shorter segments represent higher loadings).  (Note that the red color indicating negative loadings is also replaced by magenta, facilitating the interpretation of the plot by color-deficient viewers.)
 
 ```{r echo=TRUE, eval=FALSE}
-qgraph(qg_tstreams_pca, posCol="darkgreen", layout="spring", negCol="darkmagenta", edge.width=2, arrows=FALSE)
+#qgraph(qg_tstreams_pca, posCol="darkgreen", layout="spring", negCol="darkmagenta", edge.width=2, #arrows=FALSE)
 ```
 
 >Q1: How many important components are there?  Is there a natural breakpoint between the important and less-important components?  
